@@ -1,56 +1,54 @@
-<%-- 
-    Document   : StartPAge
-    Created on : Mar 31, 2018, 12:12:46 AM
-    Author     : Teerasint
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="MenuStyles.css">
+        <link rel="stylesheet" href="SingleStyles.css">
+        <title>StartPage</title>
     </head>
     <body>
-        <p id="beginWord"> The Game will start in </p>
-        <span id="countdowntimer">3 </span>
-        <p id="hidden"></p>
+        <header>
+            <div class="container">
+                <h1 class="logo">Shiritori<span>Logo</span></h1>
+
+                <nav class="site-nav">
+                    <ul>
+                        <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign up</a></li> 
+                        <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Login</a></li>
+                    </ul> 
+                </nav>
+
+                <div class="menu-toggle">
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </header>
+        
+         <div class="container">
+            <div class="jumbotron">             
+                 <div class="row ">
+                     <p id="beginWord"> The Game will start in </p>
+                </div>         
+                
+                <div class="row ">
+                    <span id="countdowntimer">3 </span>
+                </div>             
+                 
+            </div>
+        </div>
+        
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="StartPageScript.js"></script>
 
     </body>
-    <script type="text/javascript">
-    var timeleft = 3;
-    var emptyString = "";
-    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    emptyString = alphabet[Math.floor(Math.random() * alphabet.length)];
-    var Timer = setInterval(function(){
-    timeleft--;
-    document.getElementById("countdowntimer").textContent = timeleft;
-    
-    
-    
-        if(timeleft <= 0){
-            document.getElementById("beginWord").textContent = "";
-            document.getElementById("countdowntimer").textContent = "";
-        }
-        if (timeleft <= -1) {
-    
-            document.getElementById("beginWord").textContent = "Start character is: ";
-             document.getElementById("countdowntimer").textContent = emptyString;
-//            window.alert("char: "+emptyString+"timeLife: "+timeleft);
-        }
-        if (timeleft <= -2) {
-             window.location.href = "SinglePlay.jsp?char="+emptyString;
-             clearInterval(Timer);
-
-        }
-
-//                window.location.href = "SinglePlay.jsp";
-            
-            
-        
-    },1000);
-            
-    
-    
-</script>
 </html>

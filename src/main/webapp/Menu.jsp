@@ -11,9 +11,32 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="MenuStyles.css">
         <link rel="stylesheet" href="SingleStyles.css">
-        <title>StartPage</title>
+
+        <style>
+            .button1{
+                background-color: #E54B4B;
+                color: white;
+                border: 2px solid white;
+                margin: 0 auto;
+                margin-bottom: 3%;
+                width: 250px;
+                height: 70px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+            .button1:hover{
+                background-color:#ce3131; 
+                color: white; 
+            }
+            .buttonmenu{
+                margin: 0 auto;
+            }
+        </style>
+
+        <title>Menu</title>
+
     </head>
     <body>
+
         <header>
             <div class="container">
                 <h1 class="logo">Shiritori<span>Logo</span></h1>
@@ -30,25 +53,32 @@
                 </div>
             </div>
         </header>
-        
-         <div class="container">
+
+        <div class="container">
             <div class="jumbotron">             
                  <div class="row ">
-                     <p id="beginWord"> The Game will start in </p>
+                    <button type="button" class="btn button1 ">Practice Mode</button>
                 </div>         
                 
-                <div class="row ">
-                    <span id="countdowntimer">3 </span>
+                <div class="row  buttonmenu">
+                    <a href="StartPage.jsp" ><button type="button" class="btn button1 ">Single player</button></a>
                 </div>             
-                 
+
+                <div class="row">
+                    <button type="button" class="btn button1 ">Multi player</button>
+                </div>
+                
+                 <div class="row">
+                    <button class="button" style="vertical-align:middle"><span>Vocab </span></button>
+                </div>
             </div>
         </div>
-        
+
+
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="StartPageScript.js"></script>
-
+        <script src="MenuScript.js"></script>
     </body>
 </html>
