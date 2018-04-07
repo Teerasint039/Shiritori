@@ -1,2 +1,4 @@
 Model\Mariadb.class
+Model\SingleModeGame.class
+Model\Vocab.class
 Model\Connectionbuilder.class

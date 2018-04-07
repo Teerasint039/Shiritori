@@ -40,20 +40,25 @@
 
              <div class="row justify-content-center">
                 <div class="col-md-auto ">
-                       
-            <%
-                String character = request.getParameter("char");
-                if (character != null) {
-                    out.println("Start with : " + character);
-                }
-            %>
-                </div>          
+                    <p>Start with: <b>${param.char}</b></p>
+                    
+            <input type="hidden" id="hiddenChar" value="${param.char}" />
+            <input type="hidden" id="hiddenHeart" value="${param.heart}" />
+                </div> 
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <img src="Icon/heart${param.heart}.jpg">
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <div class="row ">
+                    <B>Timer: </B>
+                    &emsp;
+                    <span id="countdowntimer">10 </span>
+                </div>  
             </div>
                 <br>
 
             <div class="row justify-content-center">
                 <div class="col-md-auto ">
-                    <p class="font-weight-bold">Presvious Word:</p>                  
+                    <p class="font-weight-bold">Previous Word:</p>                  
                 </div>
                 <div class="col-md-auto ">
                     <p class="font-weight-normal" id="previous">None</p>

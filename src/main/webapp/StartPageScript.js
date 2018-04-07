@@ -16,15 +16,13 @@ var timeleft = 3;
     
             document.getElementById("beginWord").textContent = "Start character is: ";
              document.getElementById("countdowntimer").textContent = emptyString;
-//            window.alert("char: "+emptyString+"timeLife: "+timeleft);
         }
         if (timeleft <= -2) {
-             window.location.href = "SinglePlay.jsp?char="+emptyString;
+             window.location.href = "SinglePlay.jsp?char="+emptyString+"&heart=3";
              clearInterval(Timer);
 
         }
 
-//                window.location.href = "SinglePlay.jsp";
             
             
         

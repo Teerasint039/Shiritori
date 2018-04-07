@@ -161,3 +161,23 @@ function getAllNotes() {
 }
 
 
+/*-----------------------------
+      Time Check
+------------------------------*/
+
+var timeleft = 10;
+    
+    var Timer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    
+    
+    
+        if(timeleft <= 0){
+            document.getElementById("countdowntimer").textContent = "";
+            window.location.href = "TimeOutStatus.jsp?char="+document.getElementById('hiddenChar').value+"&heart="+document.getElementById('hiddenHeart').value;
+//            window.location.href = "SinglePlay.jsp?char="+emptyString;
+            clearInterval(Timer);
+        }
+
+    },1000);
