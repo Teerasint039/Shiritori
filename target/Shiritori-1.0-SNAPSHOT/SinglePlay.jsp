@@ -36,14 +36,17 @@
 
         <div class="jumbotron">
             <p class="h1">Single Player</p>
+            &emsp;&emsp;&emsp;&emsp;&emsp;
+            <b>Score: ${param.score}</b>
             <hr class="my-4">
 
-             <div class="row justify-content-center">
+            <div class="row justify-content-center">
                 <div class="col-md-auto ">
                     <p>Start with: <b>${param.char}</b></p>
-                    
-            <input type="hidden" id="hiddenChar" value="${param.char}" />
-            <input type="hidden" id="hiddenHeart" value="${param.heart}" />
+
+                    <input type="hidden" id="hiddenChar" value="${param.char}" />
+                    <input type="hidden" id="hiddenHeart" value="${param.heart}" />
+                    <input type="hidden" id="hiddenScore" value="${param.score}" />
                 </div> 
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 <img src="Icon/heart${param.heart}.jpg">
@@ -51,10 +54,10 @@
                 <div class="row ">
                     <B>Timer: </B>
                     &emsp;
-                    <span id="countdowntimer">10 </span>
+                    <span id="countdowntimer">30 </span>
                 </div>  
             </div>
-                <br>
+            <br>
 
             <div class="row justify-content-center">
                 <div class="col-md-auto ">

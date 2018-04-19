@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Status
-    Created on : Apr 8, 2018, 12:29:18 AM
+    Document   : Incorrect
+    Created on : Apr 18, 2018, 1:10:43 PM
     Author     : Teerasint
 --%>
 
@@ -15,7 +15,8 @@
         <input type="hidden" id="hiddenChar" value="${param.char}" />
         <input type="hidden" id="hiddenHeart" value="${param.heart}" />
         <input type="hidden" id="hiddenScore" value="${param.score}" />
-        <img src="Icon/TimeOut.jpg" width="100%" height="100%">
+
+        <img src="Icon/Incorrect.jpg" width="100%" height="100%">
 
         <script>
             function myFunction() {
@@ -28,6 +29,5 @@
                 }, 3000);
             }
         </script>
-
     </body>
 </html>

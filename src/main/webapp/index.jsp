@@ -14,11 +14,11 @@
     <body onload="myFunction()">
         <H1>Hello Shiritori Game!</H1>
         <script>
-                function myFunction() {
-                    setTimeout(function(){
-                        window.location.href = "StartPage.jsp";
-                    },2000);
-                }
+            function myFunction() {
+                setTimeout(function () {
+                    window.location.href = "StartPage.jsp";
+                }, 2000);
+            }
         </script>
     </body>
 </html>

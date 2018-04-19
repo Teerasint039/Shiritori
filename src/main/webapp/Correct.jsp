@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Status
-    Created on : Apr 8, 2018, 12:29:18 AM
+    Document   : Correct
+    Created on : Apr 18, 2018, 1:27:51 PM
     Author     : Teerasint
 --%>
 
@@ -12,22 +12,22 @@
         <title>JSP Page</title>
     </head>
     <body onload="myFunction()">
+        <input type="hidden" id="hiddenScore" value="${param.score}" />
         <input type="hidden" id="hiddenChar" value="${param.char}" />
         <input type="hidden" id="hiddenHeart" value="${param.heart}" />
-        <input type="hidden" id="hiddenScore" value="${param.score}" />
-        <img src="Icon/TimeOut.jpg" width="100%" height="100%">
+        <img src="Icon/Correct.jpg" width="100%" height="100%">
 
         <script>
             function myFunction() {
                 setTimeout(function () {
-                    var heart = document.getElementById('hiddenHeart').value - 1;
+                    var heart = document.getElementById('hiddenHeart').value;
+                    var newScore = parseInt(document.getElementById('hiddenScore').value)+1;
                     if (heart <= 0) {
                         window.location.href = "GameOver.jsp";
                     } else
-                        window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value + "&heart=" + heart + "&score=" + document.getElementById("hiddenScore").value;
+                        window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value + "&heart=" + heart + "&score=" + newScore;
                 }, 3000);
             }
         </script>
-
     </body>
 </html>
