@@ -12,9 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body onload="myFunction()">
-        <input type="hidden" id="hiddenScore" value="${param.score}" />
-        <input type="hidden" id="hiddenChar" value="${param.char}" />
-        <input type="hidden" id="hiddenHeart" value="${param.heart}" />
+        <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+        <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
+        <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
         <img src="Icon/Correct.jpg" width="100%" height="100%">
 
         <script>

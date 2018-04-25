@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" import="java.io.*"%>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -42,11 +43,11 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-auto ">
-                    <p>Start with: <b>${param.char}</b></p>
+                    <p>Start with: <b><%=request.getParameter("char")%></b></p>
 
-                    <input type="hidden" id="hiddenChar" value="${param.char}" />
-                    <input type="hidden" id="hiddenHeart" value="${param.heart}" />
-                    <input type="hidden" id="hiddenScore" value="${param.score}" />
+                    <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
+                    <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
+                    <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
                 </div> 
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 <img src="Icon/heart${param.heart}.jpg">
