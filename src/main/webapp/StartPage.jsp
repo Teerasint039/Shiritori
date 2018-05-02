@@ -12,16 +12,22 @@
         <link rel="stylesheet" href="MenuStyles.css">
         <link rel="stylesheet" href="SingleStyles.css">
         <title>StartPage</title>
+        
+        <style>
+            .logomenu{
+                color: #FFFFFF;
+            }
+        </style>
     </head>
     <body>
         <header>
             <div class="container">
-                <h1 class="logo">Shiritori<span>Logo</span></h1>
+                <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
 
                 <nav class="site-nav">
                     <ul>
-                        <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign up</a></li> 
-                        <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Login</a></li>
+                        <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign Up</a></li> 
+                        <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Log In</a></li>
                     </ul> 
                 </nav>
 

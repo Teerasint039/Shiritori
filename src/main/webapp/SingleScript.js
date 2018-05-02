@@ -7,7 +7,6 @@ try {
     var SpeechRecognition = window.webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
     recognition.lang = "en";
-
 } catch (e) {
     console.error(e);
     $('.no-browser-support').show();
@@ -24,16 +23,11 @@ var firstchar = '';
 var lastchar = '';
 var determine = '';
 var bigCase = '';
-
 var noteContent = '';
 var before = '';
-
 // Get all notes from previous sessions and display them.
 var notes = getAllNotes();
 renderNotes(notes);
-
-
-
 /*-----------------------------
  Voice Recognition 
  ------------------------------*/
@@ -43,7 +37,6 @@ renderNotes(notes);
 // allowing us to keep recording even when the user pauses. 
 //recognition.continuous = true;
 recognition.continuous = false;
-
 // This block is called every time the Speech APi captures a line. 
 recognition.onresult = function (event) {
     // event is a SpeechRecognitionEvent object.
@@ -59,7 +52,6 @@ recognition.onresult = function (event) {
     // There is a weird bug on mobile, where everything is repeated twice.
     // There is no official solution so far so we have to handle an edge case.
     var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
-
     if (!mobileRepeatBug) {
         before = noteContent;
         noteContent = transcript;
@@ -85,9 +77,7 @@ recognition.onresult = function (event) {
         }
 
     }, 2500);
-
 };
-
 recognition.onstart = function () {
     instructions.text('SPEAK NOW!');
 }
@@ -117,8 +107,6 @@ $('#start-record-btn').on('click', function (e) {
     }
     recognition.start();
 });
-
-
 //$('#pause-record-btn').on('click', function(e) {
 //  recognition.stop();
 //  instructions.text('Voice recognition paused.');
@@ -132,7 +120,6 @@ noteTextarea.on('input', function () {
 notesList.on('click', function (e) {
     e.preventDefault();
     var target = $(e.target);
-
     // Listen to the selected note.
     if (target.hasClass('listen-note')) {
         var content = target.closest('.note').find('.content').text();
@@ -146,7 +133,6 @@ notesList.on('click', function (e) {
         target.closest('.note').remove();
     }
 });
-
 /*-----------------------------
  Helper Functions 
  ------------------------------*/
@@ -157,7 +143,7 @@ function renderNotes(notes) {
         notes.forEach(function (note) {
             html += `<li class="note">
         <p class="header">
-          <span class="date">${note.date}</span>
+          <span class="date"><%=request.getParameter("heart")%></span>
           <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
           <a href="#" class="delete-note" title="Delete">Delete</a>
         </p>
@@ -175,7 +161,6 @@ function getAllNotes() {
     var key;
     for (var i = 0; i < localStorage.length; i++) {
         key = localStorage.key(i);
-
         if (key.substring(0, 5) == 'note-') {
             notes.push({
                 date: key.replace('note-', ''),
@@ -192,17 +177,13 @@ function getAllNotes() {
  ------------------------------*/
 
 var timeleft = 30;
-
 var Timer = setInterval(function () {
     timeleft--;
     document.getElementById("countdowntimer").textContent = timeleft;
-
-
-
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
-        window.location.href = "TimeOutStatus.jsp?char=" + document.getElementById('hiddenChar').value + "&heart=" + document.getElementById('hiddenHeart').value+ "&score=" + document.getElementById("hiddenScore").value;
-//            window.location.href = "SinglePlay.jsp?char="+emptyString;
+        window.location.href = "TimeOutStatus.jsp?char=" + document.getElementById('hiddenChar').value + "&heart=" + document.getElementById('hiddenHeart').value + "&score=" + document.getElementById("hiddenScore").value;
+ //           window.location.href = "SinglePlay.jsp?char="+emptyString;
         clearInterval(Timer);
     }
 

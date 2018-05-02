@@ -9,19 +9,43 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="MenuStyles.css">
-    <link rel="stylesheet" href="SingleStyles.css">
+   <link rel="stylesheet" href="SingleStyles.css">
     <title>Voice Controlled Notes App</title>
+
+    <style>
+        .logomenu{
+            color: #FFFFFF;
+        }
+        .SingleOption{
+            margin-top: 5%;
+            align-content: center;
+        }
+        #div1 {
+            font-size:48px;
+        }
+        .card{
+            max-width: 100rem; 
+            border-top-width: 100px; 
+            border-right-width: 20px;
+            border-left-width: 20px;
+            border-bottom-width: 20px;
+            border-radius: 20px;
+        }
+        .card-body{
+            border-radius: 50px;
+        }
+    </style>
 </head>
 <body>
 
     <header >
         <div class="container ">
-            <h1 class="logo">Shiritori<span>Logo</span></h1>
+            <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
 
             <nav class="site-nav ">
                 <ul>
-                    <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign up</a></li> 
-                    <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Login</a></li>
+                    <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign Up</a></li> 
+                    <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Log In</a></li>
                 </ul> 
             </nav>
 
@@ -34,74 +58,80 @@
 
 
     <div class="container">
-
-        <div class="jumbotron">
-            <p class="h1">Single Player</p>
-            &emsp;&emsp;&emsp;&emsp;&emsp;
-            <b>Score: ${param.score}</b>
-            <hr class="my-4">
-
-            <div class="row justify-content-center">
-                <div class="col-md-auto ">
-                    <p>Start with: <b><%=request.getParameter("char")%></b></p>
-
-                    <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
-                    <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
-                    <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
-                </div> 
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <img src="Icon/heart${param.heart}.jpg">
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <div class="row ">
-                    <B>Timer: </B>
-                    &emsp;
-                    <span id="countdowntimer">30 </span>
-                </div>  
-            </div>
-            <br>
-
-            <div class="row justify-content-center">
-                <div class="col-md-auto ">
-                    <p class="font-weight-bold">Previous Word:</p>                  
-                </div>
-                <div class="col-md-auto ">
-                    <p class="font-weight-normal" id="previous">None</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col text-center ">
-                    <div class="input-group input-group-lg" >        
-                        <input type="text" class="form-control text-center " id="note-textarea"   aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Vocab" readonly>
+        <div class="row  justify-content-center SingleOption">
+            <div class="col col-lg-4 ">
+                <div class="media ">
+                    <img class="align-self-center mr-3" src="Icon/star.png" width="50px" height="50px">
+                    <div class="media-body">
+                        <h5 class="mt-4"> ${param.score}</h5>
                     </div>
                 </div>
             </div>
-            <br>
-            <div class="row  justify-content-center">
-                <div class="col-sm-auto">
-                    <p class="font-weight-bold">Meaning:</p>
-                </div>
-                <div class="col-sm-auto">
-                    <p class="font-weight-normal"id="meaning">None</p>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col text-center">
-                    <button type="button" class="btn btn-light"  id="start-record-btn" title="Start Recording"><img src="Icon/microphone-voice-tool-circular-black-button.png" width="100" hight="100" /></button> 
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col text-center">
-                    <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>                
-                </div>
+
+            <div class="col col-lg-4 text-center">    
+                <img src="Icon/heart${param.heart}.png" width="90px" height="90px">   
             </div>
 
+            <div class="col col-lg-4 " >        
+                <div class="media">
+                    <img class="align-self-center mr-3 " src="Icon/clock.png" width="60px" height="60px">
+                    <div class="media-body">
+                        <h5 class="mt-4" id="countdowntimer">30</h5>
+                    </div>
+                </div>    
+            </div>
         </div>
+
+        <div class="row">
+            <div class="col">
+                <h5 class="mt-3">Start with: <b><%=request.getParameter("char")%></b></h5>
+                <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
+                <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
+                <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-auto ">
+                <p class="font-weight-bold">Previous Word:</p>                  
+            </div>
+            <div class="col-md-auto ">
+                <p class="font-weight-normal" id="previous">None</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center ">
+                <div class="input-group input-group-lg" >        
+                    <input type="text" class="form-control text-center " id="note-textarea"   aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Vocab" readonly>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row  justify-content-center">
+            <div class="col-sm-auto">
+                <p class="font-weight-bold">Meaning:</p>
+            </div>
+            <div class="col-sm-auto">
+                <p class="font-weight-normal"id="meaning">None</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <button type="button" class="btn "  id="start-record-btn" title="Start Recording"><img src="Icon/microphone-voice-tool-circular-black-button.png" width="100" hight="100" /></button> 
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>                
+            </div>
+        </div>
+
+
     </div>
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

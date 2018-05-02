@@ -27,8 +27,8 @@
                 background-color:#ce3131; 
                 color: white; 
             }
-            .buttonmenu{
-                margin: 0 auto;
+            .logomenu{
+                color: #FFFFFF;
             }
         </style>
 
@@ -39,12 +39,12 @@
 
         <header>
             <div class="container">
-                <h1 class="logo">Shiritori<span>Logo</span></h1>
-
+                    <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
+                
                 <nav class="site-nav">
                     <ul>
-                        <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign up</a></li> 
-                        <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Login</a></li>
+                        <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign Up</a></li> 
+                        <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Log In</a></li>
                     </ul> 
                 </nav>
 
@@ -56,20 +56,20 @@
 
         <div class="container">
             <div class="jumbotron">             
-                 <div class="row ">
-                    <button type="button" class="btn button1 ">Practice Mode</button>
+                 <div class="row justify-content-center">
+                     <a href="#"><button type="button" class="btn button1 ">Practice Mode</button></a>
                 </div>         
                 
-                <div class="row  buttonmenu">
+                <div class="row  justify-content-center">
                     <a href="StartPage.jsp" ><button type="button" class="btn button1 ">Single player</button></a>
                 </div>             
 
-                <div class="row">
-                    <button type="button" class="btn button1 ">Multi player</button>
+                <div class="row justify-content-center">
+                    <a href="#"><button type="button" class="btn button1 ">Multi player</button></a>
                 </div>
                 
-                 <div class="row">
-                    <button class="button" style="vertical-align:middle"><span>Vocab </span></button>
+                 <div class="row justify-content-center">
+                     <a href="#"><button class="button" style="vertical-align:middle"><span>Vocab </span></button></a>
                 </div>
             </div>
         </div>
