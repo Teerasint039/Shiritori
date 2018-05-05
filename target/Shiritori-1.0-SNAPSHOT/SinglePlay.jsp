@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="MenuStyles.css">
-   <link rel="stylesheet" href="SingleStyles.css">
+    <link rel="stylesheet" href="SingleStyles.css">
     <title>Voice Controlled Notes App</title>
 
     <style>
@@ -23,17 +23,12 @@
         #div1 {
             font-size:48px;
         }
-        .card{
-            max-width: 100rem; 
-            border-top-width: 100px; 
-            border-right-width: 20px;
-            border-left-width: 20px;
-            border-bottom-width: 20px;
-            border-radius: 20px;
+        .outcard{
+            width: 100prx;
+            background: #E54B4B;
+
         }
-        .card-body{
-            border-radius: 50px;
-        }
+
     </style>
 </head>
 <body>
@@ -94,10 +89,10 @@
 
         <div class="row justify-content-center">
             <div class="col-md-auto ">
-                <p class="font-weight-bold">Previous Word:</p>                  
+                <h5 class="font-weight-bold">Previous Word:</h5>                  
             </div>
             <div class="col-md-auto ">
-                <p class="font-weight-normal" id="previous">None</p>
+                <h5 class="font-weight-normal" id="previous">None</h5>
             </div>
         </div>
 
@@ -129,6 +124,20 @@
                 <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>                
             </div>
         </div>
+
+
+        <div class="card outcard" >
+            <div class="card-body">
+                
+                <div class="card incard" >
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
 
 
     </div>
