@@ -8,7 +8,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="MenuStyles.css">
-        <link rel="stylesheet" href="SingleStyles.css">
 
         <style>
             .button1{
@@ -28,6 +27,12 @@
             .logomenu{
                 color: #FFFFFF;
             }
+            .jumbotron{
+                margin-top: 8%;
+                margin-left: 15%;
+                margin-right: 15%;
+                border-radius:10px;
+            }
         </style>
 
         <title>Menu</title>
@@ -37,8 +42,8 @@
 
         <header>
             <div class="container">
-                    <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
-                
+                <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
+
                 <nav class="site-nav">
                     <ul>
                         <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign Up</a></li> 
@@ -52,12 +57,12 @@
             </div>
         </header>
 
-        <div class="container">
-            <div class="jumbotron">             
-                 <div class="row justify-content-center">
-                     <a href="#"><button type="button" class="btn button1 ">Practice Mode</button></a>
+        <div class="jumbotron ">    
+            <div class="container">           
+                <div class="row justify-content-center">
+                    <a href="#"><button type="button" class="btn button1 ">Practice Mode</button></a>
                 </div>         
-                
+
                 <div class="row  justify-content-center">
                     <a href="StartPage.jsp" ><button type="button" class="btn button1 ">Single player</button></a>
                 </div>             
@@ -65,9 +70,9 @@
                 <div class="row justify-content-center">
                     <a href="#"><button type="button" class="btn button1 ">Multi player</button></a>
                 </div>
-                
-                 <div class="row justify-content-center">
-                     <a href="#"><button class="button" style="vertical-align:middle"><span>Vocab </span></button></a>
+
+                <div class="row justify-content-center">
+                    <a href="#"><button class="button" style="vertical-align:middle; margin-top: 1%;"><span>Vocab </span></button></a>
                 </div>
             </div>
         </div>

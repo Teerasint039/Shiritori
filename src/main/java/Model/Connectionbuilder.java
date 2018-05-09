@@ -17,9 +17,9 @@ public class Connectionbuilder {
     public static int count=0;
 
     public static Connection connect() throws ClassNotFoundException, SQLException {
-        final String host = "jdbc:mysql://13.251.52.127:3306/Test";
-        final String uName = "MyTest";
-        final String uPass = "123456";
+        final String host = "jdbc:mysql://13.229.197.174:3306/Shiritori";
+        final String uName = "root";
+        final String uPass = "jamemez007@";
         Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Driver loaded");
 

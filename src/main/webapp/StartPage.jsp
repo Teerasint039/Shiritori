@@ -10,12 +10,21 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="MenuStyles.css">
-        <link rel="stylesheet" href="SingleStyles.css">
         <title>StartPage</title>
-        
+
         <style>
             .logomenu{
                 color: #FFFFFF;
+            }
+            .jumbotron{
+                margin-top: 8%;
+                margin-left: 15%;
+                margin-right: 15%;
+                border-radius:10px;
+            }
+            h1 {
+                font-size: 200px;
+                color: #E54B4B; 
             }
         </style>
     </head>
@@ -37,14 +46,14 @@
             </div>
         </header>
 
-        <div class="container">
-            <div class="jumbotron">             
-                <div class="row ">
+        <div class="jumbotron">  
+            <div class="container">                 
+                <div class="row justify-content-center">
                     <p id="beginWord"> The Game will start in </p>
                 </div>         
 
-                <div class="row ">
-                    <span id="countdowntimer">3 </span>
+                <div class="row justify-content-center">
+                    <h1 id="countdowntimer">3 </h1>
                 </div>             
 
             </div>
