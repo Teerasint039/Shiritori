@@ -17,6 +17,8 @@ public class Connectionbuilder {
     public static int count=0;
 
     public static Connection connect() throws ClassNotFoundException, SQLException {
+
+//        final String host = "jdbc:mysql://ec2-13-229-202-236.ap-southeast-1.compute.amazonaws.com:3306/Test";
         final String host = "jdbc:mysql://13.229.197.174:3306/Shiritori";
         final String uName = "root";
         final String uPass = "jamemez007@";
@@ -38,8 +40,10 @@ public class Connectionbuilder {
             System.out.println(con);
          } catch (ClassNotFoundException ex) {
             Logger.getLogger(Connectionbuilder.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("1");
         } catch (SQLException ex) {
             Logger.getLogger(Connectionbuilder.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("2");
         }
            
 

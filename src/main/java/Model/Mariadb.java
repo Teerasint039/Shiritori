@@ -15,7 +15,7 @@ public class Mariadb {
     // JDBC driver name and database URL
 
     static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-    static final String DB_URL = "jdbc:mariadb://54.169.251.235/TestConnectionSPM";
+    static final String DB_URL = "jdbc:mariadb://http://13.251.52.127/Shiritori";
 
     //  Database credentials
     static final String USER = "root";
@@ -45,7 +45,7 @@ public class Mariadb {
 //                    + " age INTEGER, "
 //                    + " PRIMARY KEY ( id ))";
 
-            String sql = "SELECT * From Helloworld";
+            String sql = "SELECT * From User";
             stmt.executeUpdate(sql);
             System.out.println("Selected data in given database...");
         } catch (SQLException se) {
