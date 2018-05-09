@@ -4,6 +4,46 @@
         <servlet-name>SendFirstChar</servlet-name>
         <servlet-class>SendFirstChar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>Servlet.TestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAnswerServlet</servlet-name>
+        <servlet-class>Servlet.AddAnswerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StartSingleModeGameServlet</servlet-name>
+        <servlet-class>Servlet.StartSingleModeGameServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetMeaningServlet</servlet-name>
+        <servlet-class>Servlet.GetMeaningServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GameOver</servlet-name>
+        <servlet-class>Servlet.GameOver</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/TestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAnswerServlet</servlet-name>
+        <url-pattern>/AddAnswerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartSingleModeGameServlet</servlet-name>
+        <url-pattern>/StartSingleModeGameServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMeaningServlet</servlet-name>
+        <url-pattern>/GetMeaningServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GameOver</servlet-name>
+        <url-pattern>/GameOver</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

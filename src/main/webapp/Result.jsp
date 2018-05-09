@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="Model.Answer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -69,36 +71,32 @@
                             <h5 class="card-title" style="text-align: center;">Soure: ..</h5>
                         </div>
                     </div>
-
+                    <%
+                        //List<Customer> customers = Customer.findByName("");
+                        List<Answer> answers = (List) request.getAttribute("answers");
+                        if (answers != null) {
+                    %>
                     <div class="row text-center">                  
                         <div class="col">
                             <div class="card example-1 scrollbar-ripe-malinka">
                                 <div class="card-body">
                                     <div class="row justify-content-between">
-                                        <div class="col"><h5>one</h5></div>
-                                        <div class="col"><h5>123</h5></div>
+                                        <%
+                                            for (Answer a : answers) {
+                                                if (a.getStatus().equalsIgnoreCase("correct")) {
+                                        %>
+                                        <div class="col"><h5><%=a.getVocab()%></h5></div>
+                                        <div class="col"><h5><%=a.getUsedTime()%></h5></div>
+                                                <%  } else {
+                                                %>
+                                        <div class="col"><h5><%=a.getVocab()%></h5></div>
+                                        <div class="col"><h5><%=a.getStatus()%></h5></div>
+                                                <%}
+                                                }
+                                            } else {
+                                            }%>
                                     </div>
-                                    <div class="row justify-content-between">
-                                        <div class="col"><h5>one</h5></div>
-                                        <div class="col"><h5>123</h5></div>
-                                    </div>
-                                     <div class="row justify-content-between">
-                                        <div class="col"><h5>one</h5></div>
-                                        <div class="col"><h5>123</h5></div>
-                                    </div>
-                                    <div class="row justify-content-between">
-                                        <div class="col"><h5>one</h5></div>
-                                        <div class="col"><h5>123</h5></div>
-                                    </div>
-                                     <div class="row justify-content-between">
-                                        <div class="col"><h5>one</h5></div>
-                                        <div class="col"><h5>123</h5></div>
-                                    </div>
-                                    <div class="row justify-content-between">
-                                        <div class="col"><h5>one</h5></div>
-                                        <div class="col"><h5>123</h5></div>
-                                    </div>
-                                 </div>
+                                </div>
                             </div>
                         </div>
                     </div>

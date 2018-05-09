@@ -17,7 +17,6 @@ try {
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
 var notesList = $('ul#notes');
-var meaning = $('#meaning');
 var previous = $('#previous');
 var firstchar = '';
 var lastchar = '';
@@ -25,6 +24,8 @@ var determine = '';
 var bigCase = '';
 var noteContent = '';
 var before = '';
+var timeleft = 30;
+var time = '';
 // Get all notes from previous sessions and display them.
 var notes = getAllNotes();
 renderNotes(notes);
@@ -66,14 +67,30 @@ recognition.onresult = function (event) {
     bigCase = noteContent.toLocaleUpperCase();
     firstchar = bigCase.substring(0, 1);
     lastchar = bigCase.slice(-1);
+    
+    clearInterval(Timer);
+    time = timeleft;
 //    window.alert('lastChar: '+lastchar);
     setTimeout(function () {
         if (firstchar === document.getElementById('hiddenChar').value) {
             determine = true;
-            window.location.href = "Correct.jsp?char=" + lastchar + "&heart=" + document.getElementById('hiddenHeart').value + "&score=" + document.getElementById("hiddenScore").value;
+            window.location.replace("GetMeaningServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+                    + "&score=" + document.getElementById("hiddenScore").value
+                    + "&heart=" + document.getElementById('hiddenHeart').value 
+                    + "&gameId=11&vocab=ache&previous=&time=" + time+ "&status=Correct");
+//            window.location.replace("GetMeaningServlet?char=" + lastchar 
+//                    + "&heart=" + document.getElementById('hiddenHeart').value 
+//                    + "&score=" + document.getElementById("hiddenScore").value
+//                    + "&gameId=" + document.getElementById("hiddenGameId").value
+//                    + "&vocab=" + noteContent
+//                    + "&previous=" + before
+//                    + "&time=" + time
+//                    + "&status=Correct");
         } else {
             determine = false;
-            window.location.href = "Incorrect.jsp?char=" + document.getElementById('hiddenChar').value + "&heart=" + document.getElementById('hiddenHeart').value + "&score=" + document.getElementById("hiddenScore").value;
+            window.location.href = "Incorrect.jsp?char=" + document.getElementById('hiddenChar').value 
+                    + "&heart=" + document.getElementById('hiddenHeart').value 
+                    + "&score=" + document.getElementById("hiddenScore").value;
         }
 
     }, 2500);
@@ -84,7 +101,6 @@ recognition.onstart = function () {
 
 recognition.onspeechend = function () {
     instructions.text('Press START!');
-    meaning.text('Meaning from DB');
 }
 
 
@@ -144,9 +160,9 @@ function renderNotes(notes) {
             html += `<li class="note">
         <p class="header">
           <span class="date"><%=request.getParameter("heart")%></span>
-          <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
           <a href="#" class="delete-note" title="Delete">Delete</a>
         </p>
+          <a href="#" class="listen-note" title="Listen to Note">Listen to Note</a>
         <p class="content">${note.content}</p>
       </li>`;
         });
@@ -176,7 +192,7 @@ function getAllNotes() {
  Time Check
  ------------------------------*/
 
-var timeleft = 30;
+
 var Timer = setInterval(function () {
     timeleft--;
     document.getElementById("countdowntimer").textContent = timeleft;

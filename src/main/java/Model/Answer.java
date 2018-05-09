@@ -84,20 +84,18 @@ public class Answer {
         this.usedTime = usedTime;
     }
 
-    public void addAnswer(int gameId, String vocab, String status, int usedTime) {
+    public String addAnswer(int gameId, String vocab, String status, int usedTime) {
         Answer answer = null;
         try {
             Connection conn = Connectionbuilder.connect();
-            String query = " insert into "
-                    + "SinglePlayerMode_Vocab (Vocab, Status, UsedTime)"
-                    + " values (?, ?, ?, ?)";
+            String query = " INSERT INTO `SinglePlayerMode_Vocab`(`Vocab`, `StatusName`, `UsedTime`, `GameId`) VALUES (?,?,?,?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt(1, gameId);
-            preparedStmt.setString(2, vocab);
-            preparedStmt.setString(3, status);
-            preparedStmt.setInt(4, usedTime);
+            preparedStmt.setString(1, vocab);
+            preparedStmt.setString(2, status);
+            preparedStmt.setInt(3, usedTime);
+            preparedStmt.setInt(4, gameId);
 
             // execute the preparedstatement
             preparedStmt.execute();
@@ -105,6 +103,7 @@ public class Answer {
             conn.close();
         } catch (Exception e) {
         }
+        return "Success!!";
     }
 
     public boolean IsRepeat(String vocab) {

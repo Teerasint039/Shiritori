@@ -57,13 +57,13 @@
                     <div class="media ">
                         <img class="align-self-center mr-3" src="Icon/star.png" width="50px" height="50px">
                         <div class="media-body">
-                            <h5 class="mt-4"> ${param.score}</h5>
+                            <h5 class="mt-4"> <%=request.getParameter("score")%></h5>
                         </div>
                     </div>
                 </div>
 
                 <div class="col col-lg-4 text-center">    
-                    <img src="Icon/heart${param.heart}.png" width="90px" height="90px">   
+                    <img src="Icon/heart<%=request.getParameter("heart")%>.png" width="90px" height="90px">   
                 </div>
 
                 <div class="col col-lg-4 " >        
@@ -79,6 +79,7 @@
             <div class="row">
                 <div class="col">
                     <h5 class="mt-4">Start with: <b><%=request.getParameter("char")%></b></h5>
+                    <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
                     <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
                     <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
                     <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
@@ -90,7 +91,7 @@
                     <h5 class="mt-4 font-weight-normal">Previous Word:</h5>                  
                 </div>
                 <div class="col-md-auto ">
-                    <h5 class="mt-4 font-weight-normal" id="previous">None</h5>
+                    <h5 class="mt-4 font-weight-normal" id="previous"></h5>
                 </div>
             </div>
             <br>

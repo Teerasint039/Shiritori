@@ -6,9 +6,13 @@
 package Model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -58,23 +62,43 @@ public class SingleModeGame {
         this.startTime = startTime;
     }
 
-    public void newGame(int UserId, String startTime) {
+    public int newGame(int UserId) {
+        SingleModeGame smg = null;
+        long currentDateTime = System.currentTimeMillis();
+        Date currentDate = new Date(currentDateTime);
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String timestamp = dateFormat.format(currentDate);
+        Timestamp time = null;
+        int id = 0;
         try {
             Connection conn = Connectionbuilder.connect();
-            String query = " insert into Action (UserId, StartTime)"
-                    + " values (?,?)";
+            String query = " INSERT INTO `SinglePlayer_Game`(`UserId`, `StartTime`)"
+                    + " VALUES ('"+UserId+"','"+timestamp+"')";
+            System.out.println("Insert Time: "+timestamp);
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt(1, userId);
-            preparedStmt.setString(2, startTime);
+//            preparedStmt.setInt(1, userId);
+//            preparedStmt.setString(2, timestamp);
 
             // execute the preparedstatement
             preparedStmt.execute();
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayer_Game` WHERE `UserId` = '" + UserId + "' AND `StartTime` = '"+timestamp+"';");
+            ResultSet rs = pstm.executeQuery();
+            
+            System.out.println("Select Time: "+timestamp);
+            while (rs.next()) {
+                smg = new SingleModeGame(rs);
+            }
+            id = smg.getSingleModeGameId();
+            rs.close();
+            pstm.close();
 
             conn.close();
         } catch (Exception e) {
         }
+        return id;
     }
     
     public SingleModeGame showGameDetail(int gameId){

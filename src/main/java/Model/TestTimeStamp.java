@@ -9,11 +9,10 @@ package Model;
  *
  * @author Teerasint
  */
-public class TestVocab {
+public class TestTimeStamp {
     public static void main(String[] args) {
-        Vocab vocab = new Vocab();
-        Vocab vocabModel = vocab.showVocabDetail("ache");
+        SingleModeGame smg = new SingleModeGame();
+        System.out.println(smg.newGame(1));
         
-        System.out.println(vocabModel.getMeaning());
     }
 }

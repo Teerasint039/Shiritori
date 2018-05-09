@@ -64,7 +64,7 @@
                 </div>         
 
                 <div class="row  justify-content-center">
-                    <a href="StartPage.jsp" ><button type="button" class="btn button1 ">Single player</button></a>
+                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet" ><button type="button" class="btn button1 ">Single player</button></a>
                 </div>             
 
                 <div class="row justify-content-center">
