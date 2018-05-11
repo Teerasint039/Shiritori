@@ -133,8 +133,46 @@ public class Vocab {
 
         return vocab;
     }
+    
+    public boolean isInDB(String vocab){//not complete
+        boolean inDb = false;
+        
+        return inDb;
+    }
+    
+    public List<String> showAllVocab(){
+        List<String> vocabs = null;
+        String vocab = null;
 
-    public static List<Vocab> showAllVocab() {
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `SinglePlayerMode_Vocab`;");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    vocab = rs.getString("Vocab");
+                    if (vocabs == null) {
+                        vocabs = new ArrayList();
+                    }
+                    vocabs.add(vocab);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return vocabs;
+    }
+
+    public static List<Vocab> showAllVocabDetail() {
 
         List<Vocab> vocabs = null;
         Vocab vocab = null;

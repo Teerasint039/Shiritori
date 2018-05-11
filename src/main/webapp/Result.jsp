@@ -72,7 +72,6 @@
                         </div>
                     </div>
                     <%
-                        //List<Customer> customers = Customer.findByName("");
                         List<Answer> answers = (List) request.getAttribute("answers");
                         if (answers != null) {
                     %>
@@ -81,21 +80,34 @@
                             <div class="card example-1 scrollbar-ripe-malinka">
                                 <div class="card-body">
                                     <div class="row justify-content-between">
+                                        <table>
+                                            <tr>
+                                                <td>Vocab</td><td>Result</td>
+                                            </tr>
+                                            <tr>
+                                                <td> </td><td> </td>
+                                            </tr>
                                         <%
                                             for (Answer a : answers) {
                                                 if (a.getStatus().equalsIgnoreCase("correct")) {
                                         %>
-                                        <div class="col"><h5><%=a.getVocab()%></h5></div>
-                                        <div class="col"><h5><%=a.getUsedTime()%></h5></div>
+                                        <tr>
+                                        <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
+                                        <td><div class="col"><h5><%=a.getUsedTime()%></h5></div></td>
+                                        </tr>
                                                 <%  } else {
                                                 %>
-                                        <div class="col"><h5><%=a.getVocab()%></h5></div>
-                                        <div class="col"><h5><%=a.getStatus()%></h5></div>
+                                                <tr>
+                                                    <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
+                                                    <td><div class="col"><h5><%=a.getStatus()%></h5></div></td>
+                                        </tr>
+                                        <hr>
                                                 <%}
                                                 }
                                             } else {
                                             }%>
                                     </div>
+                                                </table>
                                 </div>
                             </div>
                         </div>

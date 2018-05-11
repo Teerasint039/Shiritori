@@ -79,7 +79,8 @@
             <div class="row">
                 <div class="col">
                     <h5 class="mt-4">Start with: <b><%=request.getParameter("char")%></b></h5>
-                    <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
+                    <h5 class="mt-4">GameId: <b><%=request.getParameter("gameId")%></b></h5>
+                    <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
                     <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
                     <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
                     <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />

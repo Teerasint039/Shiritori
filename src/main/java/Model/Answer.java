@@ -106,28 +106,32 @@ public class Answer {
         return "Success!!";
     }
 
-    public boolean IsRepeat(String vocab) {
+    public boolean isRepeat(int gameId, String vocab) {//ใช้servletแทน codeแบบใน TestAnswer
+        Answer answer = new Answer();
         boolean repeat = true;
-        List<Answer> answers = null;
-        Answer answer = null;
+        List<String> vocabs = answer.showAnswerVocabs(1);
+        if (vocabs.indexOf("ache") > 0) {
+            repeat = false;
+        }
+        return repeat;
+    }
+
+    public List<String> showAnswerVocabs(int gameId) {
         List<String> vocabs = null;
+        String vocab = null;
 
         try {
             Connection conn = Connectionbuilder.connect();
 
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayerMode_Vocab`");
+                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
-                    answer = new Answer(rs);
-                    if (answers == null) {
-                        answers = new ArrayList();
+                    vocab = rs.getString("Vocab");
+                    if (vocabs == null) {
+                        vocabs = new ArrayList();
                     }
-                    answers.add(answer);
-                    vocabs.add(answer.getVocab());
-                }
-                if (vocabs.indexOf(vocab) != -1) {
-                    repeat = false;
+                    vocabs.add(vocab);
                 }
                 rs.close();
                 pstm.close();
@@ -141,7 +145,7 @@ public class Answer {
         } catch (SQLException ex) {
             Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return repeat;
+        return vocabs;
     }
 
     public List<Answer> showAllAnswer(int gameId) {
@@ -152,7 +156,7 @@ public class Answer {
             Connection conn = Connectionbuilder.connect();
 
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayerMode_Vocab` WHERE GameId = '"+gameId+"';");
+                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     answer = new Answer(rs);
@@ -176,13 +180,50 @@ public class Answer {
         return answers;
     }
 
+//    public boolean IsRepeat(String vocab, int gameId) {
+//        boolean repeat = true;
+//        List<Answer> answers = null;
+//        Answer answer = null;
+//        List<String> vocabs = null;
+//
+//        try {
+//            Connection conn = Connectionbuilder.connect();
+//
+//            try {
+//                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayerMode_Vocab`WHERE GameId ='"+gameId+"';");
+//                ResultSet rs = pstm.executeQuery();
+//                while (rs.next()) {
+//                    answer = new Answer(rs);
+//                    if (answers == null) {
+//                        answers = new ArrayList();
+//                    }
+//                    answers.add(answer);
+//                    vocabs.add(answer.getVocab());
+//                }
+//                if (vocabs.indexOf(vocab) != -1) {
+//                    repeat = false;
+//                }
+//                rs.close();
+//                pstm.close();
+//                conn.close();
+//            } catch (Exception ex) {
+//                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return repeat;
+//    }
     @Override
     public String toString() {
         if (status.equalsIgnoreCase("correct")) {
             return "Answer{" + "answerId=" + answerId + ", gameId=" + gameId + ", vocab=" + vocab + ", usedTime=" + usedTime + '}';
-        }
-        else
+        } else {
             return "Answer{" + "answerId=" + answerId + ", gameId=" + gameId + ", vocab=" + vocab + ", status=" + status + '}';
+        }
     }
 
 }

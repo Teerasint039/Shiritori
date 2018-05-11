@@ -77,7 +77,7 @@ recognition.onresult = function (event) {
             window.location.replace("GetMeaningServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&gameId=11&vocab=ache&previous=&time=" + time+ "&status=Correct");
+                    + "&gameId=5&vocab=ache&previous=&time=" + time+ "&status=Correct");
 //            window.location.replace("GetMeaningServlet?char=" + lastchar 
 //                    + "&heart=" + document.getElementById('hiddenHeart').value 
 //                    + "&score=" + document.getElementById("hiddenScore").value
@@ -88,9 +88,10 @@ recognition.onresult = function (event) {
 //                    + "&status=Correct");
         } else {
             determine = false;
-            window.location.href = "Incorrect.jsp?char=" + document.getElementById('hiddenChar').value 
+            window.location.replace("GetMeaningServlet?char=" + lastchar //ติดค่า Vocab, Previous
+                    + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&score=" + document.getElementById("hiddenScore").value;
+                    + "&gameId=5&vocab=ache&previous=&time=" + time+ "&status=Incorrect");
         }
 
     }, 2500);
@@ -198,7 +199,10 @@ var Timer = setInterval(function () {
     document.getElementById("countdowntimer").textContent = timeleft;
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
-        window.location.href = "TimeOutStatus.jsp?char=" + document.getElementById('hiddenChar').value + "&heart=" + document.getElementById('hiddenHeart').value + "&score=" + document.getElementById("hiddenScore").value;
+        window.location.replace("GetMeaningServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+                    + "&score=" + document.getElementById("hiddenScore").value
+                    + "&heart=" + document.getElementById('hiddenHeart').value 
+                    + "&gameId=5&vocab=ache&previous=&time=" + time+ "&status=Time Out");
  //           window.location.href = "SinglePlay.jsp?char="+emptyString;
         clearInterval(Timer);
     }

@@ -35,11 +35,10 @@ public class GameOver extends HttpServlet {
         
 //        int gameId = Integer.parseInt(request.getParameter("gameId"));
         int gameId = 1;
-        List<Answer> answers = null;
         Answer answer = new Answer();
-        answers = answer.showAllAnswer(gameId);
+        List<Answer> answers = answer.showAllAnswer(1);
         
-        request.setAttribute("message", answers);
+        request.setAttribute("answers", answers);
                     
         getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
         

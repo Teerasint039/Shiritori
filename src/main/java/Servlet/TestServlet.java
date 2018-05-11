@@ -30,9 +30,8 @@ public class TestServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        
-        request.setAttribute("gameId", "1");
+
+        request.setAttribute("gameId", "3");
         request.setAttribute("char", "A");
         request.setAttribute("time", "10");
         request.setAttribute("score", "4");
@@ -41,7 +40,7 @@ public class TestServlet extends HttpServlet {
         request.setAttribute("vocab", "awake");
         request.setAttribute("previous", "eda");
         request.setAttribute("meaning", "ตื่นนอน");
-        
+
         getServletContext().getRequestDispatcher("/GetMeaning.jsp").forward(request, response);
     }
 

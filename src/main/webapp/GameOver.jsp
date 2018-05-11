@@ -57,6 +57,7 @@
             <img src="Icon/crying.png" width="200px" height="200px">
             <h1>Game over</h1>
         </div>
+        <script src="GameOverScript.js"></script>
 
     </body>
 </html>

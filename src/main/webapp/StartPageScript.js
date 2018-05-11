@@ -18,14 +18,10 @@ var Timer = setInterval(function () {
         document.getElementById("countdowntimer").textContent = emptyString;
     }
     if (timeleft <= -2) {
-        window.location.href = "SinglePlay.jsp?char=" + emptyString + "&heart=3&score=0&gameId="+document.getElementById('hiddenGameId').value ;
+        window.location.href = "SinglePlay.jsp?char=" + emptyString + "&heart=3&score=0&gameId=" + document.getElementById('hiddenGameId').value;//send char, heart, score, gameId
         clearInterval(Timer);
 
     }
-
-
-
-
 }, 1000);
 
 
