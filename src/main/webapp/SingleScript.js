@@ -17,7 +17,7 @@ try {
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
 var notesList = $('ul#notes');
-var previous = $('#previous');
+//var previous = $('#previous');
 var firstchar = '';
 var lastchar = '';
 var determine = '';
@@ -57,7 +57,7 @@ recognition.onresult = function (event) {
         before = noteContent;
         noteContent = transcript;
         noteTextarea.val(noteContent);
-        previous.text(before);
+//        previous.text(before);
     }
 
     /*-----------------------------
@@ -70,14 +70,23 @@ recognition.onresult = function (event) {
     
     clearInterval(Timer);
     time = timeleft;
+    window.alert('Before value: '+before);
+    window.alert('NoteContent value: '+noteContent);
 //    window.alert('lastChar: '+lastchar);
     setTimeout(function () {
         if (firstchar === document.getElementById('hiddenChar').value) {
             determine = true;
-            window.location.replace("GetMeaningServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+            /**
+             * Change path to CheckScopeServlet
+             * */
+            window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&gameId=5&vocab=ache&previous=&time=" + time+ "&status=Correct");
+                    + "&gameId="+ document.getElementById('gameId').value 
+                    +"&vocab="+current
+                    +"&previous="+before
+                    +"&status=Correct"
+                    +"&time=" + time);
 //            window.location.replace("GetMeaningServlet?char=" + lastchar 
 //                    + "&heart=" + document.getElementById('hiddenHeart').value 
 //                    + "&score=" + document.getElementById("hiddenScore").value
@@ -88,10 +97,14 @@ recognition.onresult = function (event) {
 //                    + "&status=Correct");
         } else {
             determine = false;
-            window.location.replace("GetMeaningServlet?char=" + lastchar //ติดค่า Vocab, Previous
+            window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&gameId=5&vocab=ache&previous=&time=" + time+ "&status=Incorrect");
+                    + "&gameId="+ document.getElementById('gameId').value 
+                    +"&vocab="+current
+                    +"&previous="+before
+                    +"&status=Incorrect"
+                    +"&time=" + time);
         }
 
     }, 2500);
@@ -199,11 +212,13 @@ var Timer = setInterval(function () {
     document.getElementById("countdowntimer").textContent = timeleft;
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
-        window.location.replace("GetMeaningServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+        window.location.replace("TimeOut.jsp?char=" + lastchar //ติดค่าgameId,Vocab, Previous
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&gameId=5&vocab=ache&previous=&time=" + time+ "&status=Time Out");
- //           window.location.href = "SinglePlay.jsp?char="+emptyString;
+                    + "&gameId="+ document.getElementById('gameId').value 
+                    +"&vocab="+current
+                    +"&previous="+before
+                    +"&time=" + time);
         clearInterval(Timer);
     }
 

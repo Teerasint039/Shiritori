@@ -92,7 +92,7 @@
                     <h5 class="mt-4 font-weight-normal">Previous Word:</h5>                  
                 </div>
                 <div class="col-md-auto ">
-                    <h5 class="mt-4 font-weight-normal" id="previous"></h5>
+                    <h5 class="mt-4 font-weight-normal"><%=request.getParameter("vocab")%></h5>
                 </div>
             </div>
             <br>

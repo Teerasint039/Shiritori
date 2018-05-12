@@ -5,9 +5,10 @@
  */
 package Servlet;
 
-import Model.Answer;
+import Model.Vocab;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class AddAnswerServlet extends HttpServlet {
+public class CheckScopeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,6 +33,9 @@ public class AddAnswerServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        /*
+            getParameter
+        */
         String vocab = request.getParameter("vocab");
         String character = request.getParameter("char");
         int heart = Integer.parseInt(request.getParameter("heart"));
@@ -39,17 +43,23 @@ public class AddAnswerServlet extends HttpServlet {
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         String status = request.getParameter("status");
         int time = Integer.parseInt(request.getParameter("time"));
-//        int gameId = 1;
-//        String vocab = "ache";
-//        String status = "Correct";
-//        int time = 10;
+        String previous = request.getParameter("previous");
+        
+        Vocab vocabulary = new Vocab();
+        Vocab vocabModel = vocabulary.showVocabDetail(vocab);
+        /*
+            setAttribute
+        */
         
         
-        Answer answer = new Answer();
-        int usedTime = 30-time;
-        request.setAttribute("message", answer.addAnswer(gameId, vocab, status, usedTime));
         
-        getServletContext().getRequestDispatcher("/"+status+".jsp").forward(request, response);
+        
+        List<String> vocabs = vocabulary.showAllVocab();
+         if (vocabs.indexOf(vocab)>=0) {
+            getServletContext().getRequestDispatcher("/GetMeaning.jsp").forward(request, response);
+        }else{
+            getServletContext().getRequestDispatcher("/SingleGame.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

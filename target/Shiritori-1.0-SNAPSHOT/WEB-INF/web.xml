@@ -24,6 +24,14 @@
         <servlet-name>GameOver</servlet-name>
         <servlet-class>Servlet.GameOver</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckScopeServlet</servlet-name>
+        <servlet-class>Servlet.CheckScopeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckAnswerServlet</servlet-name>
+        <servlet-class>Servlet.CheckAnswerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/TestServlet</url-pattern>
@@ -43,6 +51,14 @@
     <servlet-mapping>
         <servlet-name>GameOver</servlet-name>
         <url-pattern>/GameOver</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckScopeServlet</servlet-name>
+        <url-pattern>/CheckScopeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAnswerServlet</servlet-name>
+        <url-pattern>/CheckAnswerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
