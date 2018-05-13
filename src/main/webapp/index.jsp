@@ -25,7 +25,7 @@
         <script>
                 function myFunction() {
                     setTimeout(function(){
-                        window.location.href = "StartPage.jsp";
+                        window.location.href = "Menu.jsp";
                     },2000);
                 }
         </script> 

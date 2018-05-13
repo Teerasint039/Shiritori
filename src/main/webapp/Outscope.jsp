@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Correct
-    Created on : Apr 18, 2018, 1:27:51 PM
+    Document   : Status
+    Created on : Apr 8, 2018, 12:29:18 AM
     Author     : Teerasint
 --%>
 
@@ -15,7 +15,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="MenuStyles.css">
-        <title>Correct</title>
+        <title>Out of Scope</title>
 
         <style>
             .logomenu{
@@ -27,22 +27,21 @@
                 margin-right: 15%;
                 margin-bottom: 5%;
                 border-radius:10px;
-                background: green;
             }
             h1{
                 margin: 2%;
-                color: #FFFFFF;
+                color: black;
                 font-size: 50px;
             }
         </style>
-
     </head>
     <body onload="myFunction()">
-        <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
-        <input type="hidden" id="hiddenChar" value="<%=request.getAttribute("char")%>" />
-        <input type="hidden" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
-        <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
-        <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
+        <<input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
+        <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
+        <input type="hidden" id="hiddenPchar" value="<%=request.getParameter("pchar")%>" />
+        <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
+        <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+        <input type="hidden" id="hiddenPrevious" value="<%=request.getParameter("previous")%>" />
 
         <header >
             <div class="container ">
@@ -62,26 +61,22 @@
         </header>
 
         <div class="jumbotron text-center"> 
-            <img src="Icon/check-mark-button.png" width="200px" height="200px">
-            <h1>Correct</h1>
+            <img src="Icon/thinking.png" width="200px" height="200px">
+            <h1>Out scope</h1>
         </div>
-
 
         <script>
             function myFunction() {
                 setTimeout(function () {
-                    var heart = document.getElementById('hiddenHeart').value;
-                    var newScore = parseInt(document.getElementById('hiddenScore').value) + 1;
-                    if (heart <= 0) {
-                        window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value ;
-                    } else
-                        window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value 
-                            + "&heart=" + heart 
-                            + "&gameId=" + document.getElementById('hiddenGameId').value 
-                            + "&previous=" + document.getElementById('hiddenPrevious').value 
-                            + "&score=" + newScore;
+                    
+                        window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenPchar').value
+                                + "&heart=" + document.getElementById("hiddenHeart").value
+                                + "&gameId=" + document.getElementById("hiddenGameId").value
+                                + "&previous=" + document.getElementById("hiddenPrevious").value
+                                + "&score=" + document.getElementById("hiddenScore").value;
                 }, 3000);
             }
         </script>
+
     </body>
 </html>

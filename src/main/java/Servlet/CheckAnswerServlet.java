@@ -10,6 +10,7 @@ import Model.Answer;
 import Model.Vocab;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,44 +38,64 @@ public class CheckAnswerServlet extends HttpServlet {
 
         String vocab = request.getParameter("vocab");
         String character = request.getParameter("char");
+        String pchar = request.getParameter("pchar");
         int heart = Integer.parseInt(request.getParameter("heart"));
         int score = Integer.parseInt(request.getParameter("score"));
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int time = Integer.parseInt(request.getParameter("time"));
+        String previous = request.getParameter("previous");
+        String status = request.getParameter("status");
+        String lowCaseVocab = vocab.toLowerCase();
 
         Answer answer = new Answer();
-        List<String> ansVocabs = answer.showAnswerVocabs(gameId);
+        List<String> ansVocabs = answer.showAnswerVocabs(gameId); //มันมีเคสที่ไม่มีคำศัพท์เลย
         Vocab vocabulary = new Vocab();
         List<String> vocabs = vocabulary.showAllVocab();
 
         /**
          * Check In Scope
          */
-        if (vocabs.indexOf(vocab) >= 0) {
-            if (ansVocabs.indexOf(vocab) >= 0) {
-                getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab"+vocab
-                    +"&char="+character
-                    +"&heart="+heart
-                    +"&score="+score
-                    +"&gameId="+gameId
-                    +"&time="+time
-                    +"&status=repeat").forward(request, response); // status repeat
-            } else {
-                getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab"+vocab
-                    +"&char="+character
-                    +"&heart="+heart
-                    +"&score="+score
-                    +"&gameId="+gameId
-                    +"&time="+time
-                    +"&status=correct").forward(request, response);//status correct
+        if (status.equalsIgnoreCase("incorrect")) {
+            character = pchar;
+        }
+        if (vocabs.indexOf(lowCaseVocab) >= 0) {// Check vocab in db
+            if (ansVocabs != null) {//check answer of gameId is not null
+                if (ansVocabs.indexOf(lowCaseVocab) >= 0) {//check repeat answer
+                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
+                            + "&char=" + character
+                            + "&pchar=" + pchar
+                            + "&heart=" + heart
+                            + "&score=" + score
+                            + "&gameId=" + gameId
+                            + "&time=" + time
+                            + "&status=repeat").forward(request, response); // status repeat
+                } else {
+                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
+                            + "&char=" + character
+                            + "&pchar=" + pchar
+                            + "&heart=" + heart
+                            + "&score=" + score
+                            + "&gameId=" + gameId
+                            + "&time=" + time
+                            + "&status" + status).forward(request, response);//status correct
+                }
+            }else{
+                getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
+                            + "&char=" + character
+                            + "&pchar=" + pchar
+                            + "&heart=" + heart
+                            + "&score=" + score
+                            + "&gameId=" + gameId
+                            + "&time=" + time
+                            + "&status" + status).forward(request, response);//status correct
             }
         } else {
-            getServletContext().getRequestDispatcher("OutScope.jsp?vocab"+vocab
-                    +"&char="+character
-                    +"&heart="+heart
-                    +"&score="+score
-                    +"&gameId="+gameId
-                    +"&time="+time).forward(request, response);
+            getServletContext().getRequestDispatcher("/Outscope.jsp?vocab" + vocab
+                    + "&char=" + pchar
+                    + "&heart=" + heart
+                    + "&score=" + score
+                    + "&gameId=" + gameId
+                    + "&time=" + time).forward(request, response);
         }
 
     }

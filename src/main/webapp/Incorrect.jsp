@@ -37,9 +37,11 @@
         </style>
     </head>
     <body onload="myFunction()">
-        <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
-        <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
-        <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+        <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
+        <input type="hidden" id="hiddenChar" value="<%=request.getAttribute("char")%>" />
+        <input type="hidden" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
+        <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
+        <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
 
         <header >
             <div class="container ">
@@ -68,9 +70,13 @@
                 setTimeout(function () {
                     var heart = document.getElementById('hiddenHeart').value - 1;
                     if (heart <= 0) {
-                        window.location.href = "GameOver.jsp";
+                        window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value;
                     } else
-                        window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value + "&heart=" + heart + "&score=" + document.getElementById("hiddenScore").value;
+                        window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
+                                + "&heart=" + heart
+                                + "&gameId=" + document.getElementById('hiddenGameId').value
+                                + "&previous=" + document.getElementById('hiddenPrevious').value
+                                + "&score=" + document.getElementById("hiddenScore").value;
                 }, 3000);
             }
         </script>

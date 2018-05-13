@@ -118,12 +118,14 @@ public class Answer {
 
     public List<String> showAnswerVocabs(int gameId) {
         List<String> vocabs = null;
+        List<String> blank = null;
         String vocab = null;
 
         try {
             Connection conn = Connectionbuilder.connect();
 
             try {
+//                PreparedStatement checkNotNull = conn.prepareStatement("SELECT COUNT(Vocab) FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
                 PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
@@ -143,7 +145,7 @@ public class Answer {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            return blank;
         }
         return vocabs;
     }

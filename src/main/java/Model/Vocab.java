@@ -148,7 +148,7 @@ public class Vocab {
             Connection conn = Connectionbuilder.connect();
 
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `SinglePlayerMode_Vocab`;");
+                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `Vocab`;");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     vocab = rs.getString("Vocab");

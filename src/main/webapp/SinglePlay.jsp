@@ -49,8 +49,8 @@
         </div>
     </header>
 
-
-    <div class="jumbotron ">    
+<center><h5 class="mt-4">GameId: <b><%=request.getParameter("gameId")%></b></h5></center>
+    <div class="jumbotron "> 
         <div class="container">
             <div class="row  justify-content-center">
                 <div class="col col-lg-4 ">
@@ -79,7 +79,6 @@
             <div class="row">
                 <div class="col">
                     <h5 class="mt-4">Start with: <b><%=request.getParameter("char")%></b></h5>
-                    <h5 class="mt-4">GameId: <b><%=request.getParameter("gameId")%></b></h5>
                     <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
                     <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
                     <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
@@ -92,7 +91,7 @@
                     <h5 class="mt-4 font-weight-normal">Previous Word:</h5>                  
                 </div>
                 <div class="col-md-auto ">
-                    <h5 class="mt-4 font-weight-normal"><%=request.getParameter("vocab")%></h5>
+                    <h5 class="mt-4 font-weight-normal"><%=request.getParameter("previous")%></h5>
                 </div>
             </div>
             <br>

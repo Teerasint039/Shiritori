@@ -70,38 +70,44 @@ recognition.onresult = function (event) {
     
     clearInterval(Timer);
     time = timeleft;
-    window.alert('Before value: '+before);
-    window.alert('NoteContent value: '+noteContent);
+//    window.alert('Before value: '+before);
+//    window.alert('NoteContent value: '+noteContent);
 //    window.alert('lastChar: '+lastchar);
+
+//    window.alert("firstChar: "+firstchar);
+//    window.alert("hiddenChar: "+document.getElementById('hiddenChar').value);
     setTimeout(function () {
         if (firstchar === document.getElementById('hiddenChar').value) {
             determine = true;
             /**
              * Change path to CheckScopeServlet
              * */
+//            window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+//                    + "&score=" + document.getElementById("hiddenScore").value
+//                    + "&heart=" + document.getElementById('hiddenHeart').value 
+//                    + "&gameId="+ document.getElementById('hiddenGameId').value 
+//                    +"&vocab="+current
+//                    +"&previous="+before
+//                    +"&status=Correct"
+//                    +"&time=" + time);
+            
             window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
                     + "&score=" + document.getElementById("hiddenScore").value
+                    + "&pchar=" + document.getElementById("hiddenChar").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&gameId="+ document.getElementById('gameId').value 
-                    +"&vocab="+current
+                    + "&gameId="+ document.getElementById('hiddenGameId').value 
+                    +"&vocab="+noteContent
                     +"&previous="+before
                     +"&status=Correct"
                     +"&time=" + time);
-//            window.location.replace("GetMeaningServlet?char=" + lastchar 
-//                    + "&heart=" + document.getElementById('hiddenHeart').value 
-//                    + "&score=" + document.getElementById("hiddenScore").value
-//                    + "&gameId=" + document.getElementById("hiddenGameId").value
-//                    + "&vocab=" + noteContent
-//                    + "&previous=" + before
-//                    + "&time=" + time
-//                    + "&status=Correct");
         } else {
             determine = false;
             window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
                     + "&score=" + document.getElementById("hiddenScore").value
+                    + "&pchar=" + document.getElementById("hiddenChar").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&gameId="+ document.getElementById('gameId').value 
-                    +"&vocab="+current
+                    + "&gameId="+ document.getElementById('hiddenGameId').value 
+                    +"&vocab="+noteContent
                     +"&previous="+before
                     +"&status=Incorrect"
                     +"&time=" + time);
@@ -212,13 +218,13 @@ var Timer = setInterval(function () {
     document.getElementById("countdowntimer").textContent = timeleft;
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
-        window.location.replace("TimeOut.jsp?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+        window.location.href = "TimeOut.jsp?char=" + document.getElementById("hiddenChar").value 
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
-                    + "&gameId="+ document.getElementById('gameId').value 
-                    +"&vocab="+current
+                    + "&gameId="+ document.getElementById('hiddenGameId').value 
+                    +"&vocab="+noteContent
                     +"&previous="+before
-                    +"&time=" + time);
+                    +"&time=" + time;
         clearInterval(Timer);
     }
 

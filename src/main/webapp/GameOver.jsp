@@ -39,6 +39,7 @@
         <header >
             <div class="container ">
                 <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
+                <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
 
                 <nav class="site-nav ">
                     <ul>

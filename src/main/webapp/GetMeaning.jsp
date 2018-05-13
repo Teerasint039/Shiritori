@@ -78,7 +78,7 @@
 
             <div class="row">
                 <div class="col">
-                    <h5 class="mt-4">Start with: <b><%=request.getAttribute("char")%></b></h5>
+                    <h5 class="mt-4">Start with: <b><%=request.getAttribute("pchar")%></b></h5>
                     <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
                     <input type="hidden" id="hiddenChar" name="char" value="<%=request.getAttribute("char")%>" />
                     <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getAttribute("heart")%>" />

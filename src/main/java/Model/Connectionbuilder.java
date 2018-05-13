@@ -8,13 +8,15 @@ package Model;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author int105
  */
 public class Connectionbuilder {
-    public static int count=0;
+
+    public static int count = 0;
 
     public static Connection connect() throws ClassNotFoundException, SQLException {
 
@@ -27,27 +29,32 @@ public class Connectionbuilder {
         System.out.println("Driver loaded");
 
 //        Connection con = DriverManager.getConnection(host+"?user="+uName+"&password="+uPass+"&useUnicode=true&characterEncoding=UTF-8");
-        Connection con = DriverManager.getConnection(host, uName, uPass);
-        System.out.println("Connection created");
-        count++;
-        System.out.println(count);
-        return con;
+        try {
+            Connection con = DriverManager.getConnection(host, uName, uPass);
+
+            System.out.println("Connection created");
+            count++;
+            System.out.println(count);
+            return con;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
     }
 
     public static void main(String[] args) {
         Connection con;
         try {
-            con= Connectionbuilder.connect();
+            con = Connectionbuilder.connect();
             System.out.println(con);
-         } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Connectionbuilder.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("1");
         } catch (SQLException ex) {
             Logger.getLogger(Connectionbuilder.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("2");
         }
-           
 
     }
-        
+
 }

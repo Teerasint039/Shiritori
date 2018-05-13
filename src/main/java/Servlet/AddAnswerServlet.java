@@ -47,7 +47,14 @@ public class AddAnswerServlet extends HttpServlet {
         
         Answer answer = new Answer();
         int usedTime = 30-time;
-        request.setAttribute("message", answer.addAnswer(gameId, vocab, status, usedTime));
+        answer.addAnswer(gameId, vocab, status, usedTime);
+        
+        request.setAttribute("char", character);
+        request.setAttribute("heart", heart);
+        request.setAttribute("score", score);
+        request.setAttribute("gameId", gameId);
+        request.setAttribute("time", time);
+        request.setAttribute("previous", vocab);
         
         getServletContext().getRequestDispatcher("/"+status+".jsp").forward(request, response);
     }
