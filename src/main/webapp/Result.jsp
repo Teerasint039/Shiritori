@@ -115,10 +115,10 @@
 
                     <div class="row text-center">
                         <div class="col-6">
-                            <a href="#" class="btn btn-primary">Play Again</a>
+                            <a href="${pageContext.request.contextPath}/StartPage.jsp" class="btn btn-primary">Play Again</a>
                         </div>
                         <div class="col-6">
-                            <a href="#" class="btn btn-primary">Menu</a>
+                            <a href="${pageContext.request.contextPath}/Menu.jsp" class="btn btn-primary">Menu</a>
                         </div>
                     </div>
                 </div>

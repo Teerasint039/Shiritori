@@ -59,7 +59,7 @@ public class CheckAnswerServlet extends HttpServlet {
             character = pchar;
         }
         if (vocabs.indexOf(lowCaseVocab) >= 0) {// Check vocab in db
-            if (ansVocabs != null) {//check answer of gameId is not null
+            if (ansVocabs != null) {//check answers of gameId is not null
                 if (ansVocabs.indexOf(lowCaseVocab) >= 0) {//check repeat answer
                     getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
                             + "&char=" + character
@@ -68,7 +68,7 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&score=" + score
                             + "&gameId=" + gameId
                             + "&time=" + time
-                            + "&status=repeat").forward(request, response); // status repeat
+                            + "&status=Repeat").forward(request, response); // status repeat
                 } else {
                     getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
                             + "&char=" + character
