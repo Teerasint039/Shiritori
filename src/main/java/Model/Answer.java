@@ -181,6 +181,41 @@ public class Answer {
         }
         return answers;
     }
+    
+    public double findAverrageTime(int gameId){
+        double avgTime = 0.0;
+         try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT AVG(UsedTime) FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
+            ResultSet rs = pstm.executeQuery();
+
+//            while (rs.next()) {
+//                avgTime = rs.getInt("UsedTime");
+//            }
+            avgTime = rs.getDouble("AVG(UsedTime)");
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+        }
+        return avgTime;
+    }
+    
+    public int countAnswer(int gameId){
+        int count = 0;
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT COUNT(*) FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
+            ResultSet rs = pstm.executeQuery();
+
+            count = rs.getInt("COUNT(*)");
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+        }
+        return count;
+    }
 
 //    public boolean IsRepeat(String vocab, int gameId) {
 //        boolean repeat = true;
