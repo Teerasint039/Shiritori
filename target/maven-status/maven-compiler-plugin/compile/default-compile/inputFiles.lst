@@ -10,6 +10,7 @@ C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\User.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\UserItem.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Action.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\RandomPracticeModeVocabServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Mariadb.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\SingleModeGame.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Answer.java
@@ -20,6 +21,7 @@ C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\CategoryVocab.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\PracticeModeGame.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestTimeStamp.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\StartPracticeModeGameServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\StartSingleModeGameServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestVocab.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Item.java

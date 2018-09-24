@@ -71,34 +71,33 @@ public class CategoryVocab {
         }
     }
     
-    public void addVocabToUserCategory(int categoryId, int vocabId){
-        CategoryVocab cv = null;
-        try {
-            Connection conn = Connectionbuilder.connect();
-            String query = " insert into Vocab_User_Category (UCId, VocabId)"
-                    + " values (?, ?)";
-
-            // create the mysql insert preparedstatement
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt(1, categoryId);
-            preparedStmt.setInt(2, vocabId);
-
-            // execute the preparedstatement
-            preparedStmt.execute();
-
-            conn.close();
-        } catch (Exception e) {
-        }
-    }
+//    public void addVocabToUserCategory(int categoryId, int vocabId){
+//        CategoryVocab cv = null;
+//        try {
+//            Connection conn = Connectionbuilder.connect();
+//            String query = " insert into Vocab_User_Category (UCId, VocabId)"
+//                    + " values (?, ?)";
+//
+//            // create the mysql insert preparedstatement
+//            PreparedStatement preparedStmt = conn.prepareStatement(query);
+//            preparedStmt.setInt(1, categoryId);
+//            preparedStmt.setInt(2, vocabId);
+//
+//            // execute the preparedstatement
+//            preparedStmt.execute();
+//
+//            conn.close();
+//        } catch (Exception e) {
+//        }
+//    }
     
-    public List<Vocab> showVocabInCategory(String user,int categoryId){
+    public List<Vocab> showAllVocabInCategory(int categoryId){
         Vocab vocab = null;
         List<Vocab> vocabs = null;
         try {
-            Connection conn = Connectionbuilder.connect();
-        if (user.equalsIgnoreCase("user")) {            
+            Connection conn = Connectionbuilder.connect();        
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE vocabId IN SELECT vocabId FROM `Vocab_User_Category` WHERE UCId( '" + categoryId + ")';");
+                PreparedStatement pstm = conn.prepareStatement("SELECT `Vocab`.* FROM `Vocab_Admin_Category`JOIN `Vocab` WHERE `Vocab_Admin_Category`.`VocabId` = `Vocab`.`VocabId` AND `Vocab_Admin_Category`.ACId = '" + categoryId + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     vocab = new Vocab(rs);
@@ -113,9 +112,24 @@ public class CategoryVocab {
             } catch (Exception ex) {
                 Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
             }        
-        }else if (user.equalsIgnoreCase("admin")) {
+        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return vocabs;
+    }
+    
+    public List<Vocab> showAlivedVocabInGame(int categoryId, int gameId){
+        Vocab vocab = null;
+        List<Vocab> vocabs = null;
+        try {
+            Connection conn = Connectionbuilder.connect();        
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE vocabId IN SELECT vocabId FROM `Vocab_Admin_Category` WHERE ACId( '" + categoryId + ")';");
+                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE vocabId IN ( SELECT vocabId FROM `Vocab_Admin_Category` WHERE ACId = '" 
+                                                                + categoryId + "' AND VACId NOT IN ( SELECT VACId FROM `PracticeMode_Vocab` WHERE gameId = '" 
+                                                                + gameId + "'));");                
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     vocab = new Vocab(rs);
@@ -129,8 +143,8 @@ public class CategoryVocab {
                 conn.close();
             } catch (Exception ex) {
                 Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-            }           
-        }
+            }        
+        
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

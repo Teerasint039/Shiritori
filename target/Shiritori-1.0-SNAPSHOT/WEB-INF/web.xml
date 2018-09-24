@@ -32,6 +32,14 @@
         <servlet-name>CheckAnswerServlet</servlet-name>
         <servlet-class>Servlet.CheckAnswerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StartPracticeModeGameServlet</servlet-name>
+        <servlet-class>Servlet.StartPracticeModeGameServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RandomPracticeModeVocabServlet</servlet-name>
+        <servlet-class>Servlet.RandomPracticeModeVocabServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/TestServlet</url-pattern>
@@ -59,6 +67,14 @@
     <servlet-mapping>
         <servlet-name>CheckAnswerServlet</servlet-name>
         <url-pattern>/CheckAnswerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartPracticeModeGameServlet</servlet-name>
+        <url-pattern>/StartPracticeModeGameServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RandomPracticeModeVocabServlet</servlet-name>
+        <url-pattern>/RandomPracticeModeVocabServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

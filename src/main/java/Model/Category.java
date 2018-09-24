@@ -22,13 +22,13 @@ public class Category {
     private int categoryId;
     private String categoryName;
     private String lastEditDate;
-    private int userId;
+    private int adminId;
 
-    public Category(int categoryId, String categoryName, String lastEditDate, int userId) {
+    public Category(int categoryId, String categoryName, String lastEditDate, int adminId) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.lastEditDate = lastEditDate;
-        this.userId = userId;
+        this.adminId = adminId;
     }
 
     public Category() {
@@ -36,7 +36,7 @@ public class Category {
     
     public Category(ResultSet rs) throws SQLException {
         categoryId = rs.getInt("categoryId");
-        userId = rs.getInt("UserId");
+        adminId = rs.getInt("AdminId");
         categoryName = rs.getString("categoryName");
         lastEditDate = rs.getString("lastEditDate");
     }
@@ -65,26 +65,26 @@ public class Category {
         this.lastEditDate = lastEditDate;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getAdminId() {
+        return adminId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
     }
     
-    public void createUserCategory(String categoryName, String createDate, int userId){
+    public void createCategory(String categoryName, String createDate, int adminId){
         Category cat = null;
         try {
             Connection conn = Connectionbuilder.connect();
-            String query = " insert into User_Category (CategoryName, LastEditDate, UserId)"
+            String query = " insert into Admin_Category (CategoryName, LastEditDate, AdminId)"
                     + " values (?, ?, ?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, categoryName);
             preparedStmt.setString(2, createDate);
-            preparedStmt.setInt(3, userId);
+            preparedStmt.setInt(3, adminId);
 
             // execute the preparedstatement
             preparedStmt.execute();
@@ -94,23 +94,23 @@ public class Category {
         }
     }
     
-    public List<Category> showCategory(int userId){
+    public List<Category> showCategory(){
         List<Category> categorys = null;
         Category category = null;
         try {
             Connection conn = Connectionbuilder.connect();
-
+//
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT *  FROM `User_Category` WHERE UserId = '" + userId + " ;"); 
+//                PreparedStatement pstm = conn.prepareStatement("SELECT *  FROM `Admin_Category` WHERE AdminId = '" + adminId + " ;"); 
+//                ResultSet rs = pstm.executeQuery();
+//                while (rs.next()) {
+//                    category = new Category(rs);
+//                    categorys.add(category);
+//                }
+                PreparedStatement pstm = conn.prepareStatement("SELECT *  FROM `Admin_Category`;"); 
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     category = new Category(rs);
-                    categorys.add(category);
-                }
-                PreparedStatement pstm_A = conn.prepareStatement("SELECT *  FROM `Admin_Category`;"); 
-                ResultSet rs_A = pstm_A.executeQuery();
-                while (rs_A.next()) {
-                    category = new Category(rs_A);
                     categorys.add(category);
                 }
                 rs.close();
