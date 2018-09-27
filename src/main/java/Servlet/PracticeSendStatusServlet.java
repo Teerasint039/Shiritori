@@ -6,7 +6,7 @@
 package Servlet;
 
 import Model.CategoryVocab;
-import Model.Vocab;
+import Model.PracticeModeResult;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class RandomPracticeModeVocabServlet extends HttpServlet {
+public class PracticeSendStatusServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,43 +33,35 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("Random servlet!");
         
-        int categoryId = (int)request.getAttribute("categoryId");        
-        int gameId = (int)request.getAttribute("gameId"); 
-        int score = (int)request.getAttribute("score");
+        System.out.println("Show status servlet");
+
+        int categoryId = (int) request.getAttribute("categoryId");
+        int gameId = (int) request.getAttribute("gameId");
+        int score = (int) request.getAttribute("score");
         int time = (int) request.getAttribute("time");
-        
-        
-            int userId = 1;
+        String vocab = (String) request.getAttribute("vocab");
+        String status = (String) request.getAttribute("status");
 
-            CategoryVocab cv = new CategoryVocab();
-            List<String> vocabs = cv.showAllVocabInCategory(categoryId);
-            
-            String gameVocabs[] = {"bear","bird","buffalo","butterfly","camel","cat","chicken","cock","cow","crab","crocodile","deer","dog","dolphin","duck"};
-            int randomIndex = (int)(Math.random() * (gameVocabs.length-1) + 0);
-            
-            request.setAttribute("category", "animal");
-            request.setAttribute("categoryId", categoryId);
-            request.setAttribute("gameId", gameId);
-            request.setAttribute("score", score);
-            request.setAttribute("vocab", gameVocabs[randomIndex]);
-                    
-            
-            getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
-            
-//            if (time != 30) {
-//            String status = (String) request.getAttribute("status");
-//                if (status != null) {
-//                    getServletContext().getRequestDispatcher("/PracticeMode.jsp").forward(request, response);
-//                }else if (status == null) {
-//                    getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
-//                }
-//            }
-
-            
-
+        // send status to practice mode page
+        //collect data to  //letVACId = 1 //mock up
+        PracticeModeResult pmr = new PracticeModeResult();
+        pmr.addAnswer(status, 1, vocab, gameId);
         
+        CategoryVocab cv = new CategoryVocab();
+        List<String> vocabs = cv.showAllVocabInCategory(categoryId);
+
+        String gameVocabs[] = {"bear", "bird", "buffalo", "butterfly", "camel", "cat", "chicken", "cock", "cow", "crab", "crocodile", "deer", "dog", "dolphin", "duck"};
+        int randomIndex = (int) (Math.random() * (gameVocabs.length - 1) + 0);
+
+        request.setAttribute("category", "animal");
+        request.setAttribute("categoryId", categoryId);
+        request.setAttribute("gameId", gameId);
+        request.setAttribute("score", score);
+        request.setAttribute("status", status);
+        request.setAttribute("vocab", gameVocabs[randomIndex]);
+
+        getServletContext().getRequestDispatcher("/PracticeMode.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

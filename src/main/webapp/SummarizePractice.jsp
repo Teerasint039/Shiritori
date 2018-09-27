@@ -41,7 +41,7 @@
                     <div class="col">
                         <img src="Icon/popupGameoverpractice.png" class="img-fluid" alt="Responsive image" style="width: 35rem; margin-top: 4%;">
                         <div class="card-img-overlay" style="color: black; margin-top: 21%; ">
-                            <h2 style="font-size: 2cm;">3</h2>
+                            <h2 style="font-size: 2cm;"><%=request.getParameter("score")%></h2>
                         </div>
                     </div>
                 </div>

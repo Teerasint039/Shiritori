@@ -31,8 +31,10 @@ public class StartPracticeModeGameServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        System.out.println("StartPracticeModeGameServlet");
         
-        String categoryId = request.getParameter("category");
+//        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        int categoryId = 1;
         
         int gameId;
         PracticeModeGame smg = new PracticeModeGame();
@@ -40,7 +42,9 @@ public class StartPracticeModeGameServlet extends HttpServlet {
         
         request.setAttribute("gameId", gameId);
         request.setAttribute("categoryId", categoryId);
-       getServletContext().getRequestDispatcher("RandomPracticeModeVocabServlet").forward(request, response);
+        request.setAttribute("score", 0);
+        request.setAttribute("time", 30);
+       getServletContext().getRequestDispatcher("/RandomPracticeModeVocabServlet").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

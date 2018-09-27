@@ -128,11 +128,23 @@ public class Category {
         return categorys;
     }
     
-    
-    
-    
-    
-    
-    
-    
+    public String getCategoryNamebyId(int categoryId){
+        String categoryName = "";
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT `CategoryName`  FROM `Admin_Category` WHERE ACId = '" + categoryId + "'");
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                categoryName = rs.getString("CategoryName");
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }
+        return categoryName;
+    } 
+       
 }

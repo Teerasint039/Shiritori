@@ -40,6 +40,18 @@
         <servlet-name>RandomPracticeModeVocabServlet</servlet-name>
         <servlet-class>Servlet.RandomPracticeModeVocabServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PracticeCheckAnswerServlet</servlet-name>
+        <servlet-class>Servlet.PracticeCheckAnswerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PracticeModeShowStatus</servlet-name>
+        <servlet-class>Servlet.PracticeModeShowStatus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PracticeSendStatusServlet</servlet-name>
+        <servlet-class>Servlet.PracticeSendStatusServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/TestServlet</url-pattern>
@@ -75,6 +87,18 @@
     <servlet-mapping>
         <servlet-name>RandomPracticeModeVocabServlet</servlet-name>
         <url-pattern>/RandomPracticeModeVocabServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PracticeCheckAnswerServlet</servlet-name>
+        <url-pattern>/PracticeCheckAnswerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PracticeModeShowStatus</servlet-name>
+        <url-pattern>/PracticeModeShowStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PracticeSendStatusServlet</servlet-name>
+        <url-pattern>/PracticeSendStatusServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

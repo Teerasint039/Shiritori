@@ -134,6 +134,28 @@ public class Vocab {
         return vocab;
     }
     
+    public String showVocabName(int vocabId) {
+
+       String vocab = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT vocab FROM `Vocab` WHERE Vocab = '" + vocabId + "'");
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                vocab = rs.getString("Vocab");
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }
+
+        return vocab;
+    }
+    
     public boolean isInDB(String vocab){//not complete
         boolean inDb = false;
         
@@ -203,6 +225,25 @@ public class Vocab {
             Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
         }
         return vocabs;
+    }
+    
+    public String getVocabFromId(int vocabId){
+        String vocab = "";
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT vocab FROM `Vocab` WHERE vocabId = '" + vocabId + "'");
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                vocab = rs.getString("Vocab");
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }
+        return vocab;
     }
 
     @Override

@@ -83,7 +83,7 @@ public class PracticeModeGame {
 
             // execute the preparedstatement
             preparedStmt.execute();
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Practice_Gamee` WHERE `UserId` = '" + UserId + "' AND `StartTime` = '"+timestamp+"';");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Practice_Game` WHERE `UserId` = '" + UserId + "' AND `StartTime` = '"+timestamp+"';");
             ResultSet rs = pstm.executeQuery();
             
             System.out.println("Select Time: "+timestamp);

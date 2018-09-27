@@ -2,9 +2,11 @@ C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\CheckAnswerServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\TestServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\ReceivedItem.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestMethod.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\AddAnswerServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\CheckScopeServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestAnswer.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\PracticeModeShowStatus.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Vocab.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\PracticeModeResult.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\User.java
@@ -19,9 +21,11 @@ C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\GetMeaningServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Connectionbuilder.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\CategoryVocab.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\PracticeSendStatusServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\PracticeModeGame.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestTimeStamp.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\StartPracticeModeGameServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\StartSingleModeGameServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestVocab.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Item.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\PracticeCheckAnswerServlet.java

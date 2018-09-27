@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,11 +6,9 @@
  */
 package Servlet;
 
-import Model.CategoryVocab;
-import Model.Vocab;
+import Model.PracticeModeResult;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class RandomPracticeModeVocabServlet extends HttpServlet {
+public class PracticeCheckAnswerServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,42 +32,36 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("Random servlet!");
+        System.out.println("Check Answer servlet");
         
-        int categoryId = (int)request.getAttribute("categoryId");        
-        int gameId = (int)request.getAttribute("gameId"); 
-        int score = (int)request.getAttribute("score");
-        int time = (int) request.getAttribute("time");
+//        int userId = (int) request.getAttribute("userId");
+        int gameId = Integer.parseInt(request.getParameter("gameId"));
+        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        int score = Integer.parseInt(request.getParameter("score"));
+        int time = Integer.parseInt(request.getParameter("time"));        
+        String vocab = request.getParameter("vocab");
+        String answer = request.getParameter("answer");
         
         
-            int userId = 1;
-
-            CategoryVocab cv = new CategoryVocab();
-            List<String> vocabs = cv.showAllVocabInCategory(categoryId);
-            
-            String gameVocabs[] = {"bear","bird","buffalo","butterfly","camel","cat","chicken","cock","cow","crab","crocodile","deer","dog","dolphin","duck"};
-            int randomIndex = (int)(Math.random() * (gameVocabs.length-1) + 0);
-            
-            request.setAttribute("category", "animal");
-            request.setAttribute("categoryId", categoryId);
-            request.setAttribute("gameId", gameId);
-            request.setAttribute("score", score);
-            request.setAttribute("vocab", gameVocabs[randomIndex]);
-                    
-            
-            getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
-            
-//            if (time != 30) {
-//            String status = (String) request.getAttribute("status");
-//                if (status != null) {
-//                    getServletContext().getRequestDispatcher("/PracticeMode.jsp").forward(request, response);
-//                }else if (status == null) {
-//                    getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
-//                }
-//            }
-
-            
-
+        PracticeModeResult pmr = new PracticeModeResult();
+        String status = pmr.checkAnswer(answer,vocab);
+        
+        if (status.equalsIgnoreCase("correct")) {
+            score += 1;
+        }
+        System.out.println("status: "+status);
+        System.out.println("score: "+score);
+        
+        request.setAttribute("gameId", gameId);
+        request.setAttribute("categoryId", categoryId);
+        request.setAttribute("vocab", vocab);
+        request.setAttribute("score", score);
+        request.setAttribute("time", time);
+        request.setAttribute("status", status);
+        
+//        getServletContext().getRequestDispatcher("/TestStatusPracticeMode.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/PracticeSendStatusServlet").forward(request, response);
+        
         
     }
 

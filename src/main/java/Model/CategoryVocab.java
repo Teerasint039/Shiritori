@@ -91,16 +91,16 @@ public class CategoryVocab {
 //        }
 //    }
     
-    public List<Vocab> showAllVocabInCategory(int categoryId){
-        Vocab vocab = null;
-        List<Vocab> vocabs = null;
+    public List<String> showAllVocabInCategory(int categoryId){ //return to list of set (VACId,vocab)
+        String vocab = null;
+        List<String> vocabs = null;
         try {
             Connection conn = Connectionbuilder.connect();        
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT `Vocab`.* FROM `Vocab_Admin_Category`JOIN `Vocab` WHERE `Vocab_Admin_Category`.`VocabId` = `Vocab`.`VocabId` AND `Vocab_Admin_Category`.ACId = '" + categoryId + "';");
+                PreparedStatement pstm = conn.prepareStatement("SELECT `Vocab`.vocab FROM `Vocab_Admin_Category`JOIN `Vocab` WHERE `Vocab_Admin_Category`.`VocabId` = `Vocab`.`VocabId` AND `Vocab_Admin_Category`.ACId = '" + categoryId + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
-                    vocab = new Vocab(rs);
+                    vocab = rs.getString("Vocab");
                     if (vocabs == null) {
                         vocabs = new ArrayList();
                     }
@@ -121,37 +121,37 @@ public class CategoryVocab {
         return vocabs;
     }
     
-    public List<Vocab> showAlivedVocabInGame(int categoryId, int gameId){
-        Vocab vocab = null;
-        List<Vocab> vocabs = null;
-        try {
-            Connection conn = Connectionbuilder.connect();        
-            try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE vocabId IN ( SELECT vocabId FROM `Vocab_Admin_Category` WHERE ACId = '" 
-                                                                + categoryId + "' AND VACId NOT IN ( SELECT VACId FROM `PracticeMode_Vocab` WHERE gameId = '" 
-                                                                + gameId + "'));");                
-                ResultSet rs = pstm.executeQuery();
-                while (rs.next()) {
-                    vocab = new Vocab(rs);
-                    if (vocabs == null) {
-                        vocabs = new ArrayList();
-                    }
-                    vocabs.add(vocab);
-                }
-                rs.close();
-                pstm.close();
-                conn.close();
-            } catch (Exception ex) {
-                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-            }        
-        
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return vocabs;
-    }
+//    public List<Vocab> showAlivedVocabInGame(int categoryId, int gameId){
+//        Vocab vocab = null;
+//        List<Vocab> vocabs = null;
+//        try {
+//            Connection conn = Connectionbuilder.connect();        
+//            try {
+//                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE vocabId IN ( SELECT vocabId FROM `Vocab_Admin_Category` WHERE ACId = '" 
+//                                                                + categoryId + "' AND VACId NOT IN ( SELECT VACId FROM `PracticeMode_Vocab` WHERE gameId = '" 
+//                                                                + gameId + "'));");                
+//                ResultSet rs = pstm.executeQuery();
+//                while (rs.next()) {
+//                    vocab = new Vocab(rs);
+//                    if (vocabs == null) {
+//                        vocabs = new ArrayList();
+//                    }
+//                    vocabs.add(vocab);
+//                }
+//                rs.close();
+//                pstm.close();
+//                conn.close();
+//            } catch (Exception ex) {
+//                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+//            }        
+//        
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return vocabs;
+//    }
     
     public void editVocabInCategory(int vocabId, int categoryId, int old_vocabId, int old_categoryId,String user) {
         try {
@@ -170,6 +170,45 @@ public class CategoryVocab {
         } catch (Exception ex) {
             System.out.println("ERROR!..Have Exception!");
         }
+    }
+    
+    public String getCategoryNamebyId(int categoryId){
+        String categoryName = "";
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT `CategoryName`  FROM `Admin_Category` WHERE ACId = '" + categoryId + "'");
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                categoryName = rs.getString("CategoryName");
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }
+        return categoryName;
+    } 
+    
+    public String getVocabFromVACId(int VACId){
+        String vocab = "";
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT `Vocab`.Vocab FROM `Vocab_Admin_Category` JOIN `Vocab` ON `Vocab_Admin_Category`.VocabId = `Vocab`.VocabId WHERE `Vocab_Admin_Category`.VACId = '" + VACId + "'");
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                vocab = rs.getString("Vocab");
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }    
+        
+        return vocab;
     }
     
 }
