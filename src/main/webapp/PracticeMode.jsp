@@ -131,7 +131,7 @@
         crossorigin="anonymous"></script>
         <script src="PracticeScript.js"></script> 
 
-<!--        <script language="javascript">
+        <script language="javascript">
         $(document).ready(function () {
             setTimeout(fnShowPopup, 500);
         });
@@ -139,7 +139,7 @@
             document.getElementById('status').click();
             //code to show popup
         }
-        </script>-->
+        </script>
 
     </body>
 

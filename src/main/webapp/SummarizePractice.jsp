@@ -47,12 +47,16 @@
                 </div>
                 <div class="row justify-content-md-center">
                     <div class="col">
+                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=<%=request.getParameter("categoryId")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; margin-right: 7%;  height: 5rem; border: 0;">
                             <img src="Icon/Reset.png" class="img-fluid" alt="Responsive image">                
                         </button>
+                         </a>
+                        <a href ="Menu.jsp">
                         <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; height: 5rem; border: 0;">
                         <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
                         </button>
+                        </a>
                     </div>
                 </div>
             </div>

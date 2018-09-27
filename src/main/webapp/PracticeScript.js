@@ -17,17 +17,17 @@ try {
     $('.app').hide();
 }
 
-
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
 var notesList = $('ul#notes');
 var noteContent = '';
-var timeleft = document.getElementById('time').value ;
+var timeleft = document.getElementById('time').value;
 var time = '';
-var status ='';
+var status = '';
 // Get all notes from previous sessions and display them.
 var notes = getAllNotes();
 renderNotes(notes);
+
 /*-----------------------------
  Voice Recognition 
  ------------------------------*/
@@ -55,40 +55,59 @@ recognition.onresult = function (event) {
         noteContent = transcript;
         noteTextarea.val(noteContent);
     }
-    setTimeout(function(){
-        if (document.getElementById("hiddenVocab").value.toLowerCase() === noteContent.toLowerCase()) {
-            document.getElementById('image').src = "Icon/popupCorrect.png";
-            score = document.getElementById("hiddenScore").value + 1;
-            window.alert("vocab = answer!");
-            status = "Correct";
-        }else{
-            document.getElementById('image').src = "Icon/popupIncorrect.png";
-            score = document.getElementById("hiddenScore").value;
-            window.alert("vocab != answer!");
-            status = "Incorrect";
-        }    
-            $(document).ready(function () {
-            setTimeout(fnShowPopup, 500);
-        });
-        function fnShowPopup() {
-            document.getElementById('status').click();
-            //code to show popup
-        }
-        
-    },1000)
+    console.log("t3");
+//    delete window.alert;
+//    window.alert("Check!");
 
-    
     clearInterval(Timer);
     time = timeleft;
+//    window.alert("vocab: "+document.getElementById("hiddenVocab").value);
+//    window.alert("answer: " + noteContent);
+
+    if (document.getElementById("hiddenVocab").value.toLowerCase() === noteContent.toLowerCase()) {
+        document.getElementById('popupimg').src = "Icon/popupcorrect.png";
+        score = parseInt(document.getElementById("hiddenScore").value) + 1;
+//        window.alert("vocab = answer!");
+        status = "Correct";
+    } else {
+        document.getElementById('popupimg').src = "Icon/popupIncorrect.png";
+        score = document.getElementById("hiddenScore").value;
+//        window.alert("vocab != answer!");
+        status = "Incorrect";
+    }
+    
+    /*----------------------
+ * auto status popup
+ * --------------------*/
+
+            console.log(document.getElementById('popupimg'))
+            if (document.getElementById('popupimg').src) {
+                console.log("SRCNAJA :");
+                let attribute = document.getElementById('popupimg').getAttribute("src");
+                console.log("Arr", attribute);
+            }
+            if (noteContent !== "") {
+                if (document.getElementById('popupimg').src !== "") {
+                    $(document).ready(function () {
+                        setTimeout(fnShowPopup, 500);            //code to show popup
+                    });
+                    function fnShowPopup() {
+                        document.getElementById('status').click();
+                    }
+                }
+            }
+            
+
+//    window.alert("status: " + status);
 
     setTimeout(function () {
-            window.location.replace("PracticeCheckAnswerServlet?vocab=" + document.getElementById("hiddenVocab").value
-                    + "&score=" + score
-                    + "&status=" + status
-                    + "&categoryId="+ document.getElementById('categoryId').value 
-                    + "&gameId="+ document.getElementById('gameId').value 
-                    +"&answer="+noteContent
-                    +"&time=" + time);
+        window.location.replace("PracticeCheckAnswerServlet?vocab=" + document.getElementById("hiddenVocab").value
+                + "&score=" + score
+                + "&status=" + status
+                + "&categoryId=" + document.getElementById('categoryId').value
+                + "&gameId=" + document.getElementById('gameId').value
+                + "&answer=" + noteContent
+                + "&time=" + time);
 
     }, 1000);
 };
@@ -191,8 +210,9 @@ var Timer = setInterval(function () {
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
 
-        window.location.href ="SummarizePractice.jsp?gameId="+ document.getElementById("gameId").value
-                                + "&score=" + document.getElementById("hiddenScore").value;
+        window.location.href = "SummarizePractice.jsp?gameId=" + document.getElementById("gameId").value
+                + "&categoryId=" + document.getElementById("categoryId").value
+                + "&score=" + document.getElementById("hiddenScore").value;
         clearInterval(Timer);
     }
 

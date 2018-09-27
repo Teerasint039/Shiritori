@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        
+
         <title>Practice Mode Game</title>
 
         <!-- Bootstrap core CSS -->
@@ -103,7 +103,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">                        
                                     <div class="modal-body">
-                                        <img src="Icon/popup<%=request.getAttribute("status")%>.png" id="popupimg" class="img-fluid"  alt="Responsive image" style="width: 30rem;">
+                                        <img src="Icon/popupcorrect.png" id="popupimg" class="img-fluid"  alt="Responsive image" style="width: 30rem;">
                                     </div>                               
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
 
-              
+
             </div>
         </div>
 
@@ -126,6 +126,28 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
         <script src="PracticeScript.js"></script> 
+
+<!--        <script language="javascript">
+            document.getElementById('note-textarea')=="";
+            console.log(document.getElementById('popupimg'))
+            if (document.getElementById('popupimg').src) {
+                console.log("SRCNAJA :");
+                let attribute = document.getElementById('popupimg').getAttribute("src");
+                console.log("Arr", attribute);
+            }
+//            window.alert(document.getElementById('note-textarea'));
+            if (document.getElementById('note-textarea') !== "") {
+                if (document.getElementById('popupimg').src !== "") {
+                    $(document).ready(function () {
+                        setTimeout(fnShowPopup, 500);            //code to show popup
+                    });
+                    function fnShowPopup() {
+                        document.getElementById('status').click();
+                    }
+                }
+            }
+
+        </script>-->
 
     </body>
 

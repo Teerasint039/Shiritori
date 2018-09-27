@@ -14,16 +14,18 @@ import java.util.List;
 public class TestMethod {
     public static void main(String[] args) {
         
-//        CategoryVocab cv = new CategoryVocab();
-////        System.out.println("21: "+cv.getVocabFromVACId(21));
-//        List<String> vocabs = cv.showAllVocabInCategory(4);
-//        for (String a : vocabs) {
-//            System.out.println(a.toString());
-//        }
+        CategoryVocab cv = new CategoryVocab();
+//        System.out.println("21: "+cv.getVocabFromVACId(21));
+        List<String> vocabs = cv.showAllVocabInCategory(4);
+        for (String a : vocabs) {
+            System.out.println(a.toString());
+        }
+        System.out.println("lenght: "+vocabs.size());
+        System.out.println("vocab 2: "+ vocabs.get(2));
         
-        PracticeModeResult pmr = new PracticeModeResult();
-        String status = pmr.checkAnswer("test","tEsT");
-        System.out.println("status: "+status);
+//        PracticeModeResult pmr = new PracticeModeResult();
+//        String status = pmr.checkAnswer("test","tEsT");
+//        System.out.println("status: "+status);
         
 //        System.out.println();
         
