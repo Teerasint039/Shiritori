@@ -41,14 +41,16 @@ public class PracticeCheckAnswerServlet extends HttpServlet {
         int time = Integer.parseInt(request.getParameter("time"));        
         String vocab = request.getParameter("vocab");
         String answer = request.getParameter("answer");
+        String status = request.getParameter("status");
         
         
-        PracticeModeResult pmr = new PracticeModeResult();
-        String status = pmr.checkAnswer(answer,vocab);
+//        PracticeModeResult pmr = new PracticeModeResult();
+//        String status = pmr.checkAnswer(answer,vocab);
+//        
+//        if (status.equalsIgnoreCase("correct")) {
+//            score += 1;
+//        }
         
-        if (status.equalsIgnoreCase("correct")) {
-            score += 1;
-        }
         System.out.println("status: "+status);
         System.out.println("score: "+score);
         

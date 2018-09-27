@@ -24,6 +24,7 @@ var notesList = $('ul#notes');
 var noteContent = '';
 var timeleft = document.getElementById('time').value ;
 var time = '';
+var status ='';
 // Get all notes from previous sessions and display them.
 var notes = getAllNotes();
 renderNotes(notes);
@@ -54,23 +55,36 @@ recognition.onresult = function (event) {
         noteContent = transcript;
         noteTextarea.val(noteContent);
     }
+    setTimeout(function(){
+        if (document.getElementById("hiddenVocab").value.toLowerCase() === noteContent.toLowerCase()) {
+            document.getElementById('image').src = "Icon/popupCorrect.png";
+            score = document.getElementById("hiddenScore").value + 1;
+            window.alert("vocab = answer!");
+            status = "Correct";
+        }else{
+            document.getElementById('image').src = "Icon/popupIncorrect.png";
+            score = document.getElementById("hiddenScore").value;
+            window.alert("vocab != answer!");
+            status = "Incorrect";
+        }    
+            $(document).ready(function () {
+            setTimeout(fnShowPopup, 500);
+        });
+        function fnShowPopup() {
+            document.getElementById('status').click();
+            //code to show popup
+        }
+        
+    },1000)
 
     
     clearInterval(Timer);
     time = timeleft;
-    window.alert("Vocab Gotta");
-////    
-//    window.alert("Vocab: "+document.getElementById("hiddenVocab").value);
-//    window.alert("score: "+document.getElementById("hiddenScore").value);
-//    window.alert("categoryId: "+document.getElementById("categoryId").value);
-//    window.alert("gameId: "+document.getElementById("gameId").value);
-//    window.alert("answer: "+noteContent);
-//    window.alert("time: "+time);
 
     setTimeout(function () {
-//        window.location.replace("TestFinishPracticeMode.jsp");
             window.location.replace("PracticeCheckAnswerServlet?vocab=" + document.getElementById("hiddenVocab").value
-                    + "&score=" + document.getElementById("hiddenScore").value
+                    + "&score=" + score
+                    + "&status=" + status
                     + "&categoryId="+ document.getElementById('categoryId').value 
                     + "&gameId="+ document.getElementById('gameId').value 
                     +"&answer="+noteContent

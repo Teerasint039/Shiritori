@@ -61,7 +61,7 @@ public class PracticeSendStatusServlet extends HttpServlet {
         request.setAttribute("status", status);
         request.setAttribute("vocab", gameVocabs[randomIndex]);
 
-        getServletContext().getRequestDispatcher("/PracticeMode.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

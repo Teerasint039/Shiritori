@@ -108,7 +108,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">                        
                                     <div class="modal-body">
-                                        <img src="Icon/popup<%=request.getAttribute("status")%>.png" class="img-fluid"  alt="Responsive image" style="width: 30rem;">
+                                        <img src="" class="img-fluid"  alt="Responsive image" style="width: 30rem;">
                                     </div>                               
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
         crossorigin="anonymous"></script>
         <script src="PracticeScript.js"></script> 
 
-        <script language="javascript">
+<!--        <script language="javascript">
         $(document).ready(function () {
             setTimeout(fnShowPopup, 500);
         });
@@ -139,7 +139,7 @@
             document.getElementById('status').click();
             //code to show popup
         }
-        </script>
+        </script>-->
 
     </body>
 
