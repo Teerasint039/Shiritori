@@ -55,6 +55,8 @@
                 <div class="row justify-content-center">
                     <h1 id="countdowntimer">3 </h1>
                     <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
+                    <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
+                    <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
                 </div>             
 
             </div>

@@ -22,6 +22,11 @@ public class TestMethod {
         }
         System.out.println("lenght: "+vocabs.size());
         System.out.println("vocab 2: "+ vocabs.get(2));
+        System.out.println("------------------");
+        List<Integer> vocabIds = cv.showAllVocabIdInCategory(4);
+        for (String a : vocabs) {
+            System.out.println(a.toString());
+        }
         
 //        PracticeModeResult pmr = new PracticeModeResult();
 //        String status = pmr.checkAnswer("test","tEsT");

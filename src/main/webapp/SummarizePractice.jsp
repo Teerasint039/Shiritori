@@ -45,14 +45,16 @@
                         </div>
                     </div>
                 </div>
+        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
                 <div class="row justify-content-md-center">
                     <div class="col">
-                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=<%=request.getParameter("categoryId")%>">
+                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=<%=request.getParameter("categoryId")%>&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; margin-right: 7%;  height: 5rem; border: 0;">
                             <img src="Icon/Reset.png" class="img-fluid" alt="Responsive image">                
                         </button>
                          </a>
-                        <a href ="Menu.jsp">
+                        <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; height: 5rem; border: 0;">
                         <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
                         </button>

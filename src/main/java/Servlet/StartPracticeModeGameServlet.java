@@ -33,8 +33,14 @@ public class StartPracticeModeGameServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("StartPracticeModeGameServlet");
         
-//        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        int categoryId = 1;
+        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        int userId = Integer.parseInt(request.getParameter("userid"));
+        String userName = request.getParameter("username");
+        
+        System.out.println("categoryId: "+categoryId);
+        System.out.println("userID: "+userId);
+        System.out.println("userName: "+ userName);
+//        int categoryId = 1;
         
         int gameId;
         PracticeModeGame smg = new PracticeModeGame();
@@ -42,6 +48,8 @@ public class StartPracticeModeGameServlet extends HttpServlet {
         
         request.setAttribute("gameId", gameId);
         request.setAttribute("categoryId", categoryId);
+        request.setAttribute("userid", userId);
+        request.setAttribute("username", userName);
         request.setAttribute("score", 0);
         request.setAttribute("time", 30);
        getServletContext().getRequestDispatcher("/RandomPracticeModeVocabServlet").forward(request, response);

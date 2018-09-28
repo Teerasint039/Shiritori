@@ -36,6 +36,8 @@ public class PracticeCheckAnswerServlet extends HttpServlet {
         
 //        int userId = (int) request.getAttribute("userId");
         int gameId = Integer.parseInt(request.getParameter("gameId"));
+        int userId = Integer.parseInt(request.getParameter("userid"));
+        String userName = request.getParameter("username");
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
         int score = Integer.parseInt(request.getParameter("score"));
         int time = Integer.parseInt(request.getParameter("time"));        
@@ -55,6 +57,8 @@ public class PracticeCheckAnswerServlet extends HttpServlet {
         System.out.println("score: "+score);
         
         request.setAttribute("gameId", gameId);
+        request.setAttribute("userid", userId);
+        request.setAttribute("username", userName);
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("vocab", vocab);
         request.setAttribute("score", score);

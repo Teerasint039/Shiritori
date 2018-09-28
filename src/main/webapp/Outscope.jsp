@@ -36,7 +36,9 @@
         </style>
     </head>
     <body onload="myFunction()">
-        <<input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
+        <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
+        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
         <input type="hidden" id="hiddenPchar" value="<%=request.getParameter("pchar")%>" />
         <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
@@ -72,6 +74,8 @@
                         window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenPchar').value
                                 + "&heart=" + document.getElementById("hiddenHeart").value
                                 + "&gameId=" + document.getElementById("hiddenGameId").value
+                                +"&userid=" + document.getElementById('userid').value
+                                +"&username=" + document.getElementById('username').value
                                 + "&previous=" + document.getElementById("hiddenPrevious").value
                                 + "&score=" + document.getElementById("hiddenScore").value;
                 }, 3000);

@@ -43,6 +43,8 @@ public class CheckAnswerServlet extends HttpServlet {
         int score = Integer.parseInt(request.getParameter("score"));
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int time = Integer.parseInt(request.getParameter("time"));
+        int userId = Integer.parseInt(request.getParameter("userid"));
+        String userName = request.getParameter("username");
         String previous = request.getParameter("previous");
         String status = request.getParameter("status");
         String lowCaseVocab = vocab.toLowerCase();
@@ -67,6 +69,8 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&heart=" + heart
                             + "&score=" + score
                             + "&gameId=" + gameId
+                            + "&userid=" + userId
+                            + "&username=" + userName
                             + "&time=" + time
                             + "&status=Repeat").forward(request, response); // status repeat
                 } else {
@@ -76,6 +80,8 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&heart=" + heart
                             + "&score=" + score
                             + "&gameId=" + gameId
+                            + "&userid=" + userId
+                            + "&username=" + userName
                             + "&time=" + time
                             + "&status" + status).forward(request, response);//status correct
                 }
@@ -86,6 +92,8 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&heart=" + heart
                             + "&score=" + score
                             + "&gameId=" + gameId
+                            + "&userid=" + userId
+                            + "&username=" + userName
                             + "&time=" + time
                             + "&status" + status).forward(request, response);//status correct
             }
@@ -95,6 +103,8 @@ public class CheckAnswerServlet extends HttpServlet {
                     + "&heart=" + heart
                     + "&score=" + score
                     + "&gameId=" + gameId
+                    + "&userid=" + userId
+                    + "&username=" + userName
                     + "&time=" + time).forward(request, response);
         }
 

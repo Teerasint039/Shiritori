@@ -34,12 +34,17 @@ public class GameOver extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         int gameId = Integer.parseInt(request.getParameter("gameId"));
+        int userId = Integer.parseInt(request.getParameter("userid"));
+        String userName = request.getParameter("username");
+        
         System.out.println("GameId in GameOver:"+gameId);
 //        int gameId = 1;
         Answer answer = new Answer();
         List<Answer> answers = answer.showAllAnswer(gameId);
         
         request.setAttribute("answers", answers);
+        request.setAttribute("userid", userId);
+        request.setAttribute("username", userName);
                     
         getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
         

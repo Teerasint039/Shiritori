@@ -55,13 +55,13 @@
                     <img src="Icon/header.png" class="img-fluid">
                 </div>
                 <div class="row justify-content-center">
-                    <a href="Menupractice.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Practice Mode</a>
+                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Level 1</a>
                 </div>
                 <div class="row justify-content-center">
-                    <a href="LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Single player</a>
+                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Level 2</a>
                 </div>
                 <div class="row justify-content-center">
-                    <a href="#" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Multi player</a>
+                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Level 3</a>
                 </div>
             </div>
 
@@ -75,7 +75,7 @@
                         Mode</a>
                 </div>
                 <div class="row justify-content-center">
-                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-warning border-white" style="margin-bottom: 2%; padding-top: 3%; color: #ffffff">Single
+                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-lg btn-warning border-white" style="margin-bottom: 2%; padding-top: 3%; color: #ffffff">Single
                         player</a>
                 </div>
                 <div class="row justify-content-center">

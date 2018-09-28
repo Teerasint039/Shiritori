@@ -5,11 +5,9 @@
  */
 package Servlet;
 
-import Model.CategoryVocab;
-import Model.Vocab;
+import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class RandomPracticeModeVocabServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,46 +31,29 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("Random servlet!");
         
-        int categoryId = (int)request.getAttribute("categoryId");        
-        int gameId = (int)request.getAttribute("gameId");         
-        int userId = (int)request.getAttribute("userid");         
-        String userName = (String) request.getAttribute("username"); 
-        int score = (int)request.getAttribute("score");
-        int time = (int) request.getAttribute("time");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         
+        int userId;
         
-//            int userId = 1;
-
-            CategoryVocab cv = new CategoryVocab();
-            List<String> vocabs = cv.showAllVocabInCategory(categoryId);
-            
-            String gameVocabs[] = {"bear","bird","buffalo","butterfly","camel","cat","chicken","cock","cow","crab","crocodile","deer","dog","dolphin","duck"};
-            int randomIndex = (int)(Math.random() * (gameVocabs.length-1) + 0);
-            
-            request.setAttribute("category", "animal");
-            request.setAttribute("categoryId", categoryId);
-            request.setAttribute("gameId", gameId);
+        System.out.println("username: "+username);
+        System.out.println("password: "+password);
+        
+        User user = new User();
+        userId = user.login(username, password);
+        System.out.println("userId: "+userId);
+        
+        if (userId != -1) {
+            request.setAttribute("username", username);
             request.setAttribute("userid", userId);
-            request.setAttribute("username", userName);
-            request.setAttribute("score", score);
-            request.setAttribute("vocab", gameVocabs[randomIndex]);
-                    
-            
-            getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
-            
-//            if (time != 30) {
-//            String status = (String) request.getAttribute("status");
-//                if (status != null) {
-//                    getServletContext().getRequestDispatcher("/PracticeMode.jsp").forward(request, response);
-//                }else if (status == null) {
-//                    getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
-//                }
-//            }
-
-            
-
+        
+            getServletContext().getRequestDispatcher("/Menu.jsp?userid="+userId+"&username="+username).forward(request, response); //login pass
+        }else{
+            getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); // login fail
+        }
+        
+        
         
     }
 

@@ -58,21 +58,21 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <button type="button" class="btn btn-light rounded " style="width: 25rem;">
-                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=3">
+                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=3&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                                         <img src="Icon/Fruits.png" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
                                 <div class="carousel-item">
                                     <button type="button" class="btn btn-light rounded" style="width: 25rem;">
-                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=1">
+                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=1&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                                         <img src="Icon/Animals.png" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
                                 <div class="carousel-item">
                                     <button type="button" class="btn btn-light rounded" style="width: 25rem;">
-                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=2">
+                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=2&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                                         <img src="Icon/sports.png" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>

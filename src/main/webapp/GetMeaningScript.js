@@ -10,7 +10,9 @@ var Timer = setInterval(function () {
                 + "&gameId="+document.getElementById('hiddenGameId').value 
                 + "&time="+document.getElementById('hiddenTime').value  
                 + "&vocab="+document.getElementById('hiddenVocab').value  
-                + "&status="+document.getElementById('hiddenStatus').value ) ;
+                + "&status="+document.getElementById('hiddenStatus').value 
+                    + "&userid="+ document.getElementById('userid').value 
+                    + "&username="+ document.getElementById('username').value) ;
         clearInterval(Timer);
     }
 }, 1000);

@@ -62,10 +62,11 @@ public class User {
         boolean login = false;
         User user = null;
         int id = -1;
+        System.out.println("in login method");
 
         try {
             Connection conn = Connectionbuilder.connect();
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE UserName = '" + userName + "'");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE UserName = '" + username + "';");
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
@@ -74,6 +75,7 @@ public class User {
             if (password.equals(user.getPassword())) {
                 login = true;
                 id = user.getUserId();
+                System.out.println("UserID(): "+user.getUserId());
             }
             rs.close();
             pstm.close();
@@ -83,6 +85,7 @@ public class User {
         }
         return id;
     }
+  
 
     public void addUser(String userName, String password) {
         User user = null;
@@ -122,6 +125,30 @@ public class User {
 
         }
         return user;
+    }
+    
+    public boolean checkUserNameAvailable(String username) {
+        boolean available = false;
+        String userName = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE UserName = '" + username + "'");
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                userName = rs.getString("UserName");
+            }
+            if (userName == null) {
+                available = true;
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }
+        return available;
     }
 
     @Override

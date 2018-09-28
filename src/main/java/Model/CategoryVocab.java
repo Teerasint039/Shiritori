@@ -19,7 +19,6 @@ import java.util.logging.Logger;
  * @author Teerasint
  */
 public class CategoryVocab {
-    private int catVocabId;
     private int categoryId;
     private int vocabId;
 
@@ -29,14 +28,6 @@ public class CategoryVocab {
     }
 
     public CategoryVocab() {
-    }
-
-    public int getCatVocabId() {
-        return catVocabId;
-    }
-
-    public void setCatVocabId(int catVocabId) {
-        this.catVocabId = catVocabId;
     }
 
     public int getCategoryId() {
@@ -71,26 +62,6 @@ public class CategoryVocab {
         }
     }
     
-//    public void addVocabToUserCategory(int categoryId, int vocabId){
-//        CategoryVocab cv = null;
-//        try {
-//            Connection conn = Connectionbuilder.connect();
-//            String query = " insert into Vocab_User_Category (UCId, VocabId)"
-//                    + " values (?, ?)";
-//
-//            // create the mysql insert preparedstatement
-//            PreparedStatement preparedStmt = conn.prepareStatement(query);
-//            preparedStmt.setInt(1, categoryId);
-//            preparedStmt.setInt(2, vocabId);
-//
-//            // execute the preparedstatement
-//            preparedStmt.execute();
-//
-//            conn.close();
-//        } catch (Exception e) {
-//        }
-//    }
-    
     public List<String> showAllVocabInCategory(int categoryId){ //return to list of set (VACId,vocab)
         String vocab = null;
         List<String> vocabs = null;
@@ -121,43 +92,41 @@ public class CategoryVocab {
         return vocabs;
     }
     
-//    public List<Vocab> showAlivedVocabInGame(int categoryId, int gameId){
-//        Vocab vocab = null;
-//        List<Vocab> vocabs = null;
-//        try {
-//            Connection conn = Connectionbuilder.connect();        
-//            try {
-//                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE vocabId IN ( SELECT vocabId FROM `Vocab_Admin_Category` WHERE ACId = '" 
-//                                                                + categoryId + "' AND VACId NOT IN ( SELECT VACId FROM `PracticeMode_Vocab` WHERE gameId = '" 
-//                                                                + gameId + "'));");                
-//                ResultSet rs = pstm.executeQuery();
-//                while (rs.next()) {
-//                    vocab = new Vocab(rs);
-//                    if (vocabs == null) {
-//                        vocabs = new ArrayList();
-//                    }
-//                    vocabs.add(vocab);
-//                }
-//                rs.close();
-//                pstm.close();
-//                conn.close();
-//            } catch (Exception ex) {
-//                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-//            }        
-//        
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return vocabs;
-//    }
+    public List<Integer> showAllVocabIdInCategory(int categoryId){ 
+        int id;
+        List<Integer> vocabIds = null;
+        try {
+            Connection conn = Connectionbuilder.connect();        
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT vocabId FROM `Vocab_Admin_Category` WHERE ACId = '" + categoryId + "';");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    id = rs.getInt("vocabId");
+                    if (vocabIds == null) {
+                        vocabIds = new ArrayList();
+                    }
+                    vocabIds.add(id);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }        
+        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return vocabIds;
+    }
     
     public void editVocabInCategory(int vocabId, int categoryId, int old_vocabId, int old_categoryId,String user) {
         try {
             Connection conn = Connectionbuilder.connect();
             if (user.equalsIgnoreCase("admin")) {
-                PreparedStatement pstmu = conn.prepareStatement("UPDATE Vocab_Admin_Category SET VACId = '" + vocabId + "', ACId = '" + categoryId + "' WHERE VACId='" + old_vocabId + "' AND ACId ='" + old_categoryId + "';");
+                PreparedStatement pstmu = conn.prepareStatement("UPDATE Vocab_Admin_Category SET VocabId = '" + vocabId + "', ACId = '" + categoryId + "' WHERE VACId='" + old_vocabId + "' AND ACId ='" + old_categoryId + "';");
             int rsu = pstmu.executeUpdate();
             pstmu.close();
             conn.close();

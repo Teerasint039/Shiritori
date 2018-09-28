@@ -159,7 +159,7 @@ public class Vocab {
 
         try {
             Connection conn = Connectionbuilder.connect();
-            PreparedStatement pstm = conn.prepareStatement("SELECT vocab FROM `Vocab` WHERE Vocab = '" + vocabId + "'");
+            PreparedStatement pstm = conn.prepareStatement("SELECT vocab FROM `Vocab` WHERE Vocab = '" + vocabId + "';");
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
@@ -223,6 +223,39 @@ public class Vocab {
 
             try {
                 PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab`");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    vocab = new Vocab(rs);
+                    if (vocabs == null) {
+                        vocabs = new ArrayList();
+                    }
+                    vocabs.add(vocab);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return vocabs;
+    }
+    
+    public static List<Vocab> showAllVocabDetailLevel(int level) {
+
+        List<Vocab> vocabs = null;
+        Vocab vocab = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE Level = '"+level+"';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     vocab = new Vocab(rs);

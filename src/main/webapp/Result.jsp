@@ -48,6 +48,9 @@
         <header>
             <div class="container">
                 <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
+                
+        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
 
                 <nav class="site-nav">
                     <ul>
@@ -115,10 +118,10 @@
 
                     <div class="row text-center">
                         <div class="col-6">
-                            <a href="${pageContext.request.contextPath}/StartPage.jsp" class="btn btn-primary">Play Again</a>
+                            <a href="${pageContext.request.contextPath}/StartPage.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-primary">Play Again</a>
                         </div>
                         <div class="col-6">
-                            <a href="${pageContext.request.contextPath}/Menu.jsp" class="btn btn-primary">Menu</a>
+                            <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-primary">Menu</a>
                         </div>
                     </div>
                 </div>

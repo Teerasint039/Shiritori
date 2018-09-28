@@ -36,6 +36,8 @@
     <body class="text-center">
         <!-- main -->
         <input type="hidden" id="gameId" value="<%=request.getAttribute("gameId")%>" />
+        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
         <input type="hidden" id="time" value="<%=request.getAttribute("time")%>" />
         <input type="hidden" id="hiddenVocab" value="<%=request.getAttribute("vocab")%>" />
@@ -67,7 +69,10 @@
                 <div class="row justify-content-md-center">
                     <div class="col-md-auto" style="color: white; margin-top: 2%;"> 
                         <p class="text-center">
-                        <h2><%=request.getAttribute("vocab")%>:</h2>
+                            <h2><%=request.getAttribute("vocab")%>:</h2>
+                        </p>
+                        <p>
+                            <input onclick="responsiveVoice.speak('<%=request.getAttribute("vocab")%>');" type="button" value="Listen" />
                         </p>
                     </div>
 
@@ -125,6 +130,7 @@
         crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+        <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
         <script src="PracticeScript.js"></script> 
 
 <!--        <script language="javascript">

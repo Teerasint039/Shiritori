@@ -41,6 +41,8 @@ public class CheckScopeServlet extends HttpServlet {
         int heart = Integer.parseInt(request.getParameter("heart"));
         int score = Integer.parseInt(request.getParameter("score"));
         int gameId = Integer.parseInt(request.getParameter("gameId"));
+        int userId = Integer.parseInt(request.getParameter("userid"));
+        String userName = request.getParameter("username");
         String status = request.getParameter("status");
         int time = Integer.parseInt(request.getParameter("time"));
         String previous = request.getParameter("previous");

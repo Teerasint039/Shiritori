@@ -106,6 +106,8 @@ recognition.onresult = function (event) {
                 + "&status=" + status
                 + "&categoryId=" + document.getElementById('categoryId').value
                 + "&gameId=" + document.getElementById('gameId').value
+                +"&userid=" + document.getElementById('userid').value
+                +"&username=" + document.getElementById('username').value
                 + "&answer=" + noteContent
                 + "&time=" + time);
 
@@ -212,6 +214,8 @@ var Timer = setInterval(function () {
 
         window.location.href = "SummarizePractice.jsp?gameId=" + document.getElementById("gameId").value
                 + "&categoryId=" + document.getElementById("categoryId").value
+                        +"&userid=" + document.getElementById('userid').value
+                        +"&username=" + document.getElementById('username').value
                 + "&score=" + document.getElementById("hiddenScore").value;
         clearInterval(Timer);
     }

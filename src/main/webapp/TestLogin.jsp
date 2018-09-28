@@ -1,6 +1,6 @@
 <%-- 
-    Document   : TestFinishPracticeMode
-    Created on : Sep 27, 2018, 3:11:59 PM
+    Document   : TestLogin
+    Created on : Sep 28, 2018, 5:44:20 PM
     Author     : Teerasint
 --%>
 
@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Practice Mode Finish!</h1>
-        
+        <h1>userid=<%=request.getAttribute("userid")%>
+            username=<%=request.getAttribute("username")%></h1>
     </body>
 </html>

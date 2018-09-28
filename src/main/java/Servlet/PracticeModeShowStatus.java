@@ -37,6 +37,8 @@ public class PracticeModeShowStatus extends HttpServlet {
 
         int categoryId = (int) request.getAttribute("categoryId");
         int gameId = (int) request.getAttribute("gameId");
+        int userId = Integer.parseInt(request.getParameter("userid"));
+        String userName = request.getParameter("username");
         int score = (int) request.getAttribute("score");
         int time = (int) request.getAttribute("time");
         String vocab = (String) request.getAttribute("vocab");
@@ -45,7 +47,7 @@ public class PracticeModeShowStatus extends HttpServlet {
         // send status to practice mode page
         //collect data to  //letVACId = 1 //mock up
         PracticeModeResult pmr = new PracticeModeResult();
-        pmr.addAnswer(status, 1, vocab, gameId);
+        pmr.addAnswer(status, userId, vocab, gameId);
         
         CategoryVocab cv = new CategoryVocab();
         List<String> vocabs = cv.showAllVocabInCategory(categoryId);
@@ -56,6 +58,8 @@ public class PracticeModeShowStatus extends HttpServlet {
         request.setAttribute("category", "animal");
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("gameId", gameId);
+        request.setAttribute("userid", userId);
+        request.setAttribute("username", userName);
         request.setAttribute("score", score);
         request.setAttribute("status", status);
         request.setAttribute("vocab", gameVocabs[randomIndex]);
