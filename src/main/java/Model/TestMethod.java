@@ -14,18 +14,27 @@ import java.util.List;
 public class TestMethod {
     public static void main(String[] args) {
         
-        CategoryVocab cv = new CategoryVocab();
-//        System.out.println("21: "+cv.getVocabFromVACId(21));
-        List<String> vocabs = cv.showAllVocabInCategory(4);
-        for (String a : vocabs) {
-            System.out.println(a.toString());
-        }
-        System.out.println("lenght: "+vocabs.size());
-        System.out.println("vocab 2: "+ vocabs.get(2));
-        System.out.println("------------------");
-        List<Integer> vocabIds = cv.showAllVocabIdInCategory(4);
-        for (String a : vocabs) {
-            System.out.println(a.toString());
+//        CategoryVocab cv = new CategoryVocab();
+////        System.out.println("21: "+cv.getVocabFromVACId(21));
+//        List<String> vocabs = cv.showAllVocabInCategory(4);
+//        for (String a : vocabs) {
+//            System.out.println(a.toString());
+//        }
+//        System.out.println("lenght: "+vocabs.size());
+//        System.out.println("vocab 2: "+ vocabs.get(2));
+//        System.out.println("------------------");
+//        List<Integer> vocabIds = cv.showAllVocabIdInCategory(4);
+//        for (String a : vocabs) {
+//            System.out.println(a.toString());
+//        }
+        
+        Vocab vocab = new Vocab();
+        List<Vocab> vocabs = vocab.showAllVocabDetailLevel(1);
+        for (Vocab a : vocabs) {
+            System.out.print("VocabId: "+a.getVocabId());
+            System.out.print("Vocab: "+a.getVocab());
+            System.out.print("Part of Speech: "+a.getPartofSpeech());
+            System.out.println("Meaning: "+a.getMeaning());
         }
         
 //        PracticeModeResult pmr = new PracticeModeResult();

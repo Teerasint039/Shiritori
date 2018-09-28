@@ -1,5 +1,5 @@
+<%@page import="Model.Vocab"%>
 <%@page import="java.util.List"%>
-<%@page import="Model.Answer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -48,9 +48,9 @@
         <header>
             <div class="container">
                 <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
-                
-        <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
+
+                <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
+                <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
 
                 <nav class="site-nav">
                     <ul>
@@ -75,8 +75,8 @@
                         </div>
                     </div>
                     <%
-                        List<Answer> answers = (List) request.getAttribute("answers");
-                        if (answers != null) {
+                        List<Vocab> vocabs = (List) request.getAttribute("vocabs");
+                        if (vocabs != null) {
                     %>
                     <div class="row text-center">                  
                         <div class="col">
@@ -85,55 +85,48 @@
                                     <div class="row justify-content-between">
                                         <table>
                                             <tr>
-                                                <td>Vocab</td><td>Result</td>
+                                                <td>VocabId</td><td>Vocab</td><td>Part of Speech</td><td>Meaning</td>
                                             </tr>
                                             <tr>
                                                 <td> </td><td> </td>
                                             </tr>
-                                        <%
-                                            for (Answer a : answers) {
-                                                if (a.getStatus().equalsIgnoreCase("correct")) {
-                                        %>
-                                        <tr>
-                                        <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
-                                        <td><div class="col"><h5><%=a.getUsedTime()%></h5></div></td>
-                                        </tr>
-                                                <%  } else {
-                                                %>
-                                                <tr>
-                                                    <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
-                                                    <td><div class="col"><h5><%=a.getStatus()%></h5></div></td>
-                                        </tr>
-                                        <hr>
-                                                <%}
-                                                }
-                                            } else {
-                                            }%>
+                                            <%
+                                                for (Vocab a : vocabs) {
+                                            %>
+                                            <tr>
+                                                <td><div class="col"><h5><%=a.getVocabId()%></h5></div></td>
+                                                <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
+                                                <td><div class="col"><h5><%=a.getPartofSpeech()%></h5></div></td>
+                                                <td><div class="col"><h5><%=a.getMeaning()%></h5></div></td>
+                                            </tr>
+                                            <hr>
+                                            <%}
+                                              }%>
+                                            </div>
+                                        </table>
                                     </div>
-                                                </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row text-center">
-                        <div class="col-6">
-                            <a href="${pageContext.request.contextPath}/StartPage.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-primary">Play Again</a>
-                        </div>
-                        <div class="col-6">
-                            <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-primary">Menu</a>
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <a href="${pageContext.request.contextPath}/StartPage.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-primary">Play Again</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-primary">Menu</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
 
 
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="MenuScript.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="MenuScript.js"></script>
     </body>
 </html>

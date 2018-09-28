@@ -44,6 +44,7 @@ public class CheckAnswerServlet extends HttpServlet {
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int time = Integer.parseInt(request.getParameter("time"));
         int userId = Integer.parseInt(request.getParameter("userid"));
+        int level = Integer.parseInt(request.getParameter("level"));
         String userName = request.getParameter("username");
         String previous = request.getParameter("previous");
         String status = request.getParameter("status");
@@ -52,7 +53,7 @@ public class CheckAnswerServlet extends HttpServlet {
         Answer answer = new Answer();
         List<String> ansVocabs = answer.showAnswerVocabs(gameId); //มันมีเคสที่ไม่มีคำศัพท์เลย
         Vocab vocabulary = new Vocab();
-        List<String> vocabs = vocabulary.showAllVocab();
+        List<String> vocabs = vocabulary.showAllVocabLevel(level);
 
         /**
          * Check In Scope

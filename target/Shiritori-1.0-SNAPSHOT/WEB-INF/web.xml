@@ -60,6 +60,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>Servlet.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetVocabServlet</servlet-name>
+        <servlet-class>Servlet.GetVocabServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/TestServlet</url-pattern>
@@ -115,6 +119,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetVocabServlet</servlet-name>
+        <url-pattern>/GetVocabServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

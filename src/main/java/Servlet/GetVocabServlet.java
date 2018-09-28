@@ -5,9 +5,11 @@
  */
 package Servlet;
 
-import Model.SingleModeGame;
+import Model.Answer;
+import Model.Vocab;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class StartSingleModeGameServlet extends HttpServlet {
+public class GetVocabServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,27 +33,19 @@ public class StartSingleModeGameServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        int level = Integer.parseInt(request.getParameter("level"));
+        int userId = Integer.parseInt(request.getParameter("userid"));
+        String userName = request.getParameter("username");
         
-        int gameId;
-        int userId;
-        int level;
-        String userName;
-        SingleModeGame smg = new SingleModeGame();
-        gameId = smg.newGame(1);
-        userId = Integer.parseInt(request.getParameter("userid"));
-        level = Integer.parseInt(request.getParameter("level"));
-        userName = request.getParameter("username");
+        Vocab vocab = new Vocab();
+        List<Vocab> vocabs = vocab.showAllVocabDetailLevel(level);
+        System.out.println("get vocab servlet here!");
         
-        System.out.println("userId: "+userId);
-        System.out.println("UserName: "+userName);
-        
-        
-        request.setAttribute("gameId", gameId);
+        request.setAttribute("vocabs", vocabs);
         request.setAttribute("userid", userId);
-        request.setAttribute("level", level);
         request.setAttribute("username", userName);
-       getServletContext().getRequestDispatcher("/StartPage.jsp").forward(request, response);
-        
+                    
+        getServletContext().getRequestDispatcher("/ShowVocab.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

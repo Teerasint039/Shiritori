@@ -24,16 +24,16 @@ public class Vocab {
     private int vocabId;
     private String vocab;
     private String meaning;
-    private String pronunciation;
+    private String partofSpeech;
     private int level;
 
     public Vocab() {
     }
 
-    public Vocab(String vocab, String meaning, String pronunciation) {
+    public Vocab(String vocab, String meaning, String partofSpeech) {
         this.vocab = vocab;
         this.meaning = meaning;
-        this.pronunciation = pronunciation;
+        this.partofSpeech = partofSpeech;
     }
 
     public int getLevel() {
@@ -44,11 +44,11 @@ public class Vocab {
         this.level = level;
     }
 
-    public Vocab(int vocabId, String vocab, String meaning, String pronunciation, int level) {
+    public Vocab(int vocabId, String vocab, String meaning, String partofSpeech, int level) {
         this.vocabId = vocabId;
         this.vocab = vocab;
         this.meaning = meaning;
-        this.pronunciation = pronunciation;
+        this.partofSpeech = partofSpeech;
         this.level = level;
     }
 
@@ -56,7 +56,7 @@ public class Vocab {
         vocabId = rs.getInt("VocabId");
         vocab = rs.getString("Vocab");
         meaning = rs.getString("Meaning");
-        pronunciation = rs.getString("PartsofSpeech");
+        partofSpeech = rs.getString("PartsofSpeech");
         level = rs.getInt("Level");
     }
 
@@ -84,28 +84,28 @@ public class Vocab {
         this.meaning = meaning;
     }
 
-    public String getPronunciation() {
-        return pronunciation;
+    public String getPartofSpeech() {
+        return partofSpeech;
     }
 
-    public void setPronunciation(String pronunciation) {
-        this.pronunciation = pronunciation;
+    public void setPartofSpeech(String partofSpeech) {
+        this.partofSpeech = partofSpeech;
     }
 
-    public void addVocab(String vocab, String meaning, String pronunciation, int level) {
+    public void addVocab(String vocab, String meaning, String partofSpeech, int level) {
 
         Vocab vocabs = new Vocab();
 
         try {
             Connection conn = Connectionbuilder.connect();
-            String query = " insert into Vocab (Vocab, Meaning, Pronunciation, Level)"
+            String query = " insert into Vocab (Vocab, Meaning, PartofSpeech, Level)"
                     + " values (?, ?, ?, ?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, vocab);
             preparedStmt.setString(2, meaning);
-            preparedStmt.setString(3, pronunciation);
+            preparedStmt.setString(3, partofSpeech);
             preparedStmt.setInt(4, level);
 
             // execute the preparedstatement
@@ -117,11 +117,11 @@ public class Vocab {
 
     }
 
-    public void editVocab(int vocabId, String vocab, String meaning, String pronunciation, int level) {
+    public void editVocab(int vocabId, String vocab, String meaning, String partofSpeech, int level) {
         try {
             Connection conn = Connectionbuilder.connect();
 
-            PreparedStatement pstmu = conn.prepareStatement("UPDATE Vocab SET Vocab = '" + vocab + "', Meaning = '" + meaning + "', Pronunciation ='" + pronunciation + "', Level ='" + level + "' WHERE VocabId='" + vocabId + "';");
+            PreparedStatement pstmu = conn.prepareStatement("UPDATE Vocab SET Vocab = '" + vocab + "', Meaning = '" + meaning + "', PartofSpeech ='" + partofSpeech + "', Level ='" + level + "' WHERE VocabId='" + vocabId + "';");
             int rsu = pstmu.executeUpdate();
             pstmu.close();
             conn.close();
@@ -190,6 +190,38 @@ public class Vocab {
 
             try {
                 PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `Vocab`;");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    vocab = rs.getString("Vocab");
+                    if (vocabs == null) {
+                        vocabs = new ArrayList();
+                    }
+                    vocabs.add(vocab);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return vocabs;
+    }
+    
+    public List<String> showAllVocabLevel(int level){
+        List<String> vocabs = null;
+        String vocab = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `Vocab` WHERE Level = '"+level+"';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     vocab = rs.getString("Vocab");
@@ -300,7 +332,7 @@ public class Vocab {
 
     @Override
     public String toString() {
-        return "Vocab{" + "vocabId=" + vocabId + ", vocab=" + vocab + ", meaning=" + meaning + ", pronunciation=" + pronunciation + '}';
+        return "Vocab{" + "vocabId=" + vocabId + ", vocab=" + vocab + ", meaning=" + meaning + ", partofSpeech=" + partofSpeech + '}';
     }
 
 }
