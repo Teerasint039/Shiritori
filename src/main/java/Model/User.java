@@ -58,9 +58,10 @@ public class User {
         this.password = password;
     }
 
-    public boolean login(String username, String password) {
+    public int login(String username, String password) {
         boolean login = false;
         User user = null;
+        int id = -1;
 
         try {
             Connection conn = Connectionbuilder.connect();
@@ -72,6 +73,7 @@ public class User {
             }
             if (password.equals(user.getPassword())) {
                 login = true;
+                id = user.getUserId();
             }
             rs.close();
             pstm.close();
@@ -79,7 +81,7 @@ public class User {
         } catch (Exception ex) {
 
         }
-        return login;
+        return id;
     }
 
     public void addUser(String userName, String password) {

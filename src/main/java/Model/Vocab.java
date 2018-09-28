@@ -25,6 +25,7 @@ public class Vocab {
     private String vocab;
     private String meaning;
     private String pronunciation;
+    private int level;
 
     public Vocab() {
     }
@@ -35,11 +36,28 @@ public class Vocab {
         this.pronunciation = pronunciation;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public Vocab(int vocabId, String vocab, String meaning, String pronunciation, int level) {
+        this.vocabId = vocabId;
+        this.vocab = vocab;
+        this.meaning = meaning;
+        this.pronunciation = pronunciation;
+        this.level = level;
+    }
+
     public Vocab(ResultSet rs) throws SQLException {
         vocabId = rs.getInt("VocabId");
         vocab = rs.getString("Vocab");
         meaning = rs.getString("Meaning");
         pronunciation = rs.getString("PartsofSpeech");
+        level = rs.getInt("Level");
     }
 
     public String getVocab() {
@@ -74,20 +92,21 @@ public class Vocab {
         this.pronunciation = pronunciation;
     }
 
-    public void addVocab(String vocab, String meaning, String pronunciation) {
+    public void addVocab(String vocab, String meaning, String pronunciation, int level) {
 
         Vocab vocabs = new Vocab();
 
         try {
             Connection conn = Connectionbuilder.connect();
-            String query = " insert into Vocab (Vocab, Meaning, Pronunciation)"
-                    + " values (?, ?, ?)";
+            String query = " insert into Vocab (Vocab, Meaning, Pronunciation, Level)"
+                    + " values (?, ?, ?, ?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, vocab);
             preparedStmt.setString(2, meaning);
             preparedStmt.setString(3, pronunciation);
+            preparedStmt.setInt(4, level);
 
             // execute the preparedstatement
             preparedStmt.execute();
@@ -98,11 +117,11 @@ public class Vocab {
 
     }
 
-    public void editVocab(int vocabId, String vocab, String meaning, String pronunciation) {
+    public void editVocab(int vocabId, String vocab, String meaning, String pronunciation, int level) {
         try {
             Connection conn = Connectionbuilder.connect();
 
-            PreparedStatement pstmu = conn.prepareStatement("UPDATE Vocab SET Vocab = '" + vocab + "', Meaning = '" + meaning + "', Pronunciation ='" + pronunciation + "' WHERE VocabId='" + vocabId + "';");
+            PreparedStatement pstmu = conn.prepareStatement("UPDATE Vocab SET Vocab = '" + vocab + "', Meaning = '" + meaning + "', Pronunciation ='" + pronunciation + "', Level ='" + level + "' WHERE VocabId='" + vocabId + "';");
             int rsu = pstmu.executeUpdate();
             pstmu.close();
             conn.close();
