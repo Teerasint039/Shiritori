@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import Model.Category;
 import Model.CategoryVocab;
 import Model.Vocab;
 import java.io.IOException;
@@ -34,34 +35,43 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("Random servlet!");
-        
-        int categoryId = (int)request.getAttribute("categoryId");        
-        int gameId = (int)request.getAttribute("gameId");         
-        int userId = (int)request.getAttribute("userid");         
-        String userName = (String) request.getAttribute("username"); 
-        int score = (int)request.getAttribute("score");
-        int time = (int) request.getAttribute("time");
-        
-        
-//            int userId = 1;
 
-            CategoryVocab cv = new CategoryVocab();
-            List<String> vocabs = cv.showAllVocabInCategory(categoryId);
-            
-            String gameVocabs[] = {"bear","bird","buffalo","butterfly","camel","cat","chicken","cock","cow","crab","crocodile","deer","dog","dolphin","duck"};
-            int randomIndex = (int)(Math.random() * (gameVocabs.length-1) + 0);
-            
-            request.setAttribute("category", "animal");
-            request.setAttribute("categoryId", categoryId);
-            request.setAttribute("gameId", gameId);
-            request.setAttribute("userid", userId);
-            request.setAttribute("username", userName);
-            request.setAttribute("score", score);
-            request.setAttribute("vocab", gameVocabs[randomIndex]);
-                    
-            
-            getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
-            
+        int categoryId = (int) request.getAttribute("categoryId");
+        int gameId = (int) request.getAttribute("gameId");
+        int userId = (int) request.getAttribute("userid");
+        String userName = (String) request.getAttribute("username");
+        int score = (int) request.getAttribute("score");
+        int time = (int) request.getAttribute("time");
+
+//            int userId = 1;
+        CategoryVocab cv = new CategoryVocab();
+        Vocab vocab = new Vocab();
+        Category category = new Category();
+//        List<String> vocabs = cv.showAllVocabInCategory(categoryId);
+        
+
+        List<Integer> vocabIds = cv.showAllVocabIdInCategory(categoryId);
+//        for (int a : vocabIds) {
+//            System.out.println(a);
+//            System.out.println(vocab.getVocabFromId(a));
+//        }
+
+//        String gameVocabs[] = {"bear", "bird", "buffalo", "butterfly", "camel", "cat", "chicken", "cock", "cow", "crab", "crocodile", "deer", "dog", "dolphin", "duck"};
+        int randomIndex = (int) (Math.random() * (vocabIds.size() - 1) + 0);
+        System.out.println("category: "+category.getCategoryNamebyId(categoryId));
+        System.out.println("categoryId: "+ categoryId);
+        System.out.println("vocab: "+vocab.getVocabFromId(vocabIds.get(randomIndex)));
+
+        request.setAttribute("category", category.getCategoryNamebyId(categoryId));
+        request.setAttribute("categoryId", categoryId);
+        request.setAttribute("gameId", gameId);
+        request.setAttribute("userid", userId);
+        request.setAttribute("username", userName);
+        request.setAttribute("score", score);
+        request.setAttribute("vocab", vocab.getVocabFromId(vocabIds.get(randomIndex)));
+
+        getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
+
 //            if (time != 30) {
 //            String status = (String) request.getAttribute("status");
 //                if (status != null) {
@@ -70,10 +80,6 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
 //                    getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
 //                }
 //            }
-
-            
-
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
