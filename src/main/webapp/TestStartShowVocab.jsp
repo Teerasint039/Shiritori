@@ -16,7 +16,7 @@
         <script>
                 function myFunction() {
                     setTimeout(function(){
-                        window.location.href = "GetVocabServlet?level=1&userid=1&username=new";
+                        window.location.href = "GetVocabServlet?level=2&userid=1&username=new";
                     },2000);
                 }
         </script> 

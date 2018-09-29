@@ -329,6 +329,25 @@ public class Vocab {
         }
         return vocab;
     }
+    
+    public int getVocabIdFromVocab(String vocab){
+        int vocabid;
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT VocabId FROM `Vocab` WHERE Vocab = '" + vocab + "'");
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                vocabId = rs.getInt("VocabId");
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }
+        return vocabId;
+    }
 
     @Override
     public String toString() {

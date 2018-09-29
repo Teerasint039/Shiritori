@@ -52,7 +52,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("username", username);
             request.setAttribute("userid", userId);
         
-            getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response); //register success
+            getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); //register success
         }else{
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); // register fail
         }
