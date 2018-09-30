@@ -56,6 +56,8 @@
 
     </head>
     <body class="text-center">
+        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-centerj">
                 <div class="col">
@@ -112,10 +114,10 @@
 
                                     <div class="row text-center">
                                         <div class="col-6">
-                                            <a href="${pageContext.request.contextPath}/StartPage.jsp" class="btn btn-primary">Play Again</a>
+                                            <a href="${pageContext.request.contextPath}/LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-primary">Play Again</a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="${pageContext.request.contextPath}/Menu.jsp" class="btn btn-primary">Menu</a>
+                                            <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-primary">Menu</a>
                                         </div>
                                     </div>
                                 </div>

@@ -59,7 +59,8 @@
                     window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value
                             + "&level=" + document.getElementById('level').value
                             + "&userid=" + document.getElementById('userid').value
-                            + "&username=" + document.getElementById('username').value;
+                            + "&username=" + document.getElementById('username').value
+                            + "&score=" + document.getElementById("hiddenScore").value;;
                 } else
                     window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
                             + "&heart=" + heart

@@ -1,150 +1,129 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" import="java.io.*"%>
 <!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="MenuStyles.css">
-    <title>Voice Controlled Notes App</title>
+        <title>Shiritori Game</title>
 
-    <style>
-        .logomenu{
-            color: #FFFFFF;
-        }
-        #div1 {
-            font-size:48px;
-        }
-        .jumbotron{
-            margin-top: 8%;
-            margin-left: 15%;
-            margin-right: 15%;
-            margin-bottom: 5%;
-            border-radius:10px;
-        }
-        .boxtext{
-            border-color: #E54B4B;
-        }
-    </style>
-</head>
-<body>
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
 
-    <header >
-        <div class="container ">
-            <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
+        <style>
+            html, body{
+                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                font-family: "Montserrat";
+            }
+            #note-textarea {
+                width: 76%;
+                margin-top: 1%;
+                padding-top: 4%;
+                box-sizing: border-box;
+                border-radius: 5px;
+                font-size: 40px;
+                resize: none;
+                color: black;
+                font-family: "Montserrat ExtraBold";
+            }
 
-            <nav class="site-nav ">
-                <ul>
-                    <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign Up</a></li> 
-                    <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Log In</a></li>
-                </ul> 
-            </nav>
+        </style>
+    </head>
 
-            <div class="menu-toggle">
-                <div class="hamburger"></div>
-            </div>
-        </div>
-    </header>
-
-
-    <div class="jumbotron ">    
-        <div class="container">
-            <div class="row  justify-content-center">
-                <div class="col col-lg-4 ">
-                    <div class="media ">
-                        <img class="align-self-center mr-3" src="Icon/star.png" width="50px" height="50px">
-                        <div class="media-body">
-                            <h5 class="mt-4"> <%=request.getAttribute("score")%></h5>
-                        </div>
+    <body class="text-center">
+        <div class="container d-none d-md-block">
+            <div class="row justify-content-md-center">
+                <div class="col-6 col-md-4">
+                    <img src="Icon/score.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-right: 10%;">
+                    <div class="card-img-overlay" style="color: black; margin-top: 6%; ">
+                        <h2><%=request.getParameter("score")%></h2>
                     </div>
                 </div>
 
-                <div class="col col-lg-4 text-center">    
-                    <img src="Icon/heart<%=request.getAttribute("heart")%>.png" width="90px" height="90px">   
+                <div class="col-6 col-md-4">
+                    <img src="Icon/heart<%=request.getParameter("heart")%>.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 11%;">
                 </div>
 
-                <div class="col col-lg-4 " >        
-                    <div class="media">
-                        <img class="align-self-center mr-3 " src="Icon/clock.png" width="60px" height="60px">
-                        <div class="media-body">
-                            <h5 class="mt-4" id="countdowntimer"><%=request.getAttribute("time")%></h5>
-                        </div>
-                    </div>    
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <h5 class="mt-4">Start with: <b><%=request.getAttribute("pchar")%></b></h5>
-                    <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
-                    <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
-                    <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-                    <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-                    <input type="hidden" id="hiddenChar" name="char" value="<%=request.getAttribute("char")%>" />
-                    <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getAttribute("heart")%>" />
-                    <input type="hidden" id="hiddenScore" name="score" value="<%=request.getAttribute("score")%>" />
-                    <input type="hidden" id="hiddenTime" name="time" value="<%=request.getAttribute("time")%>" />
-                    <input type="hidden" id="hiddenVocab" name="vocab" value="<%=request.getAttribute("vocab")%>" />
-                    <input type="hidden" id="hiddenStatus" name="status" value="<%=request.getAttribute("status")%>" />
-                </div>
-            </div>
-
-            <div class="row ">
-                <div class="col-md-auto ">
-                    <h5 class="mt-4 font-weight-normal">Previous Word:</h5>                  
-                </div>
-                <div class="col-md-auto ">
-                    <h5 class="mt-4 font-weight-normal" id="previous"><%=request.getAttribute("previous")%></h5>
-                </div>
-            </div>
-            <br>
-
-            <div class="row">
-                <div class="col text-center ">
-                    <div class="input-group input-group-lg boxtext" >        
-                        <input type="text" class="form-control text-center " id="note-textarea"   aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder=<%=request.getAttribute("vocab")%> readonly>
+                <div class="col-6 col-md-4">
+                    <img src="Icon/time.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-left: 20%;">
+                    <div class="card-img-overlay" style="color: black; margin-top: 6%; margin-left: 30%;">
+                        <h2  id="countdowntimer"><%=request.getParameter("time")%></h2>
                     </div>
                 </div>
             </div>
-            <br>
 
-            <div class="row  justify-content-center">
-                <div class="col-sm-auto">
-                    <h5 class="font-weight-normal">Meaning:</h5>
-                </div>
-                <div class="col-sm-auto">
-                    <h5 class="font-weight-normal"id="meaning"><%=request.getAttribute("meaning")%></h5>
+            <div class="row justify-content-md-start">
+                <div class="col-6 ">
+                    <img src="Icon/startwith & previous.png" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 2%">
+                    <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
+                        <h5 class="mt-4"><%=request.getParameter("previous")%></h5>
+                        <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getParameter("gameId")%>" />
+                        <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
+                        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+                        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
+                        <input type="hidden" id="hiddenChar" name="char" value="<%=request.getParameter("char")%>" />
+                        <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getParameter("heart")%>" />
+                        <input type="hidden" id="hiddenScore" name="score" value="<%=request.getParameter("score")%>" />
+                        <input type="hidden" id="hiddenTime" name="time" value="<%=request.getParameter("time")%>" />
+                        <input type="hidden" id="hiddenVocab" name="vocab" value="<%=request.getParameter("vocab")%>" />
+                        <input type="hidden" id="hiddenStatus" name="status" value="<%=request.getParameter("status")%>" />
+
+                        <h5 class="mt-4 font-weight-normal"><%=request.getParameter("char")%></h5>
+                    </div>
                 </div>
             </div>
-            <br>
 
-            <div class="row justify-content-center">
-                <div class="col text-center">
-                    <button type="button" class="btn"  id="start-record-btn" title="Start Recording"><img src="Icon/microphone-voice-tool-circular-black-button.png" width="100" hight="100" /></button> 
+            <div class="row justify-content-md-center">
+                <div class="col ">
+                    <img src="Icon/boxtext.png" class="img-fluid" alt="Responsive image" style="width: 50rem; margin-top: 2%">
+                    <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
+                        <form>
+                            <textarea  type="text" class="form-control text-center " id="note-textarea" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="<%=request.getParameter("vocab")%>" readonly  ></textarea>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <br>
+
+            <div class="row justify-content-md-center" style=" color: #FFFFFF;">
+                <div class="col-md-auto "><h5 class="font-weight-normal">Meaning:</h5></div>
+                <div class="col-md-auto"><h5 class="font-weight-normal"id="meaning"><%=request.getParameter("meaning")%></h5></div>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col col-md-12">
+                    <button type="button" class="btn btn-outline-light rounded-circle border-0"  id="start-record-btn"  title="Start Recording" style="margin-top: 1%; width: 8rem; height: 8rem;" >
+                        <img src="Icon/microphone.png" class="img-fluid"  alt="Responsive image">
+                    </button>
+                </div>
+            </div>
+
             <div class="row justify-content-center">
-                <div class="col text-center">
+                <div class="col text-center" style="margin-top: 1%;color: white; font-size: 14px; margin-bottom: 1%;">
                     <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>                
                 </div>
-            </div>
-
+            </div> 
         </div>
-    </div>
 
+        <!-- Bootstrap core JavaScript -->
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="MenuScript.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+        <script src="MenuScript.js"></script>
     <script src="GetMeaningScript.js"></script>
 
-</body>
+    </body>
 </html>
 
 

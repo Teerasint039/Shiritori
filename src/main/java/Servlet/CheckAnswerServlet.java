@@ -105,8 +105,7 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&status" + status).forward(request, response);//status correct
             }
         } else {
-            getServletContext().getRequestDispatcher("/Outscope.jsp?vocab" + vocab
-                    + "&char=" + pchar
+            getServletContext().getRequestDispatcher("/Outscope.jsp?char" + pchar
                     + "&heart=" + heart
                     + "&score=" + score
                     + "&level=" + level

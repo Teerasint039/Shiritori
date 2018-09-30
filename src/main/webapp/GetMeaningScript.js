@@ -16,4 +16,4 @@ var Timer = setInterval(function () {
                     + "&username="+ document.getElementById('username').value) ;
         clearInterval(Timer);
     }
-}, 1000);
+}, 2000);

@@ -30,7 +30,6 @@
         <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
         <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
-        <input type="hidden" id="hiddenPchar" value="<%=request.getParameter("pchar")%>" />
         <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
         <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
         <input type="hidden" id="hiddenPrevious" value="<%=request.getParameter("previous")%>" />
@@ -56,7 +55,7 @@
         function myFunction() {
             setTimeout(function () {
 
-                window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenPchar').value
+                window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
                         + "&heart=" + document.getElementById("hiddenHeart").value
                         + "&gameId=" + document.getElementById("hiddenGameId").value
                         + "&level=" + document.getElementById('level').value
