@@ -17,18 +17,13 @@
               crossorigin="anonymous">
 
         <style>
-            body{
-                background-image: url("Icon/backgroundplaygame.png");
-                overflow: hidden;
-                background-size: cover;
-                background-repeat: no-repeat;
-                font-family: sans-serif;
-            }
             html, body{
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                background-image: url("Icon/bgplaypractice.png")  ;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                font-family: "Montserrat";
             }
         </style>
     </head>
@@ -62,37 +57,40 @@
 
                 <div class="row justify-content-md-center ">
                     <div class="col-md-6 ">
-                        <img src="Icon/Card<%=request.getAttribute("category")%>/card <%=request.getAttribute("vocab")%>.png" class="img-fluid" alt="Responsive image" style="width: 15rem; margin-top: 5%;">
+                        <img src="Icon/Card<%=request.getAttribute("category")%>/card <%=request.getAttribute("vocab")%>.png" class="img-fluid" alt="Responsive image" style="width: 30rem; margin-top: 5%;">
                     </div>
                 </div>
 
                 <div class="row justify-content-md-center">
-                    <div class="col-md-auto" style="color: white; margin-top: 2%;"> 
-                        <p class="text-center">
-                            <h2><%=request.getAttribute("vocab")%>:</h2>
-                        </p>
-                        <p>
-                            <input onclick="responsiveVoice.speak('<%=request.getAttribute("vocab")%>');" type="button" value="Listen" />
-                        </p>
+                    <div class="col-md-auto" style="color: white; margin-top: 2%;" >            
+                        <button type="button" class="btn btn-outline-light rounded-circle border-0" onclick="responsiveVoice.speak('<%=request.getAttribute("vocab")%>');" value="Listen" style="width: 6rem; height: 6rem;border: 0;  ">
+                            <img src="Icon/Sound.png" class="img-fluid" alt="Responsive image" >
+                        </button>               
                     </div>
 
-                    <div class="col-md-auto" style=" margin-top: 4%;"> 
+                    <div class="col-md-auto" style=" margin-top: 4%;width: 20rem"> 
                         <div class="boxtext" >        
                             <input type="text" class="form-control text-center " id="note-textarea"   aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Vocab" readonly>
                         </div>
                     </div> 
+
+                    <div class="col-md-auto" style="color: white; margin-top: 2%;"  hidden>            
+                        <p class="text-center">
+                        <h2><%=request.getAttribute("vocab")%>:</h2>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="row justify-content-md-center">
                     <div class="col col-md-12">
-                        <button type="button" class="btn btn-outline-light rounded-circle border-0"  id="start-record-btn" style="margin-top: 3%; width: 8rem; height: 8rem;" >
+                        <button type="button" class="btn btn-outline-light rounded-circle border-0"  id="start-record-btn" style="margin-top: 5%; width: 8rem; height: 8rem;" >
                             <img src="Icon/microphone.png" class="img-fluid"  alt="Responsive image">
                         </button>
                     </div>
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col text-center" style="color: white;">
+                    <div class="col text-center" style="color: white; font-size: 14px; margin-bottom: 1%;">
                         <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>                
                     </div>
                 </div> 
@@ -133,27 +131,27 @@
         <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
         <script src="PracticeScript.js"></script> 
 
-<!--        <script language="javascript">
-            document.getElementById('note-textarea')=="";
-            console.log(document.getElementById('popupimg'))
-            if (document.getElementById('popupimg').src) {
-                console.log("SRCNAJA :");
-                let attribute = document.getElementById('popupimg').getAttribute("src");
-                console.log("Arr", attribute);
-            }
-//            window.alert(document.getElementById('note-textarea'));
-            if (document.getElementById('note-textarea') !== "") {
-                if (document.getElementById('popupimg').src !== "") {
-                    $(document).ready(function () {
-                        setTimeout(fnShowPopup, 500);            //code to show popup
-                    });
-                    function fnShowPopup() {
-                        document.getElementById('status').click();
+        <!--        <script language="javascript">
+                    document.getElementById('note-textarea')=="";
+                    console.log(document.getElementById('popupimg'))
+                    if (document.getElementById('popupimg').src) {
+                        console.log("SRCNAJA :");
+                        let attribute = document.getElementById('popupimg').getAttribute("src");
+                        console.log("Arr", attribute);
                     }
-                }
-            }
-
-        </script>-->
+        //            window.alert(document.getElementById('note-textarea'));
+                    if (document.getElementById('note-textarea') !== "") {
+                        if (document.getElementById('popupimg').src !== "") {
+                            $(document).ready(function () {
+                                setTimeout(fnShowPopup, 500);            //code to show popup
+                            });
+                            function fnShowPopup() {
+                                document.getElementById('status').click();
+                            }
+                        }
+                    }
+        
+                </script>-->
 
     </body>
 

@@ -21,6 +21,7 @@
                 overflow: hidden;
                 background-size: cover;
                 background-repeat: no-repeat;
+                font-family: "Montserrat";
             }
 
             html, body{
@@ -47,17 +48,15 @@
                 <div class="row justify-content-center ">
                     <img class=" img-fluid" src="Icon/header.png" alt="" >
                 </div>
-                
+
                 <div class="row justify-content-center ">
                     <form action="LoginServlet" method="get" class="form-signin" style="width: 20rem" >
-                        <label for="inputEmail" class="sr-only"  > User name</label>
+                        <label for="inputtext" class="sr-only"  > Username</label>
                         <input type="text" id="inputText" name="username" class="form-control" placeholder="User name" required="" autofocus="">
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 5%;">Sign in</button>
-                        <a href ="Register.jsp">
-                        <button class="btn btn-secondary btn-lg btn-block"  type="button" >Register</button>
-                        </a>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 5%; ">Sign in</button>
+                        <a href="Register.jsp" class="btn btn-secondary btn-lg btn-block"  role="button">Register</a>
                     </form>
                 </div>
             </div>
@@ -71,7 +70,7 @@
         crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-       
+
     </body>
 
 </html>

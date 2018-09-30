@@ -4,7 +4,6 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -16,18 +15,16 @@
               crossorigin="anonymous">
 
         <style>
-            body{
-                background-image: url("Icon/backgroundplaygame.png");
-                overflow: hidden;
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-
             html, body{
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                background-image: url("Icon/bgplaypractice.png")  ;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                font-family: "Montserrat ExtraBold";
+            }
+            .carousel-inner{
+                border-radius: 25px;
             }
         </style>
     </head>
@@ -38,42 +35,44 @@
         <div class="background">
             <!-- pc -->
             <div class="container mb-4 d-none d-sm-block">
-                <div class="row justify-content-center" style="margin-top: 5%; color: white;">
+                <div class="row justify-content-center" style="margin-top: 9%; color: white;">
                     <div class="col-md-12 ">
-                        <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 5rem; height: 5rem;border: 0; ">
-                            <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
-                        </button>
-                        <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;">Practice Mode</span>
+                        <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                            <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
+                                <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                            </button>
+                        </a>                       
+                        <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;margin-right: 16rem;">Practice Mode</span>
                     </div>
                 </div>
 
-                <div class="row justify-content-center" style="margin-top: 4%;">
+                <div class="row justify-content-center" style="margin-top: 1%;">
                     <div class="col-md-2">
                         <a class="carousel-control" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <img src="Icon/left1.png" class="img-fluid" alt="Responsive image" style="width: 5rem; margin-top:40%;">
+                            <img src="Icon/left1.png" class="img-fluid" alt="Responsive image" style="width: 6rem; margin-top:60%;">
                         </a>
                     </div>
-                    <div class="col-md-auto">
+                    <div class="col-md-auto ">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <button type="button" class="btn btn-light rounded " style="width: 25rem;">
+                                    <button type="button" class="btn btn-light rounded " style="width: 30rem;height: 20rem;  ">
                                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=3&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                        <img src="Icon/Fruits.png" class="img-fluid" alt="Responsive image">
+                                            <img src="Icon/Fruits.png" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
                                 <div class="carousel-item">
-                                    <button type="button" class="btn btn-light rounded" style="width: 25rem;">
+                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
                                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=1&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                        <img src="Icon/Animals.png" class="img-fluid" alt="Responsive image">
+                                            <img src="Icon/Animals.png" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
                                 <div class="carousel-item">
-                                    <button type="button" class="btn btn-light rounded" style="width: 25rem;">
+                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
                                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=2&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                        <img src="Icon/sports.png" class="img-fluid" alt="Responsive image">
+                                            <img src="Icon/sports.png" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
@@ -82,14 +81,14 @@
                     </div>
                     <div class="col-md-2">
                         <a class="carousel-control" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <img src="Icon/right.png" class="img-fluid" alt="Responsive image" style="width: 5rem; margin-top:40%;">
+                            <img src="Icon/right.png" class="img-fluid" alt="Responsive image" style="width: 6rem; margin-top:60%;">
                         </a>
                     </div>
                 </div>
 
                 <div class="row justify-content-end">
                     <div class="col-md-4">
-                        <img src="Icon/Showrobot.png" class="img-fluid" alt="Responsive image" style="width: 15rem; margin-top: 5%;">
+                        <img src="Icon/Showrobot.png" class="img-fluid" alt="Responsive image" style="width: 23rem; margin-top: 7%; margin-left: 20%;">
                     </div>
                 </div>
             </div>

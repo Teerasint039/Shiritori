@@ -16,18 +16,13 @@
               crossorigin="anonymous">
 
         <style>
-            body{
-                background-image: url("Icon/backgroundplaygame.png");
-                overflow: hidden;
-                background-size: cover;
-                background-repeat: no-repeat;
-                font-family: sans-serif;
-            }
             html, body{
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                background-image: url("Icon/bgplaypractice.png")  ;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                font-family: "Montserrat";
             }
         </style>
     </head>
@@ -39,28 +34,26 @@
             <div class="container d-none d-md-block">             
                 <div class="row justify-content-md-center">
                     <div class="col">
-                        <img src="Icon/popupGameoverpractice.png" class="img-fluid" alt="Responsive image" style="width: 35rem; margin-top: 4%;">
-                        <div class="card-img-overlay" style="color: black; margin-top: 21%; ">
+                        <img src="Icon/popupGameoverpractice.png" class="img-fluid" alt="Responsive image" style="width: 35rem; margin-top: 12%;">
+                        <div class="card-img-overlay" style="color: black; margin-top: 29%; ">
                             <h2 style="font-size: 2cm;"><%=request.getParameter("score")%></h2>
+
+                            <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=<%=request.getParameter("categoryId")%>&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; ">
+                                    <img src="Icon/Reset.png" class="img-fluid" alt="Responsive image">                
+                                </button>
+                            </a>
+                            <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0;">
+                                    <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                                </button>
+                            </a>
                         </div>
+
                     </div>
                 </div>
-        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-                <div class="row justify-content-md-center">
-                    <div class="col">
-                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=<%=request.getParameter("categoryId")%>&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                        <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; margin-right: 7%;  height: 5rem; border: 0;">
-                            <img src="Icon/Reset.png" class="img-fluid" alt="Responsive image">                
-                        </button>
-                         </a>
-                        <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                        <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; height: 5rem; border: 0;">
-                        <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
-                        </button>
-                        </a>
-                    </div>
-                </div>
+                <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+                <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
             </div>
 
             <!-- sm phone -->

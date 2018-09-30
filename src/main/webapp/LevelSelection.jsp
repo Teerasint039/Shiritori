@@ -1,9 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -15,17 +15,13 @@
               crossorigin="anonymous">
 
         <style>
-            body{
-                background-image: url("Icon/backgroundMenu.png");
-                overflow: hidden;
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-
             html, body{
-                height: 100%;
-                margin: 0;
-                padding: 0;
+                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                font-family: "Montserrat ExtraBold";
             }
 
             .btn{
@@ -34,62 +30,36 @@
                 border-width: 0.3ch;
                 padding-top: 1%;
             }
-
-            .img-fluid{
-                width: 30em;
-                height: 9rem;
-                background-attachment: fixed;
-                margin-top: 15%;
-                background-repeat: no-repeat;
-            }
+            
         </style>
     </head>
 
     <body class="text-center">
-
-        <!-- main -->
-        <div class="background">
-            <!-- pc -->
-            <div class="container mb-5 d-none d-sm-block">
-                <div class="row justify-content-center ">
-                    <img src="Icon/header.png" class="img-fluid">
-                </div>
-                <div class="row justify-content-center">
-                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Level 1</a>
-                </div>
-                <div class="row justify-content-center">
-                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Level 2</a>
-                </div>
-                <div class="row justify-content-center">
-                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Level 3</a>
+        <!-- pc -->
+        <div class="container mb-5 d-none d-sm-block">
+            <div class="row justify-content-center" style="margin-top: 9%; color: white;">
+                <div class="col-md-12 ">
+                    <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                        <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
+                            <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                        </button>
+                    </a>                       
+                    <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;margin-right: 16rem;">SinglePlay</span>
                 </div>
             </div>
 
-            <!-- sm phone -->
-            <div class="container mb-5 d-md-none">
-                <div class="row justify-content-center">
-                    <img src="Icon/header.png" class="img-fluid" style="width: 25em;height: 7rem;background-attachment: fixed;margin-top: 15%;">
-                </div>
-                <div class="row justify-content-center">
-                    <a href="#" class="btn btn-lg btn-success border-white" style="margin-bottom: 2%; margin-top: 3%; padding-top: 3%;">Practice
-                        Mode</a>
-                </div>
-                <div class="row justify-content-center">
-                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" class="btn btn-lg btn-warning border-white" style="margin-bottom: 2%; padding-top: 3%; color: #ffffff">Single
-                        player</a>
-                </div>
-                <div class="row justify-content-center">
-                    <a href="#" class="btn btn-lg btn-danger border-white" style="margin-bottom: 2%; padding-top: 3%;">Multi player</a>
-                </div>
-                <div class="row justify-content-center">
-                    <a href="#" class="btn btn-lg btn-info border-white" style="padding-top: 3%;">Vocabulary</a>
-                </div>
+            <div class="row justify-content-center">
+                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Level 1</a>
             </div>
-
+            <div class="row justify-content-center">
+                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Level 2</a>
+            </div>
+            <div class="row justify-content-center">
+                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Level 3</a>
+            </div>
         </div>
 
-        <!-- footer -->
-
+        <!-- sm phone -->
 
         <!-- Bootstrap core JavaScript -->
 

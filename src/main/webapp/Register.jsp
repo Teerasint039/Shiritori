@@ -21,6 +21,7 @@
                 overflow: hidden;
                 background-size: cover;
                 background-repeat: no-repeat;
+                font-family: "Montserrat";
             }
 
             html, body{
@@ -49,14 +50,12 @@
                 </div>
                 <div class="row justify-content-center ">
                     <form action="RegisterServlet" method="get" class="form-signin" style="width: 20rem" >
-                        <label for="inputEmail" class="sr-only"  > User name</label>
+                        <label for="inputEmail" class="sr-only"  > Username</label>
                         <input type="text" name="username" id="inputText" class="form-control" placeholder="User name" required="" autofocus="">
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
                         <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 5%;">Register</button>
-                        <a href ="Signin.jsp">
-                        <button class="btn btn-danger btn-lg btn-block"  type="button" >Cancel</button>
-                        </a>
+                        <a href="Signin.jsp" class="btn btn-danger btn-lg btn-block"  role="button">Cancel</a>
                     </form>
                 </div>
             </div>

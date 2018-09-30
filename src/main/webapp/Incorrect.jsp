@@ -1,42 +1,30 @@
-<%-- 
-    Document   : Incorrect
-    Created on : Apr 18, 2018, 1:10:43 PM
-    Author     : Teerasint
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="MenuStyles.css">
-        <title>Incorrect</title>
+        <title>Shiritori Game</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
 
         <style>
-            .logomenu{
-                color: #FFFFFF;
-            }
-            .jumbotron{
-                margin-top: 8%;
-                margin-left: 15%;
-                margin-right: 15%;
-                margin-bottom: 5%;
-                border-radius:10px;
-                background: #dc143c;
-            }
-            h1{
-                margin: 2%;
-                color: #FFFFFF;
-                font-size: 50px;
+            html, body{
+                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                font-family: "Montserrat ExtraBold";
             }
         </style>
     </head>
-    <body onload="myFunction()">
+    <body class="text-center" onload="myFunction()">
         <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
         <input type="hidden" id="hiddenChar" value="<%=request.getAttribute("char")%>" />
         <input type="hidden" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
@@ -45,44 +33,39 @@
         <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
 
-        <header >
-            <div class="container ">
-                <a href="Menu.jsp"><h1 class="logo logomenu">Shiritori<span>Logo</span></h1></a>
-
-                <nav class="site-nav ">
-                    <ul>
-                        <li><a href=""><i class="site-nav--icon"><img src="Icon/user.png" class="iconmenu"></i>Sign Up</a></li> 
-                        <li><a href=""><i class="site-nav--icon"><img src="Icon/login.png" class="iconmenu"></i>Log In</a></li>
-                    </ul> 
-                </nav>
-
-                <div class="menu-toggle">
-                    <div class="hamburger"></div>
+        <div class="container d-none d-md-block">
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <img src="Icon/popupIncorrect.png" class="img-fluid" alt="Responsive image" style="width: 45rem; height: 20em;margin-top: 13%;  ">
                 </div>
             </div>
-        </header>
-
-        <div class="jumbotron text-center"> 
-            <img src="Icon/Incorrect-mark-button.png" width="200px" height="200px">
-            <h1>Incorrect</h1>
         </div>
 
+        <!-- Bootstrap core JavaScript -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
         <script>
-            function myFunction() {
-                setTimeout(function () {
-                    var heart = document.getElementById('hiddenHeart').value - 1;
-                    if (heart <= 0) {
-                        window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value;
-                    } else
-                        window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
-                                + "&heart=" + heart
-                                + "&gameId=" + document.getElementById('hiddenGameId').value
-                                + "&userid="+ document.getElementById('userid').value 
-                                + "&username="+ document.getElementById('username').value
-                                + "&previous=" + document.getElementById('hiddenPrevious').value
-                                + "&score=" + document.getElementById("hiddenScore").value;
-                }, 3000);
-            }
+        function myFunction() {
+            setTimeout(function () {
+                var heart = document.getElementById('hiddenHeart').value - 1;
+                if (heart <= 0) {
+                    window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value;
+                } else
+                    window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
+                            + "&heart=" + heart
+                            + "&gameId=" + document.getElementById('hiddenGameId').value
+                            + "&userid=" + document.getElementById('userid').value
+                            + "&username=" + document.getElementById('username').value
+                            + "&previous=" + document.getElementById('hiddenPrevious').value
+                            + "&score=" + document.getElementById("hiddenScore").value;
+            }, 3000);
+        }
         </script>
     </body>
 </html>
