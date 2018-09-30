@@ -65,7 +65,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title" style="text-align: center;">Soure: ..</h5>
+                                        <h5 class="card-title" style="text-align: center;">Score: <%=request.getAttribute("score")%></h5>
                                     </div>
                                 </div>
                                 <%

@@ -26,6 +26,7 @@
     </head>
     <body class="text-center" onload="myFunction()">
         <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
+        <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
         <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
         <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
@@ -56,12 +57,14 @@
                 var heart = document.getElementById('hiddenHeart').value - 1;
                 if (heart <= 0) {
                     window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value
+                            + "&level=" + document.getElementById('level').value
                             + "&userid=" + document.getElementById('userid').value
                             + "&username=" + document.getElementById('username').value;
                 } else
                     window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
                             + "&heart=" + heart
                             + "&gameId=" + document.getElementById("hiddenGameId").value
+                            + "&level=" + document.getElementById('level').value
                             + "&userid=" + document.getElementById('userid').value
                             + "&username=" + document.getElementById('username').value
                             + "&previous=" + document.getElementById("hiddenPrevious").value

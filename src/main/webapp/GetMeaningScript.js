@@ -6,6 +6,7 @@ var Timer = setInterval(function () {
 //        window.location.replace("AddAnswerServlet?char=A&heart=3&score=4&gameId=1&time=10&vocab=ache&status=Correct") ;
         window.location.replace("AddAnswerServlet?char=" + document.getElementById('hiddenChar').value 
                 + "&heart="+document.getElementById('hiddenHeart').value 
+                +"&level="+document.getElementById('level').value 
                 +"&score="+document.getElementById('hiddenScore').value 
                 + "&gameId="+document.getElementById('hiddenGameId').value 
                 + "&time="+document.getElementById('hiddenTime').value  

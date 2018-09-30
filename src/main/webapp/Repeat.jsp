@@ -56,7 +56,10 @@
             setTimeout(function () {
                 var heart = document.getElementById('hiddenHeart').value - 1;
                 if (heart <= 0) {
-                    window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value;
+                    window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value
+                            + "&userid=" + document.getElementById('userid').value
+                            + "&username=" + document.getElementById('username').value
+                            + "&score=" + document.getElementById("hiddenScore").value;
                 } else
                     window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
                             + "&heart=" + heart

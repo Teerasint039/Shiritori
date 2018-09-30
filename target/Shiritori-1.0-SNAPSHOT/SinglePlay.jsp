@@ -64,7 +64,7 @@
                 <div class="col-6 ">
                     <img src="Icon/startwith & previous.png" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 2%">
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
-                        <h5 class="mt-4"><%=request.getParameter("char")%></h5>
+                        <h5 class="mt-4"><%=request.getParameter("previous")%></h5>
                         <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
                         <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
                         <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
@@ -73,7 +73,7 @@
                         <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
                         <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
 
-                        <h5 class="mt-4 font-weight-normal"><%=request.getParameter("previous")%></h5>
+                        <h5 class="mt-4 font-weight-normal"><%=request.getParameter("char")%></h5>
                     </div>
                 </div>
             </div>

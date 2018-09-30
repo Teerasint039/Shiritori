@@ -81,7 +81,7 @@ recognition.onresult = function (event) {
             determine = true;
             /**
              * Change path to CheckScopeServlet
-             * */
+             * 
 //            window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
 //                    + "&score=" + document.getElementById("hiddenScore").value
 //                    + "&heart=" + document.getElementById('hiddenHeart').value 
@@ -90,8 +90,8 @@ recognition.onresult = function (event) {
 //                    +"&previous="+before
 //                    +"&status=Correct"
 //                    +"&time=" + time);
-            
-            window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+  */          
+            window.location.replace("CheckAnswerServlet?char=" + lastchar 
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&pchar=" + document.getElementById("hiddenChar").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
@@ -105,7 +105,7 @@ recognition.onresult = function (event) {
                     +"&time=" + time);
         } else {
             determine = false;
-            window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
+            window.location.replace("CheckAnswerServlet?char=" + lastchar 
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&pchar=" + document.getElementById("hiddenChar").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
@@ -228,6 +228,7 @@ var Timer = setInterval(function () {
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
                     + "&gameId="+ document.getElementById('hiddenGameId').value
+                    + "&level="+ document.getElementById('level').value 
                     + "&userid="+ document.getElementById('userid').value 
                     + "&username="+ document.getElementById('username').value  
                     +"&vocab="+noteContent

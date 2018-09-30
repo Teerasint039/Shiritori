@@ -36,15 +36,16 @@ public class GameOver extends HttpServlet {
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int userId = Integer.parseInt(request.getParameter("userid"));
         String userName = request.getParameter("username");
+        int score = Integer.parseInt(request.getParameter("score"));
         
         System.out.println("GameId in GameOver:"+gameId);
-//        int gameId = 1;
         Answer answer = new Answer();
         List<Answer> answers = answer.showAllAnswer(gameId);
         
         request.setAttribute("answers", answers);
         request.setAttribute("userid", userId);
         request.setAttribute("username", userName);
+        request.setAttribute("score", score);
                     
         getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
         

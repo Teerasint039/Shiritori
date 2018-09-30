@@ -25,6 +25,10 @@
         </style>
     </head>
     <body class="text-center">
+        <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
+        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
+        <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-center">
                 <div class="col">

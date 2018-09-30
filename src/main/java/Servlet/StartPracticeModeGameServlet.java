@@ -44,7 +44,7 @@ public class StartPracticeModeGameServlet extends HttpServlet {
         
         int gameId;
         PracticeModeGame smg = new PracticeModeGame();
-        gameId = smg.newGame(1);
+        gameId = smg.newGame(userId);
         
         request.setAttribute("gameId", gameId);
         request.setAttribute("categoryId", categoryId);

@@ -36,11 +36,16 @@ public class StartSingleModeGameServlet extends HttpServlet {
         int userId;
         int level;
         String userName;
-        SingleModeGame smg = new SingleModeGame();
-        gameId = smg.newGame(1);
         userId = Integer.parseInt(request.getParameter("userid"));
         level = Integer.parseInt(request.getParameter("level"));
         userName = request.getParameter("username");
+        
+        
+        SingleModeGame smg = new SingleModeGame();
+        gameId = smg.newGame(userId);
+        System.out.println("gameId: "+gameId);
+        
+        
         
         System.out.println("userId: "+userId);
         System.out.println("UserName: "+userName);
