@@ -16,20 +16,40 @@ public class TestMethod {
         
         CategoryVocab cv = new CategoryVocab();
         Vocab vocab = new Vocab();
-//        System.out.println("21: "+cv.getVocabFromVACId(21));
-        List<String> vocabs = cv.showAllVocabInCategory(4);
-        for (String a : vocabs) {
+//        List<String> vocabs = cv.showAllVocabInCategory(1);
+//        for (String a : vocabs) {
+//            System.out.println(a.toString());
+//        }
+//        System.out.println("------------------");
+//        
+//        List<String> vocabs1 = cv.showAllVocabInCategory(2);
+//        for (String a : vocabs1) {
+//            System.out.println(a.toString());
+//        }
+//        System.out.println("------------------");
+//        
+//        List<String> vocabs2 = cv.showAllVocabInCategory(3);
+//        for (String a : vocabs2) {
+//            System.out.println(a.toString());
+//        }
+//        System.out.println("------------------");
+        
+        List<String> vocabs3 = cv.showAllVocabInCategory(4);
+        for (String a : vocabs3) {
             System.out.println(a.toString());
         }
-//        System.out.println("lenght: "+vocabs.size());
-//        System.out.println("vocab 2: "+ vocabs.get(2));
-        System.out.println("------------------");
+        System.out.println(vocabs3.get(1));
+        System.out.println("size: "+vocabs3.size());
+        System.out.println("-----------------------------");
         
-        List<Integer> vocabIds = cv.showAllVocabIdInCategory(4);
-        for (int a : vocabIds) {
-            System.out.println(a);
-            System.out.println(vocab.getVocabFromId(a));
-        }
+//        List<Integer> vocabIds = cv.showAllVocabIdInCategory(4);
+//        for (int a : vocabIds) {
+//            System.out.println(a);
+//            System.out.println(vocab.getVocabFromId(a));
+//        }
+
+
+
         
 //        Vocab vocab = new Vocab();
 //        List<Vocab> vocabs = vocab.showAllVocabDetailLevel(1);
