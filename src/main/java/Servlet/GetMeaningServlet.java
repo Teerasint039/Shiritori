@@ -32,15 +32,16 @@ public class GetMeaningServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String vocab = request.getParameter("vocab");
-        String character = request.getParameter("char");
-        String pchar = request.getParameter("pchar");
-        int heart = Integer.parseInt(request.getParameter("heart"));
-        int score = Integer.parseInt(request.getParameter("score"));
-        int gameId = Integer.parseInt(request.getParameter("gameId"));
-        int userId = Integer.parseInt(request.getParameter("userid"));
-        String userName = request.getParameter("username");
-        String status = request.getParameter("status");
+        String vocab = request.getParameter("vocab");//
+        String character = request.getParameter("char");//
+        String pchar = request.getParameter("pchar");//
+        int level = Integer.parseInt(request.getParameter("level"));//
+        int heart = Integer.parseInt(request.getParameter("heart"));//
+        int score = Integer.parseInt(request.getParameter("score"));//
+        int gameId = Integer.parseInt(request.getParameter("gameId"));//
+        int userId = Integer.parseInt(request.getParameter("userid"));//
+        String userName = request.getParameter("username");//
+        String status = request.getParameter("status");//
         int time = Integer.parseInt(request.getParameter("time"));
         String previous = request.getParameter("previous");
         
@@ -53,6 +54,7 @@ public class GetMeaningServlet extends HttpServlet {
         request.setAttribute("char", character);
         request.setAttribute("pchar", pchar);
         request.setAttribute("heart", heart);
+        request.setAttribute("level", level);
         request.setAttribute("score", score);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);

@@ -80,6 +80,7 @@
                 <div class="col">
                     <h5 class="mt-4">Start with: <b><%=request.getAttribute("pchar")%></b></h5>
                     <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
+                    <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
                     <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
                     <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
                     <input type="hidden" id="hiddenChar" name="char" value="<%=request.getAttribute("char")%>" />

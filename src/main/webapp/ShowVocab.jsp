@@ -69,15 +69,13 @@
 
             <div class="row justify-content-center" style="margin-top: 2%; color: white;">
                 <div class="col-md-auto ">
-<<<<<<< HEAD
-                        <a href="#" class="btn btn-lg btn-success border-white" style="">Level 1</a>
+                    
+<!--                        <a href="#" class="btn btn-lg btn-success border-white" style="">Level 1</a>
                         <a href="#" class="btn btn-lg btn-info border-white" style=" ">Level 2</a>
-                        <a href="#" class="btn btn-lg btn-danger border-white" style="">Level 3</a>
-=======
+                        <a href="#" class="btn btn-lg btn-danger border-white" style="">Level 3</a>-->
                         <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="">Level 1</a>
                         <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style=" ">Level 2</a>
                         <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3" class="btn btn-lg btn-danger border-white" style="">Level 3</a>
->>>>>>> 17f23f0a6c9550e12960ff11bb298efaa92da58a
                 </div>
             </div>
 

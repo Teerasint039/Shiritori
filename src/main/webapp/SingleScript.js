@@ -228,6 +228,7 @@ var Timer = setInterval(function () {
                     + "&score=" + document.getElementById("hiddenScore").value
                     + "&heart=" + document.getElementById('hiddenHeart').value 
                     + "&gameId="+ document.getElementById('hiddenGameId').value
+                    + "&level="+ document.getElementById('level').value 
                     + "&userid="+ document.getElementById('userid').value 
                     + "&username="+ document.getElementById('username').value  
                     +"&vocab="+noteContent

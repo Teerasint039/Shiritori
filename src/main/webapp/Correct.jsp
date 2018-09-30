@@ -30,6 +30,7 @@
         <input type="hidden" id="hiddenChar" value="<%=request.getAttribute("char")%>" />
         <input type="hidden" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
         <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
+        <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
         <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
         <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
@@ -62,6 +63,7 @@
                     window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
                             + "&heart=" + heart
                             + "&gameId=" + document.getElementById('hiddenGameId').value
+                            + "&level=" + document.getElementById('level').value
                             + "&userid=" + document.getElementById('userid').value
                             + "&username=" + document.getElementById('username').value
                             + "&previous=" + document.getElementById('hiddenPrevious').value

@@ -69,9 +69,11 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&pchar=" + pchar
                             + "&heart=" + heart
                             + "&score=" + score
+                            + "&level=" + level
                             + "&gameId=" + gameId
                             + "&userid=" + userId
                             + "&username=" + userName
+                            + "&previous=" + previous
                             + "&time=" + time
                             + "&status=Repeat").forward(request, response); // status repeat
                 } else {
@@ -80,9 +82,11 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&pchar=" + pchar
                             + "&heart=" + heart
                             + "&score=" + score
+                            + "&level=" + level
                             + "&gameId=" + gameId
                             + "&userid=" + userId
                             + "&username=" + userName
+                            + "&previous=" + previous
                             + "&time=" + time
                             + "&status" + status).forward(request, response);//status correct
                 }
@@ -92,9 +96,11 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&pchar=" + pchar
                             + "&heart=" + heart
                             + "&score=" + score
+                            + "&level=" + level
                             + "&gameId=" + gameId
                             + "&userid=" + userId
                             + "&username=" + userName
+                            + "&previous=" + previous
                             + "&time=" + time
                             + "&status" + status).forward(request, response);//status correct
             }
@@ -103,6 +109,7 @@ public class CheckAnswerServlet extends HttpServlet {
                     + "&char=" + pchar
                     + "&heart=" + heart
                     + "&score=" + score
+                    + "&level=" + level
                     + "&gameId=" + gameId
                     + "&userid=" + userId
                     + "&username=" + userName
