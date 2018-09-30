@@ -54,6 +54,9 @@
         </style>
     </head>
     <body class="text-center">
+        
+        <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
 
         <div class="container mb-4 d-none d-sm-block">
             <div class="row justify-content-start" style="margin-top: 9%; color: white;">
