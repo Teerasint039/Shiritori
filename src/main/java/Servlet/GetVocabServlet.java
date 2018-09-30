@@ -36,11 +36,27 @@ public class GetVocabServlet extends HttpServlet {
         int level = Integer.parseInt(request.getParameter("level"));
         int userId = Integer.parseInt(request.getParameter("userid"));
         String userName = request.getParameter("username");
+
         
-        Vocab vocab = new Vocab();
-        List<Vocab> vocabs = vocab.showAllVocabDetailLevel(level);
+//        int level = 1;
+//        int userId = 1;
+//        String userName = "new";
+        System.out.println("level: "+level);
+        
+        Vocab vocab = new Vocab(); 
+        List<Vocab> vocabs;
+        if (level == 0) {
+             vocabs = vocab.showAllVocabDetail();
+        }else{
+            vocabs = vocab.showAllVocabDetailLevel(level);
+        }
+        
         System.out.println("get vocab servlet here!");
-        
+        for (Vocab a : vocabs) {
+            System.out.println(a.toString());
+        }
+       
+//        
         request.setAttribute("vocabs", vocabs);
         request.setAttribute("userid", userId);
         request.setAttribute("username", userName);

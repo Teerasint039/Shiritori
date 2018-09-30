@@ -60,6 +60,7 @@ public class PracticeCheckAnswerServlet extends HttpServlet {
         request.setAttribute("userid", userId);
         request.setAttribute("username", userName);
         request.setAttribute("categoryId", categoryId);
+        request.setAttribute("answer", answer);
         request.setAttribute("vocab", vocab);
         request.setAttribute("score", score);
         request.setAttribute("time", time);

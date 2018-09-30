@@ -5,8 +5,10 @@
  */
 package Servlet;
 
+import Model.Category;
 import Model.CategoryVocab;
 import Model.PracticeModeResult;
+import Model.Vocab;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -35,35 +37,48 @@ public class PracticeSendStatusServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         System.out.println("Show status servlet");
+        CategoryVocab cv = new CategoryVocab();
+        Vocab vocabulary = new Vocab();
+        Category category = new Category();
 
         int categoryId = (int) request.getAttribute("categoryId");
         int gameId = (int) request.getAttribute("gameId");
-        int userId = Integer.parseInt(request.getParameter("userid"));
-        String userName = request.getParameter("username");
+        int userId = (int)(request.getAttribute("userid"));
+        String userName = (String)request.getAttribute("username");
         int score = (int) request.getAttribute("score");
         int time = (int) request.getAttribute("time");
         String vocab = (String) request.getAttribute("vocab");
         String status = (String) request.getAttribute("status");
+        String answer = (String) request.getAttribute("answer");
 
         // send status to practice mode page
         //collect data to  //letVACId = 1 //mock up
         PracticeModeResult pmr = new PracticeModeResult();
-        pmr.addAnswer(status, 1, vocab, gameId);
+        pmr.addAnswer(status, vocabulary.getVocabIdFromVocab(vocab), answer, gameId);
         
-        CategoryVocab cv = new CategoryVocab();
-        List<String> vocabs = cv.showAllVocabInCategory(categoryId);
+        
+//        List<String> vocabs = cv.showAllVocabInCategory(categoryId);
+        
 
-        String gameVocabs[] = {"bear", "bird", "buffalo", "butterfly", "camel", "cat", "chicken", "cock", "cow", "crab", "crocodile", "deer", "dog", "dolphin", "duck"};
-        int randomIndex = (int) (Math.random() * (gameVocabs.length - 1) + 0);
+        List<Integer> vocabIds = cv.showAllVocabIdInCategory(categoryId);
+//        for (int a : vocabIds) {
+//            System.out.println(a);
+//            System.out.println(vocab.getVocabFromId(a));
+//        }
 
-        request.setAttribute("category", "animal");
+//        String gameVocabs[] = {"bear", "bird", "buffalo", "butterfly", "camel", "cat", "chicken", "cock", "cow", "crab", "crocodile", "deer", "dog", "dolphin", "duck"};
+        int randomIndex = (int) (Math.random() * (vocabIds.size() - 1) + 0);
+        System.out.println("category: "+category.getCategoryNamebyId(categoryId));
+        System.out.println("categoryId: "+ categoryId);
+        System.out.println("vocab: "+vocabulary.getVocabFromId(vocabIds.get(randomIndex)));
+
+        request.setAttribute("category", category.getCategoryNamebyId(categoryId));
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
         request.setAttribute("username", userName);
         request.setAttribute("score", score);
-        request.setAttribute("status", status);
-        request.setAttribute("vocab", gameVocabs[randomIndex]);
+        request.setAttribute("vocab", vocabulary.getVocabFromId(vocabIds.get(randomIndex)));
 
         getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);
     }
