@@ -68,7 +68,8 @@ public class CategoryVocab {
         try {
             Connection conn = Connectionbuilder.connect();        
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT `Vocab`.vocab FROM `Vocab_Admin_Category`JOIN `Vocab` WHERE `Vocab_Admin_Category`.`VocabId` = `Vocab`.`VocabId` AND `Vocab_Admin_Category`.ACId = '" + categoryId + "';");
+                PreparedStatement pstm = conn.prepareStatement("SELECT `Vocab`.vocab FROM `Vocab_Admin_Category`JOIN `Vocab`"
+                        +" WHERE `Vocab_Admin_Category`.`VocabId` = `Vocab`.`VocabId` AND `Vocab_Admin_Category`.ACId = '" + categoryId + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     vocab = rs.getString("Vocab");

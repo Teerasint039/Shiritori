@@ -43,21 +43,14 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
         int score = (int) request.getAttribute("score");
         int time = (int) request.getAttribute("time");
 
-//            int userId = 1;
         CategoryVocab cv = new CategoryVocab();
         Vocab vocab = new Vocab();
         Category category = new Category();
-//        List<String> vocabs = cv.showAllVocabInCategory(categoryId);
         
 
         List<Integer> vocabIds = cv.showAllVocabIdInCategory(categoryId);
-//        for (int a : vocabIds) {
-//            System.out.println(a);
-//            System.out.println(vocab.getVocabFromId(a));
-//        }
-
-//        String gameVocabs[] = {"bear", "bird", "buffalo", "butterfly", "camel", "cat", "chicken", "cock", "cow", "crab", "crocodile", "deer", "dog", "dolphin", "duck"};
         int randomIndex = (int) (Math.random() * (vocabIds.size() - 1) + 0);
+        
         System.out.println("category: "+category.getCategoryNamebyId(categoryId));
         System.out.println("categoryId: "+ categoryId);
         System.out.println("vocab: "+vocab.getVocabFromId(vocabIds.get(randomIndex)));

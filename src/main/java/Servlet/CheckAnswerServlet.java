@@ -51,7 +51,7 @@ public class CheckAnswerServlet extends HttpServlet {
         String lowCaseVocab = vocab.toLowerCase();
 
         Answer answer = new Answer();
-        List<String> ansVocabs = answer.showAnswerVocabs(gameId); //มันมีเคสที่ไม่มีคำศัพท์เลย
+        List<String> ansVocabs = answer.showAnswerVocabs(gameId);
         Vocab vocabulary = new Vocab();
         List<String> vocabs = vocabulary.showAllVocabLevel(level);
 

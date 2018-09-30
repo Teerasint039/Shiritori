@@ -76,12 +76,7 @@ public class PracticeModeGame {
                     + " VALUES ('"+UserId+"','"+timestamp+"')";
             System.out.println("Insert Time: "+timestamp);
 
-            // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-//            preparedStmt.setInt(1, userId);
-//            preparedStmt.setString(2, timestamp);
-
-            // execute the preparedstatement
             preparedStmt.execute();
             PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Practice_Game` WHERE `UserId` = '" + UserId + "' AND `StartTime` = '"+timestamp+"';");
             ResultSet rs = pstm.executeQuery();

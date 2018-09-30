@@ -36,10 +36,6 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         
         int userId;
-        
-        System.out.println("username: "+username);
-        System.out.println("password: "+password);
-        
         User user = new User();
         if (user.checkUserNameAvailable(username)){
             user.addUser(username, password);

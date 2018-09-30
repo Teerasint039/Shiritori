@@ -67,12 +67,10 @@ recognition.onresult = function (event) {
     if (document.getElementById("hiddenVocab").value.toLowerCase() === noteContent.toLowerCase()) {
         document.getElementById('popupimg').src = "Icon/popupcorrect.png";
         score = parseInt(document.getElementById("hiddenScore").value) + 1;
-//        window.alert("vocab = answer!");
         status = "Correct";
     } else {
         document.getElementById('popupimg').src = "Icon/popupIncorrect.png";
         score = document.getElementById("hiddenScore").value;
-//        window.alert("vocab != answer!");
         status = "Incorrect";
     }
     

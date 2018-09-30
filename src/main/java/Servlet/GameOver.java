@@ -38,7 +38,6 @@ public class GameOver extends HttpServlet {
         String userName = request.getParameter("username");
         
         System.out.println("GameId in GameOver:"+gameId);
-//        int gameId = 1;
         Answer answer = new Answer();
         List<Answer> answers = answer.showAllAnswer(gameId);
         
