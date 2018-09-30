@@ -58,7 +58,7 @@
 
             <div class="row justify-content-end">
                 <div class="col-auto"style="margin-top: 5%;">
-                    <a href ="ShowVocab.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" >
+                    <a href ="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=0" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
                             <img src="Icon/dictionary.png" class="img-fluid" alt="Responsive image" >
                         </button>

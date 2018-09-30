@@ -25,11 +25,11 @@
                 background-repeat: no-repeat;
                 font-family: "Montserrat";
             }
-            .card{
-                margin: 0 auto;
-                margin-top: 4%;
-                margin-left: 8%;
-                margin-right: 8%;
+
+            .btn{
+                width: 15rem;
+                height: 4rem;
+                border-width: 0.3ch;
             }
             .card-body{
                 margin: 0 auto;
@@ -54,21 +54,26 @@
         </style>
     </head>
     <body class="text-center">
-        
-        <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
 
-        <div class="container mb-4 d-none d-sm-block">
-            <div class="row justify-content-start" style="margin-top: 9%; color: white;">
-                <div class="col-md-auto ">
+        <div class="container mb-5 d-none d-sm-block">
+            <div class="row justify-content-center" style="margin-top: 5%; color: white;">
+                <div class="col-md-12 ">
                     <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
                             <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
                         </button>
-                    </a>                       
+                    </a>       
+                    <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;margin-right: 16rem;">Vocabulary</span>
                 </div>
             </div>
 
+            <div class="row justify-content-center" style="margin-top: 2%; color: white;">
+                <div class="col-md-auto ">
+                        <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="">Level 1</a>
+                        <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style=" ">Level 2</a>
+                        <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3" class="btn btn-lg btn-danger border-white" style="">Level 3</a>
+                </div>
+            </div>
 
             <%
                 List<Vocab> vocabs = (List) request.getAttribute("vocabs");
@@ -76,7 +81,6 @@
             %>
             <div class="row justify-content-center" style="margin-top: 9%; color: white;">
                 <div class="col-md-auto">
-                    <h2>vocabulary</h2>
                     <div class="table-responsive example-1 scrollbar-ripe-malinka">
                         <table class="table table-striped table-sm ">
                             <thead>
