@@ -37,7 +37,7 @@
     <body class="text-center">
         <!-- pc -->
         <div class="container mb-5 d-none d-sm-block">
-            <div class="row justify-content-center" style="margin-top: 9%; color: white;">
+            <div class="row justify-content-center" style="margin-top: 15%; color: white;">
                 <div class="col-md-12 ">
                     <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
