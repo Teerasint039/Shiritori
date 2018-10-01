@@ -44,18 +44,18 @@
                 <div class="col-6 col-md-4">
                     <img src="Icon/score.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-right: 10%;">
                     <div class="card-img-overlay" style="color: black; margin-top: 6%; ">
-                        <h2><%=request.getParameter("score")%></h2>
+                        <h2><%=request.getAttribute("score")%></h2>
                     </div>
                 </div>
 
                 <div class="col-6 col-md-4">
-                    <img src="Icon/heart<%=request.getParameter("heart")%>.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 11%;">
+                    <img src="Icon/heart<%=request.getAttribute("heart")%>.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 11%;">
                 </div>
 
                 <div class="col-6 col-md-4">
                     <img src="Icon/time.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-left: 20%;">
                     <div class="card-img-overlay" style="color: black; margin-top: 6%; margin-left: 30%;">
-                        <h2  id="countdowntimer"><%=request.getParameter("time")%></h2>
+                        <h2  id="countdowntimer"><%=request.getAttribute("time")%></h2>
                     </div>
                 </div>
             </div>
@@ -64,19 +64,19 @@
                 <div class="col-6 ">
                     <img src="Icon/startwith & previous.png" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 2%">
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
-                        <h5 class="mt-4"><%=request.getParameter("previous")%></h5>
-                        <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getParameter("gameId")%>" />
-                        <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
-                        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-                        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-                        <input type="hidden" id="hiddenChar" name="char" value="<%=request.getParameter("char")%>" />
-                        <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getParameter("heart")%>" />
-                        <input type="hidden" id="hiddenScore" name="score" value="<%=request.getParameter("score")%>" />
-                        <input type="hidden" id="hiddenTime" name="time" value="<%=request.getParameter("time")%>" />
-                        <input type="hidden" id="hiddenVocab" name="vocab" value="<%=request.getParameter("vocab")%>" />
-                        <input type="hidden" id="hiddenStatus" name="status" value="<%=request.getParameter("status")%>" />
+                        <h5 class="mt-4"><%=request.getAttribute("previous")%></h5>
+                        <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
+                        <input type="hidden" id="level" value="<%=request.getAttribute("level")%>" />
+                        <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
+                        <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
+                        <input type="hidden" id="hiddenChar" name="char" value="<%=request.getAttribute("char")%>" />
+                        <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getAttribute("heart")%>" />
+                        <input type="hidden" id="hiddenScore" name="score" value="<%=request.getAttribute("score")%>" />
+                        <input type="hidden" id="hiddenTime" name="time" value="<%=request.getAttribute("time")%>" />
+                        <input type="hidden" id="hiddenVocab" name="vocab" value="<%=request.getAttribute("vocab")%>" />
+                        <input type="hidden" id="hiddenStatus" name="status" value="<%=request.getAttribute("status")%>" />
 
-                        <h5 class="mt-4 font-weight-normal"><%=request.getParameter("char")%></h5>
+                        <h5 class="mt-4 font-weight-normal"><%=request.getAttribute("char")%></h5>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     <img src="Icon/boxtext.png" class="img-fluid" alt="Responsive image" style="width: 50rem; margin-top: 2%">
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
                         <form>
-                            <textarea  type="text" class="form-control text-center " id="note-textarea" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="<%=request.getParameter("vocab")%>" readonly  ></textarea>
+                            <textarea  type="text" class="form-control text-center " id="note-textarea" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="<%=request.getAttribute("vocab")%>" readonly  ></textarea>
                         </form>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
 
             <div class="row justify-content-md-center" style=" color: #FFFFFF;">
                 <div class="col-md-auto "><h5 class="font-weight-normal">Meaning:</h5></div>
-                <div class="col-md-auto"><h5 class="font-weight-normal"id="meaning"><%=request.getParameter("meaning")%></h5></div>
+                <div class="col-md-auto"><h5 class="font-weight-normal"id="meaning"><%=request.getAttribute("meaning")%></h5></div>
             </div>
 
             <div class="row justify-content-md-center">
