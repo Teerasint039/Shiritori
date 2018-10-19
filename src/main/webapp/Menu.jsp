@@ -53,7 +53,7 @@
                 <a href="LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Single player</a>
             </div>
             <div class="row justify-content-center">
-                <a href="#" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Multi player</a>
+                <a href="Menumulti.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Multi player</a>
             </div>
 
             <div class="row justify-content-end">
