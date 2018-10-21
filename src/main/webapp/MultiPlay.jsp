@@ -121,19 +121,16 @@
                     <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                         <div class="card-body d-flex flex-column align-items-start" >
                             <div class="row justify-content-center">
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <h4><strong class="d-inline-block mb-2 text-success">Player 1</strong> </h4>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <img src="Icon/score.png" class="img-fluid" alt="Responsive image" style="width: 7rem;">
                                     <div class="card-img-overlay " style="color: black; margin-left: 15%;  ">
                                         <p class="text-center"><%=request.getParameter("score")%></p>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <img src="Icon/heart<%=request.getParameter("heart")%>.png" class="img-fluid" alt="Responsive image" style="width: 7rem; ">
-                                </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <img src="Icon/time.png" class="img-fluid" alt="Responsive image" style="width: 7rem; ">
                                     <div class="card-img-overlay" style="color: black; margin-left: 30%;">
                                         <h5  id="countdowntimer">30</h5>
