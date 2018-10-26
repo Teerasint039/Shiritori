@@ -61,12 +61,13 @@ public class User {
     public int login(String username, String password) {
         boolean login = false;
         User user = null;
+        String lowerCaseUserName = username.toLowerCase();
         int id = -1;
         System.out.println("in login method");
 
         try {
             Connection conn = Connectionbuilder.connect();
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE UserName = '" + username + "';");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE UserName = '" + lowerCaseUserName + "';");
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
@@ -89,6 +90,7 @@ public class User {
 
     public void addUser(String userName, String password) {
         User user = null;
+        String lowerCaseUserName = userName.toLowerCase();
         try {
             Connection conn = Connectionbuilder.connect();
             String query = " insert into User (UserName, Password)"
@@ -96,7 +98,7 @@ public class User {
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, userName);
+            preparedStmt.setString(1, lowerCaseUserName);
             preparedStmt.setString(2, password);
 
             // execute the preparedstatement
@@ -130,16 +132,17 @@ public class User {
     public boolean checkUserNameAvailable(String username) {
         boolean available = false;
         String userName = null;
+        String lowerCaseUserName = username.toLowerCase();
 
         try {
             Connection conn = Connectionbuilder.connect();
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE UserName = '" + username + "'");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE UserName = '" + lowerCaseUserName + "'");
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
                 userName = rs.getString("UserName");
             }
-            if (userName == null) {
+            if (lowerCaseUserName == null) {
                 available = true;
             }
             rs.close();
