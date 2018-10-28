@@ -8,7 +8,6 @@ Model\Mariadb.class
 Model\CategoryVocab.class
 Model\UserItem.class
 Model\TestTimeStamp.class
-Servlet\StartSingleModeGameServlet.class
 Servlet\LoginServlet.class
 Model\PracticeModeResult.class
 Servlet\RandomPracticeModeVocabServlet.class
@@ -28,7 +27,6 @@ Servlet\GetVocabServlet.class
 Servlet\PracticeSendStatusServlet.class
 Model\User.class
 Servlet\PracticeCheckAnswerServlet.class
-Model\ReceivedItem.class
 Servlet\StartPracticeModeGameServlet.class
 Model\TestAnswer.class
 Servlet\AddAnswerServlet.class

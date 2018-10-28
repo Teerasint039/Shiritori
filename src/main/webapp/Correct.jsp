@@ -32,6 +32,7 @@
         <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
         <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
         <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
+        <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
         <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
         <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
 
@@ -60,11 +61,13 @@
                 if (heart <= 0) {
                     window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value
                             + "&userid=" + document.getElementById('userid').value
+                            + "&roomcode=" + document.getElementById('roomcode').value
                             + "&username=" + document.getElementById('username').value
                             + "&score=" + document.getElementById("hiddenScore").value;
                 } else
                     window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
                             + "&heart=" + heart
+                            + "&roomcode=" + document.getElementById('roomcode').value
                             + "&gameId=" + document.getElementById('hiddenGameId').value
                             + "&level=" + document.getElementById('level').value
                             + "&userid=" + document.getElementById('userid').value

@@ -49,13 +49,13 @@
             </div>
 
             <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Level 1</a>
+                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1&roomcode=BBBBBB" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Level 1</a>
             </div>
             <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Level 2</a>
+                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2&roomcode=CCCCCC" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Level 2</a>
             </div>
             <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Level 3</a>
+                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3&roomcode=DDDDDD" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Level 3</a>
             </div>
         </div>
 

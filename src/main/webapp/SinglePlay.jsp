@@ -73,6 +73,7 @@
                         <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
                         <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
                         <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+                        <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
 
                         <h5 class="mt-4 font-weight-normal"><%=request.getParameter("previous")%></h5>
                     </div>

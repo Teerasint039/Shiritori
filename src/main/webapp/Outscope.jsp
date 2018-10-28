@@ -32,6 +32,7 @@
         <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
         <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
         <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+        <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
         <input type="hidden" id="hiddenPrevious" value="<%=request.getParameter("previous")%>" />
 
         <div class="container d-none d-md-block">
@@ -61,6 +62,7 @@
                         + "&level=" + document.getElementById('level').value
                         + "&userid=" + document.getElementById('userid').value
                         + "&username=" + document.getElementById('username').value
+                        + "&roomcode=" + document.getElementById('roomcode').value
                         + "&previous=" + document.getElementById("hiddenPrevious").value
                         + "&score=" + document.getElementById("hiddenScore").value;
             }, 3000);

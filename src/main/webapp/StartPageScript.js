@@ -22,6 +22,7 @@ var Timer = setInterval(function () {
                         + document.getElementById('hiddenGameId').value
                         +"&level=" + document.getElementById('level').value
                         +"&userid=" + document.getElementById('userid').value
+                        +"&roomcode=" + document.getElementById('roomcode').value
                         +"&username=" + document.getElementById('username').value;//send char, heart, score, gameId
         clearInterval(Timer);
 

@@ -41,6 +41,7 @@ public class AddAnswerServlet extends HttpServlet {
         int userId = Integer.parseInt(request.getParameter("userid"));
         String userName = request.getParameter("username");
         String status = request.getParameter("status");
+        String roomCode = request.getParameter("roomcode");
         int time = Integer.parseInt(request.getParameter("time"));
 //        int gameId = 1;
 //        String vocab = "ache";
@@ -58,6 +59,7 @@ public class AddAnswerServlet extends HttpServlet {
         request.setAttribute("score", score);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
+        request.setAttribute("roomcode", roomCode);
         request.setAttribute("username", userName);
         request.setAttribute("time", time);
         request.setAttribute("previous", vocab);

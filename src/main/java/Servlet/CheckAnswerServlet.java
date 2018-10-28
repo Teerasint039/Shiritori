@@ -48,6 +48,7 @@ public class CheckAnswerServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String previous = request.getParameter("previous");
         String status = request.getParameter("status");
+        String roomCode = request.getParameter("roomcode");
         String lowCaseVocab = vocab.toLowerCase();
 
         Answer answer = new Answer();
@@ -70,6 +71,7 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&heart=" + heart
                             + "&score=" + score
                             + "&level=" + level
+                            + "&roomcode=" + roomCode
                             + "&gameId=" + gameId
                             + "&userid=" + userId
                             + "&username=" + userName
@@ -83,6 +85,7 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&heart=" + heart
                             + "&score=" + score
                             + "&level=" + level
+                            + "&roomcode=" + roomCode
                             + "&gameId=" + gameId
                             + "&userid=" + userId
                             + "&username=" + userName
@@ -97,6 +100,7 @@ public class CheckAnswerServlet extends HttpServlet {
                             + "&heart=" + heart
                             + "&score=" + score
                             + "&level=" + level
+                            + "&roomcode=" + roomCode
                             + "&gameId=" + gameId
                             + "&userid=" + userId
                             + "&username=" + userName
@@ -112,6 +116,7 @@ public class CheckAnswerServlet extends HttpServlet {
                     + "&gameId=" + gameId
                     + "&userid=" + userId
                     + "&username=" + userName
+                    + "&roomcode=" + roomCode
                     + "&time=" + time).forward(request, response);
         }
 

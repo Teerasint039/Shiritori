@@ -6,6 +6,7 @@
 package Servlet;
 
 import Model.Answer;
+import Model.SingleModeGame;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -36,11 +37,15 @@ public class GameOver extends HttpServlet {
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int userId = Integer.parseInt(request.getParameter("userid"));
         String userName = request.getParameter("username");
+        String roomCode = request.getParameter("roomcode");
         int score = Integer.parseInt(request.getParameter("score"));
         
         System.out.println("GameId in GameOver:"+gameId);
         Answer answer = new Answer();
         List<Answer> answers = answer.showAllAnswer(gameId);
+        
+        SingleModeGame smg = new SingleModeGame();
+        smg.editScore(gameId, score);
         
         request.setAttribute("answers", answers);
         request.setAttribute("userid", userId);

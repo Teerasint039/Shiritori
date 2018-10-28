@@ -47,6 +47,7 @@
                     <input type="hidden" id="level" value="<%=request.getAttribute("level")%>" />
                     <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
                     <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
+                    <input type="hidden" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
                 </div>             
             </div>
         </div>

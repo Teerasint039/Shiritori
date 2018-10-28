@@ -69,6 +69,7 @@
                         <input type="hidden" id="level" value="<%=request.getAttribute("level")%>" />
                         <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
                         <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
+                        <input type="hidden" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
                         <input type="hidden" id="hiddenChar" name="char" value="<%=request.getAttribute("char")%>" />
                         <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getAttribute("heart")%>" />
                         <input type="hidden" id="hiddenScore" name="score" value="<%=request.getAttribute("score")%>" />

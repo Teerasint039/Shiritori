@@ -36,13 +36,16 @@ public class StartSingleModeGameServlet extends HttpServlet {
         int userId;
         int level;
         String userName;
+        String roomCode;
         userId = Integer.parseInt(request.getParameter("userid"));
         level = Integer.parseInt(request.getParameter("level"));
         userName = request.getParameter("username");
+        roomCode = request.getParameter("roomcode");
+        
         
         
         SingleModeGame smg = new SingleModeGame();
-        gameId = smg.newGame(userId);
+        gameId = smg.newGame(userId, roomCode);
         System.out.println("gameId: "+gameId);
         
         
@@ -55,6 +58,7 @@ public class StartSingleModeGameServlet extends HttpServlet {
         request.setAttribute("userid", userId);
         request.setAttribute("level", level);
         request.setAttribute("username", userName);
+        request.setAttribute("roomcode", roomCode);
        getServletContext().getRequestDispatcher("/StartPage.jsp").forward(request, response);
         
     }

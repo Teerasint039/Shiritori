@@ -42,6 +42,7 @@ public class GetMeaningServlet extends HttpServlet {
         int userId = Integer.parseInt(request.getParameter("userid"));//
         String userName = request.getParameter("username");//
         String status = request.getParameter("status");//
+        String roomCode = request.getParameter("roomcode");//
         int time = Integer.parseInt(request.getParameter("time"));
         String previous = request.getParameter("previous");
         
@@ -55,6 +56,7 @@ public class GetMeaningServlet extends HttpServlet {
         request.setAttribute("pchar", pchar);
         request.setAttribute("heart", heart);
         request.setAttribute("level", level);
+        request.setAttribute("roomCode", roomCode);
         request.setAttribute("score", score);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
