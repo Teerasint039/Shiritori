@@ -62,7 +62,7 @@
 
             <div class="row justify-content-md-start">
                 <div class="col-6 ">
-                    <img src="Icon/startwith & previous.png" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 2%">
+                    <img src="Icon/startwith & previou.svg" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 4%">
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
                         <h5 class="mt-4"><%=request.getParameter("char")%></h5>
                         
