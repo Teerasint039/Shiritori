@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.List;
+
 /**
  *
  * @author Teerasint
@@ -12,7 +14,21 @@ package Model;
 public class TestTimeStamp {
     public static void main(String[] args) {
         SingleModeGame smg = new SingleModeGame();
-        System.out.println(smg.newGame(1));
+        Room rm = new Room();
+//        System.out.println(rm.checkCodeAvailable("AAAAAA"));
+//        System.out.println(rm.);
+        
+        List<String> codes = rm.showAllRoomCode();
+
+        if (codes != null) {
+            for (String a : codes) {
+                System.out.println(a);
+            }
+        }
+        System.out.println("Index of AAAAAA:"+codes.indexOf("AAAAAB"));
+        
+//        smg.editScore(2, 0);
+//        System.out.println(smg.newGame(1,"AAAAAA"));
         
     }
 }

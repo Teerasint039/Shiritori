@@ -22,20 +22,25 @@ public class SingleModeGame {
 
     private int singleModeGameId;
     private int userId;
+    private int score;
     private String startTime;
+    private String roomCode;
 
-    public SingleModeGame() {
-    }
-
-    public SingleModeGame(int userId, String startTime) {
+    public SingleModeGame(int userId, String startTime, String roomCode) {
         this.userId = userId;
         this.startTime = startTime;
+        this.roomCode = roomCode;
+    }
+
+    public SingleModeGame() {
     }
 
     public SingleModeGame(ResultSet rs) throws SQLException {
         singleModeGameId = rs.getInt("GameId");
         userId = rs.getInt("userId");
+        score = rs.getInt("Score");
         startTime = rs.getString("StartTime");
+        roomCode = rs.getString("RoomCode");
     }
 
     public int getSingleModeGameId() {
@@ -58,11 +63,27 @@ public class SingleModeGame {
         return startTime;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getRoomCode() {
+        return roomCode;
+    }
+
+    public void setRoomCode(String roomCode) {
+        this.roomCode = roomCode;
+    }
+
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public int newGame(int UserId) {
+    public int newGame(int UserId, String roomcode) {
         SingleModeGame smg = null;
         long currentDateTime = System.currentTimeMillis();
         Date currentDate = new Date(currentDateTime);
@@ -73,8 +94,8 @@ public class SingleModeGame {
         int id = 0;
         try {
             Connection conn = Connectionbuilder.connect();
-            String query = " INSERT INTO `SinglePlayer_Game`(`UserId`, `StartTime`)"
-                    + " VALUES ('"+UserId+"','"+timestamp+"')";
+            String query = " INSERT INTO `SinglePlayer_Game`(`UserId`, `StartTime`, `RoomCode`)"
+                    + " VALUES ('"+UserId+"','"+timestamp + "','"+roomcode+"')";
             System.out.println("Insert Time: "+timestamp);
 
             // create the mysql insert preparedstatement
@@ -118,6 +139,21 @@ public class SingleModeGame {
 
         }
         return smg;
+    }
+    
+    //Add Update gameId (add score)
+    public void editScore(int gameId, int score) {
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            PreparedStatement pstmu = conn.prepareStatement("UPDATE `SinglePlayer_Game` SET `Score`='"+score+"' WHERE GameId='" + gameId + "';");
+            int rsu = pstmu.executeUpdate();
+            pstmu.close();
+            conn.close();
+
+        } catch (Exception ex) {
+
+        }
     }
 
     @Override

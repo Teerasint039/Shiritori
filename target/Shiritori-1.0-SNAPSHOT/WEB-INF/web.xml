@@ -64,6 +64,10 @@
         <servlet-name>GetVocabServlet</servlet-name>
         <servlet-class>Servlet.GetVocabServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>JoinRoomServlet</servlet-name>
+        <servlet-class>Servlet.JoinRoomServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/TestServlet</url-pattern>
@@ -123,6 +127,10 @@
     <servlet-mapping>
         <servlet-name>GetVocabServlet</servlet-name>
         <url-pattern>/GetVocabServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JoinRoomServlet</servlet-name>
+        <url-pattern>/JoinRoomServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
