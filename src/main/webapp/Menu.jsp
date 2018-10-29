@@ -50,7 +50,7 @@
                 <a href="Menupractice.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Practice Mode</a>
             </div>
             <div class="row justify-content-center">
-                <a href="LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Single player</a>
+                <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&alert= " class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Single player</a>
             </div>
             <div class="row justify-content-center">
                 <a href="Menumulti.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Multi player</a>

@@ -152,10 +152,10 @@ public class Vocab {
 
         return vocab;
     }
-    
+
     public String showVocabName(int vocabId) {
 
-       String vocab = null;
+        String vocab = null;
 
         try {
             Connection conn = Connectionbuilder.connect();
@@ -174,14 +174,14 @@ public class Vocab {
 
         return vocab;
     }
-    
-    public boolean isInDB(String vocab){//not complete
+
+    public boolean isInDB(String vocab) {//not complete
         boolean inDb = false;
-        
+
         return inDb;
     }
-    
-    public List<String> showAllVocab(){
+
+    public List<String> showAllVocab() {
         List<String> vocabs = null;
         String vocab = null;
 
@@ -212,8 +212,8 @@ public class Vocab {
         }
         return vocabs;
     }
-    
-    public List<String> showAllVocabLevel(int level){
+
+    public List<String> showAllVocabLevel(int level) {
         List<String> vocabs = null;
         String vocab = null;
 
@@ -221,7 +221,7 @@ public class Vocab {
             Connection conn = Connectionbuilder.connect();
 
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `Vocab` WHERE Level = '"+level+"';");
+                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `Vocab` WHERE Level = '" + level + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     vocab = rs.getString("Vocab");
@@ -277,41 +277,41 @@ public class Vocab {
         }
         return vocabs;
     }
-    
-    public static List<Vocab> showAllVocabDetailLevel(int level) {
 
+    public static List<Vocab> showAllVocabDetailLevel(int level) {
         List<Vocab> vocabs = null;
         Vocab vocab = null;
-
-        try {
-            Connection conn = Connectionbuilder.connect();
-
+        if (level >= 1 && level <= 3) {
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE Level = '"+level+"';");
-                ResultSet rs = pstm.executeQuery();
-                while (rs.next()) {
-                    vocab = new Vocab(rs);
-                    if (vocabs == null) {
-                        vocabs = new ArrayList();
+                Connection conn = Connectionbuilder.connect();
+
+                try {
+                    PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Vocab` WHERE Level = '" + level + "';");
+                    ResultSet rs = pstm.executeQuery();
+                    while (rs.next()) {
+                        vocab = new Vocab(rs);
+                        if (vocabs == null) {
+                            vocabs = new ArrayList();
+                        }
+                        vocabs.add(vocab);
                     }
-                    vocabs.add(vocab);
+                    rs.close();
+                    pstm.close();
+                    conn.close();
+                } catch (Exception ex) {
+                    Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                rs.close();
-                pstm.close();
-                conn.close();
-            } catch (Exception ex) {
+
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
                 Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
         }
         return vocabs;
     }
-    
-    public String getVocabFromId(int vocabId){
+
+    public String getVocabFromId(int vocabId) {
         String vocab = "";
         try {
             Connection conn = Connectionbuilder.connect();
@@ -329,8 +329,8 @@ public class Vocab {
         }
         return vocab;
     }
-    
-    public int getVocabIdFromVocab(String vocab){
+
+    public int getVocabIdFromVocab(String vocab) {
         int vocabid;
         try {
             Connection conn = Connectionbuilder.connect();

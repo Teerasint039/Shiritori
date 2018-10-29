@@ -155,7 +155,7 @@ public class Room {
         Room rm = null;
         try {
             Connection conn = Connectionbuilder.connect();
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `User` WHERE RoomCode = '" + roomCode + "'");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Room` WHERE RoomCode = '" + roomCode + "'");
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
@@ -181,5 +181,24 @@ public class Room {
         
         return status;
     }
+    
+    public boolean checkRoomCodeinDB(String roomcode){
+        boolean isValid = false;
+        List<String> roomcodes = showAllRoomCode();
+        if (roomcodes.indexOf(roomcode) != -1) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" + "roomCode=" + roomCode + ", comment=" + comment + ", level=" + level + '}';
+    }
+
+    public boolean checkRoomCodeisinDB(String roomCode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
 }

@@ -14,7 +14,9 @@ import java.util.List;
 public class TestTimeStamp {
     public static void main(String[] args) {
         SingleModeGame smg = new SingleModeGame();
-        Room rm = new Room("EEEEEE","Test Auto gen",00);
+        String roomCode = "AAAAAA";
+        Room rm = new Room();
+        System.out.println(rm.showRoom(roomCode).toString());
 //        System.out.println(rm.checkCodeAvailable("AAAAAA"));
 //        System.out.println(rm.);
 //        

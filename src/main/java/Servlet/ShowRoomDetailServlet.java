@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import Model.Room;
 import Model.SingleModeGame;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class StartSingleModeGameServlet extends HttpServlet {
+public class ShowRoomDetailServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,27 +34,30 @@ public class StartSingleModeGameServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         int userId = Integer.parseInt(request.getParameter("userid"));
-        int level = Integer.parseInt(request.getParameter("level"));
         String userName = request.getParameter("username");
         String roomCode = request.getParameter("roomcode");
-        
-        SingleModeGame smg = new SingleModeGame();
-        int gameId = smg.newGame(userId, roomCode);
-        System.out.println("gameId: "+gameId);
-        
-        
-        
-        System.out.println("userId: "+userId);
+
+        Room rm = new Room();
+        System.out.println("Roomcode: "+roomCode);
+
+        if (rm.checkRoomCodeinDB(roomCode)) {
+            System.out.println("in if block");
+            rm = rm.showRoom(roomCode);
+
+            request.setAttribute("userid", userId);
+            request.setAttribute("level", rm.getLevel());
+            request.setAttribute("comment", rm.getComment());
+            request.setAttribute("username", userName);
+            request.setAttribute("roomcode", roomCode);
+            getServletContext().getRequestDispatcher("/Showcodedetail.jsp").forward(request, response);
+        }
+        System.out.println("Out of IF block");
+        System.out.println("USERID: "+userId);
         System.out.println("UserName: "+userName);
-        
-        
-        request.setAttribute("gameId", gameId);
-        request.setAttribute("userid", userId);
-        request.setAttribute("level", level);
-        request.setAttribute("username", userName);
-        request.setAttribute("roomcode", roomCode);
-       getServletContext().getRequestDispatcher("/StartPage.jsp").forward(request, response);
-        
+        getServletContext().getRequestDispatcher("/Menusingle.jsp?userid="+userId+
+                "&username="+userName+
+                "&alert=Wrong Code!").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

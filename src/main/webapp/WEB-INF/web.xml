@@ -68,6 +68,10 @@
         <servlet-name>JoinRoomServlet</servlet-name>
         <servlet-class>Servlet.JoinRoomServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowRoomDetailServlet</servlet-name>
+        <servlet-class>Servlet.ShowRoomDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/TestServlet</url-pattern>
@@ -131,6 +135,10 @@
     <servlet-mapping>
         <servlet-name>JoinRoomServlet</servlet-name>
         <url-pattern>/JoinRoomServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowRoomDetailServlet</servlet-name>
+        <url-pattern>/ShowRoomDetailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
