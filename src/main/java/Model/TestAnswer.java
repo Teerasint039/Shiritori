@@ -13,13 +13,23 @@ import java.util.List;
  */
 public class TestAnswer {
     public static void main(String[] args) {
-        Answer answer = new Answer();
-        String vocab1 = "ache";
-        String vocab2 = "arm";
-        List<String> vocabs = answer.showAnswerVocabs(100);
-        for (String a : vocabs) {
-            System.out.println(a.toString());
+        RoomResult rr = new RoomResult();
+        List<RoomResult> rrs = rr.showRoomResult("AAAAAA");
+        for (RoomResult a : rrs) {
+            System.out.println(a);
         }
+//        SingleModeGame smg = new SingleModeGame();
+//        List<Integer> smgs = smg.getAllUserInRoom("AAAAAA");
+//        for(int sin : smgs){
+//            System.out.println(sin);
+        }
+//        Answer answer = new Answer();
+//        String vocab1 = "ache";
+//        String vocab2 = "arm";
+//        List<String> vocabs = answer.showAnswerVocabs(100);
+//        for (String a : vocabs) {
+//            System.out.println(a.toString());
+//        }
 //        System.out.println("ache: "+vocabs.indexOf("ache"));
 //        if (vocabs != null) {
 //            
@@ -41,4 +51,4 @@ public class TestAnswer {
 
     }
     
-}
+

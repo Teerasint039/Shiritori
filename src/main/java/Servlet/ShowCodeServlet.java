@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class JoinRoomServlet extends HttpServlet {
+public class ShowCodeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,17 +31,17 @@ public class JoinRoomServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String roomCode = "AAAAAA";
         
         Room room = new Room();
-        List<String> codes = room.showAllRoomCode();
+        List<Room> rooms = room.showAllRoom();
         
-        if (codes.indexOf(roomCode)==-1) {
-            //Room Code Not found
-        }else{
-            //Found Room Code
-            room = room.showRoom(roomCode);
+        for (Room a : rooms) {
+            System.out.println(a.toString());
         }
+        
+        request.setAttribute("rooms", rooms);
+                    
+        getServletContext().getRequestDispatcher("/Teacher/RoomCode.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

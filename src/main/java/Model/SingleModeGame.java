@@ -13,6 +13,12 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -141,6 +147,70 @@ public class SingleModeGame {
         return smg;
     }
     
+    public static List<SingleModeGame> getGamebyRoomCode(String roomCode) {
+        List<SingleModeGame> smgs = null;
+        SingleModeGame smg = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayer_Game` WHERE RoomCode = '"+roomCode+"'");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    smg = new SingleModeGame(rs);
+                    if (smgs == null) {
+                        smgs = new ArrayList();
+                    }
+                    smgs.add(smg);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return smgs;
+    }
+    
+    public static List<Integer> getAllUserInRoom(String roomCode) {
+        List<Integer> userids = null;
+        int userid;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT `UserId` FROM `SinglePlayer_Game` WHERE RoomCode = '"+roomCode+"'");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    userid = rs.getInt("UserId");
+                    if (userids == null) {
+                        userids = new ArrayList();
+                    }
+                    userids.add(userid);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return userids;
+    }
+    
     //Add Update gameId (add score)
     public void editScore(int gameId, int score) {
         try {
@@ -155,10 +225,21 @@ public class SingleModeGame {
 
         }
     }
+    
+    public boolean checkUserinRoom(int userId, String roomCode){
+        boolean isValid = false;
+        List<Integer> Ids = getAllUserInRoom(roomCode);
+        if (Ids.indexOf(userId) != -1) {
+            isValid = true;
+        }
+        return isValid;
+    }
 
     @Override
     public String toString() {
-        return "SingleModeGame{" + "singleModeGameId=" + singleModeGameId + ", userId=" + userId + ", startTime=" + startTime + '}';
+        return "SingleModeGame{" + "singleModeGameId=" + singleModeGameId + ", userId=" + userId + ", score=" + score + ", startTime=" + startTime + ", roomCode=" + roomCode + '}';
     }
+
+    
 
 }

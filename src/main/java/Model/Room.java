@@ -95,7 +95,7 @@ public class Room {
             Connection conn = Connectionbuilder.connect();
 
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Room`");
+                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `Room` order by RoomCode DESC");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     room = new Room(rs);

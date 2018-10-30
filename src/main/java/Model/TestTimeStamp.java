@@ -13,10 +13,12 @@ import java.util.List;
  */
 public class TestTimeStamp {
     public static void main(String[] args) {
-        SingleModeGame smg = new SingleModeGame();
-        String roomCode = "AAAAAA";
-        Room rm = new Room();
-        System.out.println(rm.showRoom(roomCode).toString());
+        User user = new User();
+        System.out.println(user.getUserNameFromID(1));
+//        SingleModeGame smg = new SingleModeGame();
+//        String roomCode = "AAAAAA";
+//        Room rm = new Room();
+//        System.out.println(rm.showRoom(roomCode).toString());
 //        System.out.println(rm.checkCodeAvailable("AAAAAA"));
 //        System.out.println(rm.);
 //        

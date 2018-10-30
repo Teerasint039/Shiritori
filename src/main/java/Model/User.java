@@ -129,6 +129,26 @@ public class User {
         return user;
     }
     
+    public String getUserNameFromID(int userId) {
+        String user = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+            PreparedStatement pstm = conn.prepareStatement("SELECT `UserName` FROM `User` WHERE `UserId`=" + userId);
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                user = rs.getString("UserName");
+            }
+            rs.close();
+            pstm.close();
+            conn.close();
+        } catch (Exception ex) {
+
+        }
+        return user;
+    }
+    
     public boolean checkUserNameAvailable(String username) {
         boolean available = false;
         String userName = null;

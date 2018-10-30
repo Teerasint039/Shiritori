@@ -5,8 +5,11 @@
  */
 package Servlet;
 
+import Model.Room;
+import Model.RoomResult;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class TestServlet extends HttpServlet {
+public class ShowResultServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +32,28 @@ public class TestServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
-        request.setAttribute("gameId", "3");
-        request.setAttribute("char", "A");
-        request.setAttribute("time", "10");
-        request.setAttribute("score", "4");
-        request.setAttribute("status", "Correct");
-        request.setAttribute("heart", "3");
-        request.setAttribute("vocab", "awake");
-        request.setAttribute("previous", "eda");
-        request.setAttribute("meaning", "ตื่นนอน");
-
-        getServletContext().getRequestDispatcher("/Teacher/MenuTeacher.jsp").forward(request, response);
+        
+        String roomCode = request.getParameter("roomcode");
+        System.out.println("roomcode: "+roomCode);
+        
+        Room rm = new Room();
+        rm = rm.showRoom(roomCode);
+        
+        RoomResult room = new RoomResult();
+        List<RoomResult> results = room.showRoomResult(roomCode);
+        
+        for (RoomResult a : results) {
+            System.out.println(a.toString());
+        }
+        
+        
+        request.setAttribute("result", results);
+        request.setAttribute("roomcode", rm.getRoomCode());
+        request.setAttribute("level", rm.getLevel());
+        request.setAttribute("comment", rm.getComment());
+                    
+        getServletContext().getRequestDispatcher("/Teacher/RoomResult.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

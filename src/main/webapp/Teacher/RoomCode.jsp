@@ -116,7 +116,6 @@
                             <%
                                 List<Room> rooms = (List) request.getAttribute("rooms");
                                 if (rooms != null) {
-                                    int number = 1;
                                     for (Room a : rooms) {
                             %>
                             <tr>

@@ -1,3 +1,4 @@
+<%@page import="Model.RoomResult"%>
 <%@page import="Model.SingleModeGame"%>
 <%@page import="Model.Room"%>
 <%@page import="java.util.List"%>
@@ -47,9 +48,9 @@
                     <div class="lh-100" >
                         <div class="row">
                             <div class="col-md-8" style="margin-top: 1%;">
-                                <h4 class="text-white text-left">Code:</h4>
-                                <h4 class="text-white text-left">Level:</h4>
-                                <h4 class="text-white text-left">Comment:</h4>
+                                <h4 class="text-white text-left">Code:</h4><%=request.getParameter("roomcode")%>
+                                <h4 class="text-white text-left">Level:</h4><%=request.getParameter("level")%>
+                                <h4 class="text-white text-left">Comment:</h4><%=request.getParameter("comment")%>
                             </div>                        
                         </div>
                     </div>
@@ -67,15 +68,16 @@
                         <tbody>
                             <!--new-->
                             <%
-                                List<String, int> smgs = (List) request.getAttribute("smgs");
-                                if (smgs != null) {
-                                    int number = 1;
-                                    for (Room a : rooms) {
+                                List<RoomResult> results = (List) request.getAttribute("results");
+                                int number = 0;
+                                if (results != null) {
+                                    for (RoomResult a : results) {
+                                        number++;
                             %>
                             <tr>
                                 <td><%=number%></td>
-                                <td><%=a.getLevel()%></td>
-                                <td><%=a.getComment()%></td>
+                                <td><%=a.getUserName()%></td>
+                                <td><%=a.getScore()%></td>
                             </tr>
                             <%      }
                                 }%>
