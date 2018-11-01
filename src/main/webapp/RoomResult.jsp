@@ -21,7 +21,7 @@
 
         <style>
             html, body{
-                background-image: url("../Icon/bgTeacher.svg")  ;
+                background-image: url("Icon/bgTeacher.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -48,9 +48,9 @@
                     <div class="lh-100" >
                         <div class="row">
                             <div class="col-md-8" style="margin-top: 1%;">
-                                <h4 class="text-white text-left">Code:</h4><%=request.getParameter("roomcode")%>
-                                <h4 class="text-white text-left">Level:</h4><%=request.getParameter("level")%>
-                                <h4 class="text-white text-left">Comment:</h4><%=request.getParameter("comment")%>
+                                <h4 class="text-white text-left">Code:</h4><%=request.getAttribute("roomcode")%>
+                                <h4 class="text-white text-left">Level:</h4><%=request.getAttribute("level")%>
+                                <h4 class="text-white text-left">Comment:</h4><%=request.getAttribute("comment")%>
                             </div>                        
                         </div>
                     </div>
@@ -87,6 +87,7 @@
                 </div>            
 
             </main>
+                                
 
 
         </div>

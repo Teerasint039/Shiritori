@@ -41,7 +41,6 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
         int userId = (int) request.getAttribute("userid");
         String userName = (String) request.getAttribute("username");
         int score = (int) request.getAttribute("score");
-        int time = (int) request.getAttribute("time");
 
         CategoryVocab cv = new CategoryVocab();
         Vocab vocab = new Vocab();
@@ -61,6 +60,7 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
         request.setAttribute("userid", userId);
         request.setAttribute("username", userName);
         request.setAttribute("score", score);
+        request.setAttribute("time", 120);
         request.setAttribute("vocab", vocab.getVocabFromId(vocabIds.get(randomIndex)));
 
         getServletContext().getRequestDispatcher("/FirstPracticeMode.jsp").forward(request, response);

@@ -13,8 +13,24 @@ import java.util.List;
  */
 public class TestTimeStamp {
     public static void main(String[] args) {
-        User user = new User();
-        System.out.println(user.getUserNameFromID(1));
+        String roomCode = "BBBBBB";
+        Room rm = new Room();
+        rm = rm.showRoom(roomCode);
+        
+        RoomResult room = new RoomResult();
+        List<RoomResult> results = room.showRoomResult(roomCode);
+        int number = 0;
+        if (results != null) {
+            for (RoomResult a : results) {
+                number++;
+                System.out.println("number: "+number);
+                System.out.println("UserName: "+a.getUserName());
+                System.out.println("Score: "+a.getScore());
+            }
+        }
+        
+//        User user = new User();
+//        System.out.println(user.getUserNameFromID(1));
 //        SingleModeGame smg = new SingleModeGame();
 //        String roomCode = "AAAAAA";
 //        Room rm = new Room();

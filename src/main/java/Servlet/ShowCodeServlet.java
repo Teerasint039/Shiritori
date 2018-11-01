@@ -41,7 +41,7 @@ public class ShowCodeServlet extends HttpServlet {
         
         request.setAttribute("rooms", rooms);
                     
-        getServletContext().getRequestDispatcher("/Teacher/RoomCode.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/RoomCode.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

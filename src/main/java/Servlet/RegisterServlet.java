@@ -38,6 +38,7 @@ public class RegisterServlet extends HttpServlet {
         int userId;
         User user = new User();
         if (user.checkUserNameAvailable(username)){
+            System.out.println("user.checkUserNameAvailable(username) = TRUE");
             user.addUser(username, password);
             System.out.println("Available: "+user.checkUserNameAvailable(username));
                 
@@ -53,6 +54,7 @@ public class RegisterServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); // register fail
         }
         }else{
+            System.out.println("user.checkUserNameAvailable(username) = FALSE");
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); //register fail duplicate Id
         }
         

@@ -47,12 +47,12 @@ public class ShowResultServlet extends HttpServlet {
         }
         
         
-        request.setAttribute("result", results);
+        request.setAttribute("results", results);
         request.setAttribute("roomcode", rm.getRoomCode());
         request.setAttribute("level", rm.getLevel());
         request.setAttribute("comment", rm.getComment());
                     
-        getServletContext().getRequestDispatcher("/Teacher/RoomResult.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/RoomResult.jsp").forward(request, response);
         
     }
 

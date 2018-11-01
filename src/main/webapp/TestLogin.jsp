@@ -12,7 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>userid=<%=request.getAttribute("userid")%>
-            username=<%=request.getAttribute("username")%></h1>
+        <form action="updateItem">
+
+  <input id="qta_field" name="quantita" value="${item.value}">
+  <input type="hidden" name="codice" value="${item.key.codice}">
+
+  <button>update</button>
+
+</form>
+<!--        <h1>userid=<%=request.getAttribute("userid")%>
+            username=<%=request.getAttribute("username")%></h1>-->
     </body>
 </html>

@@ -155,7 +155,7 @@ public class SingleModeGame {
             Connection conn = Connectionbuilder.connect();
 
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayer_Game` WHERE RoomCode = '"+roomCode+"'");
+                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayer_Game` WHERE RoomCode = '"+roomCode+"' ORDER by Score DESC");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     smg = new SingleModeGame(rs);

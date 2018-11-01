@@ -162,7 +162,7 @@ public class User {
             while (rs.next()) {
                 userName = rs.getString("UserName");
             }
-            if (lowerCaseUserName == null) {
+            if (userName == null) {
                 available = true;
             }
             rs.close();

@@ -49,6 +49,10 @@ public class AddAnswerServlet extends HttpServlet {
 //        int time = 10;
         
         
+        System.out.println("Add Answer Servlet");
+        System.out.println("gameId: "+gameId);
+        System.out.println("status: "+status);
+        System.out.println("time: "+time);
         Answer answer = new Answer();
         int usedTime = 30-time;
         answer.addAnswer(gameId, vocab, status, usedTime);

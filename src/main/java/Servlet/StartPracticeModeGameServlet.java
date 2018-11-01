@@ -51,7 +51,6 @@ public class StartPracticeModeGameServlet extends HttpServlet {
         request.setAttribute("userid", userId);
         request.setAttribute("username", userName);
         request.setAttribute("score", 0);
-        request.setAttribute("time", 30);
        getServletContext().getRequestDispatcher("/RandomPracticeModeVocabServlet").forward(request, response);
     }
 

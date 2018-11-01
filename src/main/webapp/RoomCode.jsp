@@ -18,7 +18,7 @@
 
         <style>
             html, body{
-                background-image: url("../Icon/bgTeacher.svg")  ;
+                background-image: url("Icon/bgTeacher.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -51,7 +51,7 @@
 
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-outline-light rounded-circle border-0" data-toggle="modal" data-target="#exampleModalCenter"style="width: 3rem; height: 3rem; ">
-                                    <img src="../Icon/plus.svg" class="img-fluid" alt="Responsive image" >
+                                    <img src="Icon/plus.svg" class="img-fluid" alt="Responsive image" >
                                 </button>                                
 
                                 <!-- Modal -->

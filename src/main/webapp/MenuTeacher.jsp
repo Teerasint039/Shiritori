@@ -16,7 +16,7 @@
 
         <style>
             html, body{
-                background-image: url("../Icon/bgTeacher.svg")  ;
+                background-image: url("Icon/bgTeacher.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -47,7 +47,7 @@
                 <a href="${pageContext.request.contextPath}/ShowCodeServlet" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Create and Show Code</a>
             </div>
             <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/ShowResultServlet?roomcode=AAAAAA" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Show result score</a>
+                <a href="${pageContext.request.contextPath}/ShowResultServlet?roomcode=BBBBBB" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Show result score</a>
             </div>
         </div>
 
