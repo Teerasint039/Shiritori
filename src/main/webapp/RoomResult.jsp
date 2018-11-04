@@ -41,6 +41,18 @@
     </head>
 
     <body class="text-center">
+<!--        <form action="${pageContext.request.contextPath}/ShowResultServlet" method="post">
+            <div class="modal-body" style="text-align: left;">
+                <div class="form-group row">
+                    <label for="exampleFormControlTextarea1" class="col-sm-4 col-form-label">Code: </label>   
+                    <div class="col-sm-8">
+                        <input type="text" name="roomcode" id="roomcode">
+                        <input type="submit" class="btn btn-primary" name="OK">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>      
+                    </div>
+                </div>
+            </div>
+        </form>-->
         <!-- pc -->
         <div class="container mb-5 d-none d-sm-block">
             <main role="main" class="container" style="margin-top: 10%;">
@@ -87,7 +99,7 @@
                 </div>            
 
             </main>
-                                
+
 
 
         </div>

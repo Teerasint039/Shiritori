@@ -32,22 +32,27 @@ public class AddNewRoomServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //randomcode
+        int level = Integer.parseInt(request.getParameter("level"));
+        String comment = request.getParameter("comment");
         String roomCode = "";
-        
+
         Room room = new Room();
+
+        System.out.println("Code is not in DB");
+
+        do {
+            roomCode = room.genRoomCode();
+            System.out.println("roomcode: " + roomCode);
+        } while (room.checkRoomCodeinDB(roomCode));
         
-        
-        if (room.checkRoomCodeisinDB(roomCode)) {
-            roomCode = "";
-            //back to gencode again
-            while(room.checkRoomCodeisinDB(roomCode)){
-                roomCode = "newRoomCode";
-            }
-        }else{
-            //not in Db goto show code servlet
-        }
-        
-        
+        System.out.println("after loop");
+
+        room = new Room(roomCode, comment, level);
+        request.setAttribute("roomcode", roomCode);
+        request.setAttribute("level", level);
+        request.setAttribute("comment", comment);
+        getServletContext().getRequestDispatcher("/ShowCodeServlet").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

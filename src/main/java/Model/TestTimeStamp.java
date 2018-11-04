@@ -13,12 +13,22 @@ import java.util.List;
  */
 public class TestTimeStamp {
     public static void main(String[] args) {
-        String roomCode = "BBBBBB";
-        Room rm = new Room();
-        rm = rm.showRoom(roomCode);
+//        Answer ans = new Answer();
+//        List<Integer> gameIds = ans.showAllPlayedGameId();
+//        for (int a : gameIds ) {
+//            System.out.println(a);
+//        }
+//        String roomCode = "";
+//        Room rm = new Room();
+//        System.out.println(rm.checkCanShowResult("ORGDXI"));
+//        System.out.println(rm.showAllUsedRoomCode());
+//        System.out.println(rm.checkRoomCodeinDB(roomCode));
+//        rm = rm.showRoom(roomCode);
         
         RoomResult room = new RoomResult();
-        List<RoomResult> results = room.showRoomResult(roomCode);
+        System.out.println("result!");
+        List<RoomResult> results = room.showRoomResult("ORGDXI");
+        System.out.println("***********");
         int number = 0;
         if (results != null) {
             for (RoomResult a : results) {

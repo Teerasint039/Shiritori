@@ -181,6 +181,37 @@ public class Answer {
         }
         return answers;
     }
+        public List<Integer> showAllPlayedGameId() {
+        List<Integer> gameIds = null;
+        int gameId;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT DISTINCT `GameId` FROM `SinglePlayerMode_Vocab`");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    gameId = rs.getInt("GameId");
+                    if (gameIds == null) {
+                        gameIds = new ArrayList();
+                    }
+                    gameIds.add(gameId);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return gameIds;
+    } 
     
     public double findAverrageTime(int gameId){
         double avgTime = 0.0;

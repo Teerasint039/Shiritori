@@ -37,6 +37,10 @@ public class ShowResultServlet extends HttpServlet {
         System.out.println("roomcode: "+roomCode);
         
         Room rm = new Room();
+        
+        if (rm.checkRoomCodeinDB(roomCode)) {
+            
+        
         rm = rm.showRoom(roomCode);
         
         RoomResult room = new RoomResult();
@@ -53,7 +57,8 @@ public class ShowResultServlet extends HttpServlet {
         request.setAttribute("comment", rm.getComment());
                     
         getServletContext().getRequestDispatcher("/RoomResult.jsp").forward(request, response);
-        
+        }
+        getServletContext().getRequestDispatcher("/MenuTeacher.jsp").forward(request, response);//invalid Roomcode
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -47,7 +47,7 @@
                 <a href="${pageContext.request.contextPath}/ShowCodeServlet" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Create and Show Code</a>
             </div>
             <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/ShowResultServlet?roomcode=BBBBBB" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Show result score</a>
+                <a href="${pageContext.request.contextPath}/ShowResultServlet?roomcode=ORGDXI" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Show result score</a>
             </div>
         </div>
 

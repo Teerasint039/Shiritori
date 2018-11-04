@@ -65,15 +65,12 @@
                                                 </button>
                                             </div>
 
-                                            <form action="#">
+                                            <form action="${pageContext.request.contextPath}/AddNewRoomServlet">
                                                 <div class="modal-body" style="text-align: left;">
-                                                    <div class="form-group row">
-                                                        <label for="code" class="col-sm-4 col-form-label">Code:</label>
-                                                    </div>
                                                     <div class="form-group row">
                                                         <label for="inputPassword" class="col-sm-4 col-form-label">Level: </label>
                                                         <div class="col-sm-8">
-                                                            <select class="form-control">
+                                                            <select class="form-control" id="level" name="level">
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
                                                                 <option value="3">3</option>
@@ -83,13 +80,13 @@
                                                     <div class="form-group row">
                                                         <label for="exampleFormControlTextarea1" class="col-sm-4 col-form-label">Comment: </label>   
                                                         <div class="col-sm-8">
-                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                                            <input  type="text" class="form-control" id="comment" name="comment" rows="2">
                                                         </div>
                                                     </div>
 
                                                 </div>
                                                 <div class="modal-footer" >
-                                                    <button type="button" class="btn btn-primary">OK</button>
+                                                    <input type="submit" class="btn btn-primary" name="OK">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>                                              
                                                 </div>
                                             </form>

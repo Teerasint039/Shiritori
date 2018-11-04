@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -151,6 +152,49 @@ public class Room {
         return codes;
     }
     
+     public static List<String> showAllUsedRoomCode() {
+        List<String> codes = null;
+        String code = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT DISTINCT `RoomCode` FROM `SinglePlayer_Game`");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    code = rs.getString("RoomCode");
+                    if (codes == null) {
+                        codes = new ArrayList();
+                    }
+                    codes.add(code);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return codes;
+    }
+     
+     public boolean checkCanShowResult(String roomcode){
+         boolean canShow = false;
+         List<String> codes = showAllUsedRoomCode();
+         System.out.println("codes: "+codes);
+         System.out.println("codes.indexOf(roomCode)"+codes.indexOf(roomcode));
+         if (codes.indexOf(roomcode)!=-1) {
+             canShow = true;
+         }
+         return canShow;
+     }
+    
     public Room showRoom(String roomCode){
         Room rm = null;
         try {
@@ -189,6 +233,18 @@ public class Room {
             isValid = true;
         }
         return isValid;
+    }
+    
+    public String genRoomCode(){
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 6) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
     }
 
     @Override

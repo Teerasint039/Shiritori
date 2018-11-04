@@ -50,18 +50,20 @@ public class RoomResult {
     public static List<RoomResult> showRoomResult(String roomCode) {
         List<RoomResult> results = null;
         RoomResult result = new RoomResult();
-
         User user = new User();
+        Room room = new Room();
         SingleModeGame smg = new SingleModeGame();
-        List<SingleModeGame> smgs = smg.getGamebyRoomCode(roomCode);
-        for (SingleModeGame sin : smgs) {
-            result = new RoomResult(user.getUserNameFromID(sin.getUserId()), sin.getScore());
-            if (results == null) {
-                results = new ArrayList();
+        if (room.checkCanShowResult(roomCode)) {
+            System.out.println("showRoomResult method");
+            List<SingleModeGame> smgs = smg.getGamebyRoomCode(roomCode);
+            for (SingleModeGame sin : smgs) {
+                result = new RoomResult(user.getUserNameFromID(sin.getUserId()), sin.getScore());
+                if (results == null) {
+                    results = new ArrayList();
+                }
+                results.add(result);
             }
-            results.add(result);
         }
-
         return results;
     }
 
