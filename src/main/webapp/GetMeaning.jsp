@@ -16,7 +16,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-image: url("Icon/bgSingleplayer.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -42,7 +42,7 @@
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-center">
                 <div class="col-6 col-md-4">
-                    <img src="Icon/score.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-right: 10%;">
+                    <img src="Icon/score.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-right: 10%;">
                     <div class="card-img-overlay" style="color: black; margin-top: 6%; ">
                         <h2><%=request.getAttribute("score")%></h2>
                     </div>
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="col-6 col-md-4">
-                    <img src="Icon/time.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-left: 20%;">
+                    <img src="Icon/time.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-left: 20%;">
                     <div class="card-img-overlay" style="color: black; margin-top: 6%; margin-left: 30%;">
                         <h2  id="countdowntimer"><%=request.getAttribute("time")%></h2>
                     </div>
@@ -62,7 +62,7 @@
 
             <div class="row justify-content-md-start">
                 <div class="col-6 ">
-                    <img src="Icon/startwith & previous.png" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 2%">
+                    <img src="Icon/startwith & previou.svg" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 2%">
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
                         <h5 class="mt-4"><%=request.getAttribute("previous")%></h5>
                         <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
@@ -84,7 +84,7 @@
 
             <div class="row justify-content-md-center">
                 <div class="col ">
-                    <img src="Icon/boxtext.png" class="img-fluid" alt="Responsive image" style="width: 50rem; margin-top: 2%">
+                    <img src="Icon/boxtext.svg" class="img-fluid" alt="Responsive image" style="width: 50rem; margin-top: 2%">
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
                         <form>
                             <textarea  type="text" class="form-control text-center " id="note-textarea" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="<%=request.getAttribute("vocab")%>" readonly  ></textarea>
@@ -101,7 +101,7 @@
             <div class="row justify-content-md-center">
                 <div class="col col-md-12">
                     <button type="button" class="btn btn-outline-light rounded-circle border-0"  id="start-record-btn"  title="Start Recording" style="margin-top: 1%; width: 8rem; height: 8rem;" >
-                        <img src="Icon/microphone.png" class="img-fluid"  alt="Responsive image">
+                        <img src="Icon/microphone.svg" class="img-fluid"  alt="Responsive image">
                     </button>
                 </div>
             </div>

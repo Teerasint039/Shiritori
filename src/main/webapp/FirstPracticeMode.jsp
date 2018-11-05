@@ -18,7 +18,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgplaypractice.png")  ;
+                background-image: url("Icon/bgplaypractice.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -43,13 +43,13 @@
             <div class="container d-none d-md-block">
                 <div class="row justify-content-md-center">
                     <div class="col-md-6">
-                        <img src="Icon/score.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-right: 10%;">
-                        <div class="card-img-overlay" style="color: black; margin-top: 7%; margin-right: 50%;">
+                        <img src="Icon/score.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 11%; margin-right: 10%;">
+                        <div class="card-img-overlay" style="color: black; margin-top: 9%; margin-right: 50%;">
                             <h2><%=request.getAttribute("score")%></h2>
                         </div>
 
-                        <img src="Icon/time.png" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 10%; margin-left: 20%;">
-                        <div class="card-img-overlay" style="color: black; margin-top: 7%; margin-left: 60%;">
+                        <img src="Icon/time.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 11%; margin-left: 20%;">
+                        <div class="card-img-overlay" style="color: black; margin-top: 9%; margin-left: 60%;">
                             <h2 id="countdowntimer"><%=request.getAttribute("time")%></h2>
                         </div>
                     </div>                
@@ -57,14 +57,14 @@
 
                 <div class="row justify-content-md-center ">
                     <div class="col-md-6 ">
-                        <img src="Icon/Card<%=request.getAttribute("category")%>/card <%=request.getAttribute("vocab")%>.png" class="img-fluid" alt="Responsive image" style="width: 30rem; margin-top: 5%;">
+                        <img src="Icon/Card<%=request.getAttribute("category")%>/card <%=request.getAttribute("vocab")%>.svg" class="img-fluid" alt="Responsive image" style="width: 30rem; margin-top: 5%;">
                     </div>
                 </div>
 
                 <div class="row justify-content-md-center">
                     <div class="col-md-auto" style="color: white; margin-top: 2%;" >            
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" onclick="responsiveVoice.speak('<%=request.getAttribute("vocab")%>');" value="Listen" style="width: 6rem; height: 6rem;border: 0;  ">
-                            <img src="Icon/Sound.png" class="img-fluid" alt="Responsive image" >
+                            <img src="Icon/sound.svg" class="img-fluid" alt="Responsive image" >
                         </button>               
                     </div>
 
@@ -84,14 +84,14 @@
                 <div class="row justify-content-md-center">
                     <div class="col col-md-12">
                         <button type="button" class="btn btn-outline-light rounded-circle border-0"  id="start-record-btn" style="margin-top: 5%; width: 8rem; height: 8rem;" >
-                            <img src="Icon/microphone.png" class="img-fluid"  alt="Responsive image">
+                            <img src="Icon/microphone.svg" class="img-fluid"  alt="Responsive image">
                         </button>
                     </div>
                 </div>
 
                 <div class="row justify-content-center">
                     <div class="col text-center" style="color: white; font-size: 14px; margin-bottom: 1%;">
-                        <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>                
+                        <p id="recording-instructions">คลิกท่ปุ่ม <strong>Microphone</strong>เพื่อพูด</p>                
                     </div>
                 </div> 
                 <div class="row justify-content-center" >

@@ -15,7 +15,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-image: url("Icon/bgSingleplayer.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -39,7 +39,7 @@
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-center">
                 <div class="col">
-                    <img src="Icon/popupcorrect.png" class="img-fluid" alt="Responsive image" style="width: 45rem; height: 20em;margin-top: 13%; ">
+                    <img src="Icon/popupcorrect.svg" class="img-fluid" alt="Responsive image" style="width: 45rem; height: 20em;margin-top: 13%; ">
                 </div>
             </div>
         </div>

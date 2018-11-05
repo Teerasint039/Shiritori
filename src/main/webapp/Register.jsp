@@ -17,7 +17,7 @@
 
         <style>
             body{
-                background-image: url("Icon/backgroundMenu.png");
+                background-image: url("Icon/backgroundMenu.svg");
                 overflow: hidden;
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -34,6 +34,7 @@
                 height: 9rem;
                 background-attachment: fixed;
                 margin-top: 15%;
+                margin-bottom: 3%;
                 background-repeat: no-repeat;
             }
         </style>
@@ -46,16 +47,20 @@
             <!-- pc -->
             <div class="container mb-5 d-none d-sm-block">
                 <div class="row justify-content-center ">
-                    <img class=" img-fluid" src="Icon/header.png" alt="" >
+                    <img class=" img-fluid" src="Icon/header.svg" alt="" >
                 </div>
                 <div class="row justify-content-center ">
                     <form action="RegisterServlet" method="get" class="form-signin" style="width: 20rem" >
                         <label for="inputEmail" class="sr-only"  > Username</label>
                         <input type="text" name="username" id="inputText" class="form-control" placeholder="User name" required="" autofocus="">
-                        <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 5%;">Register</button>
-                        <a href="Signin.jsp" class="btn btn-danger btn-lg btn-block"  role="button">Cancel</a>
+                        <div class="row justify-content-center "style="margin-top: 10%;">
+                            <div class="col">
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                            </div>
+                            <div class="col">
+                                <a href="Signin.jsp" class="btn btn-danger btn-lg btn-block"  role="button">Cancel</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

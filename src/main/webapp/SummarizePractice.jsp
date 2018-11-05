@@ -17,7 +17,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgplaypractice.png")  ;
+                background-image: url("Icon/bgplaypractice.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -34,18 +34,18 @@
             <div class="container d-none d-md-block">             
                 <div class="row justify-content-md-center">
                     <div class="col">
-                        <img src="Icon/popupGameoverpractice.png" class="img-fluid" alt="Responsive image" style="width: 35rem; margin-top: 12%;">
+                        <img src="Icon/popupGameoverpractice.svg" class="img-fluid" alt="Responsive image" style="width: 35rem; margin-top: 12%;">
                         <div class="card-img-overlay" style="color: black; margin-top: 29%; ">
                             <h2 style="font-size: 2cm;"><%=request.getParameter("score")%></h2>
 
                             <a href ="Menupractice.jsp?categoryId=<%=request.getParameter("categoryId")%>&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; ">
-                                    <img src="Icon/Reset.png" class="img-fluid" alt="Responsive image">                
+                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%; ">
+                                    <img src="Icon/Reset.svg" class="img-fluid" alt="Responsive image">                
                                 </button>
                             </a>
                             <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0;">
-                                    <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;">
+                                    <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
                                 </button>
                             </a>
                         </div>

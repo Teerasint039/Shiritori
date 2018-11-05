@@ -32,6 +32,7 @@
             .text-white-50 { color: rgba(255, 255, 255, .5); }
 
             .bg-purple { background-color: #6f42c1; }
+            .bg-purple1 { background-color: #8b67cd; }
 
             .lh-100 { line-height: 1; }
             .lh-125 { line-height: 1.25; }
@@ -57,6 +58,23 @@
         <div class="container mb-5 d-none d-sm-block">
             <main role="main" class="container" style="margin-top: 10%;">
                 <div class=" align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+                    <div class="lh-100" >
+                        <div class="row">
+                            <div class="col-md-4 text-left">
+                                <a href ="MenuTeacher.jsp">
+                                    <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; height: 5rem; border: 0; ">
+                                        <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
+                                    </button>
+                                </a>
+                            </div> 
+                            <div class="col-md-4 text-center" style="margin-top: 2%;">
+                                <h4 class="text-white">Room Result</h4>
+                            </div>                  
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" align-items-center p-3 my-3 text-white-50 bg-purple1 rounded shadow-sm">
                     <div class="lh-100" >
                         <div class="row">
                             <div class="col-md-8" style="margin-top: 1%;">

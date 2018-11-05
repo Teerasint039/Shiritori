@@ -65,11 +65,11 @@ recognition.onresult = function (event) {
 //    window.alert("answer: " + noteContent);
 
     if (document.getElementById("hiddenVocab").value.toLowerCase() === noteContent.toLowerCase()) {
-        document.getElementById('popupimg').src = "Icon/popupcorrect.png";
+        document.getElementById('popupimg').src = "Icon/popupcorrect.svg";
         score = parseInt(document.getElementById("hiddenScore").value) + 1;
         status = "Correct";
     } else {
-        document.getElementById('popupimg').src = "Icon/popupIncorrect.png";
+        document.getElementById('popupimg').src = "Icon/popupIncorrect.svg";
         score = document.getElementById("hiddenScore").value;
         status = "Incorrect";
     }

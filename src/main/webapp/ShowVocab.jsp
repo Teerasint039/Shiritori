@@ -18,7 +18,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgplaydictionary.png")  ;
+                background-image: url("Icon/bgplaydictionary.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -37,7 +37,7 @@
             .example-1 {
                 position: relative;
                 overflow-y: scroll;
-                height: 200px;
+                height: 350px;
                 margin-bottom: 8%;
             }
             .scrollbar-ripe-malinka::-webkit-scrollbar {
@@ -60,7 +60,7 @@
                 <div class="col-md-12 ">
                     <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
-                            <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                            <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
                         </button>
                     </a>       
                     <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;margin-right: 16rem;">Vocabulary</span>
@@ -83,7 +83,7 @@
                 List<Vocab> vocabs = (List) request.getAttribute("vocabs");
                 if (vocabs != null) {
             %>
-            <div class="row justify-content-center" style="margin-top: 9%; color: white;">
+            <div class="row justify-content-center" style="margin-top: 5%; color: white;">
                 <div class="col-md-auto">
                     <div class="table-responsive example-1 scrollbar-ripe-malinka">
                         <table class="table table-striped table-sm ">

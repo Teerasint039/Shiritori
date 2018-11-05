@@ -16,7 +16,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgmulti.svg")  ;
+                background-image: url("Icon/bgSingleplayer.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -38,26 +38,46 @@
     <body class="text-center">
         <!-- pc -->
         <div class="container mb-5 d-none d-sm-block">
-            <form>
-                <main role="main" class="container" style="margin-top: 10%;">
-                    <div class=" align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
-                        <div class="lh-100" >
-                            <div class="row">
-                                <div class="col-md-8" style="margin-top: 1%;">
-                                    <h4 class="text-white text-left">Code:<%=request.getAttribute("roomcode")%></h4>
-                                    <h4 class="text-white text-left">Level:<%=request.getAttribute("level")%></h4>
-                                    <h4 class="text-white text-left">Comment:<%=request.getAttribute("comment")%></h4>
-                                </div>                        
-                            </div>                     
+            <div class="row  justify-content-center"style="margin-top: 5%; ">
+                <div class="col-md-7" style="margin-top: 15%;" >
+                    <form>
+                        <div class="card flex-md-row mb-5 shadow-sm h-md-250">
+                            <div class="card-body align-items-start" >
+                                <h3 class="mb-0" style="margin-bottom: 3%;">
+                                    <strong class="d-inline-block mb-2 text-success">Room Detail</strong>
+                                </h3>
+                                <h6 class="text-black text-left">Code: <%=request.getAttribute("roomcode")%></h6>
+                                <h6 class="text-black text-left">Level: <%=request.getAttribute("level")%></h6>
+                                <h6 class="text-black text-left">Comment: <%=request.getAttribute("comment")%></h6>
+                                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=<%=request.getAttribute("level")%>&roomcode=<%=request.getAttribute("roomcode")%>"><button type="button" class="btn btn-primary" style="margin-top: 5%;">Ok</button></a>
+                                <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&alert= "><button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 5%;">Back</button></a>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px; " src="Icon/bgjoin.svg" data-holder-rendered="true" >
                         </div>
-                    </div>
-                </main>
-                <div class="modal-footer">
-                    <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&alert= "><button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button></a>
-                    <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=<%=request.getAttribute("level")%>&roomcode=<%=request.getAttribute("roomcode")%>"><button type="button" class="btn btn-primary">Ok</button></a>
+                    </form>               
                 </div>
-            </form>
+            </div>
 
+            <!--            <form>
+                            <main role="main" class="container" style="margin-top: 10%;">
+                                <div class=" align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+                                    <div class="lh-100" >
+                                        <div class="row">
+                                            <div class="col-md-8" style="margin-top: 1%;">
+                                                <h4 class="text-white text-left">Code:<%=request.getAttribute("roomcode")%></h4>
+                                                <h4 class="text-white text-left">Level:<%=request.getAttribute("level")%></h4>
+                                                <h4 class="text-white text-left">Comment:<%=request.getAttribute("comment")%></h4>
+                                            </div>                        
+                                        </div>                     
+                                    </div>
+                                </div>
+                            </main>
+                            <div class="modal-footer">
+                                <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&alert= "><button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button></a>
+                                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=<%=request.getAttribute("level")%>&roomcode=<%=request.getAttribute("roomcode")%>"><button type="button" class="btn btn-primary">Ok</button></a>
+                            </div>
+                        </form>
+            -->
         </div>
 
         <!-- sm phone -->

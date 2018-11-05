@@ -16,7 +16,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-image: url("Icon/bgSingleplayer.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -41,7 +41,7 @@
                 <div class="col-md-12 ">
                     <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
-                            <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                            <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
                         </button>
                     </a>                       
                     <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;margin-right: 16rem;">SinglePlay</span>

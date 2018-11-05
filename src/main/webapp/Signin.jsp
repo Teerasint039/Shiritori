@@ -17,7 +17,7 @@
 
         <style>
             body{
-                background-image: url("Icon/backgroundMenu.png");
+                background-image: url("Icon/backgroundMenu.svg");
                 overflow: hidden;
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -34,6 +34,7 @@
                 height: 9rem;
                 background-attachment: fixed;
                 margin-top: 15%;
+                margin-bottom: 3%;
                 background-repeat: no-repeat;
             }
         </style>
@@ -44,9 +45,9 @@
         <!-- main -->
         <div class="background">
             <!-- pc -->
-            <div class="container mb-5 d-none d-sm-block">
+            <div class="container lg-5 d-none d-sm-block">
                 <div class="row justify-content-center ">
-                    <img class=" img-fluid" src="Icon/header.png" alt="" >
+                    <img class=" img-fluid" src="Icon/header.svg" alt="" >
                 </div>
 
                 <div class="row justify-content-center ">
@@ -55,21 +56,21 @@
                         <input type="text" id="inputText" name="username" class="form-control" placeholder="User name" required="" autofocus="">
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 5%; ">Sign in</button>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 10%; ">Sign in</button>
                         <a href="Register.jsp" class="btn btn-secondary btn-lg btn-block"  role="button">Register</a>
                     </form>
                 </div>
             </div>
         </div>
 
-        <!-- Bootstrap core JavaScript -->
+            <!-- Bootstrap core JavaScript -->
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
 
     </body>
 

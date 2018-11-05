@@ -16,7 +16,7 @@
 
         <style>
             body{
-                background-image: url("Icon/backgroundMenu.png");
+                background-image: url("Icon/backgroundMenu.svg");
                 overflow: hidden;
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -44,7 +44,7 @@
         <!-- pc -->
         <div class="container md-5 d-none d-sm-block">
             <div class="row justify-content-center ">
-                <img src="Icon/header.png" class="img-fluid" style="width: 30em;height: 9rem; background-attachment: fixed; margin-top: 15%; background-repeat: no-repeat;">
+                <img src="Icon/header.svg" class="img-fluid" style="width: 30em;height: 9rem; background-attachment: fixed; margin-top: 15%; background-repeat: no-repeat;">
             </div>
             <div class="row justify-content-center">
                 <a href="Menupractice.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Practice Mode</a>
@@ -52,20 +52,17 @@
             <div class="row justify-content-center">
                 <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&alert= " class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Single player</a>
             </div>
-            <div class="row justify-content-center">
-                <a href="Menumulti.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Multi player</a>
-            </div>
 
             <div class="row justify-content-end">
                 <div class="col-auto"style="margin-top: 5%;">
                     <a href ="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=0" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
-                            <img src="Icon/dictionary.png" class="img-fluid" alt="Responsive image" >
+                            <img src="Icon/dictionary.svg" class="img-fluid" alt="Responsive image" >
                         </button>
                     </a>
                     <a href ="Signin.jsp" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
-                            <img src="Icon/logout.png" class="img-fluid" alt="Responsive image" >
+                            <img src="Icon/logout.svg" class="img-fluid" alt="Responsive image" >
                         </button>                       
                     </a>    
                 </div>
@@ -73,6 +70,12 @@
         </div>
 
         <!-- sm phone -->
+        <div class="container md-5 d-sm-none ">
+            <div class="row justify-content-center ">
+            </div>
+        </div>
+
+
 
         <!-- Bootstrap core JavaScript -->
 

@@ -40,17 +40,24 @@
     <body class="text-center">
         <!-- pc -->
         <div class="container mb-5 d-none d-sm-block">
-            <main role="main" class="container" style="margin-top: 10%;">
+            <main role="main" class="container" style="margin-top: 8%;">
                 <div class=" align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
                     <div class="lh-100" >
                         <div class="row">
-                            <div class="col-md-8" style="margin-top: 1%;">
-                                <h4 class="text-white text-left">Create and Show Code</h4>
+                            <div class="col-md-4 text-left">
+                                <a href ="MenuTeacher.jsp">
+                                    <button type="button" class="btn btn-outline-light rounded-circle" style="width: 5rem; height: 5rem; border: 0; ">
+                                        <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
+                                    </button>
+                                </a>
+                            </div> 
+                            <div class="col-md-4" style="margin-top: 2%;">
+                                <h4 class="text-white text-center">Create and Show Code</h4>
                             </div>
-                            <div class="col-md-4 text-right">
+                            <div class="col-md-4 text-right" >
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-light rounded-circle border-0" data-toggle="modal" data-target="#exampleModalCenter"style="width: 3rem; height: 3rem; ">
+                                <button type="button" class="btn btn-outline-light rounded-circle border-0" data-toggle="modal" data-target="#exampleModalCenter"style="width: 3rem; height: 3rem; margin-top: 3%;">
                                     <img src="Icon/plus.svg" class="img-fluid" alt="Responsive image" >
                                 </button>                                
 

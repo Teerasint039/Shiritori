@@ -16,7 +16,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgmulti.svg")  ;
+                background-image: url("Icon/bgSingleplayer.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -29,12 +29,12 @@
 
     <body class="text-center">
         <!-- pc -->
-        <div class="container">
+        <div class="container lg-5 d-none d-md-block">
             <div class="row justify-content-center" style="margin-top: 9%; color: white; font-family: Montserrat ExtraBold">
                 <div class="col-md-12 ">
                     <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
-                            <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                            <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
                         </button>
                     </a>                       
                     <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;margin-right: 16rem;">Single player</span>
@@ -51,7 +51,7 @@
                                 </h3>
                                 <a href="LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-primary" style="margin-top: 5%; width: 10rem;">Play</a>
                             </div>
-                            <img class="card-img-right flex-auto d-none d-lg-block"   style="width: 200px; height: 250px;" src="Icon/bgcreate.svg" data-holder-rendered="true">
+                            <img class="card-img-right flex-auto d-none d-lg-block"   style="width: 200px; height: 250px;" src="Icon/bgplay.svg" data-holder-rendered="true">
                         </div>
                     </form>
                 </div>
@@ -65,7 +65,7 @@
                                 <input type="text" id="roomcode" name="roomcode" class="form-control" placeholder="Code" required="" autofocus="">
                                 <input type="hidden" id="userid" name="userid" value="<%=request.getParameter("userid")%>">
                                 <input type="hidden" id="username" name="username" value="<%=request.getParameter("username")%>">
-                                <input type="submit" name="Join">
+                                <button type="submit" name="Join" class="btn btn-success" style="margin-top: 5%; width: 10rem;" placeholder="Code">Join</button>
                                 <!--<a href= class="btn btn-success" style="margin-top: 5%; width: 10rem;">Join</a>-->
                             </div>
                             <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px; " src="Icon/bgjoin.svg" data-holder-rendered="true" >
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getParameter("alert")%>">
+        <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getParameter("alert")%>"  >
 
 
 

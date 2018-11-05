@@ -17,7 +17,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-image: url("Icon/bgSingleplayer.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -114,10 +114,18 @@
 
                                     <div class="row text-center">
                                         <div class="col-6">
-                                            <a href="${pageContext.request.contextPath}/LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-primary">Play Again</a>
+                                            <a href="${pageContext.request.contextPath}/LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" >
+                                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%; ">
+                                                    <img src="Icon/Reset.svg" class="img-fluid" alt="Responsive image">                
+                                                </button>
+                                            </a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-primary">Menu</a>
+                                            <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" >
+                                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;">
+                                                    <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

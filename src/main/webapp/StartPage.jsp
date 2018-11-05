@@ -15,7 +15,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgSingleplayer.png")  ;
+                background-image: url("Icon/bgSingleplayer.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;

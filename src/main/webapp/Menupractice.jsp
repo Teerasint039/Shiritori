@@ -16,7 +16,7 @@
 
         <style>
             html, body{
-                background-image: url("Icon/bgplaypractice.png")  ;
+                background-image: url("Icon/bgplaypractice.svg")  ;
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -39,7 +39,7 @@
                     <div class="col-md-12 ">
                         <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                             <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
-                                <img src="Icon/bthome.png" class="img-fluid" alt="Responsive image" >
+                                <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
                             </button>
                         </a>                       
                         <span class="center" style="font-size:30pt; margin-left: 2%; margin-top: 2%;margin-right: 16rem;">Practice Mode</span>
@@ -58,21 +58,21 @@
                                 <div class="carousel-item active">
                                     <button type="button" class="btn btn-light rounded " style="width: 30rem;height: 20rem;  ">
                                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=3&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                            <img src="Icon/Fruits.png" class="img-fluid" alt="Responsive image">
+                                            <img src="Icon/Fruits.svg" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
                                 <div class="carousel-item">
                                     <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
                                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=1&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                            <img src="Icon/Animals.png" class="img-fluid" alt="Responsive image">
+                                            <img src="Icon/Animals.svg" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
                                 <div class="carousel-item">
                                     <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
                                         <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=2&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                            <img src="Icon/sports.png" class="img-fluid" alt="Responsive image">
+                                            <img src="Icon/Sports.svg" class="img-fluid" alt="Responsive image">
                                         </a>
                                     </button>
                                 </div>
@@ -88,7 +88,7 @@
 
                 <div class="row justify-content-end">
                     <div class="col-md-4">
-                        <img src="Icon/Showrobot.png" class="img-fluid" alt="Responsive image" style="width: 23rem; margin-top: 7%; margin-left: 20%;">
+                        <img src="Icon/Showrobot.svg" class="img-fluid" alt="Responsive image" style="width: 23rem; margin-top: 7%; margin-left: 20%;">
                     </div>
                 </div>
             </div>

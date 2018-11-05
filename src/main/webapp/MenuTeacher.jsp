@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
               crossorigin="anonymous">
 
+
         <style>
             html, body{
                 background-image: url("Icon/bgTeacher.svg")  ;
@@ -24,13 +25,6 @@
                 font-family: "Montserrat";
             }
 
-            .btn{
-                width: 15rem;
-                height: 4rem;
-                border-width: 0.3ch;
-                padding-top: 1%;
-            }
-            
         </style>
     </head>
 
@@ -39,16 +33,38 @@
         <div class="container mb-5 d-none d-sm-block">
             <div class="row justify-content-center" style="margin-top: 15%; color: white;">
                 <div class="col-md-12 ">                      
-                    <span class="center" style="font-size:30pt; margin-top: 2%;">SinglePlay</span>
+                    <span class="center" style="font-size:30pt; margin-top: 2%;">Teacher</span>
+                </div>
+            </div>
+            <div class="row mb-2"style="margin-top: 5%;">
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start" >
+                            <h5 class="mb-0">
+                                <strong class="d-inline-block mb-2 text-primary">Create and Show Code</strong>
+                            </h5>
+                            <a href="${pageContext.request.contextPath}/ShowCodeServlet" class="btn btn-primary " style="margin-top: 5%; width: 13rem;">Create and Show Code</a>
+                        </div>
+                        <img class="card-img-right flex-auto d-none d-lg-block"   style="width: 200px; height: 250px;" src="Icon/bgcreatecode.svg" data-holder-rendered="true">
+                    </div>
+                </div>
+                        
+                <div class="col-md-6" >
+                    <form action="#" method="post">
+                        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start" >
+                                <h5 class="mb-0">
+                                    <strong class="d-inline-block mb-2 text-success">Show result score</strong>
+                                </h5>
+                                    <input type="text" id="roomcode" name="roomcode" class="form-control" placeholder="Code" required="" autofocus="">
+                                <button type="text" name="Search" class="btn btn-success" style="margin-top: 5%; width: 13rem;" placeholder="Search...">Search</button>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px; " src="Icon/bgshowscore.svg" data-holder-rendered="true" >
+                        </div>
+                    </form>               
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/ShowCodeServlet" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Create and Show Code</a>
-            </div>
-            <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/ShowResultServlet?roomcode=ORGDXI" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Show result score</a>
-            </div>
         </div>
 
         <!-- sm phone -->
