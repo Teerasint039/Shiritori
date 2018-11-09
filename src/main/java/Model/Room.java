@@ -235,6 +235,12 @@ public class Room {
         return isValid;
     }
     
+    public boolean checkGameisinRoom(int gameId){
+        boolean inRoom = false;
+        
+        return inRoom;
+    }
+    
     public String genRoomCode(){
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder salt = new StringBuilder();

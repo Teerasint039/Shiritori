@@ -54,7 +54,6 @@ public class RoomResult {
         Room room = new Room();
         SingleModeGame smg = new SingleModeGame();
         if (room.checkCanShowResult(roomCode)) {
-            System.out.println("showRoomResult method");
             List<SingleModeGame> smgs = smg.getGamebyRoomCode(roomCode);
             for (SingleModeGame sin : smgs) {
                 result = new RoomResult(user.getUserNameFromID(sin.getUserId()), sin.getScore());

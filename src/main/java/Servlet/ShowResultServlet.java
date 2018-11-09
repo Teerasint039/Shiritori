@@ -34,7 +34,6 @@ public class ShowResultServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String roomCode = request.getParameter("roomcode");
-        System.out.println("roomcode: "+roomCode);
         
         Room rm = new Room();
         
@@ -45,11 +44,6 @@ public class ShowResultServlet extends HttpServlet {
         
         RoomResult room = new RoomResult();
         List<RoomResult> results = room.showRoomResult(roomCode);
-        
-        for (RoomResult a : results) {
-            System.out.println(a.toString());
-        }
-        
         
         request.setAttribute("results", results);
         request.setAttribute("roomcode", rm.getRoomCode());

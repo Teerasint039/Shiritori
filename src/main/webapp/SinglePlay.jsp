@@ -93,7 +93,7 @@
 
             <div class="row justify-content-md-center" style=" color: #FFFFFF;">
                 <div class="col-md-auto "><h5 class="font-weight-normal">Meaning:</h5></div>
-                <div class="col-md-auto"><h5 class="font-weight-normal"id="meaning">None</h5></div>
+                <!--<div class="col-md-auto"><h5 class="font-weight-normal"id="meaning">None</h5></div>-->
             </div>
 
             <div class="row justify-content-md-center">

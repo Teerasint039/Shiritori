@@ -50,7 +50,7 @@
                 </div>
                         
                 <div class="col-md-6" >
-                    <form action="#" method="post">
+                    <form action="${pageContext.request.contextPath}/ShowResultServlet" method="post">
                         <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                             <div class="card-body d-flex flex-column align-items-start" >
                                 <h5 class="mb-0">
