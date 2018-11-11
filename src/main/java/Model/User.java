@@ -18,20 +18,25 @@ public class User {
 
     private int userId;
     private String userName;
-    private String password;
+//    private String password;
 
     public User() {
     }
 
-    public User(String userName, String password) {
+    public User(String userName) {
         this.userName = userName;
-        this.password = password;
     }
+    
+
+//    public User(String userName, String password) {
+//        this.userName = userName;
+//        this.password = password;
+//    }
 
     public User(ResultSet rs) throws SQLException {
         userId = rs.getInt("UserId");
         userName = rs.getString("UserName");
-        password = rs.getString("Password");
+//        password = rs.getString("Password");
     }
 
     public int getUserId() {
@@ -50,15 +55,15 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int login(String username, String password) {
+    public int login(String username) {
         boolean login = false;
         User user = null;
         String lowerCaseUserName = username.toLowerCase();
@@ -73,7 +78,7 @@ public class User {
             while (rs.next()) {
                 user = new User(rs);
             }
-            if (password.equals(user.getPassword())) {
+            if (user != null) {
                 login = true;
                 id = user.getUserId();
                 System.out.println("UserID(): "+user.getUserId());
@@ -88,18 +93,17 @@ public class User {
     }
   
 
-    public void addUser(String userName, String password) {
+    public void addUser(String userName) {
         User user = null;
         String lowerCaseUserName = userName.toLowerCase();
         try {
             Connection conn = Connectionbuilder.connect();
-            String query = " insert into User (UserName, Password)"
-                    + " values (?, ?)";
+            String query = " insert into User (UserName)"
+                    + " values (?)";
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, lowerCaseUserName);
-            preparedStmt.setString(2, password);
 
             // execute the preparedstatement
             preparedStmt.execute();
@@ -176,7 +180,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "userId=" + userId + ", userName=" + userName + ", password=" + password + '}';
+        return "User{" + "userId=" + userId + ", userName=" + userName + '}';
     }
 
 }

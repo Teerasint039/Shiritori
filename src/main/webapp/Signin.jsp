@@ -54,8 +54,6 @@
                     <form action="LoginServlet" method="get" class="form-signin" style="width: 20rem" >
                         <label for="inputtext" class="sr-only"  > Username</label>
                         <input type="text" id="inputText" name="username" class="form-control" placeholder="User name" required="" autofocus="">
-                        <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
                         <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 10%; ">Sign in</button>
                         <a href="Register.jsp" class="btn btn-secondary btn-lg btn-block"  role="button">Register</a>
                     </form>

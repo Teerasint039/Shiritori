@@ -33,15 +33,13 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
         
         int userId;
         
         System.out.println("username: "+username);
-        System.out.println("password: "+password);
         
         User user = new User();
-        userId = user.login(username, password);
+        userId = user.login(username);
         System.out.println("userId: "+userId);
         
         if (userId != -1) {

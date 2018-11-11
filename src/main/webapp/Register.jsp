@@ -50,7 +50,7 @@
                     <img class=" img-fluid" src="Icon/header.svg" alt="" >
                 </div>
                 <div class="row justify-content-center ">
-                    <form action="RegisterServlet" method="get" class="form-signin" style="width: 20rem" >
+                    <form action="RegisterServlet" method="post" class="form-signin" style="width: 20rem" >
                         <label for="inputEmail" class="sr-only"  > Username</label>
                         <input type="text" name="username" id="inputText" class="form-control" placeholder="User name" required="" autofocus="">
                         <div class="row justify-content-center "style="margin-top: 10%;">

@@ -106,7 +106,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">                        
                                     <div class="modal-body">
-                                        <img src="Icon/popupcorrect.png" id="popupimg" class="img-fluid"  alt="Responsive image" style="width: 30rem;">
+                                        <img src="Icon/popupcorrect.svg" id="popupimg" class="img-fluid"  alt="Responsive image" style="width: 30rem;">
                                     </div>                               
                                 </div>
                             </div>

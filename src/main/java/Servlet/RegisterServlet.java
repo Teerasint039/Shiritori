@@ -33,16 +33,15 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
         
         int userId;
         User user = new User();
         if (user.checkUserNameAvailable(username)){
             System.out.println("user.checkUserNameAvailable(username) = TRUE");
-            user.addUser(username, password);
+            user.addUser(username);
             System.out.println("Available: "+user.checkUserNameAvailable(username));
                 
-        userId = user.login(username, password);
+        userId = user.login(username);
         System.out.println("userId: "+userId);
         
         if (userId != -1) {
