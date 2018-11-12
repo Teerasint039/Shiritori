@@ -66,11 +66,12 @@
                     window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
                             + "&heart=" + heart
                             + "&gameId=" + document.getElementById('hiddenGameId').value
-                            + "&userid=" + document.getElementById('userid').value
-                            + "&username=" + document.getElementById('username').value
-                            + "&roomcode=" + document.getElementById('roomcode').value
+                            + "&userid=" + document.getElementById('userid').valuevalue
                             + "&previous=" + document.getElementById('hiddenPrevious').value
-                            + "&score=" + document.getElementById("hiddenScore").value;
+                            + "&score=" + document.getElementById("hiddenScore").value
+                            + "&level=" + document.getElementById('level').value
+                            + "&username=" + document.getElementById('username').value
+                            + "&roomcode=" + document.getElementById('roomcode').value;
             }, 3000);
         }
         </script>

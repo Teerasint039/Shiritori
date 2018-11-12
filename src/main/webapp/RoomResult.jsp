@@ -78,9 +78,9 @@
                     <div class="lh-100" >
                         <div class="row">
                             <div class="col-md-8" style="margin-top: 1%;">
-                                <h4 class="text-white text-left">Code:</h4><%=request.getAttribute("roomcode")%>
-                                <h4 class="text-white text-left">Level:</h4><%=request.getAttribute("level")%>
-                                <h4 class="text-white text-left">Comment:</h4><%=request.getAttribute("comment")%>
+                                <h4 class="text-white text-left">Code: <%=request.getAttribute("roomcode")%></h4>
+                                <h4 class="text-white text-left">Level: <%=request.getAttribute("level")%></h4>
+                                <h4 class="text-white text-left">Comment: <%=request.getAttribute("comment")%></h4>
                             </div>                        
                         </div>
                     </div>

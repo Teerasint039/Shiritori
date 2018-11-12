@@ -39,6 +39,7 @@
                 position: relative;
                 overflow-y: scroll;
                 height: 200px;
+                width: 30rem;
                 margin-bottom: 8%;
             }
             .scrollbar-ripe-malinka::-webkit-scrollbar {
@@ -56,8 +57,8 @@
 
     </head>
     <body class="text-center">
-        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
+        <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
+        <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-centerj">
                 <div class="col">
@@ -74,61 +75,58 @@
                                     List<Answer> answers = (List) request.getAttribute("answers");
                                     if (answers != null) {
                                 %>
-                                <div class="row text-center">                  
-                                    <div class="col">
-                                        <div class="card example-1 scrollbar-ripe-malinka">
-                                            <div class="card-body">
-                                                <div class="row justify-content-between">
-                                                    <table>
-                                                        <tr>
-                                                            <td>Vocab</td><td>Result</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td> </td><td> </td>
-                                                        </tr>
-                                                        <%
-                                                            for (Answer a : answers) {
-                                                                if (a.getStatus().equalsIgnoreCase("correct")) {
-                                                        %>
-                                                        <tr>
-                                                            <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
-                                                            <td><div class="col"><h5><%=a.getUsedTime()%></h5></div></td>
-                                                        </tr>
-                                                        <%  } else {
-                                                        %>
-                                                        <tr>
-                                                            <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
-                                                            <td><div class="col"><h5><%=a.getStatus()%></h5></div></td>
-                                                        </tr>
-                                                        <hr>
-                                                        <%}
-                                                                }
-                                                            } else {
-                                                            }%>
-                                                        </div>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="row justify-content-center">                  
+                                    <div class="col-md-auto">
+                                        <div class="table-responsive example-1 scrollbar-ripe-malinka">
+                                            <table class="table table-striped table-sm ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Vocab</th>
+                                                        <th>Result</th>
+                                                    </tr>  
+                                                </thead>
+                                                <tbody>
+                                                    <%
+                                                        for (Answer a : answers) {
+                                                            if (a.getStatus().equalsIgnoreCase("correct")) {
+                                                    %>
 
-                                    <div class="row text-center">
-                                        <div class="col-6">
-                                            <a href="${pageContext.request.contextPath}/LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" >
-                                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%; ">
-                                                    <img src="Icon/Reset.svg" class="img-fluid" alt="Responsive image">                
-                                                </button>
-                                            </a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" >
-                                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;">
-                                                    <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
-                                                </button>
-                                            </a>
+                                                    <tr>
+                                                        <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
+                                                        <td><div class="col"><h5><%=a.getUsedTime()%></h5></div></td>
+                                                    </tr>
+                                                    <%  } else {
+                                                    %>
+                                                    <tr>
+                                                        <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
+                                                        <td><div class="col"><h5><%=a.getStatus()%></h5></div></td>
+                                                    </tr>
+                                                    <%}
+                                                            }
+                                                        } else {
+                                                        }%>
+                                                </tbody>                                        
+                                            </table>                                                                                                                             
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <a href="${pageContext.request.contextPath}/LevelSelection.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" >
+                                            <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%; ">
+                                                <img src="Icon/Reset.svg" class="img-fluid" alt="Responsive image">                
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" >
+                                            <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;">
+                                                <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div> 
                             </div>
 
                         </div>

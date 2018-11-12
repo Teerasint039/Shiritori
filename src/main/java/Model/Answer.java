@@ -149,6 +149,40 @@ public class Answer {
         }
         return vocabs;
     }
+    
+    public List<String> showCorrectAnswerVocabs(int gameId) {
+        List<String> vocabs = null;
+        List<String> blank = null;
+        String vocab = null;
+
+        try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+//                PreparedStatement checkNotNull = conn.prepareStatement("SELECT COUNT(Vocab) FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
+                PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "' AND `StatusName` = 'Correct';");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    vocab = rs.getString("Vocab");
+                    if (vocabs == null) {
+                        vocabs = new ArrayList();
+                    }
+                    vocabs.add(vocab);
+                }
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            return blank;
+        }
+        return vocabs;
+    }
 
     public List<Answer> showAllAnswer(int gameId) {
         List<Answer> answers = null;

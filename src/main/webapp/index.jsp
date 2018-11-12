@@ -22,12 +22,13 @@
     </head>
     <body onload="myFunction()">
         <H1>Hello Shiritori Game!</H1>
-        <script>
-                function myFunction() {
-                    setTimeout(function(){
-                        window.location.href = "Signin.jsp";
-                    },2000);
-                }
+       // <script>
+           window.location.href = "Signin.jsp";
+//                function myFunction() {
+//                    setTimeout(function(){
+//                        window.location.href = "Signin.jsp";
+//                    },2000);
+//                }
         </script> 
         
     </body>

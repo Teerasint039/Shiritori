@@ -52,7 +52,7 @@ public class CheckAnswerServlet extends HttpServlet {
         String lowCaseVocab = vocab.toLowerCase();
 
         Answer answer = new Answer();
-        List<String> ansVocabs = answer.showAnswerVocabs(gameId);
+        List<String> ansVocabs = answer.showCorrectAnswerVocabs(gameId);
         Vocab vocabulary = new Vocab();
         List<String> vocabs = vocabulary.showAllVocabLevel(level);
 
