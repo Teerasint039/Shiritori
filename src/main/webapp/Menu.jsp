@@ -47,19 +47,23 @@
                 <img src="Icon/header.svg" class="img-fluid" style="width: 30em;height: 9rem; background-attachment: fixed; margin-top: 15%; background-repeat: no-repeat;">
             </div>
             <div class="row justify-content-center">
-                <a href="Menupractice.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Practice Mode</a>
+                <a href="Menupractice.jsp" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Practice Mode</a>
             </div>
             <div class="row justify-content-center">
-                <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&alert= " class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Single player</a>
+                <a href="Menusingle.jsp" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Single player</a>
             </div>
 
             <div class="row justify-content-end">
                 <div class="col-auto"style="margin-top: 5%;">
-                    <a href ="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=0" >
+                    <form action="${pageContext.request.contextPath}/GetVocabServlet" method="post" class="col-auto"style="margin-top: 5%;">
+                        <input type="hidden" name="level" id="level" value="0"/>
+                        <input type="image" src="Icon/dictionary.svg" alt="Submit Form" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;" value="submit" name="submit" />
+                    </form>
+<!--                    <a href ="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=0" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
                             <img src="Icon/dictionary.svg" class="img-fluid" alt="Responsive image" >
                         </button>
-                    </a>
+                    </a>-->
                     <a href ="Signin.jsp" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
                             <img src="Icon/logout.svg" class="img-fluid" alt="Responsive image" >

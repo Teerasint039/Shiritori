@@ -39,6 +39,7 @@ renderNotes(notes);
 recognition.continuous = false;
 // This block is called every time the Speech APi captures a line. 
 recognition.onresult = function (event) {
+    document.getElementById('start-record-btn').disabled = true;
     // event is a SpeechRecognitionEvent object.
     // It holds all the lines we have captured so far. 
     // We only need the current one.
@@ -64,51 +65,52 @@ recognition.onresult = function (event) {
 //    window.alert("vocab: "+document.getElementById("hiddenVocab").value);
 //    window.alert("answer: " + noteContent);
 
-    if (document.getElementById("hiddenVocab").value.toLowerCase() === noteContent.toLowerCase()) {
+    if (document.getElementById("vocab").value.toLowerCase() === noteContent.toLowerCase()) {
         document.getElementById('popupimg').src = "Icon/popupcorrect.svg";
-        score = parseInt(document.getElementById("hiddenScore").value) + 1;
+        score = parseInt(document.getElementById("score").value) + 1;
         status = "Correct";
     } else {
         document.getElementById('popupimg').src = "Icon/popupIncorrect.svg";
-        score = document.getElementById("hiddenScore").value;
+        score = document.getElementById("score").value;
         status = "Incorrect";
     }
-    
-    /*----------------------
- * auto status popup
- * --------------------*/
 
-            console.log(document.getElementById('popupimg'))
-            if (document.getElementById('popupimg').src) {
-                console.log("SRCNAJA :");
-                let attribute = document.getElementById('popupimg').getAttribute("src");
-                console.log("Arr", attribute);
+    /*----------------------
+     * auto status popup
+     * --------------------*/
+
+    console.log(document.getElementById('popupimg'))
+    if (document.getElementById('popupimg').src) {
+        console.log("SRCNAJA :");
+        let attribute = document.getElementById('popupimg').getAttribute("src");
+        console.log("Arr", attribute);
+    }
+    
+
+    if (noteContent !== "") {
+        if (document.getElementById('popupimg').src !== "") {
+            $(document).ready(function () {
+                setTimeout(fnShowPopup, 500);            //code to show popup
+            });
+            function fnShowPopup() {
+                document.getElementById('showStatus').click();
             }
-            if (noteContent !== "") {
-                if (document.getElementById('popupimg').src !== "") {
-                    $(document).ready(function () {
-                        setTimeout(fnShowPopup, 500);            //code to show popup
-                    });
-                    function fnShowPopup() {
-                        document.getElementById('status').click();
-                    }
-                }
-            }
-            
+        }
+    }
+
 
 //    window.alert("status: " + status);
 
     setTimeout(function () {
-        window.location.replace("PracticeCheckAnswerServlet?vocab=" + document.getElementById("hiddenVocab").value
-                + "&score=" + score
-                + "&status=" + status
-                + "&categoryId=" + document.getElementById('categoryId').value
-                + "&gameId=" + document.getElementById('gameId').value
-                +"&userid=" + document.getElementById('userid').value
-                +"&username=" + document.getElementById('username').value
-                + "&answer=" + noteContent
-                + "&time=" + time);
-
+//        window.alert("check");
+        document.getElementById('answer').value = noteContent;
+        document.getElementById('status').value = status;
+        document.getElementById('score').value = score;
+        document.getElementById('time').value = time;
+//        window.alert("submit check");
+//        document.forms["check"].submit();
+//        document.check.submit();
+        document.getElementById('check').submit();
     }, 1000);
 };
 recognition.onstart = function () {
@@ -209,12 +211,15 @@ var Timer = setInterval(function () {
     document.getElementById("countdowntimer").textContent = timeleft;
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
+//        window.alert("submit my form");
+        document.getElementById('myForm').submit();
+//        document.forms["myForm"].submit();
 
-        window.location.href = "SummarizePractice.jsp?gameId=" + document.getElementById("gameId").value
-                + "&categoryId=" + document.getElementById("categoryId").value
-                        +"&userid=" + document.getElementById('userid').value
-                        +"&username=" + document.getElementById('username').value
-                + "&score=" + document.getElementById("hiddenScore").value;
+//        window.location.href = "SummarizePractice.jsp?gameId=" + document.getElementById("gameId").value
+//                + "&categoryId=" + document.getElementById("categoryId").value
+//                        +"&userid=" + document.getElementById('userid').value
+//                        +"&username=" + document.getElementById('username').value
+//                + "&score=" + document.getElementById("hiddenScore").value;
         clearInterval(Timer);
     }
 

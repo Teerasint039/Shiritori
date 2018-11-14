@@ -39,7 +39,6 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
         int categoryId = (int) request.getAttribute("categoryId");
         int gameId = (int) request.getAttribute("gameId");
         int userId = (int) request.getAttribute("userid");
-        String userName = (String) request.getAttribute("username");
         int score = (int) request.getAttribute("score");
 
         CategoryVocab cv = new CategoryVocab();
@@ -50,15 +49,14 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
         List<Integer> vocabIds = cv.showAllVocabIdInCategory(categoryId);
         int randomIndex = (int) (Math.random() * (vocabIds.size() - 1) + 0);
         
-        System.out.println("category: "+category.getCategoryNamebyId(categoryId));
+        System.out.println("category: "+category.getCategoryNamebyId(categoryId).toLowerCase());
         System.out.println("categoryId: "+ categoryId);
         System.out.println("vocab: "+vocab.getVocabFromId(vocabIds.get(randomIndex)));
 
-        request.setAttribute("category", category.getCategoryNamebyId(categoryId));
+        request.setAttribute("category", category.getCategoryNamebyId(categoryId).toLowerCase());
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
-        request.setAttribute("username", userName);
         request.setAttribute("score", score);
         request.setAttribute("time", 120);
         request.setAttribute("vocab", vocab.getVocabFromId(vocabIds.get(randomIndex)));

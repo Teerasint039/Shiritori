@@ -30,13 +30,23 @@
 
     <body class="text-center">
         <!-- main -->
-        <input type="hidden" id="gameId" value="<%=request.getAttribute("gameId")%>" />
-        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-        <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
-        <input type="hidden" id="time" value="<%=request.getAttribute("time")%>" />
-        <input type="hidden" id="hiddenVocab" value="<%=request.getAttribute("vocab")%>" />
-        <input type="hidden" id="categoryId" value="<%=request.getAttribute("categoryId")%>" />
+        <form id="check" action="PracticeCheckAnswerServlet" method="post">
+            <input type="hidden" name="gameId" id="gameId" value="<%=request.getAttribute("gameId")%>" />
+            <input type="hidden" name="userid" id="userid" value="<%=request.getAttribute("userid")%>" />
+            <input type="hidden" name="score" id="score" value="<%=request.getAttribute("score")%>" />
+            <input type="hidden" name="time" id="time" value="<%=request.getAttribute("time")%>" />
+            <input type="hidden" name="vocab" id="vocab" value="<%=request.getAttribute("vocab")%>" />
+            <input type="hidden" name="categoryId" id="categoryId" value="<%=request.getAttribute("categoryId")%>" />
+            <input type="hidden" name="status" id="status" value="" />
+            <input type="hidden" name="answer" id="answer" value="" />
+        </form>
+        
+        <form id="myForm" action="SummarizePractice.jsp" method="post">
+            <input type="hidden" name="gameId" id="gameId" value="<%=request.getAttribute("gameId")%>" />
+            <input type="hidden" name="score"id="score" value="<%=request.getAttribute("score")%>" />
+            <input type="hidden" name="categoryId" id="categoryId" value="<%=request.getAttribute("categoryId")%>" />
+        </form>
+        
         <div class="background">
             <!-- pc -->
 
@@ -63,7 +73,7 @@
 
                 <div class="row justify-content-md-center">
                     <div class="col-md-auto" style="color: white; margin-top: 2%;" >            
-                        <button type="button" class="btn btn-outline-light rounded-circle border-0" onclick="responsiveVoice.speak('<%=request.getAttribute("vocab")%>');" value="Listen" style="width: 6rem; height: 6rem;border: 0;  ">
+                        <button type="button" id="start-listen-btn" class="btn btn-outline-light rounded-circle border-0" onclick="responsiveVoice.speak('<%=request.getAttribute("vocab")%>');" value="Listen" style="width: 6rem; height: 6rem;border: 0;  ">
                             <img src="Icon/sound.svg" class="img-fluid" alt="Responsive image" >
                         </button>               
                     </div>
@@ -91,13 +101,13 @@
 
                 <div class="row justify-content-center">
                     <div class="col text-center" style="color: white; font-size: 14px; margin-bottom: 1%;">
-                        <p id="recording-instructions">คลิกท่ปุ่ม <strong>Microphone</strong>เพื่อพูด</p>                
+                        <p id="recording-instructions">คลิกที่ปุ่ม <strong>Microphone</strong>เพื่อพูด</p>                
                     </div>
                 </div> 
                 <div class="row justify-content-center" >
                     <div class="col text-center">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="status" hidden>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="showStatus" hidden>
                             Launch demo modal
                         </button>
 

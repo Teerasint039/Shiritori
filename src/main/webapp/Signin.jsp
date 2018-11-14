@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="row justify-content-center ">
-                    <form action="LoginServlet" method="get" class="form-signin" style="width: 20rem" >
+                    <form action="LoginServlet" method="post" class="form-signin" style="width: 20rem" >
                         <label for="inputtext" class="sr-only"  > Username</label>
                         <input type="text" id="inputText" name="username" class="form-control" placeholder="User name" required="" autofocus="">
                         <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 10%; ">Sign in</button>

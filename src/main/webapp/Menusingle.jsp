@@ -32,7 +32,7 @@
         <div class="container lg-5 d-none d-md-block">
             <div class="row justify-content-center" style="margin-top: 9%; color: white; font-family: Montserrat ExtraBold">
                 <div class="col-md-12 ">
-                    <a href ="Menu.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                    <a href ="Menu.jsp">
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem;border: 0; margin-right: 8rem; ">
                             <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
                         </button>
@@ -49,7 +49,7 @@
                                 <h3 class="mb-0">
                                     <strong class="d-inline-block mb-2 text-primary">PlayGame</strong>
                                 </h3>
-                                <a href="LevelSelection.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>" class="btn btn-primary" style="margin-top: 5%; width: 10rem;">Play</a>
+                                <a href="LevelSelection.jsp" class="btn btn-primary" style="margin-top: 5%; width: 10rem;">Play</a>
                             </div>
                             <img class="card-img-right flex-auto d-none d-lg-block"   style="width: 200px; height: 250px;" src="Icon/bgplay.svg" data-holder-rendered="true">
                         </div>
@@ -82,7 +82,7 @@
         
         <script>
             var message = document.getElementById("hiddenAlert").value;
-            if (message !== "") {
+            if (message !=== null) {
                 window.alert(message);
             }
         </script>

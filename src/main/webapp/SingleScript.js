@@ -40,6 +40,8 @@ renderNotes(notes);
 recognition.continuous = false;
 // This block is called every time the Speech APi captures a line. 
 recognition.onresult = function (event) {
+    document.getElementById('start-record-btn').disabled = true;
+    document.getElementById('start-listen-btn').disabled = true;
     // event is a SpeechRecognitionEvent object.
     // It holds all the lines we have captured so far. 
     // We only need the current one.

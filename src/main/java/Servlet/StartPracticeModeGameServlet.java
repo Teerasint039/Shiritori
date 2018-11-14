@@ -9,6 +9,7 @@ import Model.PracticeModeGame;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,15 +34,24 @@ public class StartPracticeModeGameServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("StartPracticeModeGameServlet");
         
+        
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        int userId = Integer.parseInt(request.getParameter("userid"));
-        String userName = request.getParameter("username");
         
-        System.out.println("categoryId: "+categoryId);
-        System.out.println("userID: "+userId);
-        System.out.println("userName: "+ userName);
-//        int categoryId = 1;
         
+        String cookieName = "userid";
+        Cookie cookies[] = request.getCookies();
+        Cookie userid = null;
+        
+        if (cookies != null) {
+            for (int i = 0; i < cookies.length; i++) {
+                if (cookies[i].getName().equals(cookieName)) {
+                    userid = cookies[i];
+//                    break;
+                }
+            }
+        }
+        
+        int userId = Integer.parseInt(userid.getValue());
         int gameId;
         PracticeModeGame smg = new PracticeModeGame();
         gameId = smg.newGame(userId);
@@ -49,7 +59,6 @@ public class StartPracticeModeGameServlet extends HttpServlet {
         request.setAttribute("gameId", gameId);
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("userid", userId);
-        request.setAttribute("username", userName);
         request.setAttribute("score", 0);
        getServletContext().getRequestDispatcher("/RandomPracticeModeVocabServlet").forward(request, response);
     }

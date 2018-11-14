@@ -34,8 +34,8 @@ public class GetVocabServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int level = Integer.parseInt(request.getParameter("level"));
-        int userId = Integer.parseInt(request.getParameter("userid"));
-        String userName = request.getParameter("username");
+//        int userId = Integer.parseInt(request.getParameter("userid"));
+//        String userName = request.getParameter("username");
 
         
 //        int level = 1;
@@ -58,8 +58,8 @@ public class GetVocabServlet extends HttpServlet {
        
 //        
         request.setAttribute("vocabs", vocabs);
-        request.setAttribute("userid", userId);
-        request.setAttribute("username", userName);
+//        request.setAttribute("userid", userId);
+//        request.setAttribute("username", userName);
                     
         getServletContext().getRequestDispatcher("/ShowVocab.jsp").forward(request, response);
     }

@@ -44,7 +44,6 @@ public class PracticeSendStatusServlet extends HttpServlet {
         int categoryId = (int) request.getAttribute("categoryId");
         int gameId = (int) request.getAttribute("gameId");
         int userId = (int)(request.getAttribute("userid"));
-        String userName = (String)request.getAttribute("username");
         int score = (int) request.getAttribute("score");
         int time = (int) request.getAttribute("time");
         String vocab = (String) request.getAttribute("vocab");
@@ -72,11 +71,10 @@ public class PracticeSendStatusServlet extends HttpServlet {
         System.out.println("categoryId: "+ categoryId);
         System.out.println("vocab: "+vocabulary.getVocabFromId(vocabIds.get(randomIndex)));
 
-        request.setAttribute("category", category.getCategoryNamebyId(categoryId));
+        request.setAttribute("category", category.getCategoryNamebyId(categoryId).toLowerCase());
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
-        request.setAttribute("username", userName);
         request.setAttribute("score", score);
         request.setAttribute("vocab", vocabulary.getVocabFromId(vocabIds.get(randomIndex)));
 

@@ -35,15 +35,23 @@ public class PracticeCheckAnswerServlet extends HttpServlet {
         System.out.println("Check Answer servlet");
         
 //        int userId = (int) request.getAttribute("userId");
-        int gameId = Integer.parseInt(request.getParameter("gameId"));
-        int userId = Integer.parseInt(request.getParameter("userid"));
-        String userName = request.getParameter("username");
-        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        int score = Integer.parseInt(request.getParameter("score"));
-        int time = Integer.parseInt(request.getParameter("time"));        
-        String vocab = request.getParameter("vocab");
-        String answer = request.getParameter("answer");
         String status = request.getParameter("status");
+//        System.out.println("status: "+status);
+        int gameId = Integer.parseInt(request.getParameter("gameId"));
+//        System.out.println("gameId: "+gameId);
+        int userId = Integer.parseInt(request.getParameter("userid"));
+//        System.out.println("userId: "+userId);
+        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+//        System.out.println("categoryId: "+categoryId);
+        int score = Integer.parseInt(request.getParameter("score"));
+//        System.out.println("score: "+score);
+        int time = Integer.parseInt(request.getParameter("time")); 
+//        System.out.println("time: "+time);       
+        String vocab = request.getParameter("vocab");
+//        System.out.println("vocab: "+vocab);
+        String answer = request.getParameter("answer");
+//        System.out.println("answer: "+answer);
+        
         
         
 //        PracticeModeResult pmr = new PracticeModeResult();
@@ -58,7 +66,6 @@ public class PracticeCheckAnswerServlet extends HttpServlet {
         
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
-        request.setAttribute("username", userName);
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("answer", answer);
         request.setAttribute("vocab", vocab);

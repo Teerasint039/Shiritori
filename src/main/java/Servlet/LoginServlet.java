@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
             cookie.setMaxAge(24 * 60 * 60);
             response.addCookie(cookie);
         
-            getServletContext().getRequestDispatcher("/Menu.jsp?userid="+userId+"&username="+username).forward(request, response); //login pass
+            getServletContext().getRequestDispatcher("/Menu.jsp?").forward(request, response); //login pass
         }else{
             getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); // login fail
         }

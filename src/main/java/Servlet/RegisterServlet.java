@@ -45,8 +45,8 @@ public class RegisterServlet extends HttpServlet {
         System.out.println("userId: "+userId);
         
         if (userId != -1) {
-            request.setAttribute("username", username);
-            request.setAttribute("userid", userId);
+//            request.setAttribute("username", username);
+//            request.setAttribute("userid", userId);
         
             getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); //register success
         }else{
