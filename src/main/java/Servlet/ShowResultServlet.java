@@ -32,25 +32,28 @@ public class ShowResultServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String roomCode = request.getParameter("roomcode");
-        
+
         Room rm = new Room();
-        
+
         if (rm.checkRoomCodeinDB(roomCode)) {
-            
-        
-        rm = rm.showRoom(roomCode);
-        
-        RoomResult room = new RoomResult();
-        List<RoomResult> results = room.showRoomResult(roomCode);
-        
-        request.setAttribute("results", results);
-        request.setAttribute("roomcode", rm.getRoomCode());
-        request.setAttribute("level", rm.getLevel());
-        request.setAttribute("comment", rm.getComment());
-                    
-        getServletContext().getRequestDispatcher("/RoomResult.jsp").forward(request, response);
+//            System.out.println("Step 1");
+
+            rm = rm.showRoom(roomCode);
+//            System.out.println("Step 2");
+
+            RoomResult room = new RoomResult();
+//            System.out.println("Step 3");
+            List<RoomResult> results = room.showRoomResult(roomCode);
+//            System.out.println("Step 4");
+
+            request.setAttribute("results", results);
+            request.setAttribute("roomcode", rm.getRoomCode());
+            request.setAttribute("level", rm.getLevel());
+            request.setAttribute("comment", rm.getComment());
+
+            getServletContext().getRequestDispatcher("/RoomResult.jsp").forward(request, response);
         }
         getServletContext().getRequestDispatcher("/MenuTeacher.jsp").forward(request, response);//invalid Roomcode
     }

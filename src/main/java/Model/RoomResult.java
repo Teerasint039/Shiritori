@@ -31,6 +31,11 @@ public class RoomResult {
     public RoomResult() {
     }
 
+    private RoomResult(ResultSet rs) throws SQLException {
+        userName = rs.getString("UserName");
+        score  =rs.getInt("Score");
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -53,15 +58,33 @@ public class RoomResult {
         User user = new User();
         Room room = new Room();
         SingleModeGame smg = new SingleModeGame();
+        System.out.println("step 1");
         if (room.checkCanShowResult(roomCode)) {
-            List<SingleModeGame> smgs = smg.getGamebyRoomCode(roomCode);
-            for (SingleModeGame sin : smgs) {
-                result = new RoomResult(user.getUserNameFromID(sin.getUserId()), sin.getScore());
-                if (results == null) {
-                    results = new ArrayList();
+            try {
+            Connection conn = Connectionbuilder.connect();
+
+            try {
+                PreparedStatement pstm = conn.prepareStatement("SELECT DISTINCT * FROM `RoomResult` WHERE RoomCode = '"+roomCode+"' ORDER by Score DESC");
+                ResultSet rs = pstm.executeQuery();
+                while (rs.next()) {
+                    result = new RoomResult(rs);
+                    if (results == null) {
+                        results = new ArrayList();
+                    }
+                    results.add(result);
                 }
-                results.add(result);
+                rs.close();
+                pstm.close();
+                conn.close();
+            } catch (Exception ex) {
+                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
             }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
         return results;
     }
