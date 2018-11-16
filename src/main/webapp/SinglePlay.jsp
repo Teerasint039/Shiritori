@@ -66,14 +66,21 @@
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
                         <h5 class="mt-4"><%=request.getParameter("char")%></h5>
                         
-                        <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
-                        <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
-                        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-                        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-                        <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
-                        <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
-                        <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
-                        <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
+                        <form action="/" method="post" id="myForm" name="myForm">
+                            <input type="hidden" name="GameId" id="GameId" value="<%=request.getParameter("gameId")%>" />
+                            <input type="hidden" name="level" id="level" value="<%=request.getParameter("level")%>" />
+                            <input type="hidden" name="userid" id="userid" value="<%=request.getParameter("userid")%>" />
+                            <input type="hidden" name="pchar" id="pchar" value="<%=request.getParameter("char")%>" />
+                            <input type="hidden" name="heart" id="heart" value="<%=request.getParameter("heart")%>" />
+                            <input type="hidden" name="score" id="score" value="<%=request.getParameter("score")%>" />
+                            <input type="hidden" name="roomcode" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
+                            <input type="hidden" name="char" id="char" value="" />
+                            <input type="hidden" name="vocab" id="vocab" value="" />
+                            <input type="hidden" name="previous" id="previous" value="" />
+                            <input type="hidden" name="status" id="status" value="" />
+                            <input type="hidden" name="time" id="time" value="" />
+                        </form>
+                        
 
                         <h5 class="mt-4 font-weight-normal"><%=request.getParameter("previous")%></h5>
                     </div>

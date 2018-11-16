@@ -98,34 +98,48 @@ recognition.onresult = function (event) {
              //                    +"&status=Correct"
              //                    +"&time=" + time);
              */
-            window.location.replace("CheckAnswerServlet?char=" + lastchar
-                    + "&score=" + document.getElementById("hiddenScore").value
-                    + "&pchar=" + document.getElementById("hiddenChar").value
-                    + "&heart=" + document.getElementById('hiddenHeart').value
-                    + "&level=" + document.getElementById('level').value
-                    + "&gameId=" + document.getElementById('hiddenGameId').value
-                    + "&userid=" + document.getElementById('userid').value
-                    + "&username=" + document.getElementById('username').value
-                    + "&roomcode=" + document.getElementById('roomcode').value
-                    + "&vocab=" + noteContent
-                    + "&previous=" + before
-                    + "&status=Correct"
-                    + "&time=" + time);
+//            window.location.replace("CheckAnswerServlet?char=" + lastchar
+//                    + "&score=" + document.getElementById("hiddenScore").value
+//                    + "&pchar=" + document.getElementById("hiddenChar").value
+//                    + "&heart=" + document.getElementById('hiddenHeart').value
+//                    + "&level=" + document.getElementById('level').value
+//                    + "&gameId=" + document.getElementById('hiddenGameId').value
+//                    + "&userid=" + document.getElementById('userid').value
+//                    + "&username=" + document.getElementById('username').value
+//                    + "&roomcode=" + document.getElementById('roomcode').value
+//                    + "&vocab=" + noteContent
+//                    + "&previous=" + before
+//                    + "&status=Correct"
+//                    + "&time=" + time);
+            document.getElementById("char").value = lastchar;
+            document.getElementById("vocab").value = noteContent;
+            document.getElementById("previous").value = before;
+            document.getElementById("status").value = "Correct";
+            document.getElementById("time").value = time;
+            document.getElementById('myForm').action = "${pageContext.request.contextPath}/CheckAnswerServlet";
+            document.getElementById('myForm').submit();
         } else {
             determine = false;
-            window.location.replace("CheckAnswerServlet?char=" + lastchar
-                    + "&score=" + document.getElementById("hiddenScore").value
-                    + "&pchar=" + document.getElementById("hiddenChar").value
-                    + "&heart=" + document.getElementById('hiddenHeart').value
-                    + "&level=" + document.getElementById('level').value
-                    + "&gameId=" + document.getElementById('hiddenGameId').value
-                    + "&userid=" + document.getElementById('userid').value
-                    + "&username=" + document.getElementById('username').value
-                    + "&roomcode=" + document.getElementById('roomcode').value
-                    + "&vocab=" + noteContent
-                    + "&previous=" + before
-                    + "&status=Incorrect"
-                    + "&time=" + time);
+//            window.location.replace("CheckAnswerServlet?char=" + lastchar
+//                    + "&score=" + document.getElementById("hiddenScore").value
+//                    + "&pchar=" + document.getElementById("hiddenChar").value
+//                    + "&heart=" + document.getElementById('hiddenHeart').value
+//                    + "&level=" + document.getElementById('level').value
+//                    + "&gameId=" + document.getElementById('hiddenGameId').value
+//                    + "&userid=" + document.getElementById('userid').value
+//                    + "&username=" + document.getElementById('username').value
+//                    + "&roomcode=" + document.getElementById('roomcode').value
+//                    + "&vocab=" + noteContent
+//                    + "&previous=" + before
+//                    + "&status=Incorrect"
+//                    + "&time=" + time);
+            document.getElementById("char").value = lastchar;
+            document.getElementById("vocab").value = noteContent;
+            document.getElementById("previous").value = before;
+            document.getElementById("status").value = "Inorrect";
+            document.getElementById("time").value = time;
+            document.getElementById('myForm').action = "${pageContext.request.contextPath}/CheckAnswerServlet";
+            document.getElementById('myForm').submit();
         }
 
     }, 2500);
@@ -233,18 +247,24 @@ var Timer = setInterval(function () {
     document.getElementById("countdowntimer").textContent = timeleft;
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
-        window.location.href = "TimeOut.jsp?char=" + document.getElementById("hiddenChar").value
-                + "&score=" + document.getElementById("hiddenScore").value
-                + "&heart=" + document.getElementById('hiddenHeart').value
-                + "&gameId=" + document.getElementById('hiddenGameId').value
-                + "&level=" + document.getElementById('level').value
-                + "&userid=" + document.getElementById('userid').value
-                + "&username=" + document.getElementById('username').value
-                + "&roomcode=" + document.getElementById('roomcode').value
-                + "&vocab=" + noteContent
-                + "&previous=" + before
-                + "&time=" + time;
+        document.getElementById("char").value = lastchar;
+        document.getElementById("vocab").value = noteContent;
+        document.getElementById("previous").value = before;
+        document.getElementById("time").value = time;
+//        window.location.href = "TimeOut.jsp?char=" + document.getElementById("hiddenChar").value
+//                + "&score=" + document.getElementById("hiddenScore").value
+//                + "&heart=" + document.getElementById('hiddenHeart').value
+//                + "&gameId=" + document.getElementById('hiddenGameId').value
+//                + "&level=" + document.getElementById('level').value
+//                + "&userid=" + document.getElementById('userid').value
+//                + "&username=" + document.getElementById('username').value
+//                + "&roomcode=" + document.getElementById('roomcode').value
+//                + "&vocab=" + noteContent
+//                + "&previous=" + before
+//                + "&time=" + time;
         clearInterval(Timer);
+        document.getElementById('myForm').action = "TimeOut.jsp";
+        document.getElementById('myForm').submit();
     }
 
 }, 1000);

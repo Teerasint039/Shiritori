@@ -25,15 +25,18 @@
         </style>
     </head>
     <body class="text-center" onload="myFunction()">
-        <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
-        <input type="hidden" id="hiddenChar" value="<%=request.getAttribute("char")%>" />
-        <input type="hidden" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
-        <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
-        <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
-        <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
-        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-        <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
+
+        <form action="" method="post" id="myForm">
+            <input type="hidden" id="gameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
+            <input type="hidden" id="userid" name="userid" value="<%=request.getAttribute("userid")%>" />
+            <input type="hidden" id="level" name="level" value="<%=request.getAttribute("level")%>" />
+            <input type="hidden" id="roomcode" name="roomcode" value="<%=request.getAttribute("roomcode")%>" />
+            <input type="hidden" id="char" name="char" value="<%=request.getAttribute("char")%>" />
+            <input type="hidden" id="heart" name="heart" value="<%=request.getAttribute("heart")%>" />
+            <input type="hidden" id="score" name="score" value="<%=request.getAttribute("score")%>" />
+            <input type="hidden" id="time" name="time" value="<%=request.getAttribute("time")%>" />
+            <input type="hidden" id="previous" name="previous" value="<%=request.getAttribute("previous")%>" />
+        </form>
 
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-center">
@@ -57,21 +60,27 @@
             setTimeout(function () {
                 var heart = document.getElementById('hiddenHeart').value - 1;
                 if (heart <= 0) {
-                    window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value
-                            + "&userid=" + document.getElementById('userid').value
-                            + "&username=" + document.getElementById('username').value
-                            + "&roomcode=" + document.getElementById('roomcode').value
-                            + "&score=" + document.getElementById("hiddenScore").value;
-                } else
-                    window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
-                            + "&heart=" + heart
-                            + "&gameId=" + document.getElementById('hiddenGameId').value
-                            + "&level=" + document.getElementById('level').value
-                            + "&userid=" + document.getElementById('userid').value
-                            + "&username=" + document.getElementById('username').value
-                            + "&previous=" + document.getElementById('hiddenPrevious').value
-                            + "&roomcode=" + document.getElementById('roomcode').value
-                            + "&score=" + document.getElementById("hiddenScore").value;
+                    document.getElementById("myForm").action = "GameOver.jsp";
+                    document.getElementById("myForm").submit();
+//                    window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value
+//                            + "&userid=" + document.getElementById('userid').value
+//                            + "&username=" + document.getElementById('username').value
+//                            + "&roomcode=" + document.getElementById('roomcode').value
+//                            + "&score=" + document.getElementById("hiddenScore").value;
+                } else {
+                    document.getElementById("heart").value = heart;
+                    document.getElementById("myForm").action = "SinglePlay.jsp";
+                    document.getElementById("myForm").submit();
+                }
+//                    window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
+//                            + "&heart=" + heart
+//                            + "&gameId=" + document.getElementById('hiddenGameId').value
+//                            + "&level=" + document.getElementById('level').value
+//                            + "&userid=" + document.getElementById('userid').value
+//                            + "&username=" + document.getElementById('username').value
+//                            + "&previous=" + document.getElementById('hiddenPrevious').value
+//                            + "&roomcode=" + document.getElementById('roomcode').value
+//                            + "&score=" + document.getElementById("hiddenScore").value;
             }, 3000);
         }
         </script>

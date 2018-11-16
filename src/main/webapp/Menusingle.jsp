@@ -63,8 +63,8 @@
                                     <strong class="d-inline-block mb-2 text-success">Join room</strong>
                                 </h3>
                                 <input type="text" id="roomcode" name="roomcode" class="form-control" placeholder="Code" required="" autofocus="">
-                                <input type="hidden" id="userid" name="userid" value="<%=request.getParameter("userid")%>">
-                                <input type="hidden" id="username" name="username" value="<%=request.getParameter("username")%>">
+<!--                                <input type="hidden" id="userid" name="userid" value="<%=request.getParameter("userid")%>">
+                                <input type="hidden" id="username" name="username" value="<%=request.getParameter("username")%>">-->
                                 <button type="submit" name="Join" class="btn btn-success" style="margin-top: 5%; width: 10rem;" placeholder="Code">Join</button>
                                 <!--<a href= class="btn btn-success" style="margin-top: 5%; width: 10rem;">Join</a>-->
                             </div>
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getParameter("alert")%>"  >
+        <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getAttribute("alert")%>"  >
 
 
 
@@ -82,7 +82,7 @@
         
         <script>
             var message = document.getElementById("hiddenAlert").value;
-            if (message !=== null) {
+            if (message !== "" || message !=== null) {
                 window.alert(message);
             }
         </script>

@@ -25,11 +25,12 @@
         </style>
     </head>
     <body class="text-center">
-        <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
-        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-        <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
-        <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
+        <form action="${pageContext.request.contextPath}/GameOver" method="post" id="myForm>"
+              <input type="hidden" name="gameId" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
+            <input type="hidden" name="userid" id="userid" value="<%=request.getParameter("userid")%>" />
+            <input type="hidden" name="score" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+            <input type="hidden" name="roomcode" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
+        </form>
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-center">
                 <div class="col">

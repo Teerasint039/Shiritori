@@ -21,9 +21,9 @@
         <title>JSP Page</title>
     </head>
     <body onload="myFunction()">
-        <H1>Hello Shiritori Game!</H1>
-       // <script>
-           window.location.href = "Signin.jsp";
+       <script>
+//           document.getElementById("myForm").submit();
+           window.location.href = "StartProjectServlet";
 //                function myFunction() {
 //                    setTimeout(function(){
 //                        window.location.href = "Signin.jsp";

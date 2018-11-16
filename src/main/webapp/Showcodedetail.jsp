@@ -40,21 +40,37 @@
         <div class="container mb-5 d-none d-sm-block">
             <div class="row  justify-content-center"style="margin-top: 5%; ">
                 <div class="col-md-7" style="margin-top: 15%;" >
-                    <form>
-                        <div class="card flex-md-row mb-5 shadow-sm h-md-250">
-                            <div class="card-body align-items-start" >
-                                <h3 class="mb-0" style="margin-bottom: 3%;">
-                                    <strong class="d-inline-block mb-2 text-success">Room Detail</strong>
-                                </h3>
-                                <h6 class="text-black text-left">Code: <%=request.getAttribute("roomcode")%></h6>
-                                <h6 class="text-black text-left">Level: <%=request.getAttribute("level")%></h6>
-                                <h6 class="text-black text-left">Comment: <%=request.getAttribute("comment")%></h6>
-                                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=<%=request.getAttribute("level")%>&roomcode=<%=request.getAttribute("roomcode")%>"><button type="button" class="btn btn-primary" style="margin-top: 5%;">Ok</button></a>
-                                <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&alert= "><button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 5%;">Back</button></a>
-                            </div>
-                            <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px; " src="Icon/bgjoin.svg" data-holder-rendered="true" >
+                    <div class="card flex-md-row mb-5 shadow-sm h-md-250">
+                        <div class="card-body align-items-start" >
+                            <h3 class="mb-0" style="margin-bottom: 3%;">
+                                <strong class="d-inline-block mb-2 text-success">Room Detail</strong>
+                            </h3>
+                            <h6 class="text-black text-left">Code: <%=request.getAttribute("roomcode")%></h6>
+                            <h6 class="text-black text-left">Level: <%=request.getAttribute("level")%></h6>
+                            <h6 class="text-black text-left">Comment: <%=request.getAttribute("comment")%></h6>
+
+                            <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post">
+                                <input type="hidden" id="level" name="level" value="<%=request.getAttribute("level")%>">
+                                <input type="hidden" id="roomcode" name="roomcode" value="<%=request.getAttribute("roomcode")%>">
+                                <button class="btn btn-primary" style="margin-top: 5%;" type="submit" style="margin-top: 10%; ">OK</button>
+                            </form>
+
+                            <form action="Menusingle.jsp" method="post">
+                                <input type="hidden" id="alert" name="alert" value="">    
+                                <button class="btn btn-primary" style="margin-top: 5%;" type="submit" style="margin-top: 10%; ">Back</button>
+                            </form>
+<!--                                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?
+                            userid=<%=request.getParameter("userid")%>&
+                            username=<%=request.getParameter("username")%>
+                            &level=<%=request.getAttribute("level")%>&
+                            roomcode=<%=request.getAttribute("roomcode")%>"><button type="button" class="btn btn-primary" style="margin-top: 5%;">Ok</button></a>
+                            
+                         <a href="Menusingle.jsp?userid=<%=request.getParameter("userid")%>&
+                            username=<%=request.getParameter("username")%>&
+                            alert= "><button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 5%;">Back</button></a>-->
                         </div>
-                    </form>               
+                        <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px; " src="Icon/bgjoin.svg" data-holder-rendered="true" >
+                    </div>              
                 </div>
             </div>
 
@@ -90,6 +106,11 @@
         crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+        <script>
+            function goBack() {
+                window.history.back()
+            }
+        </script>
 
     </body>
 

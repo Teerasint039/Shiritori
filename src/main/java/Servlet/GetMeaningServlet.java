@@ -32,19 +32,19 @@ public class GetMeaningServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String vocab = request.getParameter("vocab");//
-        String character = request.getParameter("char");//
-        String pchar = request.getParameter("pchar");//
-        int level = Integer.parseInt(request.getParameter("level"));//
-        int heart = Integer.parseInt(request.getParameter("heart"));//
-        int score = Integer.parseInt(request.getParameter("score"));//
-        int gameId = Integer.parseInt(request.getParameter("gameId"));//
-        int userId = Integer.parseInt(request.getParameter("userid"));//
-        String userName = request.getParameter("username");//
-        String status = request.getParameter("status");//
-        String roomCode = request.getParameter("roomcode");//
-        int time = Integer.parseInt(request.getParameter("time"));
-        String previous = request.getParameter("previous");
+        String vocab = (String) request.getAttribute("vocab");//
+        String character = (String) request.getAttribute("char");//
+        String pchar = (String) request.getAttribute("pchar");//
+        int level = (int) request.getAttribute("level");//
+        int heart =(int) request.getAttribute("heart");//
+        int score = (int) request.getAttribute("score");//
+        int gameId = (int) request.getAttribute("gameId");//
+        int userId = (int) request.getAttribute("userid");//
+//        String userName = request.getParameter("username");//
+        String status = (String) request.getAttribute("status");//
+        String roomCode = (String) request.getAttribute("roomcode");//
+        int time = (int) request.getAttribute("time");
+        String previous = (String) request.getAttribute("previous");
         
         String meaning = null;
         Vocab vocabModel = new Vocab();
@@ -60,7 +60,7 @@ public class GetMeaningServlet extends HttpServlet {
         request.setAttribute("score", score);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
-        request.setAttribute("username", userName);
+//        request.setAttribute("username", userName);
         request.setAttribute("status", status);
         request.setAttribute("time", time);
         request.setAttribute("previous", previous);

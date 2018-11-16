@@ -5,8 +5,6 @@
  */
 package Servlet;
 
-import Model.Room;
-import Model.SingleModeGame;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Teerasint
  */
-public class ShowRoomDetailServlet extends HttpServlet {
+public class StartProjectServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,32 +30,10 @@ public class ShowRoomDetailServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-//        int userId = Integer.parseInt(request.getParameter("userid"));
-//        String userName = request.getParameter("username");
-        String roomCode = request.getParameter("roomcode");
-
-        Room rm = new Room();
-        System.out.println("Roomcode: " + roomCode);
-
-        if (rm.checkRoomCodeinDB(roomCode)) {
-            System.out.println("in if block");
-            rm = rm.showRoom(roomCode);
-
-//            request.setAttribute("userid", userId);
-            request.setAttribute("level", rm.getLevel());
-            request.setAttribute("comment", rm.getComment());
-//            request.setAttribute("username", userName);
-            request.setAttribute("roomcode", roomCode);
-            getServletContext().getRequestDispatcher("/Showcodedetail.jsp").forward(request, response);
-        }
-        System.out.println("Out of IF block");
-//        System.out.println("USERID: "+userId);
-//        System.out.println("UserName: "+userName);
-        String alert = "Wrong Code!";
-        request.setAttribute("alert", alert);
-        getServletContext().getRequestDispatcher("/Menusingle.jsp").forward(request, response);
-
+        String alert = "";
+        
+         request.setAttribute("alert", alert);
+         getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

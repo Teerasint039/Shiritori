@@ -45,11 +45,12 @@ public class CheckAnswerServlet extends HttpServlet {
         int time = Integer.parseInt(request.getParameter("time"));
         int userId = Integer.parseInt(request.getParameter("userid"));
         int level = Integer.parseInt(request.getParameter("level"));
-        String userName = request.getParameter("username");
+//        String userName = request.getParameter("username");
         String previous = request.getParameter("previous");
         String status = request.getParameter("status");
         String roomCode = request.getParameter("roomcode");
         String lowCaseVocab = vocab.toLowerCase();
+        String nextPage = "";
 
         Answer answer = new Answer();
         List<String> ansVocabs = answer.showCorrectAnswerVocabs(gameId);
@@ -63,62 +64,81 @@ public class CheckAnswerServlet extends HttpServlet {
             character = pchar;
         }
         if (vocabs.indexOf(lowCaseVocab) >= 0) {// Check vocab in db
+            nextPage = "/GetMeaningServlet";
             if (ansVocabs != null) {//check answers of gameId is not null
                 if (ansVocabs.indexOf(lowCaseVocab) >= 0) {//check repeat answer
-                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
-                            + "&char=" + character
-                            + "&pchar=" + pchar
-                            + "&heart=" + heart
-                            + "&score=" + score
-                            + "&level=" + level
-                            + "&roomcode=" + roomCode
-                            + "&gameId=" + gameId
-                            + "&userid=" + userId
-                            + "&username=" + userName
-                            + "&previous=" + previous
-                            + "&time=" + time
-                            + "&status=Repeat").forward(request, response); // status repeat
-                } else {
-                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
-                            + "&char=" + character
-                            + "&pchar=" + pchar
-                            + "&heart=" + heart
-                            + "&score=" + score
-                            + "&level=" + level
-                            + "&roomcode=" + roomCode
-                            + "&gameId=" + gameId
-                            + "&userid=" + userId
-                            + "&username=" + userName
-                            + "&previous=" + previous
-                            + "&time=" + time
-                            + "&status" + status).forward(request, response);//status correct
+                    status = "Repeat";
                 }
-            }else{
-                getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
-                            + "&char=" + character
-                            + "&pchar=" + pchar
-                            + "&heart=" + heart
-                            + "&score=" + score
-                            + "&level=" + level
-                            + "&roomcode=" + roomCode
-                            + "&gameId=" + gameId
-                            + "&userid=" + userId
-                            + "&username=" + userName
-                            + "&previous=" + previous
-                            + "&time=" + time
-                            + "&status" + status).forward(request, response);//status correct
             }
+//
+//                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
+//                            + "&char=" + character
+//                            + "&pchar=" + pchar
+//                            + "&heart=" + heart
+//                            + "&score=" + score
+//                            + "&level=" + level
+//                            + "&roomcode=" + roomCode
+//                            + "&gameId=" + gameId
+//                            + "&userid=" + userId
+//                            //                            + "&username=" + userName
+//                            + "&previous=" + previous
+//                            + "&time=" + time
+//                            + "&status=Repeat").forward(request, response); // status repeat
+//                } else {
+//                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
+//                            + "&char=" + character
+//                            + "&pchar=" + pchar
+//                            + "&heart=" + heart
+//                            + "&score=" + score
+//                            + "&level=" + level
+//                            + "&roomcode=" + roomCode
+//                            + "&gameId=" + gameId
+//                            + "&userid=" + userId
+//                            //                            + "&username=" + userName
+//                            + "&previous=" + previous
+//                            + "&time=" + time
+//                            + "&status" + status).forward(request, response);//status correct
+//                }
+//            } else {
+//                getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
+//                        + "&char=" + character
+//                        + "&pchar=" + pchar
+//                        + "&heart=" + heart
+//                        + "&score=" + score
+//                        + "&level=" + level
+//                        + "&roomcode=" + roomCode
+//                        + "&gameId=" + gameId
+//                        + "&userid=" + userId
+//                        //                            + "&username=" + userName
+//                        + "&previous=" + previous
+//                        + "&time=" + time
+//                        + "&status" + status).forward(request, response);//status correct
+//            }
         } else {
-            getServletContext().getRequestDispatcher("/Outscope.jsp?char" + pchar
-                    + "&heart=" + heart
-                    + "&score=" + score
-                    + "&level=" + level
-                    + "&gameId=" + gameId
-                    + "&userid=" + userId
-                    + "&username=" + userName
-                    + "&roomcode=" + roomCode
-                    + "&time=" + time).forward(request, response);
+            nextPage = "/Outscope.jsp";
+//            getServletContext().getRequestDispatcher("/Outscope.jsp?char" + pchar
+//                    + "&heart=" + heart
+//                    + "&score=" + score
+//                    + "&level=" + level
+//                    + "&gameId=" + gameId
+//                    + "&userid=" + userId
+//                    //                    + "&username=" + userName
+//                    + "&roomcode=" + roomCode
+//                    + "&time=" + time).forward(request, response);
         }
+        request.setAttribute("char", character);
+        request.setAttribute("level", level);
+        request.setAttribute("heart", heart);
+        request.setAttribute("score", score);
+        request.setAttribute("gameId", gameId);
+        request.setAttribute("userid", userId);
+        request.setAttribute("roomcode", roomCode);
+        request.setAttribute("time", time);
+        request.setAttribute("vocab", vocab);
+        request.setAttribute("pchar", pchar);
+        request.setAttribute("previous", previous);
+        request.setAttribute("status", status);
+        getServletContext().getRequestDispatcher(nextPage).forward(request, response);
 
     }
 

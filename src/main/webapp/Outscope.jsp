@@ -25,15 +25,16 @@
         </style>
     </head>
     <body class="text-center" onload="myFunction()">
-        <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
-        <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
-        <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
-        <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
-        <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
-        <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
-        <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
-        <input type="hidden" id="hiddenPrevious" value="<%=request.getParameter("previous")%>" />
+        <form action="SinglePlay.jsp" method="post" id="myForm">
+            <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
+            <input type="hidden" id="level" value="<%=request.getAttribute("level")%>" />
+            <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
+            <input type="hidden" id="hiddenChar" value="<%=request.getAttribute("char")%>" />
+            <input type="hidden" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
+            <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
+            <input type="hidden" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
+            <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
+        </form>
 
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-center">
@@ -55,16 +56,16 @@
         <script>
         function myFunction() {
             setTimeout(function () {
+                document.getElementById("myForm").submit();
 
-                window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
-                        + "&heart=" + document.getElementById("hiddenHeart").value
-                        + "&gameId=" + document.getElementById("hiddenGameId").value
-                        + "&level=" + document.getElementById('level').value
-                        + "&userid=" + document.getElementById('userid').value
-                        + "&username=" + document.getElementById('username').value
-                        + "&roomcode=" + document.getElementById('roomcode').value
-                        + "&previous=" + document.getElementById("hiddenPrevious").value
-                        + "&score=" + document.getElementById("hiddenScore").value;
+//                window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
+//                        + "&heart=" + document.getElementById("hiddenHeart").value
+//                        + "&gameId=" + document.getElementById("hiddenGameId").value
+//                        + "&level=" + document.getElementById('level').value
+//                        + "&userid=" + document.getElementById('userid').value
+//                        + "&roomcode=" + document.getElementById('roomcode').value
+//                        + "&previous=" + document.getElementById("hiddenPrevious").value
+//                        + "&score=" + document.getElementById("hiddenScore").value;
             }, 3000);
         }
         </script>

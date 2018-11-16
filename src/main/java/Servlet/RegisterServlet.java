@@ -50,9 +50,11 @@ public class RegisterServlet extends HttpServlet {
         
             getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); //register success
         }else{
+            request.setAttribute("alert", "มีคนใช้ User Name นี้แล้ว");
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); // register fail
         }
         }else{
+            request.setAttribute("alert", "มีคนใช้ User Name นี้แล้ว");
             System.out.println("user.checkUserNameAvailable(username) = FALSE");
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); //register fail duplicate Id
         }

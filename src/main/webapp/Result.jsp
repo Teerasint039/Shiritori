@@ -88,14 +88,6 @@
                                                 <tbody>
                                                     <%
                                                         for (Answer a : answers) {
-                                                            if (a.getStatus().equalsIgnoreCase("correct")) {
-                                                    %>
-
-                                                    <tr>
-                                                        <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
-                                                        <td><div class="col"><h5><%=a.getUsedTime()%></h5></div></td>
-                                                    </tr>
-                                                    <%  } else {
                                                     %>
                                                     <tr>
                                                         <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
@@ -103,7 +95,6 @@
                                                     </tr>
                                                     <%}
                                                             }
-                                                        } else {
                                                         }%>
                                                 </tbody>                                        
                                             </table>                                                                                                                             
@@ -113,14 +104,14 @@
 
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <a href="${pageContext.request.contextPath}/LevelSelection.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" >
+                                        <a href="${pageContext.request.contextPath}/Menusingle.jsp.jsp" >
                                             <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%; ">
                                                 <img src="Icon/Reset.svg" class="img-fluid" alt="Responsive image">                
                                             </button>
                                         </a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="${pageContext.request.contextPath}/Menu.jsp?userid=<%=request.getAttribute("userid")%>&username=<%=request.getAttribute("username")%>" >
+                                        <a href="${pageContext.request.contextPath}/Menu.jsp" >
                                             <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;">
                                                 <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
                                             </button>

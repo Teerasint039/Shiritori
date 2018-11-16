@@ -80,6 +80,18 @@
         <servlet-name>ShowResultServlet</servlet-name>
         <servlet-class>Servlet.ShowResultServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MenuSingleServlet</servlet-name>
+        <servlet-class>Servlet.MenuSingleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StartProjectServlet</servlet-name>
+        <servlet-class>Servlet.StartProjectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisServlet</servlet-name>
+        <servlet-class>Servlet.RegisServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
         <url-pattern>/TestServlet</url-pattern>
@@ -155,6 +167,18 @@
     <servlet-mapping>
         <servlet-name>ShowResultServlet</servlet-name>
         <url-pattern>/ShowResultServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MenuSingleServlet</servlet-name>
+        <url-pattern>/MenuSingleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartProjectServlet</servlet-name>
+        <url-pattern>/StartProjectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisServlet</servlet-name>
+        <url-pattern>/RegisServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

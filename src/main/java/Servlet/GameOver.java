@@ -36,7 +36,6 @@ public class GameOver extends HttpServlet {
         
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int userId = Integer.parseInt(request.getParameter("userid"));
-        String userName = request.getParameter("username");
         String roomCode = request.getParameter("roomcode");
         int score = Integer.parseInt(request.getParameter("score"));
         
@@ -49,7 +48,6 @@ public class GameOver extends HttpServlet {
         
         request.setAttribute("answers", answers);
         request.setAttribute("userid", userId);
-        request.setAttribute("username", userName);
         request.setAttribute("score", score);
                     
         getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);

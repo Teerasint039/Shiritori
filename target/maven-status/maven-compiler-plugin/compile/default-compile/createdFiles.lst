@@ -1,3 +1,4 @@
+Servlet\StartProjectServlet.class
 Model\Room.class
 Servlet\ShowCodeServlet.class
 Model\TestMethod.class
@@ -10,6 +11,7 @@ Servlet\TestServlet.class
 Model\Mariadb.class
 Model\CategoryVocab.class
 Model\UserItem.class
+Servlet\RegisServlet.class
 Model\TestTimeStamp.class
 Servlet\StartSingleModeGameServlet.class
 Servlet\LoginServlet.class
@@ -34,6 +36,7 @@ Servlet\GetVocabServlet.class
 Servlet\PracticeSendStatusServlet.class
 Model\User.class
 Servlet\PracticeCheckAnswerServlet.class
+Servlet\MenuSingleServlet.class
 Servlet\StartPracticeModeGameServlet.class
 Model\TestAnswer.class
 Servlet\AddAnswerServlet.class

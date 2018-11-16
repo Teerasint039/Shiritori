@@ -9,6 +9,7 @@ import Model.SingleModeGame;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,10 +33,24 @@ public class StartSingleModeGameServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        int userId = Integer.parseInt(request.getParameter("userid"));
+//        int userId = Integer.parseInt(request.getParameter("userid"));
         int level = Integer.parseInt(request.getParameter("level"));
-        String userName = request.getParameter("username");
+//        String userName = request.getParameter("username");
         String roomCode = request.getParameter("roomcode");
+        String cookieName = "userid";
+        Cookie cookies[] = request.getCookies();
+        Cookie userid = null;
+        
+        if (cookies != null) {
+            for (int i = 0; i < cookies.length; i++) {
+                if (cookies[i].getName().equals(cookieName)) {
+                    userid = cookies[i];
+//                    break;
+                }
+            }
+        }
+        
+        int userId = Integer.parseInt(userid.getValue());
         
         SingleModeGame smg = new SingleModeGame();
         int gameId = smg.newGame(userId, roomCode);
@@ -44,13 +59,13 @@ public class StartSingleModeGameServlet extends HttpServlet {
         
         
         System.out.println("userId: "+userId);
-        System.out.println("UserName: "+userName);
+//        System.out.println("UserName: "+userName);
         
         
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
         request.setAttribute("level", level);
-        request.setAttribute("username", userName);
+//        request.setAttribute("username", userName);
         request.setAttribute("roomcode", roomCode);
        getServletContext().getRequestDispatcher("/StartPage.jsp").forward(request, response);
         

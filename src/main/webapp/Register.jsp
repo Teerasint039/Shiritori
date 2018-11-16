@@ -58,13 +58,14 @@
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
                             </div>
                             <div class="col">
-                                <a href="Signin.jsp" class="btn btn-danger btn-lg btn-block"  role="button">Cancel</a>
+                                <a href="StartProjectServlet" class="btn btn-danger btn-lg btn-block"  role="button">Cancel</a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getAttribute("alert")%>"  >
 
         <!-- Bootstrap core JavaScript -->
 
@@ -74,6 +75,12 @@
         crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+        <script>
+            var message = document.getElementById("hiddenAlert").value;
+            if (message !== "" || message !== null && message.length!==0) {
+                window.alert(message);
+            }
+        </script>
 
     </body>
 

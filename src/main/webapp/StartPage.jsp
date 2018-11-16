@@ -43,11 +43,16 @@
 
                 <div class="row justify-content-center" >
                     <h1 id="countdowntimer" style="font-size: 5cm;">3 </h1>
-                    <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
-                    <input type="hidden" id="level" value="<%=request.getAttribute("level")%>" />
-                    <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
-                    <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
-                    <input type="hidden" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
+                    <form action="SinglePlay.jsp" method="post" id="myForm" name="myForm">
+                        <input type="hidden" name="gameId" id="gameId" value="<%=request.getAttribute("gameId")%>" />
+                    <input type="hidden" name="level" id="level" value="<%=request.getAttribute("level")%>" />
+                    <input type="hidden" name="userid" id="userid" value="<%=request.getAttribute("userid")%>" />
+                    <input type="hidden" name="roomcode" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
+                    <input type="hidden" name="char" id="char" value="" />
+                    <input type="hidden" name="heart" id="heart" value="3" />
+                    <input type="hidden" name="score" id="score" value="0" />
+                    <input type="hidden" name="previous" id="previous" value="" />
+                    </form>
                 </div>             
             </div>
         </div>

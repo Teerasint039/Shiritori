@@ -18,6 +18,7 @@ C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Mariadb.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\ShowRoomDetailServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\SingleModeGame.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\MenuSingleServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Answer.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Category.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestUser.java
@@ -28,9 +29,11 @@ C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\Connectionbuilder.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\CategoryVocab.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\PracticeSendStatusServlet.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\StartProjectServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\AddNewRoomServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\PracticeModeGame.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Model\TestTimeStamp.java
+C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\RegisServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\StartPracticeModeGameServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\RegisterServlet.java
 C:\Users\Teerasint\Desktop\Final Project\Code\Shiritori\Shiritori\src\main\java\Servlet\StartSingleModeGameServlet.java

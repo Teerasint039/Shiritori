@@ -57,6 +57,7 @@ public class LoginServlet extends HttpServlet {
         
             getServletContext().getRequestDispatcher("/Menu.jsp?").forward(request, response); //login pass
         }else{
+            request.setAttribute("alert", "ไม่มี User Name นี้!");
             getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); // login fail
         }
         
