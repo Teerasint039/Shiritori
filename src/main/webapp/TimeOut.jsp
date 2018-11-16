@@ -27,14 +27,14 @@
     <body class="text-center" onload="myFunction()">
 
         <form action="" method="post" id="myForm">
-            <input type="hidden" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
-            <input type="hidden" id="level" value="<%=request.getParameter("level")%>" />
-            <input type="hidden" id="userid" value="<%=request.getParameter("userid")%>" />
-            <input type="hidden" id="hiddenChar" value="<%=request.getParameter("char")%>" />
-            <input type="hidden" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
-            <input type="hidden" id="hiddenScore" value="<%=request.getParameter("score")%>" />
-            <input type="hidden" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
-            <input type="hidden" id="hiddenPrevious" value="<%=request.getParameter("previous")%>" />
+            <input type="hidden" name="gameId" id="hiddenGameId" value="<%=request.getParameter("gameId")%>" />
+            <input type="hidden" name="level" id="level" value="<%=request.getParameter("level")%>" />
+            <input type="hidden" name="userid" id="userid" value="<%=request.getParameter("userid")%>" />
+            <input type="hidden" name="char" id="hiddenChar" value="<%=request.getParameter("char")%>" />
+            <input type="hidden" name="heart" id="hiddenHeart" value="<%=request.getParameter("heart")%>" />
+            <input type="hidden" name="score" id="hiddenScore" value="<%=request.getParameter("score")%>" />
+            <input type="hidden" name="roomcode" id="roomcode" value="<%=request.getParameter("roomcode")%>" />
+            <input type="hidden" name="previous" id="hiddenPrevious" value="<%=request.getParameter("previous")%>" />
         </form>
 
         <div class="container d-none d-md-block">
@@ -69,7 +69,7 @@
 //                            + "&roomcode=" + document.getElementById('roomcode').value
 //                            + "&score=" + document.getElementById("hiddenScore").value;;
                 } else {
-                    document.getElementById("heart").value = heart;
+                    document.getElementById("hiddenHeart").value = heart;
                     document.getElementById("myForm").action = "SinglePlay.jsp";
                     document.getElementById("myForm").submit();
                 }

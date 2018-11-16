@@ -57,8 +57,6 @@
 
     </head>
     <body class="text-center">
-        <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
-        <input type="hidden" id="username" value="<%=request.getAttribute("username")%>" />
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-centerj">
                 <div class="col">
@@ -95,7 +93,7 @@
                                                     </tr>
                                                     <%}
                                                             }
-                                                        }%>
+                                                        %>
                                                 </tbody>                                        
                                             </table>                                                                                                                             
                                         </div>
@@ -104,7 +102,7 @@
 
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <a href="${pageContext.request.contextPath}/Menusingle.jsp.jsp" >
+                                        <a href="${pageContext.request.contextPath}/Menusingle.jsp" >
                                             <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%; ">
                                                 <img src="Icon/Reset.svg" class="img-fluid" alt="Responsive image">                
                                             </button>

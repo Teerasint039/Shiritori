@@ -67,7 +67,7 @@
                         <h5 class="mt-4"><%=request.getParameter("char")%></h5>
                         
                         <form action="/" method="post" id="myForm" name="myForm">
-                            <input type="hidden" name="GameId" id="GameId" value="<%=request.getParameter("gameId")%>" />
+                            <input type="hidden" name="gameId" id="gameId" value="<%=request.getParameter("gameId")%>" />
                             <input type="hidden" name="level" id="level" value="<%=request.getParameter("level")%>" />
                             <input type="hidden" name="userid" id="userid" value="<%=request.getParameter("userid")%>" />
                             <input type="hidden" name="pchar" id="pchar" value="<%=request.getParameter("char")%>" />

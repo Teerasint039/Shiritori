@@ -2,7 +2,7 @@ var timeleft = 3;
 var Timer = setInterval(function () {
     timeleft--;
     if (timeleft <= 0) {
-        document.getElementById("myForm").submit();
+        document.getElementById('myForm').submit();
 //        window.location.replace("GameOver?gameId="+document.getElementById('hiddenGameId').value
 //                    + "&score="+ document.getElementById('hiddenScore').value 
 //                    + "&userid="+ document.getElementById('userid').value 

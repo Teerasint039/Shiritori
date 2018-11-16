@@ -33,13 +33,15 @@ public class GameOver extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        System.out.println("GameOver servlet");
         
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int userId = Integer.parseInt(request.getParameter("userid"));
-        String roomCode = request.getParameter("roomcode");
         int score = Integer.parseInt(request.getParameter("score"));
         
-        System.out.println("GameId in GameOver:"+gameId);
+//        System.out.println("GameId in GameOver:"+gameId);
+//        System.out.println("UserId in GameOver:"+userId);
+//        System.out.println("score in GameOver:"+score);
         Answer answer = new Answer();
         List<Answer> answers = answer.showAllAnswer(gameId);
         

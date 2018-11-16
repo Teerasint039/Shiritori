@@ -246,8 +246,9 @@ var Timer = setInterval(function () {
     timeleft--;
     document.getElementById("countdowntimer").textContent = timeleft;
     if (timeleft <= 0) {
+//        window.alert(lastchar);
         document.getElementById("countdowntimer").textContent = "";
-        document.getElementById("char").value = lastchar;
+        document.getElementById("char").value = document.getElementById("pchar").value;
         document.getElementById("vocab").value = noteContent;
         document.getElementById("previous").value = before;
         document.getElementById("time").value = time;
