@@ -35,6 +35,7 @@ public class CheckAnswerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        System.out.println("Check Answer servlet");
 
         String vocab = request.getParameter("vocab");
         String character = request.getParameter("char");
@@ -60,11 +61,10 @@ public class CheckAnswerServlet extends HttpServlet {
         /**
          * Check In Scope
          */
-        if (status.equalsIgnoreCase("incorrect")) {
-            character = pchar;
-        }
+//        if (status.equalsIgnoreCase("incorrect")) {
+//            character = pchar;
+//        }
         if (vocabs.indexOf(lowCaseVocab) >= 0) {// Check vocab in db
-            nextPage = "/GetMeaningServlet";
             if (ansVocabs != null) {//check answers of gameId is not null
                 if (ansVocabs.indexOf(lowCaseVocab) >= 0) {//check repeat answer
                     status = "Repeat";
@@ -126,6 +126,7 @@ public class CheckAnswerServlet extends HttpServlet {
 //                    + "&roomcode=" + roomCode
 //                    + "&time=" + time).forward(request, response);
         }
+        System.out.println("NextPage: "+nextPage);
         request.setAttribute("char", character);
         request.setAttribute("level", level);
         request.setAttribute("heart", heart);
@@ -134,7 +135,7 @@ public class CheckAnswerServlet extends HttpServlet {
         request.setAttribute("userid", userId);
         request.setAttribute("roomcode", roomCode);
         request.setAttribute("time", time);
-        request.setAttribute("vocab", vocab);
+        request.setAttribute("vocab", lowCaseVocab);
         request.setAttribute("pchar", pchar);
         request.setAttribute("previous", previous);
         request.setAttribute("status", status);

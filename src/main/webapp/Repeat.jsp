@@ -59,7 +59,7 @@
         <script>
         function myFunction() {
             setTimeout(function () {
-                var heart = document.getElementById('hiddenHeart').value - 1;
+                var heart = document.getElementById('heart').value - 1;
                 if (heart <= 0) {
                     document.getElementById("myForm").action = "GameOver.jsp";
                     document.getElementById("myForm").submit();

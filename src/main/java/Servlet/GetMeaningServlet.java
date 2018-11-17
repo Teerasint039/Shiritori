@@ -32,6 +32,8 @@ public class GetMeaningServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        System.out.println("getMeaning Servlet");
+        
         String vocab = (String) request.getAttribute("vocab");//
         String character = (String) request.getAttribute("char");//
         String pchar = (String) request.getAttribute("pchar");//

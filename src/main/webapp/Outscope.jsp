@@ -26,14 +26,14 @@
     </head>
     <body class="text-center" onload="myFunction()">
         <form action="SinglePlay.jsp" method="post" id="myForm">
-            <input type="hidden" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
-            <input type="hidden" id="level" value="<%=request.getAttribute("level")%>" />
-            <input type="hidden" id="userid" value="<%=request.getAttribute("userid")%>" />
-            <input type="hidden" id="hiddenChar" value="<%=request.getAttribute("char")%>" />
-            <input type="hidden" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
-            <input type="hidden" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
-            <input type="hidden" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
-            <input type="hidden" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
+            <input type="hidden" name="gameId" id="hiddenGameId" value="<%=request.getAttribute("gameId")%>" />
+            <input type="hidden" name="level" id="level" value="<%=request.getAttribute("level")%>" />
+            <input type="hidden" name="userid" id="userid" value="<%=request.getAttribute("userid")%>" />
+            <input type="hidden" name="char" id="hiddenChar" value="<%=request.getAttribute("pchar")%>" />
+            <input type="hidden" name="heart" id="hiddenHeart" value="<%=request.getAttribute("heart")%>" />
+            <input type="hidden" name="score" id="hiddenScore" value="<%=request.getAttribute("score")%>" />
+            <input type="hidden" name="roomcode" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
+            <input type="hidden" name="previous" id="hiddenPrevious" value="<%=request.getAttribute("previous")%>" />
         </form>
 
         <div class="container d-none d-md-block">

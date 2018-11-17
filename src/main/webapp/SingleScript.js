@@ -41,7 +41,6 @@ recognition.continuous = false;
 // This block is called every time the Speech APi captures a line. 
 recognition.onresult = function (event) {
     document.getElementById('start-record-btn').disabled = true;
-    document.getElementById('start-listen-btn').disabled = true;
     // event is a SpeechRecognitionEvent object.
     // It holds all the lines we have captured so far. 
     // We only need the current one.
@@ -82,7 +81,7 @@ recognition.onresult = function (event) {
 //    window.alert("firstChar: "+firstchar);
 //    window.alert("hiddenChar: "+document.getElementById('hiddenChar').value);
     setTimeout(function () {
-        if (firstchar === document.getElementById('hiddenChar').value) {
+        if (firstchar === document.getElementById('pchar').value) {
             determine = true;
 
 
@@ -116,7 +115,7 @@ recognition.onresult = function (event) {
             document.getElementById("previous").value = before;
             document.getElementById("status").value = "Correct";
             document.getElementById("time").value = time;
-            document.getElementById('myForm').action = "${pageContext.request.contextPath}/CheckAnswerServlet";
+            document.getElementById('myForm').action = "CheckAnswerServlet";
             document.getElementById('myForm').submit();
         } else {
             determine = false;
@@ -136,9 +135,9 @@ recognition.onresult = function (event) {
             document.getElementById("char").value = lastchar;
             document.getElementById("vocab").value = noteContent;
             document.getElementById("previous").value = before;
-            document.getElementById("status").value = "Inorrect";
+            document.getElementById("status").value = "Incorrect";
             document.getElementById("time").value = time;
-            document.getElementById('myForm').action = "${pageContext.request.contextPath}/CheckAnswerServlet";
+            document.getElementById('myForm').action = "CheckAnswerServlet";
             document.getElementById('myForm').submit();
         }
 
