@@ -31,34 +31,34 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String username = request.getParameter("username");
-        
+
         int userId;
         User user = new User();
-        if (user.checkUserNameAvailable(username)){
+        if (user.checkUserNameAvailable(username)) {
             System.out.println("user.checkUserNameAvailable(username) = TRUE");
             user.addUser(username);
-            System.out.println("Available: "+user.checkUserNameAvailable(username));
-                
-        userId = user.login(username);
-        System.out.println("userId: "+userId);
-        
-        if (userId != -1) {
+            System.out.println("Available: " + user.checkUserNameAvailable(username));
+
+            userId = user.login(username);
+            System.out.println("userId: " + userId);
+
+            if (userId != -1) {
 //            request.setAttribute("username", username);
 //            request.setAttribute("userid", userId);
-        
-            getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); //register success
-        }else{
-            request.setAttribute("alert", "มีคนใช้ User Name นี้แล้ว");
-            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); // register fail
-        }
-        }else{
+                request.setAttribute("alert", "ลงทะเบียนสำเร็จ");
+                getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); //register success
+            } else {
+                request.setAttribute("alert", "มีคนใช้ User Name นี้แล้ว");
+                getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); // register fail
+            }
+        } else {
             request.setAttribute("alert", "มีคนใช้ User Name นี้แล้ว");
             System.out.println("user.checkUserNameAvailable(username) = FALSE");
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); //register fail duplicate Id
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

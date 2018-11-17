@@ -65,6 +65,7 @@ public class CheckAnswerServlet extends HttpServlet {
 //            character = pchar;
 //        }
         if (vocabs.indexOf(lowCaseVocab) >= 0) {// Check vocab in db
+            nextPage = "/GetMeaningServlet";
             if (ansVocabs != null) {//check answers of gameId is not null
                 if (ansVocabs.indexOf(lowCaseVocab) >= 0) {//check repeat answer
                     status = "Repeat";
