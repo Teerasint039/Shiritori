@@ -33,7 +33,7 @@ public class RoomResult {
 
     private RoomResult(ResultSet rs) throws SQLException {
         userName = rs.getString("UserName");
-        score  =rs.getInt("Score");
+        score  =rs.getInt("MaxScore");
     }
 
     public String getUserName() {
@@ -64,7 +64,7 @@ public class RoomResult {
             Connection conn = Connectionbuilder.connect();
 
             try {
-                PreparedStatement pstm = conn.prepareStatement("SELECT DISTINCT * FROM `RoomResult` WHERE RoomCode = '"+roomCode+"' ORDER by Score DESC");
+                PreparedStatement pstm = conn.prepareStatement("SELECT UserName, Max(Score) AS MaxScore FROM RoomResult WHERE RoomCode = '"+roomCode+"' group by RoomCode, UserName ORDER BY MaxScore DESC");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
                     result = new RoomResult(rs);
