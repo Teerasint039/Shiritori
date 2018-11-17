@@ -98,7 +98,7 @@
                         <table class="table table-striped table-sm ">
                             <thead>
                                 <tr>
-                                    <th>VocabId</th>
+                                    <th>No.</th>
                                     <th>Vocab</th>
                                     <th>Part of Speech</th>
                                     <th>Meaning</th>
@@ -106,10 +106,12 @@
                             </thead>
                             <tbody>
                                 <%
+                                    int i = 0;
                                     for (Vocab a : vocabs) {
+                                        i++;
                                 %>
                                 <tr>
-                                    <td><div class="col"><h5><%=a.getVocabId()%></h5></div></td>
+                                    <td><div class="col"><h5><%=i%></h5></div></td>
                                     <td><div class="col"><h5><%=a.getVocab()%></h5></div></td>
                                     <td><div class="col"><h5><%=a.getPartofSpeech()%></h5></div></td>
                                     <td><div class="col"><h5><%=a.getMeaning()%></h5></div></td>
