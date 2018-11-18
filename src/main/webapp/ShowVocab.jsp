@@ -127,7 +127,7 @@
         </div>
 
         <!-- sm -->
-        <div class="container md-5 d-md-sm-none ">
+        <div class="container d-md-sm-none ">
             <div class="row justify-content-center ">
                 <div class="card" style="margin-top: 50%; font-family: serif;">
                     <div class="card-body">

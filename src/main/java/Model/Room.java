@@ -186,12 +186,17 @@ public class Room {
      
      public boolean checkCanShowResult(String roomcode){
          boolean canShow = false;
+         System.out.println("1.1");
          List<String> codes = showAllUsedRoomCode();
+         System.out.println("1.2");
          System.out.println("codes: "+codes);
-         System.out.println("codes.indexOf(roomCode)"+codes.indexOf(roomcode));
-         if (codes.indexOf(roomcode)!=-1) {
+//         System.out.println("codes.indexOf(roomCode)"+codes.indexOf(roomcode));
+         if (codes != null) {
+             if (codes.indexOf(roomcode)!=-1) {
              canShow = true;
          }
+         }
+         
          return canShow;
      }
     

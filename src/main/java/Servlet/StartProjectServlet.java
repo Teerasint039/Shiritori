@@ -30,7 +30,7 @@ public class StartProjectServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String alert = "";
+        String alert = "start";
         
          request.setAttribute("alert", alert);
          getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response);

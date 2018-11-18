@@ -59,13 +59,16 @@ public class RoomResult {
         Room room = new Room();
         SingleModeGame smg = new SingleModeGame();
         System.out.println("step 1");
+        System.out.println("room.checkCanShowResult(roomCode): "+room.checkCanShowResult(roomCode));
         if (room.checkCanShowResult(roomCode)) {
+            System.out.println("step 2");
             try {
             Connection conn = Connectionbuilder.connect();
 
             try {
                 PreparedStatement pstm = conn.prepareStatement("SELECT UserName, Max(Score) AS MaxScore FROM RoomResult WHERE RoomCode = '"+roomCode+"' group by RoomCode, UserName ORDER BY MaxScore DESC");
                 ResultSet rs = pstm.executeQuery();
+                System.out.println("step 3");
                 while (rs.next()) {
                     result = new RoomResult(rs);
                     if (results == null) {

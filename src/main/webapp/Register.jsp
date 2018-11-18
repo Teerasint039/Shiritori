@@ -88,7 +88,7 @@
         crossorigin="anonymous"></script>
         <script>
             var message = document.getElementById("hiddenAlert").value;
-            if (message !== "" || message !== null && message.length > 1) {
+            if (message !== "" && message.length > 1) {
                 window.alert(message);
             }
         </script>

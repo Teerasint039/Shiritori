@@ -55,6 +55,7 @@ public class ShowResultServlet extends HttpServlet {
 
             getServletContext().getRequestDispatcher("/RoomResult.jsp").forward(request, response);
         }
+        request.setAttribute("alert", "code ผิด!");
         getServletContext().getRequestDispatcher("/MenuTeacher.jsp").forward(request, response);//invalid Roomcode
     }
 

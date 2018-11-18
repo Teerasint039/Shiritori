@@ -114,11 +114,11 @@ recognition.onresult = function (event) {
     }, 1000);
 };
 recognition.onstart = function () {
-    instructions.text('SPEAK NOW!');
+    instructions.text('พูดเลย');
 }
 
 recognition.onspeechend = function () {
-    instructions.text('Press START!');
+    instructions.text('กดปุ่มอีกครั้งนะ');
 }
 
 

@@ -67,7 +67,7 @@
                         </button>
                     </a>-->
                 <div class="col-auto"style="margin-top: 5%;">
-                    <a href ="Signin.jsp" >
+                    <a href ="StartProjectServlet" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
                             <img src="Icon/logout.svg" class="img-fluid" alt="Responsive image" >
                         </button>                       
