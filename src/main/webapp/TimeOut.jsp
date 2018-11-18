@@ -45,7 +45,7 @@
         <div class="container d-none d-md-block">
             <div class="row justify-content-md-center">
                 <div class="col">
-                    <img src="Icon/popuptimeout.svg" class="img-fluid" alt="Responsive image" style="width: 45rem; height: 20em;margin-top: 13%; ">
+                    <img src="Icon/popuptimeout.png" class="img-fluid" alt="Responsive image" style="width: 45rem; height: 20em;margin-top: 13%; ">
                 </div>
             </div>
         </div>

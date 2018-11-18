@@ -58,13 +58,13 @@
             <div class="container d-none d-md-block">
                 <div class="row justify-content-md-center">
                     <div class="col-md-6">
-                        <img src="Icon/score.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 11%; margin-right: 10%;">
-                        <div class="card-img-overlay" style="color: black; margin-top: 9%; margin-right: 50%;">
+                        <img src="Icon/score.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 15%; margin-right: 10%;">
+                        <div class="card-img-overlay" style="color: black; margin-top: 12%; margin-right: 50%;">
                             <h2><%=request.getAttribute("score")%></h2>
                         </div>
 
-                        <img src="Icon/time.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 11%; margin-left: 20%;">
-                        <div class="card-img-overlay" style="color: black; margin-top: 9%; margin-left: 60%;">
+                        <img src="Icon/time.svg" class="img-fluid" alt="Responsive image" style="width: 9rem; margin-top: 15%; margin-left: 20%;">
+                        <div class="card-img-overlay" style="color: black; margin-top: 12%; margin-left: 60%;">
                             <h2 id="countdowntimer"><%=request.getAttribute("time")%></h2>
                         </div>
                     </div>                
@@ -72,7 +72,7 @@
 
                 <div class="row justify-content-md-center ">
                     <div class="col-md-6 ">
-                        <img src="Icon/Card<%=request.getAttribute("category")%>/card <%=request.getAttribute("vocab")%>.svg" class="img-fluid" alt="Responsive image" style="width: 30rem; margin-top: 5%;">
+                        <img src="Icon/Card<%=request.getAttribute("category")%>/card <%=request.getAttribute("vocab")%>.png" class="img-fluid" alt="Responsive image" style="width: 30rem; margin-top: 5%;">
                     </div>
                 </div>
 
