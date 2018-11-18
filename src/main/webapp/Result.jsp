@@ -92,8 +92,8 @@
                                                         <td><div class="col"><h5><%=a.getStatus()%></h5></div></td>
                                                     </tr>
                                                     <%}
-                                                            }
-                                                        %>
+                                                        }
+                                                    %>
                                                 </tbody>                                        
                                             </table>                                                                                                                             
                                         </div>
@@ -119,6 +119,17 @@
                             </div>
 
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
                     </div>
                 </div>
             </div>

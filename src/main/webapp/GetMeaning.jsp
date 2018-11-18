@@ -66,16 +66,16 @@
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
                         <h5 class="mt-4"><%=request.getAttribute("previous")%></h5>
                         <form action="${pageContext.request.contextPath}/AddAnswerServlet" method="post" id="myForm">
-                        <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
-                        <input type="hidden" id="userid" name="userid" value="<%=request.getAttribute("userid")%>" />
-                        <input type="hidden" id="level" name="level" value="<%=request.getAttribute("level")%>" />
-                        <input type="hidden" id="roomcode" name="roomcode" value="<%=request.getAttribute("roomcode")%>" />
-                        <input type="hidden" id="hiddenChar" name="char" value="<%=request.getAttribute("char")%>" />
-                        <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getAttribute("heart")%>" />
-                        <input type="hidden" id="hiddenScore" name="score" value="<%=request.getAttribute("score")%>" />
-                        <input type="hidden" id="hiddenTime" name="time" value="<%=request.getAttribute("time")%>" />
-                        <input type="hidden" id="hiddenVocab" name="vocab" value="<%=request.getAttribute("vocab")%>" />
-                        <input type="hidden" id="hiddenStatus" name="status" value="<%=request.getAttribute("status")%>" />
+                            <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />
+                            <input type="hidden" id="userid" name="userid" value="<%=request.getAttribute("userid")%>" />
+                            <input type="hidden" id="level" name="level" value="<%=request.getAttribute("level")%>" />
+                            <input type="hidden" id="roomcode" name="roomcode" value="<%=request.getAttribute("roomcode")%>" />
+                            <input type="hidden" id="hiddenChar" name="char" value="<%=request.getAttribute("char")%>" />
+                            <input type="hidden" id="hiddenHeart" name="heart" value="<%=request.getAttribute("heart")%>" />
+                            <input type="hidden" id="hiddenScore" name="score" value="<%=request.getAttribute("score")%>" />
+                            <input type="hidden" id="hiddenTime" name="time" value="<%=request.getAttribute("time")%>" />
+                            <input type="hidden" id="hiddenVocab" name="vocab" value="<%=request.getAttribute("vocab")%>" />
+                            <input type="hidden" id="hiddenStatus" name="status" value="<%=request.getAttribute("status")%>" />
                         </form>
 
                         <h5 class="mt-4 font-weight-normal"><%=request.getAttribute("char")%></h5>
@@ -112,6 +112,17 @@
                     <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>                
                 </div>
             </div> 
+        </div>
+
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Bootstrap core JavaScript -->

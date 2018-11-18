@@ -65,7 +65,7 @@
                     <img src="Icon/startwith & previou.svg" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 4%">
                     <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
                         <h5 class="mt-4"><%=request.getParameter("char")%></h5>
-                        
+
                         <form action="/" method="post" id="myForm" name="myForm">
                             <input type="hidden" name="gameId" id="gameId" value="<%=request.getParameter("gameId")%>" />
                             <input type="hidden" name="level" id="level" value="<%=request.getParameter("level")%>" />
@@ -80,7 +80,7 @@
                             <input type="hidden" name="status" id="status" value="" />
                             <input type="hidden" name="time" id="time" value="" />
                         </form>
-                        
+
 
                         <h5 class="mt-4 font-weight-normal"><%=request.getParameter("previous")%></h5>
                     </div>
@@ -116,6 +116,17 @@
                     <p id="recording-instructions">คลิกที่ปุ่ม <strong>Microphone</strong> เพื่อพูด</p>                
                 </div>
             </div> 
+        </div>
+
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Bootstrap core JavaScript -->

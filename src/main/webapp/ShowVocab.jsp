@@ -55,7 +55,7 @@
     </head>
     <body class="text-center">
 
-        <div class="container mb-5 d-none d-sm-block">
+        <div class="container d-none d-md-block">
             <div class="row justify-content-center" style="margin-top: 5%; color: white;">
                 <div class="col-md-12 ">
                     <a href="${pageContext.request.contextPath}/Menu.jsp">
@@ -68,19 +68,19 @@
             </div>
 
             <div class="row justify-content-center" style="margin-top: 2%; color: white;">
-                
-                    <form action="GetVocabServlet" method="post">
-                        <input type="hidden" name="level" id="level" value="1">
-                        <input type="submit" name="Level 1" class="btn btn-lg btn-success border-white" style="" value="Level 1">
-                    </form>
-                    <form action="GetVocabServlet" method="post">
-                        <input type="hidden" name="level" id="level" value="2">
-                        <input type="submit" name="Level 2" class="btn btn-lg btn-success border-white" style="" value="Level 2">
-                    </form>
-                    <form action="GetVocabServlet" method="post">
-                        <input type="hidden" name="level" id="level" value="3">
-                        <input type="submit" name="Level 3" class="btn btn-lg btn-success border-white" style="" value="Level 3">
-                    </form>
+
+                <form action="GetVocabServlet" method="post"  style="margin-right: 1%;">
+                    <input type="hidden" name="level" id="level" value="1">
+                    <input type="submit" name="Level 1" class="btn btn-lg btn-success "  value="Level 1">
+                </form>
+                <form action="GetVocabServlet" method="post" style="margin-right: 1%;">
+                    <input type="hidden" name="level" id="level" value="2">
+                    <input type="submit" name="Level 2" class="btn btn-lg btn-primary " style="margin-right: 1%;" value="Level 2">
+                </form>
+                <form action="GetVocabServlet" method="post">
+                    <input type="hidden" name="level" id="level" value="3">
+                    <input type="submit" name="Level 3" class="btn btn-lg btn-danger " style="" value="Level 3">
+                </form>
                 <!--<div class="col-md-auto ">-->
 <!--                        <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="">Level 1</a>
                         <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style=" ">Level 2</a>
@@ -124,6 +124,17 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
         </div>
 
 

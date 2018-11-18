@@ -65,7 +65,7 @@
                 <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post" class="row justify-content-center">
                     <input type="hidden" name="level" id="level" value="3"/>
                     <input type="hidden" name="roomcode" id="roomcode" value="DDDDDD"/>
-                    <input type="submit" value="Level 3" class="btn btn-lg btn-info border-white" type="submit" style="margin-bottom: 1%; ">
+                    <input type="submit" value="Level 3" class="btn btn-lg btn-danger border-white" type="submit" style="margin-bottom: 1%; ">
                 </form>
                     
 <!--            <div class="row justify-content-center">        

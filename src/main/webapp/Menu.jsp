@@ -1,9 +1,10 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -42,7 +43,7 @@
     <body class="text-center">
 
         <!-- pc -->
-        <div class="container md-5 d-none d-sm-block">
+        <div class="container d-none d-md-block ">
             <div class="row justify-content-center ">
                 <img src="Icon/header.svg" class="img-fluid" style="width: 30em;height: 9rem; background-attachment: fixed; margin-top: 15%; background-repeat: no-repeat;">
             </div>
@@ -59,11 +60,13 @@
                         <input type="hidden" name="level" id="level" value="0"/>
                         <input type="image" src="Icon/dictionary.svg" alt="Submit Form" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;" value="submit" name="submit" />
                     </form>
+                </div>
 <!--                    <a href ="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=0" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
                             <img src="Icon/dictionary.svg" class="img-fluid" alt="Responsive image" >
                         </button>
                     </a>-->
+                <div class="col-auto"style="margin-top: 5%;">
                     <a href ="Signin.jsp" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
                             <img src="Icon/logout.svg" class="img-fluid" alt="Responsive image" >
@@ -73,12 +76,16 @@
             </div>
         </div>
 
-        <!-- sm phone -->
-        <div class="container md-5 d-sm-none ">
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
             <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
             </div>
         </div>
-
 
 
         <!-- Bootstrap core JavaScript -->

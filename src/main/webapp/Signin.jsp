@@ -45,7 +45,7 @@
         <!-- main -->
         <div class="background">
             <!-- pc -->
-            <div class="container lg-5 d-none d-sm-block">
+            <div class="container d-none d-md-block">
                 <div class="row justify-content-center ">
                     <img class=" img-fluid" src="Icon/header.svg" alt="" >
                 </div>
@@ -59,11 +59,22 @@
                     </form>
                 </div>
             </div>
+
+            <!-- sm -->
+            <div class="container md-5 d-md-sm-none ">
+                <div class="row justify-content-center ">
+                    <div class="card" style="margin-top: 50%; font-family: serif;">
+                        <div class="card-body">
+                            <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getAttribute("alert")%>"  >
         <script>
-           var message = document.getElementById("hiddenAlert").value;
-            if (message !== "" || message !== null && message.length>1) {
+            var message = document.getElementById("hiddenAlert").value;
+            if (message !== "" || message !== null && message.length > 1) {
                 window.alert(message);
             }
         </script>
@@ -76,7 +87,7 @@
         crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        
+
 
     </body>
 

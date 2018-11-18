@@ -40,13 +40,13 @@
             <input type="hidden" name="status" id="status" value="" />
             <input type="hidden" name="answer" id="answer" value="" />
         </form>
-        
+
         <form id="myForm" action="SummarizePractice.jsp" method="post">
             <input type="hidden" name="gameId" id="gameId" value="<%=request.getAttribute("gameId")%>" />
             <input type="hidden" name="score"id="score" value="<%=request.getAttribute("score")%>" />
             <input type="hidden" name="categoryId" id="categoryId" value="<%=request.getAttribute("categoryId")%>" />
         </form>
-        
+
         <div class="background">
             <!-- pc -->
 
@@ -125,6 +125,16 @@
                 </div>
 
 
+            </div>
+            <!-- sm -->
+            <div class="container md-5 d-md-sm-none ">
+                <div class="row justify-content-center ">
+                    <div class="card" style="margin-top: 50%; font-family: serif;">
+                        <div class="card-body">
+                            <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

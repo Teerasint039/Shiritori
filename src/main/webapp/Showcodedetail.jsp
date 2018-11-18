@@ -37,7 +37,7 @@
 
     <body class="text-center">
         <!-- pc -->
-        <div class="container mb-5 d-none d-sm-block">
+        <div class="container d-none d-md-block">
             <div class="row  justify-content-center"style="margin-top: 5%; ">
                 <div class="col-md-7" style="margin-top: 15%;" >
                     <div class="card flex-md-row mb-5 shadow-sm h-md-250">
@@ -49,16 +49,18 @@
                             <h6 class="text-black text-left">Level: <%=request.getAttribute("level")%></h6>
                             <h6 class="text-black text-left">Comment: <%=request.getAttribute("comment")%></h6>
 
-                            <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post">
-                                <input type="hidden" id="level" name="level" value="<%=request.getAttribute("level")%>">
-                                <input type="hidden" id="roomcode" name="roomcode" value="<%=request.getAttribute("roomcode")%>">
-                                <button class="btn btn-primary" style="margin-top: 5%;" type="submit" style="margin-top: 10%; ">OK</button>
-                            </form>
+                            <div class="row" style="margin-top: 10%; margin-left: 10%;">
+                                <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post">
+                                    <input type="hidden" id="level" name="level" value="<%=request.getAttribute("level")%>">
+                                    <input type="hidden" id="roomcode" name="roomcode" value="<%=request.getAttribute("roomcode")%>">
+                                    <button class="btn btn-primary" style="margin-top: 5%; margin-left: 5%;" type="submit" >OK</button>
+                                </form>
 
-                            <form action="Menusingle.jsp" method="post">
-                                <input type="hidden" id="alert" name="alert" value="">    
-                                <button class="btn btn-primary" style="margin-top: 5%;" type="submit" style="margin-top: 10%; ">Back</button>
-                            </form>
+                                <form action="Menusingle.jsp" method="post">
+                                    <input type="hidden" id="alert" name="alert" value="">    
+                                    <button class="btn btn-danger" style="margin-top: 5%; margin-left: 15%;" type="submit" >Back</button>
+                                </form>
+                            </div>
 <!--                                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?
                             userid=<%=request.getParameter("userid")%>&
                             username=<%=request.getParameter("username")%>
@@ -96,8 +98,16 @@
             -->
         </div>
 
-        <!-- sm phone -->
-
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Bootstrap core JavaScript -->
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

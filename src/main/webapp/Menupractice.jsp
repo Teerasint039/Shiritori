@@ -34,7 +34,7 @@
         <!-- main -->
         <div class="background">
             <!-- pc -->
-            <div class="container mb-4 d-none d-sm-block">
+            <div class="container d-none d-md-block">
                 <div class="row justify-content-center" style="margin-top: 9%; color: white;">
                     <div class="col-md-12 ">
                         <a href ="Menu.jsp">
@@ -58,35 +58,35 @@
                                 <div class="carousel-item active">
                                     <form action="${pageContext.request.contextPath}/StartPracticeModeGameServlet" method="post" class="col-auto"style="margin-top: 5%;">
                                         <input type="hidden" name="categoryId" id="categoryId" value="3"/>
-                                        <input type="image" src="Icon/Fruits.svg" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
+                                        <input type="image" src="Icon/Fruits.png" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
                                     </form>
-<!--                                    <button type="button" class="btn btn-light rounded " style="width: 30rem;height: 20rem;">
-                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=3&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                            <img src="Icon/Fruits.svg" class="img-fluid" alt="Responsive image">
-                                        </a>
-                                    </button>-->
+                                    <!--                                    <button type="button" class="btn btn-light rounded " style="width: 30rem;height: 20rem;">
+                                                                            <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=3&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                                                                                <img src="Icon/Fruits.svg" class="img-fluid" alt="Responsive image">
+                                                                            </a>
+                                                                        </button>-->
                                 </div>
                                 <div class="carousel-item">
                                     <form action="${pageContext.request.contextPath}/StartPracticeModeGameServlet" method="post" class="col-auto"style="margin-top: 5%;">
                                         <input type="hidden" name="categoryId" id="categoryId" value="1"/>
-                                        <input type="image" src="Icon/Animals.svg" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
+                                        <input type="image" src="Icon/Animals.png" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
                                     </form>
-<!--                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
-                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=1&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                            <img src="Icon/Animals.svg" class="img-fluid" alt="Responsive image">
-                                        </a>
-                                    </button>-->
+                                    <!--                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
+                                                                            <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=1&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                                                                                <img src="Icon/Animals.svg" class="img-fluid" alt="Responsive image">
+                                                                            </a>
+                                                                        </button>-->
                                 </div>
                                 <div class="carousel-item">
                                     <form action="${pageContext.request.contextPath}/StartPracticeModeGameServlet" method="post" class="col-auto"style="margin-top: 5%;">
                                         <input type="hidden" name="categoryId" id="categoryId" value="2"/>
-                                        <input type="image" src="Icon/Sports.svg" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
+                                        <input type="image" src="Icon/Sports.png" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
                                     </form>
-<!--                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
-                                        <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=2&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                            <img src="Icon/Sports.svg" class="img-fluid" alt="Responsive image">
-                                        </a>
-                                    </button>-->
+                                    <!--                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
+                                                                            <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=2&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
+                                                                                <img src="Icon/Sports.svg" class="img-fluid" alt="Responsive image">
+                                                                            </a>
+                                                                        </button>-->
                                 </div>
                             </div>
                         </div>
@@ -100,12 +100,21 @@
 
                 <div class="row justify-content-end">
                     <div class="col-md-4">
-                        <img src="Icon/Showrobot.svg" class="img-fluid" alt="Responsive image" style="width: 23rem; margin-top: 7%; margin-left: 20%;">
+                        <img src="Icon/Showrobot.png" class="img-fluid" alt="Responsive image" style="width: 23rem; margin-top: 7%; margin-left: 20%;">
                     </div>
                 </div>
             </div>
 
-            <!-- sm phone -->
+            <!-- sm -->
+            <div class="container md-5 d-md-sm-none ">
+                <div class="row justify-content-center ">
+                    <div class="card" style="margin-top: 50%; font-family: serif;">
+                        <div class="card-body">
+                            <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

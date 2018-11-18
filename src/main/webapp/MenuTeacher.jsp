@@ -30,7 +30,7 @@
 
     <body class="text-center">
         <!-- pc -->
-        <div class="container mb-5 d-none d-sm-block">
+        <div class="container d-none d-md-block">
             <div class="row justify-content-center" style="margin-top: 15%; color: white;">
                 <div class="col-md-12 ">                      
                     <span class="center" style="font-size:30pt; margin-top: 2%;">Teacher</span>
@@ -48,7 +48,7 @@
                         <img class="card-img-right flex-auto d-none d-lg-block"   style="width: 200px; height: 250px;" src="Icon/bgcreatecode.svg" data-holder-rendered="true">
                     </div>
                 </div>
-                        
+
                 <div class="col-md-6" >
                     <form action="${pageContext.request.contextPath}/ShowResultServlet" method="post">
                         <div class="card flex-md-row mb-4 shadow-sm h-md-250">
@@ -56,7 +56,7 @@
                                 <h5 class="mb-0">
                                     <strong class="d-inline-block mb-2 text-success">Show result score</strong>
                                 </h5>
-                                    <input type="text" id="roomcode" name="roomcode" class="form-control" placeholder="Code" required="" autofocus="">
+                                <input type="text" id="roomcode" name="roomcode" class="form-control" placeholder="Code" required="" autofocus="">
                                 <button type="text" name="Search" class="btn btn-success" style="margin-top: 5%; width: 13rem;" placeholder="Search...">Search</button>
                             </div>
                             <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px; " src="Icon/bgshowscore.svg" data-holder-rendered="true" >
@@ -67,7 +67,16 @@
 
         </div>
 
-        <!-- sm phone -->
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Bootstrap core JavaScript -->
 

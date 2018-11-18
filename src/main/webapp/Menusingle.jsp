@@ -29,7 +29,7 @@
 
     <body class="text-center">
         <!-- pc -->
-        <div class="container lg-5 d-none d-md-block">
+        <div class="container d-none d-md-block">
             <div class="row justify-content-center" style="margin-top: 9%; color: white; font-family: Montserrat ExtraBold">
                 <div class="col-md-12 ">
                     <a href ="Menu.jsp">
@@ -76,13 +76,23 @@
         </div>
         <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getAttribute("alert")%>"  >
 
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Bootstrap core JavaScript -->
-        
+
         <script>
             var message = document.getElementById("hiddenAlert").value;
-            if (message !== "" || message !=== null) {
+            if (message !== "" || message !== = null) {
                 window.alert(message);
             }
         </script>
@@ -94,7 +104,7 @@
         crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        
+
 
 
 

@@ -39,7 +39,7 @@
 
     <body class="text-center">
         <!-- pc -->
-        <div class="container mb-5 d-none d-sm-block">
+        <div class="container d-none d-md-block">
             <main role="main" class="container" style="margin-top: 8%;">
                 <div class=" align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
                     <div class="lh-100" >
@@ -138,7 +138,16 @@
 
         </div>
 
-        <!-- sm phone -->
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Bootstrap core JavaScript -->
 

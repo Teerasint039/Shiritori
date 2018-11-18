@@ -38,27 +38,29 @@
                         <div class="card-img-overlay" style="color: black; margin-top: 29%; ">
                             <h2 style="font-size: 2cm;"><%=request.getParameter("score")%></h2>
 
-                            <form action="${pageContext.request.contextPath}/StartPracticeModeGameServlet" method="post" class="col-auto"style="margin-top: 5%;">
-                                <input type="hidden" name="categoryId" id="categoryId" value="<%=request.getParameter("categoryId")%>"/>
-                                <input type="image" src="Icon/Reset.svg" alt="Submit Form" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%;"  value="submit" name="submit" />
-                            </form>
+                            <div class="row" style=" margin-left: 36%;">
+                                <form action="${pageContext.request.contextPath}/StartPracticeModeGameServlet" method="post" class="col-auto">
+                                    <input type="hidden" name="categoryId" id="categoryId" value="<%=request.getParameter("categoryId")%>"/>
+                                    <input type="image" src="Icon/Reset.svg" alt="Submit Form" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-left: 10%; margin-top: 3%;"  value="submit" name="submit" />
+                                </form>
 
 <!--                            <a href ="Menupractice.jsp?categoryId=<%=request.getParameter("categoryId")%>&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
                                 <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem;  height: 6rem; border: 0;margin-right: 7%; margin-top: 3%; ">
                                     <img src="Icon/Reset.svg" class="img-fluid" alt="Responsive image">                
                                 </button>
                             </a>-->
-                            
-<!--                            <form action="Menupractice.jsp" method="post" class="col-auto"style="margin-top: 5%;">
-                                <input type="hidden" name="categoryId" id="categoryId" value="1"/>
-                                <input type="image" src="Icon/bthome.svg"alt="Submit Form" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;"  value="submit" name="submit" />
-                            </form>-->
-                            
-                            <a href ="Menu.jsp">
-                                <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;">
-                                    <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
-                                </button>
-                            </a>
+
+                                <!--                            <form action="Menupractice.jsp" method="post" class="col-auto"style="margin-top: 5%;">
+                                                                <input type="hidden" name="categoryId" id="categoryId" value="1"/>
+                                                                <input type="image" src="Icon/bthome.svg"alt="Submit Form" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%;"  value="submit" name="submit" />
+                                                            </form>-->
+
+                                <a href ="Menu.jsp">
+                                    <button type="button" class="btn btn-outline-light rounded-circle" style="width: 6rem; height: 6rem; border: 0; margin-top: 3%; margin-left: 70%;">
+                                        <img src="Icon/bthome.svg" class="img-fluid" alt="Responsive image" >
+                                    </button>
+                                </a>
+                            </div>
                         </div>
 
                     </div>
@@ -67,7 +69,16 @@
                 <input type="hidden" id="username" value="<%=request.getParameter("username")%>" />
             </div>
 
-            <!-- sm phone -->
+            <!-- sm -->
+            <div class="container md-5 d-md-sm-none ">
+                <div class="row justify-content-center ">
+                    <div class="card" style="margin-top: 50%; font-family: serif;">
+                        <div class="card-body">
+                            <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

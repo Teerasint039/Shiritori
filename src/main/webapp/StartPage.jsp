@@ -35,7 +35,7 @@
 
     <body class="text-center">
         <!-- pc -->
-        <div class="container mb-5 d-none d-sm-block">
+        <div class="container d-none d-sm-block">
             <div class="jumbotron">                  
                 <div class="row justify-content-center" >
                     <p id="beginWord"> The Game will start in </p>
@@ -45,19 +45,28 @@
                     <h1 id="countdowntimer" style="font-size: 5cm;">3 </h1>
                     <form action="SinglePlay.jsp" method="post" id="myForm" name="myForm">
                         <input type="hidden" name="gameId" id="gameId" value="<%=request.getAttribute("gameId")%>" />
-                    <input type="hidden" name="level" id="level" value="<%=request.getAttribute("level")%>" />
-                    <input type="hidden" name="userid" id="userid" value="<%=request.getAttribute("userid")%>" />
-                    <input type="hidden" name="roomcode" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
-                    <input type="hidden" name="char" id="char" value="" />
-                    <input type="hidden" name="heart" id="heart" value="3" />
-                    <input type="hidden" name="score" id="score" value="0" />
-                    <input type="hidden" name="previous" id="previous" value="" />
+                        <input type="hidden" name="level" id="level" value="<%=request.getAttribute("level")%>" />
+                        <input type="hidden" name="userid" id="userid" value="<%=request.getAttribute("userid")%>" />
+                        <input type="hidden" name="roomcode" id="roomcode" value="<%=request.getAttribute("roomcode")%>" />
+                        <input type="hidden" name="char" id="char" value="" />
+                        <input type="hidden" name="heart" id="heart" value="3" />
+                        <input type="hidden" name="score" id="score" value="0" />
+                        <input type="hidden" name="previous" id="previous" value="" />
                     </form>
                 </div>             
             </div>
         </div>
 
-        <!-- sm phone -->
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Bootstrap core JavaScript -->
 
