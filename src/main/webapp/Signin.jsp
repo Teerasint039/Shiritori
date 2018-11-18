@@ -74,7 +74,7 @@
         <input type="hidden" name="hiddenAlert" id="hiddenAlert" value="<%=request.getAttribute("alert")%>"  >
         <script>
             var message = document.getElementById("hiddenAlert").value;
-            if (message !== "start" && message.length > 1) {
+            if (message !== "start" && message !== null && message !== "null" && message.length > 1) {
                 window.alert(message);
             }
         </script>
