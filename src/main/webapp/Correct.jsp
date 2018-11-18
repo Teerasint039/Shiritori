@@ -14,13 +14,18 @@
               crossorigin="anonymous">
 
         <style>
-            html, body{
-                background-image: url("Icon/bgSingleplayer.svg")  ;
+            body{
+                background-image: url("Icon/bgSingleplayer.svg");
+                overflow: hidden;
                 background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
                 background-repeat: no-repeat;
                 font-family: "Montserrat ExtraBold";
+            }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
             }
         </style>
 
@@ -42,6 +47,17 @@
             <div class="row justify-content-md-center">
                 <div class="col">
                     <img src="Icon/popupcorrect.svg" class="img-fluid" alt="Responsive image" style="width: 45rem; height: 20em;margin-top: 13%; ">
+                </div>
+            </div>
+        </div>
+        
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
                 </div>
             </div>
         </div>

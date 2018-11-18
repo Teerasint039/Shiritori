@@ -14,14 +14,20 @@
               crossorigin="anonymous">
 
         <style>
-            html, body{
-                background-image: url("Icon/bgSingleplayer.svg")  ;
+            body{
+                background-image: url("Icon/bgSingleplayer.svg");
+                overflow: hidden;
                 background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
                 background-repeat: no-repeat;
                 font-family: "Montserrat ExtraBold";
             }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
         </style>
     </head>
     <body class="text-center" onload="myFunction()">

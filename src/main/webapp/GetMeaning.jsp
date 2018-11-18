@@ -15,13 +15,19 @@
               crossorigin="anonymous">
 
         <style>
-            html, body{
-                background-image: url("Icon/bgSingleplayer.svg")  ;
+           
+            body{
+                background-image: url("Icon/bgSingleplayer.svg");
+                overflow: hidden;
                 background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
                 background-repeat: no-repeat;
                 font-family: "Montserrat";
+            }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
             }
             #note-textarea {
                 width: 76%;
@@ -63,7 +69,7 @@
             <div class="row justify-content-md-start">
                 <div class="col-6 ">
                     <img src="Icon/startwith & previou.svg" class="img-fluid" alt="Responsive image" style="width: 20rem; margin-top: 2%">
-                    <div class="card-img-overlay" style="margin-top: 3%; margin-left: 20%;">
+                    <div class="card-img-overlay" style="margin-top: 1%; margin-left: 20%;">
                         <h5 class="mt-4"><%=request.getAttribute("previous")%></h5>
                         <form action="${pageContext.request.contextPath}/AddAnswerServlet" method="post" id="myForm">
                             <input type="hidden" id="hiddenGameId" name="gameId" value="<%=request.getAttribute("gameId")%>" />

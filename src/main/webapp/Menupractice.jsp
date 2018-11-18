@@ -15,13 +15,18 @@
               crossorigin="anonymous">
 
         <style>
-            html, body{
-                background-image: url("Icon/bgplaypractice.svg")  ;
+            body{
+                background-image: url("Icon/bgplaypractice.svg");
+                overflow: hidden;
                 background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
                 background-repeat: no-repeat;
                 font-family: "Montserrat ExtraBold";
+            }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
             }
             .carousel-inner{
                 border-radius: 25px;

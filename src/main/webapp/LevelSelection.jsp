@@ -15,13 +15,18 @@
               crossorigin="anonymous">
 
         <style>
-            html, body{
-                background-image: url("Icon/bgSingleplayer.svg")  ;
+            body{
+                background-image: url("Icon/bgSingleplayer.svg");
+                overflow: hidden;
                 background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
                 background-repeat: no-repeat;
                 font-family: "Montserrat ExtraBold";
+            }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
             }
 
             .btn{
@@ -36,7 +41,7 @@
 
     <body class="text-center">
         <!-- pc -->
-        <div class="container mb-5 d-none d-sm-block">
+        <div class="container d-none d-sm-block">
             <div class="row justify-content-center" style="margin-top: 15%; color: white;">
                 <div class="col-md-12 ">
                     <a href ="Menu.jsp">
@@ -48,39 +53,49 @@
                 </div>
             </div>
 
-            
-                
-                <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post" class="row justify-content-center">
-                    <input type="hidden" name="level" id="level" value="1"/>
-                    <input type="hidden" name="roomcode" id="roomcode" value="BBBBBB"/>
-                    <input type="submit" value="Level 1" class="btn btn-lg btn-success border-white" type="submit" style="margin-bottom: 1%; margin-top: 2%;">
-                </form>
-                    
-                <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post" class="row justify-content-center">
-                    <input type="hidden" name="level" id="level" value="2"/>
-                    <input type="hidden" name="roomcode" id="roomcode" value="CCCCCC"/>
-                    <input type="submit" value="Level 2" class="btn btn-lg btn-info border-white" type="submit" style="margin-bottom: 1%; ">
-                </form>
-                    
-                <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post" class="row justify-content-center">
-                    <input type="hidden" name="level" id="level" value="3"/>
-                    <input type="hidden" name="roomcode" id="roomcode" value="DDDDDD"/>
-                    <input type="submit" value="Level 3" class="btn btn-lg btn-danger border-white" type="submit" style="margin-bottom: 1%; ">
-                </form>
-                    
-<!--            <div class="row justify-content-center">        
-                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1&roomcode=BBBBBB" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Level 1</a>
-            
-            </div>
-            <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2&roomcode=CCCCCC" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Level 2</a>
-            </div>
-            <div class="row justify-content-center">
-                <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3&roomcode=DDDDDD" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Level 3</a>
-            </div>-->
+
+
+            <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post" class="row justify-content-center">
+                <input type="hidden" name="level" id="level" value="1"/>
+                <input type="hidden" name="roomcode" id="roomcode" value="AAAAAA"/>
+                <input type="submit" value="Level 1" class="btn btn-lg btn-success border-white" type="submit" style="margin-bottom: 1%; margin-top: 2%;">
+            </form>
+
+            <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post" class="row justify-content-center">
+                <input type="hidden" name="level" id="level" value="2"/>
+                <input type="hidden" name="roomcode" id="roomcode" value="BBBBBB"/>
+                <input type="submit" value="Level 2" class="btn btn-lg btn-info border-white" type="submit" style="margin-bottom: 1%; ">
+            </form>
+
+            <form action="${pageContext.request.contextPath}/StartSingleModeGameServlet" method="post" class="row justify-content-center">
+                <input type="hidden" name="level" id="level" value="3"/>
+                <input type="hidden" name="roomcode" id="roomcode" value="CCCCCC"/>
+                <input type="submit" value="Level 3" class="btn btn-lg btn-danger border-white" type="submit" style="margin-bottom: 1%; ">
+            </form>
+
+            <!--            <div class="row justify-content-center">        
+                            <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1&roomcode=BBBBBB" class="btn btn-lg btn-success border-white" style="margin-bottom: 1%; margin-top: 2%;">Level 1</a>
+                        
+                        </div>
+                        <div class="row justify-content-center">
+                            <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2&roomcode=CCCCCC" class="btn btn-lg btn-info border-white" style="margin-bottom: 1%; ">Level 2</a>
+                        </div>
+                        <div class="row justify-content-center">
+                            <a href="${pageContext.request.contextPath}/StartSingleModeGameServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3&roomcode=DDDDDD" class="btn btn-lg btn-danger border-white" style="margin-bottom: 1%;">Level 3</a>
+                        </div>-->
         </div>
 
-        <!-- sm phone -->
+        <!-- sm -->
+        <div class="container md-5 d-md-sm-none ">
+            <div class="row justify-content-center ">
+                <div class="card" style="margin-top: 50%; font-family: serif;">
+                    <div class="card-body">
+                        <h3>ไม่รองรับหน้าจอขนาดเล็กนะครับ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Bootstrap core JavaScript -->
 

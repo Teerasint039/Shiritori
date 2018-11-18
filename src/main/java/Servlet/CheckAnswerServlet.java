@@ -61,9 +61,9 @@ public class CheckAnswerServlet extends HttpServlet {
         /**
          * Check In Scope
          */
-//        if (status.equalsIgnoreCase("incorrect")) {
-//            character = pchar;
-//        }
+        if (status.equalsIgnoreCase("incorrect")) {
+            pchar=character;
+        }
         if (vocabs.indexOf(lowCaseVocab) >= 0) {// Check vocab in db
             nextPage = "/GetMeaningServlet";
             if (ansVocabs != null) {//check answers of gameId is not null

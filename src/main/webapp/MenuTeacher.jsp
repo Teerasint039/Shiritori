@@ -16,13 +16,18 @@
 
 
         <style>
-            html, body{
-                background-image: url("Icon/bgTeacher.svg")  ;
+            body{
+                background-image: url("Icon/bgTeacher.svg");
+                overflow: hidden;
                 background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
                 background-repeat: no-repeat;
                 font-family: "Montserrat";
+            }
+
+            html, body{
+                height: 100%;
+                margin: 0;
+                padding: 0;
             }
 
         </style>
