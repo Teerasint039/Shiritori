@@ -68,10 +68,7 @@
                                     <strong class="d-inline-block mb-2 text-success">Join room</strong>
                                 </h3>
                                 <input type="text" id="roomcode" name="roomcode" class="form-control" placeholder="Code" required="" autofocus="">
-<!--                                <input type="hidden" id="userid" name="userid" value="<%=request.getParameter("userid")%>">
-                                <input type="hidden" id="username" name="username" value="<%=request.getParameter("username")%>">-->
                                 <button type="submit" name="Join" class="btn btn-success" style="margin-top: 5%; width: 10rem;" placeholder="Code">Join</button>
-                                <!--<a href= class="btn btn-success" style="margin-top: 5%; width: 10rem;">Join</a>-->
                             </div>
                             <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px; " src="Icon/bgjoin.svg" data-holder-rendered="true" >
                         </div>

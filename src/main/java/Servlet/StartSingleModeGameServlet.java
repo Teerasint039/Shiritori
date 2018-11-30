@@ -33,9 +33,7 @@ public class StartSingleModeGameServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-//        int userId = Integer.parseInt(request.getParameter("userid"));
         int level = Integer.parseInt(request.getParameter("level"));
-//        String userName = request.getParameter("username");
         String roomCode = request.getParameter("roomcode");
         String cookieName = "userid";
         Cookie cookies[] = request.getCookies();
@@ -45,7 +43,6 @@ public class StartSingleModeGameServlet extends HttpServlet {
             for (int i = 0; i < cookies.length; i++) {
                 if (cookies[i].getName().equals(cookieName)) {
                     userid = cookies[i];
-//                    break;
                 }
             }
         }
@@ -54,19 +51,12 @@ public class StartSingleModeGameServlet extends HttpServlet {
         
         SingleModeGame smg = new SingleModeGame();
         int gameId = smg.newGame(userId, roomCode);
-        System.out.println("gameId: "+gameId);
-        
-        
-        
-        System.out.println("userId: "+userId);
-//        System.out.println("UserName: "+userName);
-        
         
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
         request.setAttribute("level", level);
-//        request.setAttribute("username", userName);
         request.setAttribute("roomcode", roomCode);
+        
        getServletContext().getRequestDispatcher("/StartPage.jsp").forward(request, response);
         
     }

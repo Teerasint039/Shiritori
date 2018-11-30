@@ -32,19 +32,17 @@ public class GetMeaningServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        System.out.println("getMeaning Servlet");
         
-        String vocab = (String) request.getAttribute("vocab");//
-        String character = (String) request.getAttribute("char");//
-        String pchar = (String) request.getAttribute("pchar");//
-        int level = (int) request.getAttribute("level");//
-        int heart =(int) request.getAttribute("heart");//
-        int score = (int) request.getAttribute("score");//
-        int gameId = (int) request.getAttribute("gameId");//
-        int userId = (int) request.getAttribute("userid");//
-//        String userName = request.getParameter("username");//
-        String status = (String) request.getAttribute("status");//
-        String roomCode = (String) request.getAttribute("roomcode");//
+        String vocab = (String) request.getAttribute("vocab");
+        String character = (String) request.getAttribute("char");
+        String pchar = (String) request.getAttribute("pchar");
+        int level = (int) request.getAttribute("level");
+        int heart =(int) request.getAttribute("heart");
+        int score = (int) request.getAttribute("score");
+        int gameId = (int) request.getAttribute("gameId");
+        int userId = (int) request.getAttribute("userid");
+        String status = (String) request.getAttribute("status");
+        String roomCode = (String) request.getAttribute("roomcode");
         int time = (int) request.getAttribute("time");
         String previous = (String) request.getAttribute("previous");
         
@@ -62,13 +60,11 @@ public class GetMeaningServlet extends HttpServlet {
         request.setAttribute("score", score);
         request.setAttribute("gameId", gameId);
         request.setAttribute("userid", userId);
-//        request.setAttribute("username", userName);
         request.setAttribute("status", status);
         request.setAttribute("time", time);
         request.setAttribute("previous", previous);
         
         getServletContext().getRequestDispatcher("/GetMeaning.jsp").forward(request, response);
-//        getServletContext().getRequestDispatcher("/Final.jsp").forward(request, response);
 
 
         

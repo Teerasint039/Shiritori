@@ -33,27 +33,17 @@ public class ShowRoomDetailServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-//        int userId = Integer.parseInt(request.getParameter("userid"));
-//        String userName = request.getParameter("username");
         String roomCode = request.getParameter("roomcode");
-
         Room rm = new Room();
-        System.out.println("Roomcode: " + roomCode);
 
         if (rm.checkRoomCodeinDB(roomCode)) {
-            System.out.println("in if block");
             rm = rm.showRoom(roomCode);
-
-//            request.setAttribute("userid", userId);
             request.setAttribute("level", rm.getLevel());
             request.setAttribute("comment", rm.getComment());
-//            request.setAttribute("username", userName);
             request.setAttribute("roomcode", roomCode);
             getServletContext().getRequestDispatcher("/Showcodedetail.jsp").forward(request, response);
         }
         System.out.println("Out of IF block");
-//        System.out.println("USERID: "+userId);
-//        System.out.println("UserName: "+userName);
         String alert = "Wrong Code!";
         request.setAttribute("alert", alert);
         getServletContext().getRequestDispatcher("/Menusingle.jsp").forward(request, response);

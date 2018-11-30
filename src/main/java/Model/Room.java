@@ -190,7 +190,6 @@ public class Room {
          List<String> codes = showAllUsedRoomCode();
          System.out.println("1.2");
          System.out.println("codes: "+codes);
-//         System.out.println("codes.indexOf(roomCode)"+codes.indexOf(roomcode));
          if (codes != null) {
              if (codes.indexOf(roomcode)!=-1) {
              canShow = true;
@@ -250,7 +249,7 @@ public class Room {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < 6) { // length of the random string.
+        while (salt.length() < 6) { 
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }

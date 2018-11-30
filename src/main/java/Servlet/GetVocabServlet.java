@@ -34,14 +34,6 @@ public class GetVocabServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int level = Integer.parseInt(request.getParameter("level"));
-//        int userId = Integer.parseInt(request.getParameter("userid"));
-//        String userName = request.getParameter("username");
-
-        
-//        int level = 1;
-//        int userId = 1;
-//        String userName = "new";
-        System.out.println("level: "+level);
         
         Vocab vocab = new Vocab(); 
         List<Vocab> vocabs;
@@ -50,16 +42,8 @@ public class GetVocabServlet extends HttpServlet {
         }else{
             vocabs = vocab.showAllVocabDetailLevel(level);
         }
-        
-        System.out.println("get vocab servlet here!");
-        for (Vocab a : vocabs) {
-            System.out.println(a.toString());
-        }
-       
 //        
         request.setAttribute("vocabs", vocabs);
-//        request.setAttribute("userid", userId);
-//        request.setAttribute("username", userName);
                     
         getServletContext().getRequestDispatcher("/ShowVocab.jsp").forward(request, response);
     }

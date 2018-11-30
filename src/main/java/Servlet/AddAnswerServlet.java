@@ -39,20 +39,10 @@ public class AddAnswerServlet extends HttpServlet {
         int score = Integer.parseInt(request.getParameter("score"));
         int gameId = Integer.parseInt(request.getParameter("gameId"));
         int userId = Integer.parseInt(request.getParameter("userid"));
-//        String userName = request.getParameter("username");
         String status = request.getParameter("status");
         String roomCode = request.getParameter("roomcode");
         int time = Integer.parseInt(request.getParameter("time"));
-//        int gameId = 1;
-//        String vocab = "ache";
-//        String status = "Correct";
-//        int time = 10;
         
-        
-        System.out.println("Add Answer Servlet");
-        System.out.println("gameId: "+gameId);
-        System.out.println("status: "+status);
-        System.out.println("time: "+time);
         Answer answer = new Answer();
         int usedTime = 30-time;
         answer.addAnswer(gameId, vocab, status, usedTime);

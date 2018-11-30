@@ -18,7 +18,6 @@ public class User {
 
     private int userId;
     private String userName;
-//    private String password;
 
     public User() {
     }
@@ -26,17 +25,10 @@ public class User {
     public User(String userName) {
         this.userName = userName;
     }
-    
-
-//    public User(String userName, String password) {
-//        this.userName = userName;
-//        this.password = password;
-//    }
 
     public User(ResultSet rs) throws SQLException {
         userId = rs.getInt("UserId");
         userName = rs.getString("UserName");
-//        password = rs.getString("Password");
     }
 
     public int getUserId() {
@@ -54,14 +46,6 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-//    public String getPassword() {
-//        return password;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
 
     public int login(String username) {
         boolean login = false;
@@ -100,12 +84,8 @@ public class User {
             Connection conn = Connectionbuilder.connect();
             String query = " insert into User (UserName)"
                     + " values (?)";
-
-            // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, lowerCaseUserName);
-
-            // execute the preparedstatement
             preparedStmt.execute();
 
             conn.close();

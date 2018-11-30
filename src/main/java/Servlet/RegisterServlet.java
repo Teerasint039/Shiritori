@@ -37,16 +37,12 @@ public class RegisterServlet extends HttpServlet {
         int userId;
         User user = new User();
         if (user.checkUserNameAvailable(username)) {
-            System.out.println("user.checkUserNameAvailable(username) = TRUE");
             user.addUser(username);
-            System.out.println("Available: " + user.checkUserNameAvailable(username));
 
             userId = user.login(username);
             System.out.println("userId: " + userId);
 
             if (userId != -1) {
-//            request.setAttribute("username", username);
-//            request.setAttribute("userid", userId);
                 request.setAttribute("alert", "ลงทะเบียนสำเร็จ");
                 getServletContext().getRequestDispatcher("/Signin.jsp").forward(request, response); //register success
             } else {
@@ -55,7 +51,6 @@ public class RegisterServlet extends HttpServlet {
             }
         } else {
             request.setAttribute("alert", "มีคนใช้ User Name นี้แล้ว");
-            System.out.println("user.checkUserNameAvailable(username) = FALSE");
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response); //register fail duplicate Id
         }
 

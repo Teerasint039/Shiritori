@@ -61,11 +61,6 @@
                         <input type="image" src="Icon/dictionary.svg" alt="Submit Form" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;" value="submit" name="submit" />
                     </form>
                 </div>
-<!--                    <a href ="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=0" >
-                        <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">
-                            <img src="Icon/dictionary.svg" class="img-fluid" alt="Responsive image" >
-                        </button>
-                    </a>-->
                 <div class="col-auto"style="margin-top: 5%;">
                     <a href ="StartProjectServlet" >
                         <button type="button" class="btn btn-outline-light rounded-circle border-0" style="width: 6rem; height: 6rem; border: 0;">

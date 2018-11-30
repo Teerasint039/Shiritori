@@ -20,11 +20,6 @@ var Timer = setInterval(function () {
     if (timeleft <= -2) {
         document.getElementById("char").value = emptyString;
         document.getElementById('myForm').submit();
-//        window.location.href = "SinglePlay.jsp?char=" + emptyString + "&heart=3&score=0&previous=&gameId=" 
-//                        + document.getElementById('hiddenGameId').value
-//                        +"&level=" + document.getElementById('level').value
-//                        +"&userid=" + document.getElementById('userid').value
-//                        +"&roomcode=" + document.getElementById('roomcode').value;//send char, heart, score, gameId
         clearInterval(Timer);
 
     }

@@ -69,16 +69,6 @@ public class PracticeModeResult {
     public void setGameId(int gameId) {
         this.gameId = gameId;
     }
-//        
-//    public String checkAnswer(String vocab, String answer){
-//        String status = "";
-//        if (vocab.equalsIgnoreCase(answer)) {
-//            status = "Correct";
-//        }else{
-//            status = "Incorrect";
-//        }
-//        return status;
-//    }
     
     public void addAnswer(String status, int vocabId, String answerVocab,int gameId){
         CategoryVocab cv = null;
@@ -87,14 +77,11 @@ public class PracticeModeResult {
             String query = " insert into `PracticeMode_Vocab` (status, answerVocab, vocabId, GameId)"
                     + " values (?, ?, ?, ?)";
 
-            // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, status);
             preparedStmt.setString(2, answerVocab);
             preparedStmt.setInt(3, vocabId);
             preparedStmt.setInt(4, gameId);
-
-            // execute the preparedstatement
             preparedStmt.execute();
 
             conn.close();

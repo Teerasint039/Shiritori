@@ -156,28 +156,6 @@
         <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
         <script src="PracticeScript.js"></script> 
 
-        <!--        <script language="javascript">
-                    document.getElementById('note-textarea')=="";
-                    console.log(document.getElementById('popupimg'))
-                    if (document.getElementById('popupimg').src) {
-                        console.log("SRCNAJA :");
-                        let attribute = document.getElementById('popupimg').getAttribute("src");
-                        console.log("Arr", attribute);
-                    }
-        //            window.alert(document.getElementById('note-textarea'));
-                    if (document.getElementById('note-textarea') !== "") {
-                        if (document.getElementById('popupimg').src !== "") {
-                            $(document).ready(function () {
-                                setTimeout(fnShowPopup, 500);            //code to show popup
-                            });
-                            function fnShowPopup() {
-                                document.getElementById('status').click();
-                            }
-                        }
-                    }
-        
-                </script>-->
-
     </body>
 
 </html>

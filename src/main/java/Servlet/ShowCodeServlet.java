@@ -35,10 +35,6 @@ public class ShowCodeServlet extends HttpServlet {
         Room room = new Room();
         List<Room> rooms = room.showAllRoom();
         
-        for (Room a : rooms) {
-            System.out.println(a.toString());
-        }
-        
         request.setAttribute("rooms", rooms);
                     
         getServletContext().getRequestDispatcher("/RoomCode.jsp").forward(request, response);

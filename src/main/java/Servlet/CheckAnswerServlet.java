@@ -35,7 +35,6 @@ public class CheckAnswerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("Check Answer servlet");
 
         String vocab = request.getParameter("vocab");
         String character = request.getParameter("char");
@@ -46,7 +45,6 @@ public class CheckAnswerServlet extends HttpServlet {
         int time = Integer.parseInt(request.getParameter("time"));
         int userId = Integer.parseInt(request.getParameter("userid"));
         int level = Integer.parseInt(request.getParameter("level"));
-//        String userName = request.getParameter("username");
         String previous = request.getParameter("previous");
         String status = request.getParameter("status");
         String roomCode = request.getParameter("roomcode");
@@ -71,61 +69,8 @@ public class CheckAnswerServlet extends HttpServlet {
                     status = "Repeat";
                 }
             }
-//
-//                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
-//                            + "&char=" + character
-//                            + "&pchar=" + pchar
-//                            + "&heart=" + heart
-//                            + "&score=" + score
-//                            + "&level=" + level
-//                            + "&roomcode=" + roomCode
-//                            + "&gameId=" + gameId
-//                            + "&userid=" + userId
-//                            //                            + "&username=" + userName
-//                            + "&previous=" + previous
-//                            + "&time=" + time
-//                            + "&status=Repeat").forward(request, response); // status repeat
-//                } else {
-//                    getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
-//                            + "&char=" + character
-//                            + "&pchar=" + pchar
-//                            + "&heart=" + heart
-//                            + "&score=" + score
-//                            + "&level=" + level
-//                            + "&roomcode=" + roomCode
-//                            + "&gameId=" + gameId
-//                            + "&userid=" + userId
-//                            //                            + "&username=" + userName
-//                            + "&previous=" + previous
-//                            + "&time=" + time
-//                            + "&status" + status).forward(request, response);//status correct
-//                }
-//            } else {
-//                getServletContext().getRequestDispatcher("/GetMeaningServlet?vocab" + vocab
-//                        + "&char=" + character
-//                        + "&pchar=" + pchar
-//                        + "&heart=" + heart
-//                        + "&score=" + score
-//                        + "&level=" + level
-//                        + "&roomcode=" + roomCode
-//                        + "&gameId=" + gameId
-//                        + "&userid=" + userId
-//                        //                            + "&username=" + userName
-//                        + "&previous=" + previous
-//                        + "&time=" + time
-//                        + "&status" + status).forward(request, response);//status correct
-//            }
         } else {
             nextPage = "/Outscope.jsp";
-//            getServletContext().getRequestDispatcher("/Outscope.jsp?char" + pchar
-//                    + "&heart=" + heart
-//                    + "&score=" + score
-//                    + "&level=" + level
-//                    + "&gameId=" + gameId
-//                    + "&userid=" + userId
-//                    //                    + "&username=" + userName
-//                    + "&roomcode=" + roomCode
-//                    + "&time=" + time).forward(request, response);
         }
         System.out.println("NextPage: "+nextPage);
         request.setAttribute("char", character);
@@ -140,6 +85,7 @@ public class CheckAnswerServlet extends HttpServlet {
         request.setAttribute("pchar", pchar);
         request.setAttribute("previous", previous);
         request.setAttribute("status", status);
+        
         getServletContext().getRequestDispatcher(nextPage).forward(request, response);
 
     }

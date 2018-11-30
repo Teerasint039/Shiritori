@@ -34,7 +34,6 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("Random servlet!");
 
         int categoryId = (int) request.getAttribute("categoryId");
         int gameId = (int) request.getAttribute("gameId");
@@ -48,10 +47,7 @@ public class RandomPracticeModeVocabServlet extends HttpServlet {
 
         List<Integer> vocabIds = cv.showAllVocabIdInCategory(categoryId);
         int randomIndex = (int) (Math.random() * (vocabIds.size() - 1) + 0);
-        
-        System.out.println("category: "+category.getCategoryNamebyId(categoryId).toLowerCase());
-        System.out.println("categoryId: "+ categoryId);
-        System.out.println("vocab: "+vocab.getVocabFromId(vocabIds.get(randomIndex)));
+       
 
         request.setAttribute("category", category.getCategoryNamebyId(categoryId).toLowerCase());
         request.setAttribute("categoryId", categoryId);

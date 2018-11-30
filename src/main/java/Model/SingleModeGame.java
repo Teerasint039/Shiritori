@@ -104,12 +104,7 @@ public class SingleModeGame {
                     + " VALUES ('"+UserId+"','"+timestamp + "','"+roomcode+"')";
             System.out.println("Insert Time: "+timestamp);
 
-            // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-//            preparedStmt.setInt(1, userId);
-//            preparedStmt.setString(2, timestamp);
-
-            // execute the preparedstatement
             preparedStmt.execute();
             PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayer_Game` WHERE `UserId` = '" + UserId + "' AND `StartTime` = '"+timestamp+"';");
             ResultSet rs = pstm.executeQuery();
@@ -211,7 +206,6 @@ public class SingleModeGame {
         return userids;
     }
     
-    //Add Update gameId (add score)
     public void editScore(int gameId, int score) {
         try {
             Connection conn = Connectionbuilder.connect();

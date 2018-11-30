@@ -65,33 +65,18 @@
                                         <input type="hidden" name="categoryId" id="categoryId" value="3"/>
                                         <input type="image" src="Icon/Fruits.png" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
                                     </form>
-                                    <!--                                    <button type="button" class="btn btn-light rounded " style="width: 30rem;height: 20rem;">
-                                                                            <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=3&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                                                                <img src="Icon/Fruits.svg" class="img-fluid" alt="Responsive image">
-                                                                            </a>
-                                                                        </button>-->
                                 </div>
                                 <div class="carousel-item">
                                     <form action="${pageContext.request.contextPath}/StartPracticeModeGameServlet" method="post" class="col-auto"style="margin-top: 5%;">
                                         <input type="hidden" name="categoryId" id="categoryId" value="1"/>
                                         <input type="image" src="Icon/Animals.png" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
                                     </form>
-                                    <!--                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
-                                                                            <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=1&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                                                                <img src="Icon/Animals.svg" class="img-fluid" alt="Responsive image">
-                                                                            </a>
-                                                                        </button>-->
                                 </div>
                                 <div class="carousel-item">
                                     <form action="${pageContext.request.contextPath}/StartPracticeModeGameServlet" method="post" class="col-auto"style="margin-top: 5%;">
                                         <input type="hidden" name="categoryId" id="categoryId" value="2"/>
                                         <input type="image" src="Icon/Sports.png" alt="Submit Form" class="btn btn-light rounded " style="width: 30rem;height: 20rem;" value="submit" name="submit" />
                                     </form>
-                                    <!--                                    <button type="button" class="btn btn-light rounded" style="width: 30rem;height: 20rem;">
-                                                                            <a href ="${pageContext.request.contextPath}/StartPracticeModeGameServlet?categoryId=2&userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>">
-                                                                                <img src="Icon/Sports.svg" class="img-fluid" alt="Responsive image">
-                                                                            </a>
-                                                                        </button>-->
                                 </div>
                             </div>
                         </div>

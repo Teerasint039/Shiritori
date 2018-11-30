@@ -7,7 +7,6 @@
 
 
 try {
-//  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     var SpeechRecognition = window.webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
     recognition.lang = "en";
@@ -57,40 +56,28 @@ recognition.onresult = function (event) {
         noteTextarea.val(noteContent);
     }
     console.log("t3");
-//    delete window.alert;
-//    window.alert("Check!");
 
     clearInterval(Timer);
     time = timeleft;
-//    window.alert("vocab: "+document.getElementById("hiddenVocab").value);
-//    window.alert("answer: " + noteContent);
 
     if (document.getElementById("vocab").value.toLowerCase() === noteContent.toLowerCase()) {
-        document.getElementById('popupimg').src = "Icon/popupcorrect.svg";
+        document.getElementById('popupimg').src = "Icon/popupcorrect.png";
         score = parseInt(document.getElementById("score").value) + 1;
         status = "Correct";
     } else {
-        document.getElementById('popupimg').src = "Icon/popupIncorrect.svg";
+        document.getElementById('popupimg').src = "Icon/popupIncorrect.png";
         score = document.getElementById("score").value;
         status = "Incorrect";
     }
 
     /*----------------------
      * auto status popup
-     * --------------------*/
-
-    console.log(document.getElementById('popupimg'))
-    if (document.getElementById('popupimg').src) {
-        console.log("SRCNAJA :");
-        let attribute = document.getElementById('popupimg').getAttribute("src");
-        console.log("Arr", attribute);
-    }
-    
+     * --------------------*/  
 
     if (noteContent !== "") {
         if (document.getElementById('popupimg').src !== "") {
             $(document).ready(function () {
-                setTimeout(fnShowPopup, 500);            //code to show popup
+                setTimeout(fnShowPopup, 500); 
             });
             function fnShowPopup() {
                 document.getElementById('showStatus').click();
@@ -99,17 +86,11 @@ recognition.onresult = function (event) {
     }
 
 
-//    window.alert("status: " + status);
-
     setTimeout(function () {
-//        window.alert("check");
         document.getElementById('answer').value = noteContent;
         document.getElementById('status').value = status;
         document.getElementById('score').value = score;
         document.getElementById('time').value = time;
-//        window.alert("submit check");
-//        document.forms["check"].submit();
-//        document.check.submit();
         document.getElementById('check').submit();
     }, 1000);
 };
@@ -211,15 +192,7 @@ var Timer = setInterval(function () {
     document.getElementById("countdowntimer").textContent = timeleft;
     if (timeleft <= 0) {
         document.getElementById("countdowntimer").textContent = "";
-//        window.alert("submit my form");
         document.getElementById('myForm').submit();
-//        document.forms["myForm"].submit();
-
-//        window.location.href = "SummarizePractice.jsp?gameId=" + document.getElementById("gameId").value
-//                + "&categoryId=" + document.getElementById("categoryId").value
-//                        +"&userid=" + document.getElementById('userid').value
-//                        +"&username=" + document.getElementById('username').value
-//                + "&score=" + document.getElementById("hiddenScore").value;
         clearInterval(Timer);
     }
 

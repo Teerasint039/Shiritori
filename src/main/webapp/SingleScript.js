@@ -3,7 +3,6 @@
 //check determine word
 
 try {
-//  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     var SpeechRecognition = window.webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
     recognition.lang = "en";
@@ -17,7 +16,6 @@ try {
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
 var notesList = $('ul#notes');
-//var previous = $('#previous');
 var firstchar = '';
 var lastchar = '';
 var determine = '';
@@ -46,9 +44,7 @@ recognition.onresult = function (event) {
     // We only need the current one.
     var current = event.resultIndex;
     // Get a transcript of what was said.
-//  var transcript = event.results[current][0].transcript;
     var transcript = event.results[current][0].transcript;
-//  var before = event.result[1][0].transcript;
 
     // Add the current transcript to the contents of our Note.
     // There is a weird bug on mobile, where everything is repeated twice.
@@ -58,7 +54,6 @@ recognition.onresult = function (event) {
         before = noteContent;
         noteContent = transcript;
         noteTextarea.val(noteContent);
-//        previous.text(before);
     }
     $('body').loading({
         stoppable: true
@@ -74,42 +69,9 @@ recognition.onresult = function (event) {
 
     clearInterval(Timer);
     time = timeleft;
-//    window.alert('Before value: '+before);
-//    window.alert('NoteContent value: '+noteContent);
-//    window.alert('lastChar: '+lastchar);
-
-//    window.alert("firstChar: "+firstchar);
-//    window.alert("hiddenChar: "+document.getElementById('hiddenChar').value);
     setTimeout(function () {
         if (firstchar === document.getElementById('pchar').value) {
             determine = true;
-
-
-            /**
-             * Change path to CheckScopeServlet
-             * 
-             //            window.location.replace("CheckAnswerServlet?char=" + lastchar //ติดค่าgameId,Vocab, Previous
-             //                    + "&score=" + document.getElementById("hiddenScore").value
-             //                    + "&heart=" + document.getElementById('hiddenHeart').value 
-             //                    + "&gameId="+ document.getElementById('hiddenGameId').value 
-             //                    +"&vocab="+current
-             //                    +"&previous="+before
-             //                    +"&status=Correct"
-             //                    +"&time=" + time);
-             */
-//            window.location.replace("CheckAnswerServlet?char=" + lastchar
-//                    + "&score=" + document.getElementById("hiddenScore").value
-//                    + "&pchar=" + document.getElementById("hiddenChar").value
-//                    + "&heart=" + document.getElementById('hiddenHeart').value
-//                    + "&level=" + document.getElementById('level').value
-//                    + "&gameId=" + document.getElementById('hiddenGameId').value
-//                    + "&userid=" + document.getElementById('userid').value
-//                    + "&username=" + document.getElementById('username').value
-//                    + "&roomcode=" + document.getElementById('roomcode').value
-//                    + "&vocab=" + noteContent
-//                    + "&previous=" + before
-//                    + "&status=Correct"
-//                    + "&time=" + time);
             document.getElementById("char").value = lastchar;
             document.getElementById("vocab").value = noteContent;
             document.getElementById("previous").value = before;
@@ -119,19 +81,6 @@ recognition.onresult = function (event) {
             document.getElementById('myForm').submit();
         } else {
             determine = false;
-//            window.location.replace("CheckAnswerServlet?char=" + lastchar
-//                    + "&score=" + document.getElementById("hiddenScore").value
-//                    + "&pchar=" + document.getElementById("hiddenChar").value
-//                    + "&heart=" + document.getElementById('hiddenHeart').value
-//                    + "&level=" + document.getElementById('level').value
-//                    + "&gameId=" + document.getElementById('hiddenGameId').value
-//                    + "&userid=" + document.getElementById('userid').value
-//                    + "&username=" + document.getElementById('username').value
-//                    + "&roomcode=" + document.getElementById('roomcode').value
-//                    + "&vocab=" + noteContent
-//                    + "&previous=" + before
-//                    + "&status=Incorrect"
-//                    + "&time=" + time);
             document.getElementById("char").value = lastchar;
             document.getElementById("vocab").value = noteContent;
             document.getElementById("previous").value = before;
@@ -171,11 +120,6 @@ $('#start-record-btn').on('click', function (e) {
     }
     recognition.start();
 });
-//$('#pause-record-btn').on('click', function(e) {
-//  recognition.stop();
-//  instructions.text('Voice recognition paused.');
-//});
-
 // Sync the text inside the text area with the noteContent variable.
 noteTextarea.on('input', function () {
     noteContent = $(this).val();
@@ -251,17 +195,6 @@ var Timer = setInterval(function () {
         document.getElementById("vocab").value = noteContent;
         document.getElementById("previous").value = before;
         document.getElementById("time").value = time;
-//        window.location.href = "TimeOut.jsp?char=" + document.getElementById("hiddenChar").value
-//                + "&score=" + document.getElementById("hiddenScore").value
-//                + "&heart=" + document.getElementById('hiddenHeart').value
-//                + "&gameId=" + document.getElementById('hiddenGameId').value
-//                + "&level=" + document.getElementById('level').value
-//                + "&userid=" + document.getElementById('userid').value
-//                + "&username=" + document.getElementById('username').value
-//                + "&roomcode=" + document.getElementById('roomcode').value
-//                + "&vocab=" + noteContent
-//                + "&previous=" + before
-//                + "&time=" + time;
         clearInterval(Timer);
         document.getElementById('myForm').action = "TimeOut.jsp";
         document.getElementById('myForm').submit();

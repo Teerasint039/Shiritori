@@ -86,11 +86,6 @@
                     <input type="hidden" name="level" id="level" value="3">
                     <input type="submit" name="Level 3" class="btn btn-lg btn-danger " style="" value="Level 3">
                 </form>
-                <!--<div class="col-md-auto ">-->
-<!--                        <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=1" class="btn btn-lg btn-success border-white" style="">Level 1</a>
-                        <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=2" class="btn btn-lg btn-info border-white" style=" ">Level 2</a>
-                        <a href="GetVocabServlet?userid=<%=request.getParameter("userid")%>&username=<%=request.getParameter("username")%>&level=3" class="btn btn-lg btn-danger border-white" style="">Level 3</a>-->
-                <!--</div>-->
             </div>
 
             <%

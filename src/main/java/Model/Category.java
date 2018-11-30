@@ -79,14 +79,10 @@ public class Category {
             Connection conn = Connectionbuilder.connect();
             String query = " insert into Admin_Category (CategoryName, LastEditDate, AdminId)"
                     + " values (?, ?, ?)";
-
-            // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, categoryName);
             preparedStmt.setString(2, createDate);
             preparedStmt.setInt(3, adminId);
-
-            // execute the preparedstatement
             preparedStmt.execute();
 
             conn.close();
@@ -99,14 +95,7 @@ public class Category {
         Category category = null;
         try {
             Connection conn = Connectionbuilder.connect();
-//
             try {
-//                PreparedStatement pstm = conn.prepareStatement("SELECT *  FROM `Admin_Category` WHERE AdminId = '" + adminId + " ;"); 
-//                ResultSet rs = pstm.executeQuery();
-//                while (rs.next()) {
-//                    category = new Category(rs);
-//                    categorys.add(category);
-//                }
                 PreparedStatement pstm = conn.prepareStatement("SELECT *  FROM `Admin_Category`;"); 
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {

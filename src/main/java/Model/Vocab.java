@@ -100,15 +100,11 @@ public class Vocab {
             Connection conn = Connectionbuilder.connect();
             String query = " insert into Vocab (Vocab, Meaning, PartofSpeech, Level)"
                     + " values (?, ?, ?, ?)";
-
-            // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, vocab);
             preparedStmt.setString(2, meaning);
             preparedStmt.setString(3, partofSpeech);
             preparedStmt.setInt(4, level);
-
-            // execute the preparedstatement
             preparedStmt.execute();
 
             conn.close();
@@ -173,12 +169,6 @@ public class Vocab {
         }
 
         return vocab;
-    }
-
-    public boolean isInDB(String vocab) {//not complete
-        boolean inDb = false;
-
-        return inDb;
     }
 
     public List<String> showAllVocab() {

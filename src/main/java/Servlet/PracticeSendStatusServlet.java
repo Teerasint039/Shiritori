@@ -50,27 +50,12 @@ public class PracticeSendStatusServlet extends HttpServlet {
         String status = (String) request.getAttribute("status");
         String answer = (String) request.getAttribute("answer");
 
-        // send status to practice mode page
-        //collect data to  //letVACId = 1 //mock up
         PracticeModeResult pmr = new PracticeModeResult();
         pmr.addAnswer(status, vocabulary.getVocabIdFromVocab(vocab), answer, gameId);
-        
-        
-//        List<String> vocabs = cv.showAllVocabInCategory(categoryId);
-        
 
         List<Integer> vocabIds = cv.showAllVocabIdInCategory(categoryId);
-//        for (int a : vocabIds) {
-//            System.out.println(a);
-//            System.out.println(vocab.getVocabFromId(a));
-//        }
-
-//        String gameVocabs[] = {"bear", "bird", "buffalo", "butterfly", "camel", "cat", "chicken", "cock", "cow", "crab", "crocodile", "deer", "dog", "dolphin", "duck"};
         int randomIndex = (int) (Math.random() * (vocabIds.size() - 1) + 0);
-        System.out.println("category: "+category.getCategoryNamebyId(categoryId));
-        System.out.println("categoryId: "+ categoryId);
-        System.out.println("vocab: "+vocabulary.getVocabFromId(vocabIds.get(randomIndex)));
-
+        
         request.setAttribute("category", category.getCategoryNamebyId(categoryId).toLowerCase());
         request.setAttribute("categoryId", categoryId);
         request.setAttribute("gameId", gameId);

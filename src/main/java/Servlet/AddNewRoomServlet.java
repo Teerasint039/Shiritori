@@ -31,22 +31,16 @@ public class AddNewRoomServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //randomcode
         int level = Integer.parseInt(request.getParameter("level"));
         String comment = request.getParameter("comment");
         String roomCode = "";
 
         Room room = new Room();
 
-        System.out.println("Code is not in DB");
-
         do {
             roomCode = room.genRoomCode();
-            System.out.println("roomcode: " + roomCode);
         } while (room.checkRoomCodeinDB(roomCode));
         
-        System.out.println("after loop");
-
         room = new Room(roomCode, comment, level);
         request.setAttribute("roomcode", roomCode);
         request.setAttribute("level", level);

@@ -38,15 +38,9 @@ public class ShowResultServlet extends HttpServlet {
         Room rm = new Room();
 
         if (rm.checkRoomCodeinDB(roomCode)) {
-//            System.out.println("Step 1");
-
             rm = rm.showRoom(roomCode);
-//            System.out.println("Step 2");
-
             RoomResult room = new RoomResult();
-//            System.out.println("Step 3");
             List<RoomResult> results = room.showRoomResult(roomCode);
-//            System.out.println("Step 4");
 
             request.setAttribute("results", results);
             request.setAttribute("roomcode", rm.getRoomCode());

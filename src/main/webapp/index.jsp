@@ -22,13 +22,8 @@
     </head>
     <body onload="myFunction()">
        <script>
-//           document.getElementById("myForm").submit();
+//           window.location.href = "/MenuTeacher.jsp";
            window.location.href = "StartProjectServlet";
-//                function myFunction() {
-//                    setTimeout(function(){
-//                        window.location.href = "Signin.jsp";
-//                    },2000);
-//                }
         </script> 
         
     </body>

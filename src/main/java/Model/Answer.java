@@ -125,7 +125,6 @@ public class Answer {
             Connection conn = Connectionbuilder.connect();
 
             try {
-//                PreparedStatement checkNotNull = conn.prepareStatement("SELECT COUNT(Vocab) FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
                 PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
@@ -159,7 +158,6 @@ public class Answer {
             Connection conn = Connectionbuilder.connect();
 
             try {
-//                PreparedStatement checkNotNull = conn.prepareStatement("SELECT COUNT(Vocab) FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
                 PreparedStatement pstm = conn.prepareStatement("SELECT Vocab FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "' AND `StatusName` = 'Correct';");
                 ResultSet rs = pstm.executeQuery();
                 while (rs.next()) {
@@ -253,10 +251,6 @@ public class Answer {
             Connection conn = Connectionbuilder.connect();
             PreparedStatement pstm = conn.prepareStatement("SELECT AVG(UsedTime) FROM `SinglePlayerMode_Vocab` WHERE GameId = '" + gameId + "';");
             ResultSet rs = pstm.executeQuery();
-
-//            while (rs.next()) {
-//                avgTime = rs.getInt("UsedTime");
-//            }
             avgTime = rs.getDouble("AVG(UsedTime)");
             rs.close();
             pstm.close();
@@ -281,44 +275,7 @@ public class Answer {
         }
         return count;
     }
-
-//    public boolean IsRepeat(String vocab, int gameId) {
-//        boolean repeat = true;
-//        List<Answer> answers = null;
-//        Answer answer = null;
-//        List<String> vocabs = null;
-//
-//        try {
-//            Connection conn = Connectionbuilder.connect();
-//
-//            try {
-//                PreparedStatement pstm = conn.prepareStatement("SELECT * FROM `SinglePlayerMode_Vocab`WHERE GameId ='"+gameId+"';");
-//                ResultSet rs = pstm.executeQuery();
-//                while (rs.next()) {
-//                    answer = new Answer(rs);
-//                    if (answers == null) {
-//                        answers = new ArrayList();
-//                    }
-//                    answers.add(answer);
-//                    vocabs.add(answer.getVocab());
-//                }
-//                if (vocabs.indexOf(vocab) != -1) {
-//                    repeat = false;
-//                }
-//                rs.close();
-//                pstm.close();
-//                conn.close();
-//            } catch (Exception ex) {
-//                Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Vocab.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return repeat;
-//    }
+    
     @Override
     public String toString() {
         if (status.equalsIgnoreCase("correct")) {

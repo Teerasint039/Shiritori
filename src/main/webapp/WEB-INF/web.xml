@@ -5,10 +5,6 @@
         <servlet-class>SendFirstChar</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>TestServlet</servlet-name>
-        <servlet-class>Servlet.TestServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AddAnswerServlet</servlet-name>
         <servlet-class>Servlet.AddAnswerServlet</servlet-class>
     </servlet>
@@ -43,10 +39,6 @@
     <servlet>
         <servlet-name>PracticeCheckAnswerServlet</servlet-name>
         <servlet-class>Servlet.PracticeCheckAnswerServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PracticeModeShowStatus</servlet-name>
-        <servlet-class>Servlet.PracticeModeShowStatus</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PracticeSendStatusServlet</servlet-name>
@@ -93,10 +85,6 @@
         <servlet-class>Servlet.RegisServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TestServlet</servlet-name>
-        <url-pattern>/TestServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AddAnswerServlet</servlet-name>
         <url-pattern>/AddAnswerServlet</url-pattern>
     </servlet-mapping>
@@ -131,10 +119,6 @@
     <servlet-mapping>
         <servlet-name>PracticeCheckAnswerServlet</servlet-name>
         <url-pattern>/PracticeCheckAnswerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PracticeModeShowStatus</servlet-name>
-        <url-pattern>/PracticeModeShowStatus</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PracticeSendStatusServlet</servlet-name>

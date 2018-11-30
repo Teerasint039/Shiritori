@@ -32,7 +32,6 @@ public class StartPracticeModeGameServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("StartPracticeModeGameServlet");
         
         
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
@@ -46,7 +45,6 @@ public class StartPracticeModeGameServlet extends HttpServlet {
             for (int i = 0; i < cookies.length; i++) {
                 if (cookies[i].getName().equals(cookieName)) {
                     userid = cookies[i];
-//                    break;
                 }
             }
         }

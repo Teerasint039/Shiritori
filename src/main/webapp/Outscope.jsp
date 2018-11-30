@@ -74,15 +74,6 @@
         function myFunction() {
             setTimeout(function () {
                 document.getElementById("myForm").submit();
-
-//                window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
-//                        + "&heart=" + document.getElementById("hiddenHeart").value
-//                        + "&gameId=" + document.getElementById("hiddenGameId").value
-//                        + "&level=" + document.getElementById('level').value
-//                        + "&userid=" + document.getElementById('userid').value
-//                        + "&roomcode=" + document.getElementById('roomcode').value
-//                        + "&previous=" + document.getElementById("hiddenPrevious").value
-//                        + "&score=" + document.getElementById("hiddenScore").value;
             }, 3000);
         }
         </script>

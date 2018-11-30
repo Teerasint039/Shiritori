@@ -35,13 +35,9 @@ public class LoginServlet extends HttpServlet {
         
         String username = request.getParameter("username");
         
-        int userId;
-        
-        System.out.println("username: "+username);
-        
+        int userId;      
         User user = new User();
         userId = user.login(username);
-        System.out.println("userId: "+userId);
         
         if (userId != -1) {
             request.setAttribute("username", username);

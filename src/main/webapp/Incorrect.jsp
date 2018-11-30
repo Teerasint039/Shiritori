@@ -78,25 +78,11 @@
                 if (heart <= 0) {
                     document.getElementById("myForm").action = "GameOver.jsp";
                     document.getElementById("myForm").submit();
-//                    window.location.href = "GameOver.jsp?gameId=" + document.getElementById('hiddenGameId').value
-//                            + "&userid=" + document.getElementById('userid').value
-//                            + "&username=" + document.getElementById('username').value
-//                            + "&roomcode=" + document.getElementById('roomcode').value
-//                            + "&score=" + document.getElementById("hiddenScore").value;
                 } else {
                     document.getElementById("heart").value = heart;
                     document.getElementById("myForm").action = "SinglePlay.jsp";
                     document.getElementById("myForm").submit();
                 }
-//                    window.location.href = "SinglePlay.jsp?char=" + document.getElementById('hiddenChar').value
-//                            + "&heart=" + heart
-//                            + "&gameId=" + document.getElementById('hiddenGameId').value
-//                            + "&level=" + document.getElementById('level').value
-//                            + "&userid=" + document.getElementById('userid').value
-//                            + "&username=" + document.getElementById('username').value
-//                            + "&previous=" + document.getElementById('hiddenPrevious').value
-//                            + "&roomcode=" + document.getElementById('roomcode').value
-//                            + "&score=" + document.getElementById("hiddenScore").value;
             }, 3000);
         }
         </script>

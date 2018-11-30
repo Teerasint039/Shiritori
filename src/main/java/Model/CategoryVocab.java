@@ -48,13 +48,9 @@ public class CategoryVocab {
             Connection conn = Connectionbuilder.connect();
             String query = " insert into Vocab_Admin_Category (ACId, VocabId)"
                     + " values (?, ?)";
-
-            // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, categoryId);
             preparedStmt.setInt(2, vocabId);
-
-            // execute the preparedstatement
             preparedStmt.execute();
 
             conn.close();
